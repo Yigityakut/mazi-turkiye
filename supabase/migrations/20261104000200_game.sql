@@ -1,6 +1,6 @@
 -- Mazi Türkiye · günlük oyun, ipucu, istatistik, sıralama, meydan okuma
 create schema if not exists private;
-revoke all on schema private from public, anon, authenticated;
+-- private şeması anon/authenticated rollerine açık değildir (varsayılan yetki yok)
 
 -- Sunucu içi gizli değerler (değerler migration'da değil, ayrı SQL ile yazılır)
 create table private.secrets (key text primary key, value text not null);
@@ -444,18 +444,13 @@ returns jsonb language sql stable security definer set search_path = public as $
 $$;
 
 -- ---------- Hesap ----------
-create or replace function public.delete_my_account()
-returns void language plpgsql security definer set search_path = public, auth as $$
-declare uid uuid := private.require_user();
-begin
-  delete from auth.users where id = uid;   -- profiles ve bağlı tüm satırlar cascade ile silinir
-end $$;
+-- Hesap silme: `delete-account` edge function'ı (auth.admin.deleteUser) yapar; profiles ve bağlı satırlar cascade ile silinir.
+alter table public.merge_tickets add column if not exists used_at timestamptz;
 
 create or replace function public.create_merge_ticket()
 returns uuid language plpgsql security definer set search_path = public as $$
 declare uid uuid := private.require_user(); t uuid;
 begin
-  delete from public.merge_tickets where anon_user_id = uid or created_at < now() - interval '1 hour';
   insert into public.merge_tickets(anon_user_id) values (uid) returning ticket into t;
   return t;
 end $$;
@@ -468,7 +463,8 @@ declare
   old uuid;
   moved int;
 begin
-  delete from public.merge_tickets where ticket = p_ticket and created_at > now() - interval '1 hour'
+  update public.merge_tickets set used_at = now()
+   where ticket = p_ticket and used_at is null and created_at > now() - interval '1 hour'
   returning anon_user_id into old;
   if old is null or old = uid then return jsonb_build_object('moved', 0); end if;
   if not exists (select 1 from auth.users where id = old and is_anonymous) then raise exception 'not_anonymous'; end if;
@@ -493,6 +489,6 @@ begin
       reminder_hour = coalesce(np.reminder_hour, op.reminder_hour),
       push_token = coalesce(op.push_token, np.push_token)
     from public.profiles op where np.id = uid and op.id = old;
-  delete from auth.users where id = old;
+  -- Boşalan anonim hesap, Supabase'in anonim kullanıcı temizliğine bırakılır.
   return jsonb_build_object('moved', moved);
 end $$;

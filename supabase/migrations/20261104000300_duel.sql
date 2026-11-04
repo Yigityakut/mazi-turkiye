@@ -275,7 +275,6 @@ begin
   for did in select id from public.duels where state = 'active' loop
     perform private.duel_advance(did);
   end loop;
-  delete from public.duel_queue where status <> 'waiting' and created_at < now() - interval '1 hour';
   update public.duel_queue set status = 'cancelled' where status = 'waiting' and created_at < now() - interval '10 minutes';
 end $$;
 
@@ -442,6 +441,7 @@ declare
   need_easy boolean; need_hard boolean;
   slot int;
 begin
+  if coalesce(auth.role(), '') in ('anon', 'authenticated') then raise exception 'forbidden'; end if;
   select coalesce(max(day), public.game_day() - 1) into last from public.days;
   d := greatest(last + 1, public.game_day());
   while d <= public.game_day() + p_horizon loop
