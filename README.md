@@ -77,6 +77,7 @@ Proje: `timeguessr` (ref `ybhiddgwunzyquzrbzaf`, **eu-central-1 Frankfurt**, KVK
 | Dosya | İçerik |
 | --- | --- |
 | `…0100_core.sql` | Tablolar, puanlama fonksiyonları, RLS |
+| `…0150_fix_core.sql` | `core` düzeltmesi (`photos.scheduled_date` tekillik kısıtının kaldırılması); `core` üretimde uygulandığı için ayrı dosya |
 | `…0200_game.sql` | Günlük oyun RPC'leri (`get_me`, `get_day`, `submit_guess`, `use_hint`, `leaderboard`, `create_challenge`, `update_profile`, birleştirme bileti…) |
 | `…0300_duel.sql` | 1v1 eşleşme, düello durumu, bot, admin bildirimi, `duel-tick` ve `daily-ops` cron işleri |
 | `…0400_seed_geo_storage.sql` | İl/bölge verisi, Storage bucket'ları |

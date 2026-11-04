@@ -40,6 +40,7 @@ https://developer.apple.com/programs/enroll/ — Bireysel kayıt (Apple ID + iki
 - App Store Connect → Apps → **+ New App**: Platform iOS · Ad `Mazi Türkiye: Tarih Tahmini` · Birincil dil **Türkçe** · Bundle ID `com.maziturkiye.app` · SKU `mazi-turkiye-ios`.
 - Team ID'yi `web/.well-known/apple-app-site-association` içindeki `APPLE_TEAM_ID` yerine yaz (veya ajana söyle).
 - Sign in with Apple için: Certificates, Identifiers & Profiles → Services ID + Key oluştur → Supabase Apple provider'a gir.
+- Aynı Sign in with Apple anahtarını (p8) hesap silmede Apple token iptali için Supabase Edge Functions → Secrets'a da gir: `APPLE_TEAM_ID`, `APPLE_KEY_ID`, `APPLE_PRIVATE_KEY` (p8 dosyasının içeriği), `APPLE_CLIENT_ID` = `com.maziturkiye.app`.
 
 ### 6. [ ] Expo hesabı ve EAS
 https://expo.dev → hesap (ücretsiz plan yeter). Terminalde (veya ajana erişim ver):
