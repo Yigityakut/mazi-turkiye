@@ -7,10 +7,14 @@ on:
     paths: ["pipeline/jobs/**"]
   workflow_dispatch:
     inputs:
-      job: { description: "pipeline/jobs altındaki dosya", required: true }
+      job:
+        description: "pipeline/jobs altındaki dosya"
+        required: true
 permissions:
   contents: write
-concurrency: { group: pipeline-${{ github.ref }}, cancel-in-progress: false }
+concurrency:
+  group: pipeline-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
   harvest:
     runs-on: ubuntu-latest
