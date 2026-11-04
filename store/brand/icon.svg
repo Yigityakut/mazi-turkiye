@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="35%" r="75%">
+      <stop offset="0" stop-color="#C9512F"/>
+      <stop offset="1" stop-color="#A63A24"/>
+    </radialGradient>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.06 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <rect width="1024" height="1024" filter="url(#grain)"/>
+  <!-- Pin: nerede -->
+  <path d="M512 150c-150 0-262 112-262 258 0 190 220 400 246 424a24 24 0 0 0 32 0c26-24 246-234 246-424 0-146-112-258-262-258z" fill="#F7EEDD"/>
+  <!-- Saat kadranı: ne zaman -->
+  <circle cx="512" cy="410" r="150" fill="#A63A24"/>
+  <circle cx="512" cy="410" r="128" fill="none" stroke="#F7EEDD" stroke-width="10" stroke-dasharray="4 63.0" stroke-dashoffset="2" opacity="0.9"/>
+  <line x1="512" y1="410" x2="512" y2="318" stroke="#F7EEDD" stroke-width="22" stroke-linecap="round"/>
+  <line x1="512" y1="410" x2="574" y2="452" stroke="#F7EEDD" stroke-width="22" stroke-linecap="round"/>
+  <circle cx="512" cy="410" r="20" fill="#F7EEDD"/>
+</svg>

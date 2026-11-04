@@ -1,0 +1,15 @@
+{
+  "cli": { "version": ">= 16.0.0", "appVersionSource": "remote" },
+  "build": {
+    "base": { "node": "22.16.0" },
+    "development": { "extends": "base", "developmentClient": true, "distribution": "internal", "environment": "development" },
+    "preview": { "extends": "base", "distribution": "internal", "environment": "preview", "channel": "preview" },
+    "production": { "extends": "base", "autoIncrement": true, "environment": "production", "channel": "production" }
+  },
+  "submit": {
+    "production": {
+      "ios": { "ascAppId": "SET_AFTER_APP_STORE_CONNECT_RECORD", "companyName": "Mazi Türkiye" },
+      "android": { "track": "internal", "releaseStatus": "draft" }
+    }
+  }
+}
