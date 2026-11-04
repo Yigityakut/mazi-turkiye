@@ -1,0 +1,2236 @@
+{
+ "total": 4,
+ "needGeo": 347,
+ "summary": [
+  {
+   "q": "deepcat:\"1880 in Turkey\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 9,
+   "rejected": {
+    "year_conflict": 9,
+    "no_coords": 9,
+    "small": 57,
+    "dup_key": 4
+   }
+  },
+  {
+   "q": "deepcat:\"1881 in Turkey\"",
+   "hits": 21,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 5,
+    "content": 7,
+    "dup_key": 4,
+    "year_conflict": 5
+   }
+  },
+  {
+   "q": "deepcat:\"1882 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 64,
+   "rejected": {
+    "dup_key": 5,
+    "year_conflict": 10,
+    "small": 3,
+    "no_coords": 64
+   }
+  },
+  {
+   "q": "deepcat:\"1883 in Turkey\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 2,
+    "small": 41,
+    "year_conflict": 101,
+    "content": 5,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1884 in Turkey\"",
+   "hits": 50,
+   "kept": 3,
+   "pool": 3,
+   "rejected": {
+    "no_coords": 3,
+    "year_conflict": 62,
+    "small": 13,
+    "aspect": 1,
+    "dup_key": 4,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1885 in Turkey\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "year_conflict": 82,
+    "small": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1886 in Turkey\"",
+   "hits": 50,
+   "kept": 3,
+   "pool": 3,
+   "rejected": {
+    "small": 14,
+    "year_conflict": 115,
+    "license": 5,
+    "dup_key": 3,
+    "aspect": 1,
+    "content": 8,
+    "no_coords": 2,
+    "outside_tr": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1887 in Turkey\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "small": 4,
+    "year_conflict": 131,
+    "license": 3,
+    "aspect": 8,
+    "dup_key": 1,
+    "content": 2,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1888 in Turkey\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 46,
+    "dup_key": 3,
+    "year_conflict": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1889 in Turkey\"",
+   "hits": 4,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 1,
+    "small": 1,
+    "year_conflict": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1890 in Turkey\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 2,
+   "rejected": {
+    "year_conflict": 54,
+    "dup_key": 78,
+    "small": 12,
+    "license": 1,
+    "mime": 1,
+    "content": 1,
+    "aspect": 1,
+    "no_coords": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1891 in Turkey\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "small": 10,
+    "year_conflict": 121,
+    "dup_key": 8,
+    "content": 2,
+    "aspect": 6,
+    "license": 2,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1892 in Turkey\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "dup_key": 7,
+    "small": 39,
+    "year_conflict": 67,
+    "content": 30,
+    "aspect": 4,
+    "no_coords": 1,
+    "license": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1893 in Turkey\"",
+   "hits": 50,
+   "kept": 3,
+   "pool": 15,
+   "rejected": {
+    "no_coords": 15,
+    "small": 40,
+    "year_conflict": 2,
+    "dup_key": 5
+   }
+  },
+  {
+   "q": "deepcat:\"1894 in Turkey\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 7,
+    "year_conflict": 89,
+    "dup_key": 44,
+    "content": 6,
+    "aspect": 4
+   }
+  },
+  {
+   "q": "deepcat:\"1895 in Turkey\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 35,
+   "rejected": {
+    "small": 10,
+    "no_coords": 35,
+    "aspect": 15,
+    "dup_key": 32,
+    "year_conflict": 55,
+    "content": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1896 in Turkey\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 2,
+   "rejected": {
+    "dup_key": 56,
+    "small": 45,
+    "no_coords": 2,
+    "year_conflict": 47
+   }
+  },
+  {
+   "q": "deepcat:\"1897 in Turkey\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "small": 7,
+    "year_conflict": 130,
+    "content": 6,
+    "dup_key": 6,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1898 in Turkey\"",
+   "hits": 12,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "year_conflict": 4,
+    "small": 3,
+    "dup_key": 4,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1899 in Turkey\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "dup_key": 39,
+    "small": 23,
+    "year_conflict": 72,
+    "license": 11,
+    "aspect": 4,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1900 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 27,
+   "rejected": {
+    "year_conflict": 37,
+    "small": 38,
+    "dup_key": 6,
+    "no_coords": 27,
+    "content": 26,
+    "aspect": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1901 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 21,
+   "rejected": {
+    "year_conflict": 101,
+    "no_coords": 21,
+    "dup_key": 13,
+    "small": 9,
+    "content": 4,
+    "aspect": 1,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1902 in Turkey\"",
+   "hits": 34,
+   "kept": 6,
+   "pool": 8,
+   "rejected": {
+    "small": 10,
+    "year_conflict": 11,
+    "dup_key": 5,
+    "no_coords": 8
+   }
+  },
+  {
+   "q": "deepcat:\"1903 in Turkey\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 24,
+   "rejected": {
+    "small": 10,
+    "no_coords": 24,
+    "year_conflict": 18,
+    "dup_key": 4,
+    "content": 4
+   }
+  },
+  {
+   "q": "deepcat:\"1904 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 6,
+   "rejected": {
+    "year_conflict": 81,
+    "no_coords": 6,
+    "small": 5,
+    "dup_key": 57,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1905 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 50,
+   "rejected": {
+    "small": 26,
+    "aspect": 10,
+    "year_conflict": 53,
+    "no_coords": 50,
+    "dup_key": 7,
+    "license": 3,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1906 in Turkey\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 14,
+   "rejected": {
+    "small": 10,
+    "dup_key": 10,
+    "year_conflict": 36,
+    "no_coords": 14
+   }
+  },
+  {
+   "q": "deepcat:\"1907 in Turkey\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "year_conflict": 124,
+    "small": 13,
+    "aspect": 2,
+    "dup_key": 11
+   }
+  },
+  {
+   "q": "deepcat:\"1908 in Turkey\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 4,
+   "rejected": {
+    "year_conflict": 110,
+    "small": 21,
+    "content": 6,
+    "aspect": 4,
+    "dup_key": 5,
+    "no_coords": 4
+   }
+  },
+  {
+   "q": "deepcat:\"1909 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 8,
+   "rejected": {
+    "small": 54,
+    "year_conflict": 76,
+    "content": 5,
+    "no_coords": 8,
+    "dup_key": 7
+   }
+  },
+  {
+   "q": "deepcat:\"1910 in Turkey\"",
+   "hits": 50,
+   "kept": 5,
+   "pool": 48,
+   "rejected": {
+    "small": 35,
+    "year_conflict": 19,
+    "no_coords": 48,
+    "dup_key": 6,
+    "license": 2,
+    "aspect": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1911 in Turkey\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "year_conflict": 56,
+    "dup_key": 66,
+    "small": 21,
+    "content": 6,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1912 in Turkey\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "dup_key": 45,
+    "year_conflict": 92,
+    "small": 9,
+    "aspect": 2,
+    "no_coords": 1,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1913 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 99,
+   "rejected": {
+    "dup_key": 6,
+    "no_coords": 99,
+    "small": 24,
+    "year_conflict": 7,
+    "content": 12,
+    "aspect": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1914 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 11,
+   "rejected": {
+    "dup_key": 8,
+    "year_conflict": 109,
+    "small": 10,
+    "no_coords": 11,
+    "aspect": 12
+   }
+  },
+  {
+   "q": "deepcat:\"1915 in Turkey\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 2,
+   "rejected": {
+    "content": 55,
+    "small": 40,
+    "dup_key": 6,
+    "year_conflict": 46,
+    "aspect": 1,
+    "no_coords": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1916 in Turkey\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 129,
+    "small": 8,
+    "year_conflict": 7,
+    "content": 5,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1917 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 25,
+   "rejected": {
+    "small": 20,
+    "no_coords": 25,
+    "content": 7,
+    "dup_key": 12,
+    "year_conflict": 4
+   }
+  },
+  {
+   "q": "deepcat:\"1918 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 35,
+   "rejected": {
+    "dup_key": 35,
+    "content": 17,
+    "year_conflict": 45,
+    "no_coords": 35,
+    "small": 18
+   }
+  },
+  {
+   "q": "deepcat:\"1919 in Turkey\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "small": 47,
+    "content": 20,
+    "dup_key": 29,
+    "year_conflict": 51,
+    "license": 1,
+    "no_coords": 1,
+    "mime": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1920 in Turkey\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 95,
+    "year_conflict": 24,
+    "small": 29,
+    "content": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1921 in Turkey\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "year_conflict": 26,
+    "dup_key": 108,
+    "small": 9,
+    "content": 7
+   }
+  },
+  {
+   "q": "deepcat:\"1922 in Turkey\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 2,
+   "rejected": {
+    "small": 5,
+    "year_conflict": 98,
+    "dup_key": 38,
+    "content": 3,
+    "license": 2,
+    "no_coords": 2,
+    "aspect": 1,
+    "mime": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1923 in Turkey\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 115,
+    "year_conflict": 27,
+    "small": 6,
+    "aspect": 1,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1924 in Turkey\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 2,
+   "rejected": {
+    "year_conflict": 58,
+    "dup_key": 70,
+    "small": 9,
+    "content": 6,
+    "license": 3,
+    "aspect": 2,
+    "no_coords": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1925 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 35,
+   "rejected": {
+    "mime": 1,
+    "small": 72,
+    "dup_key": 12,
+    "no_coords": 35,
+    "aspect": 1,
+    "year_conflict": 18,
+    "content": 10,
+    "outside_tr": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1926 in Turkey\"",
+   "hits": 50,
+   "kept": 5,
+   "pool": 5,
+   "rejected": {
+    "small": 59,
+    "content": 14,
+    "dup_key": 37,
+    "no_coords": 5,
+    "year_conflict": 32,
+    "license": 1,
+    "mime": 1,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1927 in Turkey\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 4,
+   "rejected": {
+    "small": 10,
+    "dup_key": 42,
+    "year_conflict": 87,
+    "content": 6,
+    "no_coords": 4,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1928 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 24,
+   "rejected": {
+    "small": 36,
+    "dup_key": 27,
+    "year_conflict": 59,
+    "no_coords": 24,
+    "aspect": 1,
+    "content": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1929 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 19,
+   "rejected": {
+    "small": 48,
+    "dup_key": 50,
+    "year_conflict": 24,
+    "license": 4,
+    "no_coords": 19,
+    "content": 2,
+    "aspect": 2,
+    "mime": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1930 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 6,
+   "rejected": {
+    "content": 2,
+    "small": 37,
+    "dup_key": 51,
+    "year_conflict": 46,
+    "aspect": 6,
+    "no_coords": 6,
+    "license": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1931 in Turkey\"",
+   "hits": 50,
+   "kept": 5,
+   "pool": 7,
+   "rejected": {
+    "small": 33,
+    "content": 1,
+    "year_conflict": 13,
+    "no_coords": 7,
+    "dup_key": 9
+   }
+  },
+  {
+   "q": "deepcat:\"1932 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 8,
+   "rejected": {
+    "small": 28,
+    "year_conflict": 80,
+    "content": 2,
+    "dup_key": 27,
+    "license": 4,
+    "no_coords": 8,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1933 in Turkey\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 9,
+   "rejected": {
+    "no_coords": 9,
+    "small": 24,
+    "year_conflict": 91,
+    "dup_key": 24,
+    "content": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1934 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 15,
+   "rejected": {
+    "small": 31,
+    "dup_key": 22,
+    "no_coords": 15,
+    "year_conflict": 66,
+    "aspect": 11,
+    "license": 4,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1935 in Turkey\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 16,
+   "rejected": {
+    "small": 8,
+    "year_conflict": 92,
+    "aspect": 3,
+    "dup_key": 18,
+    "no_coords": 16,
+    "license": 11,
+    "content": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1936 in Turkey\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "year_conflict": 100,
+    "small": 13,
+    "dup_key": 37
+   }
+  },
+  {
+   "q": "deepcat:\"1937 in Turkey\"",
+   "hits": 50,
+   "kept": 5,
+   "pool": 5,
+   "rejected": {
+    "small": 30,
+    "dup_key": 52,
+    "year_conflict": 56,
+    "content": 6,
+    "aspect": 1,
+    "no_coords": 5
+   }
+  },
+  {
+   "q": "deepcat:\"1938 in Turkey\"",
+   "hits": 50,
+   "kept": 3,
+   "pool": 3,
+   "rejected": {
+    "small": 34,
+    "dup_key": 43,
+    "content": 21,
+    "year_conflict": 42,
+    "aspect": 4,
+    "no_coords": 3,
+    "mime": 1,
+    "license": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1939 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 22,
+   "rejected": {
+    "no_coords": 22,
+    "small": 41,
+    "year_conflict": 12,
+    "aspect": 17,
+    "dup_key": 57,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1940 in Turkey\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 2,
+   "rejected": {
+    "small": 12,
+    "year_conflict": 46,
+    "aspect": 4,
+    "dup_key": 7,
+    "no_coords": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1941 in Turkey\"",
+   "hits": 44,
+   "kept": 6,
+   "pool": 8,
+   "rejected": {
+    "small": 20,
+    "no_coords": 8,
+    "dup_key": 11,
+    "content": 1,
+    "aspect": 1,
+    "license": 1,
+    "year_conflict": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1942 in Turkey\"",
+   "hits": 50,
+   "kept": 3,
+   "pool": 3,
+   "rejected": {
+    "year_conflict": 95,
+    "license": 3,
+    "small": 14,
+    "dup_key": 10,
+    "content": 24,
+    "aspect": 1,
+    "no_coords": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1943 in Turkey\"",
+   "hits": 17,
+   "kept": 3,
+   "pool": 3,
+   "rejected": {
+    "small": 6,
+    "dup_key": 7,
+    "no_coords": 3,
+    "year_conflict": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1944 in Turkey\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 25,
+    "year_conflict": 111,
+    "small": 12,
+    "content": 1,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1945 in Turkey\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 135,
+    "year_conflict": 14,
+    "small": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1946 in Turkey\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 2,
+   "rejected": {
+    "dup_key": 67,
+    "year_conflict": 53,
+    "small": 22,
+    "aspect": 3,
+    "no_coords": 2,
+    "content": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1947 in Turkey\"",
+   "hits": 50,
+   "kept": 3,
+   "pool": 3,
+   "rejected": {
+    "dup_key": 15,
+    "small": 50,
+    "year_conflict": 81,
+    "content": 1,
+    "no_coords": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1948 in Turkey\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 11,
+    "year_conflict": 117,
+    "aspect": 7,
+    "small": 10,
+    "content": 5
+   }
+  },
+  {
+   "q": "deepcat:\"1949 in Turkey\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "dup_key": 33,
+    "small": 15,
+    "year_conflict": 95,
+    "aspect": 2,
+    "content": 3,
+    "no_coords": 1,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1880 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 14,
+   "rejected": {
+    "small": 7,
+    "dup_key": 76,
+    "no_coords": 14,
+    "year_conflict": 1,
+    "aspect": 1,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1881 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 13,
+   "rejected": {
+    "year_conflict": 73,
+    "small": 7,
+    "no_coords": 13,
+    "content": 6,
+    "dup_key": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1882 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "year_conflict": 48,
+    "dup_key": 46,
+    "content": 2,
+    "small": 3,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1883 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "year_conflict": 54,
+    "small": 14,
+    "no_coords": 1,
+    "dup_key": 28,
+    "license": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1884 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 2,
+   "rejected": {
+    "small": 13,
+    "year_conflict": 56,
+    "dup_key": 28,
+    "aspect": 1,
+    "no_coords": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1885 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 2,
+   "rejected": {
+    "small": 15,
+    "year_conflict": 53,
+    "license": 3,
+    "content": 2,
+    "no_coords": 2,
+    "dup_key": 25
+   }
+  },
+  {
+   "q": "deepcat:\"1886 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 98,
+    "small": 1,
+    "year_conflict": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1887 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "license": 19,
+    "year_conflict": 68,
+    "dup_key": 10,
+    "small": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1888 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "year_conflict": 75,
+    "dup_key": 13,
+    "small": 10,
+    "license": 1,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1889 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 13,
+   "rejected": {
+    "dup_key": 7,
+    "content": 4,
+    "year_conflict": 67,
+    "small": 8,
+    "no_coords": 13,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1890 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 18,
+   "rejected": {
+    "year_conflict": 49,
+    "no_coords": 18,
+    "small": 16,
+    "dup_key": 12,
+    "content": 5
+   }
+  },
+  {
+   "q": "deepcat:\"1891 in the Ottoman Empire\"",
+   "hits": 3,
+   "warn": "{\"search\":{\"warnings\":\"Deep category search SPARQL query failed\"}}",
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "no_coords": 1,
+    "small": 1,
+    "dup_key": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1892 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "dup_key": 67,
+    "small": 4,
+    "year_conflict": 28,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1893 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 10,
+   "rejected": {
+    "year_conflict": 63,
+    "small": 5,
+    "no_coords": 10,
+    "dup_key": 9,
+    "content": 13
+   }
+  },
+  {
+   "q": "deepcat:\"1894 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 16,
+   "rejected": {
+    "dup_key": 30,
+    "year_conflict": 46,
+    "small": 7,
+    "no_coords": 16,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1895 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 11,
+   "rejected": {
+    "dup_key": 69,
+    "content": 2,
+    "small": 13,
+    "no_coords": 11,
+    "year_conflict": 3,
+    "outside_tr": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1896 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 3,
+   "pool": 3,
+   "rejected": {
+    "dup_key": 49,
+    "year_conflict": 33,
+    "small": 9,
+    "aspect": 4,
+    "no_coords": 3,
+    "content": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1897 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 2,
+   "rejected": {
+    "small": 23,
+    "year_conflict": 38,
+    "content": 14,
+    "dup_key": 20,
+    "aspect": 2,
+    "no_coords": 2,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1898 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 18,
+   "rejected": {
+    "small": 9,
+    "no_coords": 18,
+    "year_conflict": 55,
+    "dup_key": 14,
+    "license": 1,
+    "content": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1899 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 8,
+   "rejected": {
+    "dup_key": 86,
+    "no_coords": 8,
+    "small": 3,
+    "year_conflict": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1900 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 23,
+   "rejected": {
+    "year_conflict": 48,
+    "no_coords": 23,
+    "license": 4,
+    "dup_key": 22,
+    "aspect": 1,
+    "small": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1901 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 12,
+   "rejected": {
+    "dup_key": 62,
+    "no_coords": 12,
+    "small": 6,
+    "year_conflict": 19,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1902 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 2,
+   "rejected": {
+    "dup_key": 8,
+    "small": 2,
+    "license": 3,
+    "year_conflict": 84,
+    "no_coords": 2,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1903 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 6,
+   "rejected": {
+    "year_conflict": 30,
+    "small": 44,
+    "content": 3,
+    "no_coords": 6,
+    "dup_key": 16,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1904 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 5,
+   "rejected": {
+    "small": 9,
+    "year_conflict": 55,
+    "license": 2,
+    "no_coords": 5,
+    "aspect": 2,
+    "dup_key": 27
+   }
+  },
+  {
+   "q": "deepcat:\"1905 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 9,
+   "rejected": {
+    "small": 29,
+    "dup_key": 29,
+    "year_conflict": 31,
+    "no_coords": 9,
+    "content": 1,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1906 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 3,
+   "pool": 3,
+   "rejected": {
+    "dup_key": 17,
+    "small": 26,
+    "year_conflict": 43,
+    "license": 6,
+    "no_coords": 3,
+    "aspect": 3,
+    "content": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1907 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 50,
+    "year_conflict": 31,
+    "small": 16,
+    "aspect": 2,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1908 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "dup_key": 53,
+    "year_conflict": 37,
+    "no_coords": 1,
+    "small": 8,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1909 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 9,
+   "rejected": {
+    "no_coords": 9,
+    "dup_key": 26,
+    "year_conflict": 51,
+    "small": 12,
+    "content": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1910 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 13,
+   "rejected": {
+    "dup_key": 31,
+    "no_coords": 13,
+    "small": 9,
+    "year_conflict": 40,
+    "content": 2,
+    "license": 3,
+    "aspect": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1911 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 5,
+   "rejected": {
+    "dup_key": 53,
+    "small": 12,
+    "no_coords": 5,
+    "year_conflict": 24,
+    "content": 5,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1912 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 5,
+   "rejected": {
+    "small": 17,
+    "dup_key": 63,
+    "year_conflict": 12,
+    "content": 2,
+    "no_coords": 5,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1913 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 3,
+   "pool": 3,
+   "rejected": {
+    "dup_key": 62,
+    "small": 18,
+    "year_conflict": 16,
+    "no_coords": 3,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1914 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 7,
+   "rejected": {
+    "dup_key": 69,
+    "no_coords": 7,
+    "small": 11,
+    "license": 2,
+    "year_conflict": 7,
+    "content": 4
+   }
+  },
+  {
+   "q": "deepcat:\"1915 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "dup_key": 42,
+    "content": 12,
+    "year_conflict": 39,
+    "small": 5,
+    "aspect": 1,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1916 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 6,
+   "rejected": {
+    "year_conflict": 47,
+    "dup_key": 8,
+    "small": 24,
+    "aspect": 2,
+    "content": 12,
+    "no_coords": 6,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1917 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 76,
+    "content": 10,
+    "small": 11,
+    "aspect": 1,
+    "year_conflict": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1918 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 61,
+    "content": 24,
+    "year_conflict": 11,
+    "small": 4
+   }
+  },
+  {
+   "q": "deepcat:\"1919 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 95,
+    "small": 2,
+    "year_conflict": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1920 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 96,
+    "year_conflict": 2,
+    "small": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1921 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 98,
+    "content": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1922 in the Ottoman Empire\"",
+   "hits": 50,
+   "kept": 3,
+   "pool": 3,
+   "rejected": {
+    "dup_key": 68,
+    "year_conflict": 19,
+    "small": 9,
+    "no_coords": 3,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1880 in Istanbul\"",
+   "hits": 28,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 28
+   }
+  },
+  {
+   "q": "deepcat:\"1881 in Istanbul\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1882 in Istanbul\"",
+   "hits": 2,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1883 in Istanbul\"",
+   "hits": 10,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 9,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1884 in Istanbul\"",
+   "hits": 7,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 7
+   }
+  },
+  {
+   "q": "deepcat:\"1885 in Istanbul\"",
+   "hits": 1,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1886 in Istanbul\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1887 in Istanbul\"",
+   "hits": 2,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "dup_key": 1,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1888 in Istanbul\"",
+   "hits": 49,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 49
+   }
+  },
+  {
+   "q": "deepcat:\"1889 in Istanbul\"",
+   "hits": 2,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1890 in Istanbul\"",
+   "hits": 5,
+   "kept": 1,
+   "pool": 3,
+   "rejected": {
+    "small": 1,
+    "no_coords": 3,
+    "dup_key": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1891 in Istanbul\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1892 in Istanbul\"",
+   "hits": 36,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 26,
+    "small": 10
+   }
+  },
+  {
+   "q": "deepcat:\"1893 in Istanbul\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 58
+   }
+  },
+  {
+   "q": "deepcat:\"1894 in Istanbul\"",
+   "hits": 13,
+   "kept": 1,
+   "pool": 7,
+   "rejected": {
+    "dup_key": 2,
+    "no_coords": 7,
+    "small": 2,
+    "content": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1895 in Istanbul\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 14,
+   "rejected": {
+    "dup_key": 49,
+    "no_coords": 14
+   }
+  },
+  {
+   "q": "deepcat:\"1896 in Istanbul\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 52,
+    "small": 19,
+    "aspect": 1,
+    "year_conflict": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1897 in Istanbul\"",
+   "hits": 10,
+   "kept": 1,
+   "pool": 6,
+   "rejected": {
+    "no_coords": 6,
+    "small": 2,
+    "dup_key": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1898 in Istanbul\"",
+   "hits": 7,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 7
+   }
+  },
+  {
+   "q": "deepcat:\"1899 in Istanbul\"",
+   "hits": 5,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 4,
+    "small": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1900 in Istanbul\"",
+   "hits": 32,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 32
+   }
+  },
+  {
+   "q": "deepcat:\"1901 in Istanbul\"",
+   "hits": 32,
+   "kept": 1,
+   "pool": 20,
+   "rejected": {
+    "dup_key": 12,
+    "no_coords": 20
+   }
+  },
+  {
+   "q": "deepcat:\"1902 in Istanbul\"",
+   "hits": 3,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1903 in Istanbul\"",
+   "hits": 48,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 48
+   }
+  },
+  {
+   "q": "deepcat:\"1904 in Istanbul\"",
+   "hits": 24,
+   "kept": 1,
+   "pool": 13,
+   "rejected": {
+    "no_coords": 13,
+    "dup_key": 9,
+    "year_conflict": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1905 in Istanbul\"",
+   "hits": 25,
+   "kept": 1,
+   "pool": 6,
+   "rejected": {
+    "dup_key": 19,
+    "no_coords": 6
+   }
+  },
+  {
+   "q": "deepcat:\"1906 in Istanbul\"",
+   "hits": 23,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 23
+   }
+  },
+  {
+   "q": "deepcat:\"1907 in Istanbul\"",
+   "hits": 11,
+   "kept": 1,
+   "pool": 5,
+   "rejected": {
+    "no_coords": 5,
+    "small": 4,
+    "year_conflict": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1908 in Istanbul\"",
+   "hits": 29,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "small": 21,
+    "dup_key": 5,
+    "year_conflict": 2,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1909 in Istanbul\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 2,
+   "rejected": {
+    "dup_key": 45,
+    "small": 10,
+    "content": 1,
+    "no_coords": 2,
+    "year_conflict": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1910 in Istanbul\"",
+   "hits": 11,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 11
+   }
+  },
+  {
+   "q": "deepcat:\"1911 in Istanbul\"",
+   "hits": 8,
+   "kept": 1,
+   "pool": 3,
+   "rejected": {
+    "dup_key": 2,
+    "no_coords": 3,
+    "small": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1912 in Istanbul\"",
+   "hits": 32,
+   "kept": 1,
+   "pool": 11,
+   "rejected": {
+    "no_coords": 10,
+    "aspect": 4,
+    "small": 11,
+    "content": 5,
+    "dup_key": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1913 in Istanbul\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 30,
+   "rejected": {
+    "dup_key": 55,
+    "small": 12,
+    "content": 2,
+    "no_coords": 30,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1914 in Istanbul\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 15,
+   "rejected": {
+    "small": 9,
+    "content": 3,
+    "no_coords": 15,
+    "year_conflict": 21,
+    "dup_key": 6,
+    "outside_tr": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1915 in Istanbul\"",
+   "hits": 20,
+   "kept": 1,
+   "pool": 11,
+   "rejected": {
+    "no_coords": 11,
+    "small": 3,
+    "content": 6
+   }
+  },
+  {
+   "q": "deepcat:\"1916 in Istanbul\"",
+   "hits": 6,
+   "kept": 1,
+   "pool": 3,
+   "rejected": {
+    "no_coords": 3,
+    "small": 2,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1917 in Istanbul\"",
+   "hits": 26,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 26
+   }
+  },
+  {
+   "q": "deepcat:\"1918 in Istanbul\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 55,
+   "rejected": {
+    "dup_key": 40,
+    "small": 4,
+    "no_coords": 55,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1919 in Istanbul\"",
+   "hits": 44,
+   "kept": 1,
+   "pool": 14,
+   "rejected": {
+    "content": 3,
+    "small": 24,
+    "no_coords": 14,
+    "dup_key": 2,
+    "year_conflict": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1920 in Istanbul\"",
+   "hits": 31,
+   "kept": 1,
+   "pool": 25,
+   "rejected": {
+    "small": 3,
+    "no_coords": 24,
+    "content": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1921 in Istanbul\"",
+   "hits": 10,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "no_coords": 1,
+    "dup_key": 2,
+    "small": 3,
+    "content": 4
+   }
+  },
+  {
+   "q": "deepcat:\"1922 in Istanbul\"",
+   "hits": 16,
+   "kept": 1,
+   "pool": 4,
+   "rejected": {
+    "mime": 1,
+    "small": 10,
+    "no_coords": 4,
+    "year_conflict": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1923 in Istanbul\"",
+   "hits": 33,
+   "kept": 1,
+   "pool": 20,
+   "rejected": {
+    "small": 8,
+    "content": 4,
+    "no_coords": 20,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1924 in Istanbul\"",
+   "hits": 16,
+   "kept": 1,
+   "pool": 10,
+   "rejected": {
+    "small": 2,
+    "dup_key": 4,
+    "no_coords": 10
+   }
+  },
+  {
+   "q": "deepcat:\"1925 in Istanbul\"",
+   "hits": 13,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "dup_key": 12,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1926 in Istanbul\"",
+   "hits": 4,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "no_coords": 1,
+    "dup_key": 2,
+    "small": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1927 in Istanbul\"",
+   "hits": 2,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "small": 1,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1928 in Istanbul\"",
+   "hits": 1,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "year_conflict": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1929 in Istanbul\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1930 in Istanbul\"",
+   "hits": 7,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "dup_key": 4,
+    "year_conflict": 1,
+    "small": 1,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1931 in Istanbul\"",
+   "hits": 7,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 7
+   }
+  },
+  {
+   "q": "deepcat:\"1932 in Istanbul\"",
+   "hits": 13,
+   "kept": 1,
+   "pool": 5,
+   "rejected": {
+    "small": 3,
+    "dup_key": 5,
+    "no_coords": 5
+   }
+  },
+  {
+   "q": "deepcat:\"1933 in Istanbul\"",
+   "hits": 1,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1934 in Istanbul\"",
+   "hits": 14,
+   "kept": 1,
+   "pool": 6,
+   "rejected": {
+    "small": 2,
+    "dup_key": 6,
+    "no_coords": 6
+   }
+  },
+  {
+   "q": "deepcat:\"1935 in Istanbul\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 42,
+   "rejected": {
+    "dup_key": 7,
+    "small": 2,
+    "no_coords": 42
+   }
+  },
+  {
+   "q": "deepcat:\"1936 in Istanbul\"",
+   "hits": 13,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "small": 11,
+    "year_conflict": 1,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1937 in Istanbul\"",
+   "hits": 6,
+   "kept": 1,
+   "pool": 3,
+   "rejected": {
+    "small": 2,
+    "dup_key": 1,
+    "no_coords": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1938 in Istanbul\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 32,
+    "small": 12,
+    "content": 36,
+    "year_conflict": 5
+   }
+  },
+  {
+   "q": "deepcat:\"1939 in Istanbul\"",
+   "hits": 6,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "no_coords": 1,
+    "dup_key": 4,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1940 in Istanbul\"",
+   "hits": 2,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1941 in Istanbul\"",
+   "hits": 6,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 6
+   }
+  },
+  {
+   "q": "deepcat:\"1942 in Istanbul\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 9,
+    "year_conflict": 87,
+    "aspect": 1,
+    "dup_key": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1943 in Istanbul\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1944 in Istanbul\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1945 in Istanbul\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1946 in Istanbul\"",
+   "hits": 8,
+   "kept": 1,
+   "pool": 3,
+   "rejected": {
+    "no_coords": 3,
+    "dup_key": 2,
+    "small": 1,
+    "year_conflict": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1947 in Istanbul\"",
+   "hits": 3,
+   "kept": 2,
+   "pool": 2,
+   "rejected": {
+    "dup_key": 1,
+    "no_coords": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1948 in Istanbul\"",
+   "hits": 1,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1949 in Istanbul\"",
+   "hits": 1,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "aspect": 1
+   }
+  }
+ ]
+}

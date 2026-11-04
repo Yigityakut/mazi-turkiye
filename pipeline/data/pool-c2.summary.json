@@ -1,0 +1,1360 @@
+{
+ "total": 378,
+ "needGeo": 0,
+ "summary": [
+  {
+   "q": "deepcat:\"Van Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 30,
+   "rejected": {
+    "small": 19,
+    "year_range": 4,
+    "no_coords": 31,
+    "outside_tr": 8,
+    "content": 3,
+    "no_year": 4,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Erzurum Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 20,
+   "rejected": {
+    "no_coords": 34,
+    "small": 13,
+    "year_range": 3,
+    "outside_tr": 10,
+    "no_year": 5,
+    "content": 3,
+    "aspect": 2,
+    "mime": 1,
+    "dup_key": 9
+   }
+  },
+  {
+   "q": "deepcat:\"Kars Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 25,
+   "rejected": {
+    "small": 7,
+    "aspect": 1,
+    "no_coords": 41,
+    "year_range": 1,
+    "content": 2,
+    "dup_key": 20,
+    "no_year": 3
+   }
+  },
+  {
+   "q": "deepcat:\"Mardin Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 21,
+   "rejected": {
+    "year_conflict": 1,
+    "no_coords": 47,
+    "aspect": 2,
+    "no_year": 3,
+    "small": 15,
+    "content": 2,
+    "dup_key": 5,
+    "outside_tr": 2,
+    "year_range": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Şanlıurfa Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 39,
+   "rejected": {
+    "small": 7,
+    "aspect": 1,
+    "dup_key": 3,
+    "no_year": 3,
+    "content": 2,
+    "no_coords": 44,
+    "outside_tr": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Diyarbakır Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 18,
+   "rejected": {
+    "small": 7,
+    "no_coords": 51,
+    "dup_key": 8,
+    "outside_tr": 3,
+    "content": 7,
+    "no_year": 3,
+    "aspect": 3
+   }
+  },
+  {
+   "q": "deepcat:\"Gaziantep Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 23,
+   "rejected": {
+    "aspect": 2,
+    "no_coords": 55,
+    "small": 4,
+    "dup_key": 7,
+    "content": 5,
+    "outside_tr": 4
+   }
+  },
+  {
+   "q": "deepcat:\"Hatay Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 7,
+   "rejected": {
+    "small": 16,
+    "content": 6,
+    "no_coords": 32,
+    "outside_tr": 16,
+    "no_year": 13,
+    "year_range": 4,
+    "dup_key": 4,
+    "license": 1,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Trabzon Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 13,
+   "rejected": {
+    "dup_key": 6,
+    "small": 8,
+    "no_coords": 29,
+    "content": 2,
+    "no_year": 10,
+    "outside_tr": 29,
+    "year_range": 2,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Rize Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 13,
+   "rejected": {
+    "small": 15,
+    "dup_key": 36,
+    "no_coords": 22,
+    "year_range": 2,
+    "aspect": 3,
+    "content": 2,
+    "no_year": 6,
+    "outside_tr": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Artvin Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 9,
+   "rejected": {
+    "dup_key": 43,
+    "year_range": 6,
+    "content": 2,
+    "no_coords": 21,
+    "aspect": 2,
+    "small": 10,
+    "outside_tr": 4,
+    "no_year": 3
+   }
+  },
+  {
+   "q": "deepcat:\"Samsun Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 16,
+   "rejected": {
+    "dup_key": 47,
+    "outside_tr": 6,
+    "small": 10,
+    "aspect": 1,
+    "no_coords": 16,
+    "license": 1,
+    "content": 1,
+    "year_range": 1,
+    "no_year": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Sinop Province\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 63,
+    "no_coords": 13,
+    "no_year": 2,
+    "outside_tr": 10,
+    "small": 8,
+    "content": 3,
+    "mime": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Amasya Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 12,
+   "rejected": {
+    "dup_key": 60,
+    "small": 3,
+    "outside_tr": 6,
+    "no_year": 2,
+    "content": 3,
+    "no_coords": 13,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Konya Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 48,
+   "rejected": {
+    "outside_tr": 8,
+    "dup_key": 5,
+    "aspect": 4,
+    "no_coords": 24,
+    "content": 3,
+    "small": 4,
+    "no_year": 3,
+    "year_conflict": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Kayseri Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 54,
+   "rejected": {
+    "aspect": 4,
+    "dup_key": 12,
+    "no_coords": 29,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Sivas Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 21,
+   "rejected": {
+    "year_range": 1,
+    "no_coords": 38,
+    "aspect": 8,
+    "dup_key": 13,
+    "outside_tr": 5,
+    "small": 12,
+    "content": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Eskişehir Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 28,
+   "rejected": {
+    "small": 10,
+    "year_range": 4,
+    "outside_tr": 8,
+    "content": 4,
+    "dup_key": 11,
+    "no_coords": 17,
+    "license": 1,
+    "no_year": 16,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Denizli Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 25,
+   "rejected": {
+    "no_year": 3,
+    "no_coords": 29,
+    "dup_key": 30,
+    "small": 6,
+    "license": 5,
+    "year_range": 1,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Muğla Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 57,
+   "rejected": {
+    "aspect": 3,
+    "outside_tr": 9,
+    "content": 2,
+    "no_coords": 24,
+    "dup_key": 4,
+    "no_year": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Çanakkale Province\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "content": 16,
+    "no_year": 10,
+    "no_coords": 32,
+    "year_range": 5,
+    "outside_tr": 15,
+    "aspect": 2,
+    "small": 15,
+    "dup_key": 4
+   }
+  },
+  {
+   "q": "deepcat:\"Edirne Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 25,
+   "rejected": {
+    "year_range": 3,
+    "no_year": 13,
+    "aspect": 4,
+    "dup_key": 6,
+    "outside_tr": 4,
+    "small": 7,
+    "content": 4,
+    "no_coords": 34
+   }
+  },
+  {
+   "q": "deepcat:\"Malatya Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 27,
+   "rejected": {
+    "aspect": 3,
+    "small": 13,
+    "outside_tr": 7,
+    "no_coords": 29,
+    "dup_key": 19,
+    "year_range": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Bitlis Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 21,
+   "rejected": {
+    "dup_key": 25,
+    "small": 11,
+    "no_coords": 38,
+    "no_year": 2,
+    "year_range": 2,
+    "outside_tr": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Ağrı Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 10,
+   "rejected": {
+    "small": 9,
+    "no_year": 4,
+    "year_range": 3,
+    "no_coords": 37,
+    "dup_key": 16,
+    "outside_tr": 13,
+    "aspect": 3,
+    "content": 4,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Erzincan Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 9,
+   "rejected": {
+    "no_coords": 58,
+    "small": 12,
+    "outside_tr": 13,
+    "dup_key": 6,
+    "year_range": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Tokat Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 4,
+   "rejected": {
+    "dup_key": 74,
+    "content": 1,
+    "no_coords": 14,
+    "small": 6,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Kastamonu Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 10,
+   "rejected": {
+    "content": 2,
+    "no_year": 14,
+    "outside_tr": 14,
+    "dup_key": 8,
+    "small": 10,
+    "no_coords": 35,
+    "aspect": 7
+   }
+  },
+  {
+   "q": "deepcat:\"Bolu Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 10,
+   "rejected": {
+    "no_coords": 32,
+    "dup_key": 49,
+    "license": 3,
+    "small": 4,
+    "outside_tr": 1,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Isparta Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 32,
+   "rejected": {
+    "no_year": 11,
+    "no_coords": 16,
+    "outside_tr": 3,
+    "dup_key": 18,
+    "small": 9,
+    "content": 6,
+    "aspect": 3,
+    "year_range": 1,
+    "mime": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Afyonkarahisar Province\"",
+   "hits": 50,
+   "kept": 3,
+   "pool": 3,
+   "rejected": {
+    "dup_key": 63,
+    "no_year": 11,
+    "year_range": 1,
+    "no_coords": 17,
+    "small": 3,
+    "content": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Kütahya Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 12,
+   "rejected": {
+    "dup_key": 30,
+    "year_range": 7,
+    "no_coords": 34,
+    "outside_tr": 8,
+    "aspect": 1,
+    "year_conflict": 1,
+    "small": 5,
+    "no_year": 1,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Manisa Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 24,
+   "rejected": {
+    "dup_key": 16,
+    "outside_tr": 11,
+    "no_coords": 29,
+    "small": 10,
+    "aspect": 3,
+    "content": 5,
+    "year_range": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Aydın Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 27,
+   "rejected": {
+    "dup_key": 45,
+    "aspect": 2,
+    "no_year": 5,
+    "no_coords": 15,
+    "content": 2,
+    "outside_tr": 1,
+    "small": 1,
+    "year_range": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Balıkesir Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 13,
+   "rejected": {
+    "aspect": 3,
+    "no_coords": 37,
+    "small": 5,
+    "no_year": 5,
+    "dup_key": 19,
+    "content": 8,
+    "outside_tr": 9,
+    "year_range": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Adana Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 69,
+   "rejected": {
+    "dup_key": 13,
+    "outside_tr": 10,
+    "aspect": 1,
+    "no_coords": 5,
+    "content": 1,
+    "no_year": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Mersin Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 28,
+   "rejected": {
+    "dup_key": 26,
+    "no_coords": 14,
+    "outside_tr": 31,
+    "no_year": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Giresun Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 52,
+   "rejected": {
+    "dup_key": 20,
+    "outside_tr": 6,
+    "no_coords": 20,
+    "content": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Ordu Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 8,
+   "rejected": {
+    "dup_key": 63,
+    "small": 10,
+    "no_coords": 15,
+    "outside_tr": 2,
+    "no_year": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Adıyaman Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 38,
+   "rejected": {
+    "dup_key": 39,
+    "no_coords": 13,
+    "small": 6,
+    "aspect": 1,
+    "no_year": 2,
+    "outside_tr": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Siirt Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 21,
+   "rejected": {
+    "dup_key": 20,
+    "small": 13,
+    "no_coords": 36,
+    "license": 1,
+    "content": 4,
+    "year_range": 1,
+    "no_year": 4
+   }
+  },
+  {
+   "q": "deepcat:\"Hakkari Province\"",
+   "hits": 27,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "small": 4,
+    "no_coords": 22
+   }
+  },
+  {
+   "q": "deepcat:\"Muş Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 10,
+   "rejected": {
+    "dup_key": 17,
+    "no_coords": 38,
+    "small": 17,
+    "no_year": 2,
+    "year_range": 5,
+    "content": 3,
+    "outside_tr": 4,
+    "aspect": 4
+   }
+  },
+  {
+   "q": "deepcat:\"Elazığ Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 14,
+   "rejected": {
+    "dup_key": 55,
+    "small": 7,
+    "no_coords": 17,
+    "year_range": 1,
+    "mime": 1,
+    "aspect": 3,
+    "no_year": 1,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Tunceli Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 9,
+   "rejected": {
+    "dup_key": 21,
+    "no_coords": 49,
+    "small": 14,
+    "outside_tr": 3,
+    "aspect": 1,
+    "license": 1,
+    "year_range": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Bingöl Province\"",
+   "hits": 50,
+   "kept": 3,
+   "pool": 3,
+   "rejected": {
+    "no_coords": 47,
+    "dup_key": 29,
+    "small": 10,
+    "aspect": 1,
+    "outside_tr": 6,
+    "content": 2,
+    "no_year": 1,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Ardahan Province\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "content": 14,
+    "dup_key": 12,
+    "no_coords": 17,
+    "outside_tr": 15,
+    "small": 19,
+    "no_year": 20,
+    "license": 1,
+    "year_range": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Iğdır Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 9,
+   "rejected": {
+    "dup_key": 35,
+    "outside_tr": 18,
+    "no_coords": 22,
+    "aspect": 3,
+    "year_range": 1,
+    "small": 11,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Batman Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 5,
+   "rejected": {
+    "dup_key": 46,
+    "no_coords": 42,
+    "no_year": 3,
+    "small": 3,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Kahramanmaraş Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 48,
+   "rejected": {
+    "small": 9,
+    "mime": 1,
+    "no_coords": 17,
+    "dup_key": 19,
+    "content": 2,
+    "aspect": 3,
+    "outside_tr": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Kırklareli Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 33,
+   "rejected": {
+    "no_year": 1,
+    "aspect": 4,
+    "no_coords": 34,
+    "dup_key": 15,
+    "year_range": 2,
+    "small": 8,
+    "outside_tr": 3
+   }
+  },
+  {
+   "q": "deepcat:\"Tekirdağ Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 18,
+   "rejected": {
+    "no_coords": 35,
+    "year_range": 5,
+    "content": 7,
+    "small": 16,
+    "dup_key": 3,
+    "no_year": 8,
+    "outside_tr": 8
+   }
+  },
+  {
+   "q": "deepcat:\"Bartın Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 5,
+   "rejected": {
+    "no_coords": 24,
+    "dup_key": 63,
+    "small": 2,
+    "outside_tr": 1,
+    "aspect": 1,
+    "no_year": 2,
+    "content": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Zonguldak Province\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "small": 8,
+    "dup_key": 64,
+    "no_coords": 24,
+    "outside_tr": 1,
+    "content": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Karabük Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 17,
+   "rejected": {
+    "no_coords": 28,
+    "small": 13,
+    "dup_key": 35,
+    "outside_tr": 4,
+    "aspect": 3
+   }
+  },
+  {
+   "q": "deepcat:\"Çorum Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 42,
+   "rejected": {
+    "dup_key": 19,
+    "no_coords": 32,
+    "small": 5,
+    "content": 1,
+    "mime": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Yozgat Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 16,
+   "rejected": {
+    "no_year": 1,
+    "small": 28,
+    "no_coords": 34,
+    "outside_tr": 2,
+    "dup_key": 11,
+    "year_range": 2,
+    "mime": 1,
+    "content": 2,
+    "aspect": 3
+   }
+  },
+  {
+   "q": "deepcat:\"Nevşehir Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 45,
+   "rejected": {
+    "dup_key": 40,
+    "no_coords": 14,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Niğde Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 38,
+   "rejected": {
+    "dup_key": 26,
+    "no_coords": 22,
+    "small": 12,
+    "content": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Aksaray Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 7,
+   "rejected": {
+    "no_coords": 4,
+    "outside_tr": 5,
+    "no_year": 67,
+    "small": 2,
+    "dup_key": 15
+   }
+  },
+  {
+   "q": "deepcat:\"Kırşehir Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 24,
+   "rejected": {
+    "dup_key": 44,
+    "no_coords": 23,
+    "small": 7,
+    "no_year": 1,
+    "outside_tr": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Burdur Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 10,
+   "rejected": {
+    "no_coords": 13,
+    "dup_key": 66,
+    "small": 7,
+    "aspect": 1,
+    "content": 1,
+    "no_year": 1,
+    "outside_tr": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Uşak Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 25,
+   "rejected": {
+    "content": 4,
+    "dup_key": 15,
+    "small": 5,
+    "no_coords": 41,
+    "outside_tr": 2,
+    "no_year": 3,
+    "aspect": 4,
+    "year_range": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Bilecik Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 5,
+   "rejected": {
+    "dup_key": 72,
+    "small": 4,
+    "no_coords": 9,
+    "no_year": 3,
+    "outside_tr": 4,
+    "content": 2,
+    "year_range": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Sakarya Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 11,
+   "rejected": {
+    "content": 8,
+    "dup_key": 47,
+    "no_coords": 19,
+    "outside_tr": 9,
+    "small": 4,
+    "license": 1,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Düzce Province\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 7,
+   "rejected": {
+    "dup_key": 68,
+    "small": 4,
+    "no_coords": 13,
+    "content": 4,
+    "outside_tr": 1,
+    "no_year": 3
+   }
+  },
+  {
+   "q": "deepcat:\"2000 in Turkey\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 7,
+    "year_conflict": 120,
+    "small": 10,
+    "aspect": 3,
+    "content": 5,
+    "no_coords": 3,
+    "license": 2
+   }
+  },
+  {
+   "q": "deepcat:\"2001 in Turkey\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "dup_key": 40,
+    "small": 22,
+    "year_conflict": 82,
+    "content": 5
+   }
+  },
+  {
+   "q": "deepcat:\"2002 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 17,
+   "rejected": {
+    "small": 14,
+    "year_conflict": 71,
+    "dup_key": 18,
+    "no_coords": 24,
+    "content": 4,
+    "aspect": 1,
+    "outside_tr": 1
+   }
+  },
+  {
+   "q": "deepcat:\"2003 in Turkey\"",
+   "hits": 50,
+   "kept": 3,
+   "pool": 3,
+   "rejected": {
+    "dup_key": 32,
+    "small": 35,
+    "year_conflict": 64,
+    "license": 6,
+    "outside_tr": 2,
+    "no_coords": 4,
+    "content": 3,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"2004 in Turkey\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 2,
+   "rejected": {
+    "dup_key": 75,
+    "small": 13,
+    "year_conflict": 27,
+    "outside_tr": 3,
+    "no_coords": 27,
+    "aspect": 2,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"2005 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 46,
+   "rejected": {
+    "dup_key": 40,
+    "no_coords": 18,
+    "aspect": 2,
+    "year_conflict": 12,
+    "content": 11,
+    "outside_tr": 8,
+    "small": 11,
+    "license": 2
+   }
+  },
+  {
+   "q": "deepcat:\"2006 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 21,
+   "rejected": {
+    "dup_key": 33,
+    "no_coords": 31,
+    "small": 35,
+    "outside_tr": 5,
+    "aspect": 3,
+    "year_conflict": 21,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"2007 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 23,
+   "rejected": {
+    "dup_key": 46,
+    "no_coords": 26,
+    "content": 4,
+    "year_conflict": 24,
+    "small": 21,
+    "outside_tr": 5,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"2008 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 38,
+   "rejected": {
+    "small": 25,
+    "no_coords": 16,
+    "dup_key": 34,
+    "content": 5,
+    "year_conflict": 18,
+    "outside_tr": 7,
+    "aspect": 6,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"2009 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 42,
+   "rejected": {
+    "no_coords": 11,
+    "dup_key": 67,
+    "year_conflict": 9,
+    "small": 5,
+    "outside_tr": 14,
+    "aspect": 2
+   }
+  },
+  {
+   "q": "deepcat:\"2010 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 30,
+   "rejected": {
+    "dup_key": 46,
+    "outside_tr": 22,
+    "aspect": 1,
+    "no_coords": 20,
+    "content": 2,
+    "year_conflict": 25,
+    "small": 4
+   }
+  },
+  {
+   "q": "deepcat:\"2011 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 17,
+   "rejected": {
+    "year_conflict": 37,
+    "aspect": 2,
+    "dup_key": 49,
+    "outside_tr": 12,
+    "small": 11,
+    "no_coords": 16,
+    "license": 2,
+    "content": 4
+   }
+  },
+  {
+   "q": "deepcat:\"2012 in Turkey\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 10,
+   "rejected": {
+    "small": 7,
+    "dup_key": 27,
+    "no_coords": 19,
+    "outside_tr": 5,
+    "year_conflict": 81,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"2013 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 34,
+   "rejected": {
+    "outside_tr": 15,
+    "dup_key": 54,
+    "no_coords": 20,
+    "license": 1,
+    "year_conflict": 14,
+    "aspect": 3,
+    "small": 9
+   }
+  },
+  {
+   "q": "deepcat:\"2014 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 30,
+   "rejected": {
+    "dup_key": 67,
+    "no_coords": 18,
+    "outside_tr": 6,
+    "content": 3,
+    "aspect": 1,
+    "year_conflict": 23,
+    "small": 2
+   }
+  },
+  {
+   "q": "deepcat:\"2015 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 30,
+   "rejected": {
+    "dup_key": 72,
+    "no_coords": 30,
+    "outside_tr": 10,
+    "year_conflict": 1,
+    "content": 2,
+    "small": 2,
+    "aspect": 3
+   }
+  },
+  {
+   "q": "deepcat:\"2016 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 98,
+   "rejected": {
+    "dup_key": 27,
+    "outside_tr": 2,
+    "no_coords": 11,
+    "aspect": 4,
+    "year_conflict": 5,
+    "small": 3
+   }
+  },
+  {
+   "q": "deepcat:\"2017 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 50,
+   "rejected": {
+    "dup_key": 61,
+    "outside_tr": 16,
+    "no_coords": 11,
+    "year_conflict": 9,
+    "aspect": 1,
+    "small": 2
+   }
+  },
+  {
+   "q": "deepcat:\"2018 in Turkey\"",
+   "hits": 50,
+   "kept": 5,
+   "pool": 7,
+   "rejected": {
+    "year_conflict": 27,
+    "dup_key": 75,
+    "no_coords": 32,
+    "aspect": 2,
+    "outside_tr": 7
+   }
+  },
+  {
+   "q": "deepcat:\"2019 in Turkey\"",
+   "hits": 50,
+   "kept": 5,
+   "pool": 5,
+   "rejected": {
+    "year_conflict": 3,
+    "dup_key": 81,
+    "outside_tr": 40,
+    "content": 2,
+    "license": 10,
+    "no_coords": 8,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"2020 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 11,
+   "rejected": {
+    "dup_key": 110,
+    "outside_tr": 2,
+    "year_conflict": 4,
+    "no_coords": 20,
+    "small": 1,
+    "aspect": 1,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"2021 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 13,
+   "rejected": {
+    "dup_key": 52,
+    "year_conflict": 5,
+    "no_coords": 44,
+    "small": 6,
+    "content": 3,
+    "outside_tr": 16,
+    "aspect": 3,
+    "license": 8
+   }
+  },
+  {
+   "q": "deepcat:\"2022 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 36,
+   "rejected": {
+    "dup_key": 71,
+    "no_coords": 27,
+    "year_conflict": 10,
+    "small": 1,
+    "outside_tr": 3,
+    "content": 2
+   }
+  },
+  {
+   "q": "deepcat:\"2023 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 18,
+   "rejected": {
+    "dup_key": 79,
+    "year_conflict": 6,
+    "no_coords": 37,
+    "outside_tr": 5,
+    "content": 1,
+    "aspect": 2,
+    "small": 2
+   }
+  },
+  {
+   "q": "deepcat:\"2024 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 6,
+   "rejected": {
+    "dup_key": 33,
+    "no_coords": 95,
+    "outside_tr": 8,
+    "aspect": 8
+   }
+  },
+  {
+   "q": "deepcat:\"2025 in Turkey\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 38,
+   "rejected": {
+    "outside_tr": 38,
+    "dup_key": 40,
+    "no_coords": 27,
+    "year_conflict": 3,
+    "aspect": 1,
+    "content": 3
+   }
+  }
+ ]
+}
