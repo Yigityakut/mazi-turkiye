@@ -97,10 +97,17 @@ async function download(f) {
   }
 }
 
-/** Büyük asılları web derlemesi için 2000 px'e indirir (ImageMagick yoksa olduğu gibi bırakır). */
+/** Büyük asılları web derlemesi için 2000 px'e indirir (ImageMagick yoksa macOS `sips`, o da yoksa olduğu gibi bırakır). */
 function shrink(tmp, out) {
   try {
     execFileSync("convert", [`${tmp}[0]`, "-auto-orient", "-resize", "2000x2000>", "-strip", "-quality", "88", out]);
+    execFileSync("rm", ["-f", tmp]);
+    return;
+  } catch {}
+  try {
+    const dims = execFileSync("sips", ["-g", "pixelWidth", "-g", "pixelHeight", tmp], { encoding: "utf8" });
+    const big = Math.max(...[...dims.matchAll(/pixel(?:Width|Height): (\d+)/g)].map((m) => +m[1])) > 2000;
+    execFileSync("sips", ["-s", "format", "jpeg", "-s", "formatOptions", "88", ...(big ? ["-Z", "2000"] : []), tmp, "--out", out], { stdio: "ignore" });
     execFileSync("rm", ["-f", tmp]);
   } catch {
     renameSync(tmp, out);

@@ -162,16 +162,6 @@
       "lng": 32.856
     },
     {
-      "key": "6-3@pool-a3-needgeo",
-      "pool": "duel",
-      "difficulty": "orta",
-      "location_name": "Ulus, Ankara",
-      "title_tr": "Ulus'ta İş Bankası binası",
-      "story_tr": "Matson koleksiyonundaki 1935 tarihli bu fotoğraf, Ankara'da Türkiye İş Bankası'nın köşe binasını gösteriyor. Kubbeli ve kuleli bina, meydanın kenarında yükseliyor; önünde yayalar ve birkaç otomobil var.",
-      "lat": 39.9412,
-      "lng": 32.8545
-    },
-    {
       "key": "6-4@pool-a3-needgeo",
       "pool": "daily",
       "difficulty": "kolay",

@@ -32,7 +32,7 @@ Bu tablo `render.mjs` tarafından okunur: başlığı burada değiştirip `rende
 ## Yeniden üretme
 
 ```bash
-node store/screenshots/prepare.mjs            # künyeler + (yoksa) yer tutucu fotoğraflar → app/public/demo/
+node store/screenshots/prepare.mjs --download # gerçek fotoğrafları Commons'tan indirir (2000 px'e küçültür) + künyeler → app/public/demo/
 (cd app && EXPO_PUBLIC_DEMO=1 npx expo export --platform web --output-dir ../store/screenshots/.build)
 node store/screenshots/render.mjs store/screenshots/.build          # → store/screenshots/out/
 node store/screenshots/render.mjs store/screenshots/.build --dark   # isteğe bağlı karanlık set → out/*-dark/
@@ -45,5 +45,22 @@ Demo ekranlarını tarayıcıda gezmek için derlemeyi herhangi bir tek sayfa su
 Ekran adresine `demo_scroll=<metin>` eklenirse render.mjs o metni içeren kartı ekranın üstüne kaydırır.
 
 `fixtures.json`'daki fotoğrafların hepsinde `commons_url` doluysa CI (`.github/workflows/screenshots.yml`) gerçek fotoğrafları
-indirir, görselleri üretir ve `store/screenshots/out/`'u aynı dala commit'ler. Yer tutucu fotoğraflı yerel taslaklarda
-alt kenarda "TASLAK" etiketi çıkar; bunlar mağazaya yüklenmez.
+indirir, görselleri üretir ve `store/screenshots/out/`'u aynı dala commit'ler. `commons_url`'si boş bir fotoğraf varsa
+(yer tutucu) yerel çıktılarda alt kenarda "TASLAK" etiketi çıkar; bunlar mağazaya yüklenmez.
+
+## Demo fotoğrafları (fixtures.json)
+
+Altısı da oyunda canlı, incelenmiş fotoğraflar (`pipeline/selection/*.json`, günlük/düello havuzu); `pipeline_key` alanı
+kaynağı gösterir. 3. fotoğraf 01/02 ekranında ve öne çıkan görselde, 6. fotoğraf 1v1 ekranında kullanılır.
+
+| # | Yıl | Yer | Fotoğraf · lisans |
+| --- | --- | --- | --- |
+| 1 | 1893 | Kadifekale eteği, İzmir | André Salles · Kamu malı |
+| 2 | 1929 | İkinci TBMM Binası (Ulus), Ankara | Bilinmeyen fotoğrafçı · Kamu malı |
+| 3 | 1965 | Eminönü İskelesi, İstanbul | Fortepan / Krasznai Gyula · CC BY-SA 3.0 |
+| 4 | 1992 | Eski Halfeti, Şanlıurfa | Volker Höhfeld · CC BY-SA 4.0 |
+| 5 | 2018 | Safranbolu, Karabük | Ray Swi-hymn · CC BY-SA 2.0 |
+| 6 | 1976 | Ağrı Dağı, Iğdır | Gerd Eichmann · CC BY-SA 4.0 |
+
+Öne çıkan görselde (feature-graphic.png) künye alanı yok: 3. fotoğrafın künyesi Google Play açıklamasının sonundaki
+"Fotoğraf künyeleri" satırına yazılmalı (CC BY-SA 3.0 atıf ister).
