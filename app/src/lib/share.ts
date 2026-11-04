@@ -23,5 +23,6 @@ export async function shareResult(text: string) {
 export async function shareChallenge(url: string, total: number, number: number) {
   track("challenge_sent", { day: number });
   const message = `${APP_NAME} #${number}'de ${num(total)} puan yaptım. Aynı 5 fotoğrafta beni geçebilir misin? 📸🗺️\n${url}`;
-  await Share.share({ message, url });
+  // Link zaten mesajın içinde; ayrıca `url` verilince bazı hedefler metni atıyor veya linki iki kez gösteriyordu (QA D15)
+  await Share.share({ message });
 }

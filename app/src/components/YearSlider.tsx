@@ -12,6 +12,8 @@ export function YearSlider({ value, min, max, onChange, disabled }: Props) {
   const c = usePalette();
   const [w, setW] = useState(0);
   const last = useRef(value);
+  // Dışarıdan gelen değer (yeni fotoğrafta sıfırlama) ile eşitle; yoksa önceki yıla geri sürüklemek onChange tetiklemiyordu (QA D14)
+  last.current = value;
 
   const set = (x: number) => {
     if (!w) return;

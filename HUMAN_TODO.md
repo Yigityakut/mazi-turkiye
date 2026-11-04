@@ -9,10 +9,9 @@ Durum işaretleri: `[ ]` bekliyor · `[x]` tamam. Bitirdiğin maddeyi işaretley
 
 ## 🔴 Bugün (en çok gecikme yaratanlar)
 
-### 1. [ ] Supabase migration onayı
-Ajanın veritabanına fonksiyon yüklemesi Supabase'in "onay" sorusunda iki kez zaman aşımına uğradı. Ajan migration'lardan `DELETE` satırlarını çıkardı;
-bir sonraki oturumda tekrar dener. Soru gelirse **onayla**. Alternatif: Supabase Dashboard → SQL Editor'de şu dosyaları sırayla çalıştır:
-`supabase/migrations/20261104000200_game.sql`, `…0300_duel.sql`, `…0400_seed_geo_storage.sql`, `…0500_pipeline.sql`, `…0600_web.sql`, `…0700_cleanup.sql`.
+### 1. [ ] Supabase: tek bir SQL dosyasını çalıştır (1 dk)
+Migration'ların hepsi canlıda, sadece **aylık temizlik işi** kaldı (silme ifadesi içerdiği için Supabase MCP senden onay istiyor, diyalog yanıtsız kaldı).
+Dashboard → `timeguessr` → SQL Editor → `supabase/migrations/20261104000700_cleanup.sql` dosyasının içeriğini yapıştır → Run. Lansmandan önce zorunlu değil.
 
 ### 2. [ ] Supabase ayarları (5 dk)
 Dashboard → `timeguessr` projesi:
@@ -20,7 +19,7 @@ Dashboard → `timeguessr` projesi:
 - Authentication → Providers → **Apple**: Açık (Services ID ve anahtar Apple hesabı açılınca, madde 5)
 - Authentication → Providers → **Google**: Açık (Web client ID + secret, madde 7)
 - Authentication → **Manual linking**: Açık
-- Edge Functions → Secrets: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_ADMIN_CHAT_ID`, `REVENUECAT_WEBHOOK_AUTH` (rastgele uzun bir değer), `INTERNAL_SECRET` (ajan SQL'de üretir, değeri `select value from private.secrets where key='internal_secret'` ile görürsün)
+- Edge Functions → Secrets: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_ADMIN_CHAT_ID`, `REVENUECAT_WEBHOOK_AUTH` (rastgele uzun bir değer). İç çağrı anahtarı veritabanında otomatik üretildi; bir şey yapman gerekmiyor.
 
 ### 3. [ ] Google Play geliştirici hesabı (25 $, kimlik doğrulama birkaç gün sürebilir)
 https://play.google.com/console/signup — **Öneri: Bireysel hesap.** Şirket hesabı 12 testçi kuralından muaf ama D-U-N-S numarası gerektirir (2–4 hafta).
