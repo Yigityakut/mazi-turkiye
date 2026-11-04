@@ -34,6 +34,7 @@ jobs:
         run: |
           git config user.name "mazi-pipeline-bot"
           git config user.email "actions@users.noreply.github.com"
+          mkdir -p pipeline/data pipeline/review && touch pipeline/review/.keep
           git add pipeline/data pipeline/review
           git diff --cached --quiet && exit 0
           git commit -m "pipeline: aday listesi ve inceleme panoları"

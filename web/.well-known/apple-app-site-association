@@ -1,0 +1,8 @@
+{
+  "applinks": {
+    "details": [
+      { "appIDs": ["APPLE_TEAM_ID.com.maziturkiye.app"], "components": [ { "/": "/m/*" }, { "/": "/d/*" } ] }
+    ]
+  },
+  "webcredentials": { "apps": ["APPLE_TEAM_ID.com.maziturkiye.app"] }
+}

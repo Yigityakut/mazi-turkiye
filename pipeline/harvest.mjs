@@ -84,6 +84,7 @@ async function harvestQuery(q, seen, keepNoCoords) {
       prop: "imageinfo|coordinates|categories", iiprop: "url|size|extmetadata|mime", iiurlwidth: 1280,
       iiextmetadatalanguage: "en", coprimary: "all", coprop: "type", colimit: "max", clshow: "!hidden", cllimit: "max", ...cont,
     });
+    if (page === 0) console.log("  hits", data.query?.pages?.length ?? 0, data.warnings ? JSON.stringify(data.warnings).slice(0, 300) : "");
     for (const p of data.query?.pages ?? []) {
       const key = `commons:${p.title}`;
       if (seen.has(key)) { rej("dup_key"); continue; }
@@ -176,7 +177,7 @@ async function main() {
       const r = await harvestQuery(q, seen, job.keepNoCoords);
       all.push(...r.rows); needGeo.push(...r.needGeo);
       summary.push({ q: q.q, kept: r.rows.length, needGeo: r.needGeo.length, rejected: r.reasons });
-      console.log(q.q, "kept", r.rows.length);
+      console.log(q.q, "kept", r.rows.length, "needGeo", r.needGeo.length, JSON.stringify(r.reasons));
     } catch (e) {
       summary.push({ q: q.q, error: String(e) });
     }
