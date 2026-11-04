@@ -31,7 +31,7 @@ _Son güncelleme: 2026-11-04 (bulut oturumu 1 sona erdi; yerel oturum buradan de
 3. **3. tur hasat bitti, hiç incelenmedi:** `pipeline/review/pool-a3*`, `pool-b3*` (on yıl kategorileri, düzeltilmiş yıl ve il kuralları).
 4. **Uygulama QA düzeltmeleri kısmen yapıldı.** Durum işaretleri `store/qa-report.md`'de (✅ düzeltildi / 🟡 kısmen / ⏳ bekliyor). En önemli açıklar: Pro'nun sunucuyla eşitlenmesi (`sync-pro` edge function önerisi, Y1) ve 🟡/⏳ ile işaretli maddeler. Durdurulmadan önce `tsc` temizdi.
 5. **Aylık temizlik migration'ı** (`supabase/migrations/20261104000700_cleanup.sql`) canlıya uygulanmadı. Silme ifadesi içerdiği için Supabase onay istiyor. SQL Editor'de elle çalıştır.
-6. **Gerçek ekran görüntüleri:** `store/screenshots/fixtures.json`'a 6 gerçek fotoğrafın `commons_url`'ünü ve metadatasını yaz, sonra push et; CI render alıp commit'ler. Yerelde: `store/screenshots/README` ve `render.mjs` başındaki talimatlar.
+6. **Gerçek ekran görüntüleri:** `store/screenshots/fixtures.json`'a 6 gerçek fotoğrafın `commons_url`'ünü ve metadatasını yaz, sonra push et; CI render alıp commit'ler. Yerelde: `store/screenshots/render.mjs` ve `prepare.mjs` başındaki talimatlar.
 
 ## Sıradaki adımlar (öncelik sırasıyla)
 
