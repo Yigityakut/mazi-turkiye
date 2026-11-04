@@ -31,7 +31,7 @@ const hamming = (a: string, b: string) => {
 };
 
 Deno.serve(async (req) => {
-  if (!isInternal(req)) return json({ error: "forbidden" }, 403);
+  if (!(await isInternal(req))) return json({ error: "forbidden" }, 403);
   const { limit = 40 } = await req.json().catch(() => ({}));
   const sb = admin();
   const { data: cands, error } = await sb.from("photo_candidates").select("*")

@@ -2,7 +2,7 @@
 import { admin, isInternal, json, telegram } from "../_shared/util.ts";
 
 Deno.serve(async (req) => {
-  if (!isInternal(req)) return json({ error: "forbidden" }, 403);
+  if (!(await isInternal(req))) return json({ error: "forbidden" }, 403);
   const { data, error } = await admin().rpc("weekly_kpis");
   if (error) return json({ error: error.message }, 500);
   const k = data as Record<string, number>;

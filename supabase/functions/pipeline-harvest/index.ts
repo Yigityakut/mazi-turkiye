@@ -56,12 +56,11 @@ function license(meta: Record<string, { value: string }>) {
 // ---------- Tarih ----------
 function exactYear(raw: string | undefined): number | null {
   if (!raw) return null;
-  const t = strip(raw).trim().toLowerCase();
-  if (/circa|\bca\.?|\bc\.|approx|yaklaşık|\bor\b|between|before|after|\d{4}s\b|\d{4}\s*[-–]\s*\d{4}|century|yüzyıl|\?/.test(t)) return null;
-  const m = t.match(/^(?:\w+\s+)?(?:\d{1,2}[\s./-]+)?(?:\w+[\s./-]+)?(\d{4})\b/) ?? t.match(/^(\d{4})-\d{2}(-\d{2})?/);
-  if (!m) return null;
-  const y = +m[1];
-  return y >= 1850 && y <= new Date().getUTCFullYear() ? y : null;
+  const t = strip(raw).toLowerCase();
+  if (/circa|\bca\.?\s|\bc\.\s?\d|approx|yaklaşık|\bor\b|between|before|after|\d{4}s\b|\d{4}\s*[-–]\s*\d{4}|century|yüzyıl|\?|unknown|undated/.test(t)) return null;
+  const all = t.match(/\b(18[5-9]\d|19\d\d|20[0-2]\d)\b/g) ?? [];
+  if (all.length === 0 || new Set(all).size > 1) return null;
+  return +all[0];
 }
 
 function strip(html: string) {
@@ -152,13 +151,13 @@ function weeklyQueries(): Q[] {
       : r < 0.55 ? 1950 + Math.floor(Math.random() * 30) : r < 0.75 ? 1980 + Math.floor(Math.random() * 20)
       : 2000 + Math.floor(Math.random() * 25);
     const place = places[Math.floor(Math.random() * places.length)];
-    qs.push({ q: `deepcat:"${place} in ${year}"`, year });
+    qs.push({ q: place === "Turkey" ? `deepcat:"${year} in Turkey"` : `deepcat:"${year} in ${place}"`, year });
   }
   return qs;
 }
 
 Deno.serve(async (req) => {
-  if (!isInternal(req)) return json({ error: "forbidden" }, 403);
+  if (!(await isInternal(req))) return json({ error: "forbidden" }, 403);
   const body = await req.json().catch(() => ({}));
   const queries: Q[] = body.mode === "weekly" ? weeklyQueries() : body.queries ?? [];
   const pages = Math.min(body.pages ?? 2, 6);

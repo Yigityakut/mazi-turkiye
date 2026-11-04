@@ -16,7 +16,7 @@ async function sendExpo(messages: unknown[]) {
 }
 
 Deno.serve(async (req) => {
-  if (!isInternal(req)) return json({ error: "forbidden" }, 403);
+  if (!(await isInternal(req))) return json({ error: "forbidden" }, 403);
   const { kind } = await req.json();
   const sb = admin();
   if (kind === "streak_danger") {

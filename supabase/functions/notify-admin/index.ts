@@ -2,7 +2,7 @@
 import { isInternal, json, telegram } from "../_shared/util.ts";
 
 Deno.serve(async (req) => {
-  if (!isInternal(req)) return json({ error: "forbidden" }, 403);
+  if (!(await isInternal(req))) return json({ error: "forbidden" }, 403);
   const { text, link } = await req.json();
   return json(await telegram(String(text).slice(0, 3500), link));
 });

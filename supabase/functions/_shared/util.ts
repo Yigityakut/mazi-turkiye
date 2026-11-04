@@ -9,10 +9,17 @@ export function admin(): SupabaseClient {
   });
 }
 
-/** pg_cron / pg_net çağrıları için ortak gizli başlık kontrolü. */
-export function isInternal(req: Request): boolean {
-  const s = Deno.env.get("INTERNAL_SECRET");
-  return !!s && req.headers.get("x-internal-secret") === s;
+/**
+ * pg_cron / pg_net çağrıları için gizli başlık kontrolü. Değer veritabanında üretilir (private.secrets);
+ * INTERNAL_SECRET ortam değişkeni varsa önce ona bakılır, yoksa veritabanından doğrulanır.
+ */
+export async function isInternal(req: Request): Promise<boolean> {
+  const got = req.headers.get("x-internal-secret");
+  if (!got) return false;
+  const env = Deno.env.get("INTERNAL_SECRET");
+  if (env) return got === env;
+  const { data } = await admin().rpc("verify_internal_secret", { p: got });
+  return data === true;
 }
 
 export async function telegram(text: string, link?: string | null) {
