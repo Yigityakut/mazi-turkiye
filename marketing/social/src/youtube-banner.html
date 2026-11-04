@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Mazi Türkiye · YouTube kanal görseli 2560×1440</title>
+<link rel="stylesheet" href="brand.css">
+<style>
+  /* Güvenli alan (her cihazda görünen): ortada 1546×423 → x 507–2053, y 508–931. Masaüstü: tam genişlik 2560×423 bant. TV: tamamı. */
+  html, body { width: 2560px; height: 1440px; }
+  #root { position: relative; width: 2560px; height: 1440px; background: var(--paper); overflow: hidden; }
+  #bgmap { left: -60px; top: 40px; width: 2680px; height: 1360px; opacity: .55; }
+  .veil { left: 0; right: 0; top: 470px; height: 500px; background: linear-gradient(180deg, rgba(242,234,219,0) 0%, rgba(242,234,219,.92) 16%, rgba(242,234,219,.92) 84%, rgba(242,234,219,0) 100%); }
+  #ruler { left: 0; top: 862px; width: 2560px; height: 70px; }
+  .safe { left: 507px; top: 508px; width: 1546px; height: 423px; }
+  .icon { left: 40px; top: 70px; width: 196px; height: 196px; border-radius: 46px; box-shadow: 0 14px 30px -10px rgba(90,50,20,.35); }
+  .title { left: 280px; top: 62px; font: 900 132px/1 "Fraunces", serif; letter-spacing: -3.5px; white-space: nowrap; }
+  .tag { left: 286px; top: 218px; font: 600 40px/1.2 "Inter", sans-serif; color: var(--muted); white-space: nowrap; }
+  .tag em { font-style: normal; color: var(--accent); }
+  #map { left: 1080px; top: 40px; width: 460px; height: 250px; overflow: visible; }
+</style>
+</head>
+<body>
+<div id="root" class="grain">
+  <svg id="bgmap" class="abs"></svg>
+  <div class="veil abs"></div>
+  <svg id="ruler" class="abs" viewBox="0 0 2560 70"></svg>
+  <div class="safe abs">
+    <img class="icon abs" src="../../../store/brand/icon-1024.png" alt="">
+    <div class="title abs">Mazi Türkiye</div>
+    <div class="tag abs">Bu fotoğraf <em>nerede</em>, hangi <em>yıl</em>?</div>
+    <svg id="map" class="abs"></svg>
+  </div>
+</div>
+<script src="map-data.js"></script>
+<script src="map.js"></script>
+<script>
+  const W = TRMap.width, H = TRMap.height;
+  // TV görünümünü dolduran soluk harita (sadece doku)
+  const bg = document.getElementById("bgmap");
+  bg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  bg.innerHTML = TRMap.svg({ land: "#F5EEE1", stroke: "#E2D6C0", strokeWidth: .7, coast: "#D8C9AE", coastWidth: 2, water: "#F2EADB" });
+
+  // Güvenli alandaki harita: 5 nokta + marka iğnesi
+  const map = document.getElementById("map");
+  map.setAttribute("viewBox", `-10 -50 ${W + 20} ${H + 60}`);
+  const [nx, ny] = TRMap.xy(38.64, 34.83);
+  const marks = [["1", TRMap.city("Edirne")], ["2", TRMap.city("İzmir")], ["4", TRMap.city("Trabzon")], ["5", TRMap.city("Van")]];
+  map.innerHTML =
+    `<defs><filter id="sh" x="-5%" y="-5%" width="110%" height="125%"><feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#5A3C1E" flood-opacity=".16"/></filter></defs>` +
+    `<g filter="url(#sh)">${TRMap.svg({ land: "#FBF7EF", stroke: "#DCCFB8", strokeWidth: 1.6, coast: "#C9B596", coastWidth: 5, water: "#F2EADB" })}</g>` +
+    marks.map(([n, [x, y]]) => `<g transform="translate(${x} ${y})"><circle r="30" fill="#1E1913" stroke="#FBF7EF" stroke-width="5"/><text y="11" text-anchor="middle" font-family="Inter" font-weight="700" font-size="32" fill="#FBF7EF">${n}</text></g>`).join("") +
+    `<ellipse cx="${nx}" cy="${ny + 4}" rx="34" ry="10" fill="rgba(30,25,19,.18)"/>` +
+    TRMap.pin(nx, ny, 62, "#B8432A", "#FBF7EF", true);
+
+  // Tam genişlikte zaman cetveli: 1880 → 2026
+  const r = document.getElementById("ruler"), x0 = 90, x1 = 2470, y = 14;
+  const X = (yr) => x0 + (yr - 1880) / (2026 - 1880) * (x1 - x0);
+  let t = `<line x1="0" y1="${y}" x2="2560" y2="${y}" stroke="#C9B596" stroke-width="2"/>`;
+  for (let yr = 1880; yr <= 2026; yr++) {
+    const big = yr % 10 === 0, mid = yr % 5 === 0;
+    if (!mid && yr !== 2026) continue;
+    t += `<line x1="${X(yr)}" y1="${y}" x2="${X(yr)}" y2="${y + (big ? 20 : 11)}" stroke="#C9B596" stroke-width="${big ? 2.5 : 1.5}"/>`;
+    if (yr % 20 === 0 || yr === 2026) t += `<text x="${X(yr)}" y="${y + 48}" text-anchor="middle" font-family="Inter" font-weight="600" font-size="22" fill="#9C8E79" letter-spacing="1">${yr}</text>`;
+  }
+  t += `<circle cx="${X(1908)}" cy="${y}" r="11" fill="#FBF7EF" stroke="#B8432A" stroke-width="5"/>`;
+  r.innerHTML = t;
+</script>
+</body>
+</html>
