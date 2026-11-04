@@ -1,0 +1,12 @@
+{
+  "name": "mazi-store-screenshots",
+  "private": true,
+  "description": "Mağaza ekran görüntüleri: prepare.mjs (fotoğraflar) + render.mjs (Playwright). Bkz. captions.md",
+  "scripts": {
+    "prepare-photos": "node prepare.mjs",
+    "render": "node render.mjs .build"
+  },
+  "dependencies": {
+    "playwright": "1.63.0"
+  }
+}

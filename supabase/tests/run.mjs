@@ -105,7 +105,7 @@ const dayPhotos = (d) => q(`select dp.slot, p.* from public.day_photos dp join p
 
 // 45 approved daily photos spread over regions / eras / difficulties
 for (let i = 0; i < 45; i++) {
-  await mkPhoto({ region: REGIONS[i % 7], year: ERA_YEARS[i % 5] + (i % 4), difficulty: DIFFS[i % 3], k: i, yearUnc: i === 7 ? 1 : 0 });
+  await mkPhoto({ region: REGIONS[i % 7], year: ERA_YEARS[i % 5] + (i % 4), difficulty: DIFFS[i % 3], k: i });
 }
 // 10 duel-pool photos
 for (let i = 0; i < 10; i++) await mkPhoto({ region: REGIONS[(i + 3) % 7], year: 1900 + i * 11, difficulty: DIFFS[i % 3], pool: "duel", k: i + 2 });
@@ -325,6 +325,8 @@ await test("duel_cancel as anon is a no-op; verify_internal_secret is false for 
 // ---------------------------------------------------------------------------
 section("get_day / submit_guess");
 // ---------------------------------------------------------------------------
+// today's slot 3 photo is dated "±1 year" (year_uncertainty = 1)
+await q(`update public.photos set year_uncertainty = 1 where id = (select photo_id from public.day_photos where day = $1 and slot = 3)`, [TODAY]);
 const todays = await dayPhotos(TODAY);
 const SECRET_KEYS = ["lat", "lng", "year", "location_name", "answer", "story", "title", "region", "province", "difficulty", "photo_id"];
 const allKeys = (o, acc = new Set()) => {
@@ -387,7 +389,8 @@ await test("submit_guess scoring matches the formula (exact, <1 km, offsets, yea
   const p3 = todays[2];
   const r3 = await rpc(db, U.alice.who, "submit_guess", { p_day: TODAY, p_slot: 3, p_lat: p3.lat + 0.004, p_lng: p3.lng, p_year: p3.year - 2 });
   assert.equal(r3.score_location, 500, "within 1 km must be 500");
-  assert.equal(r3.score_year, p3.year_uncertainty >= 2 ? 500 : scoreYear(2));
+  assert.equal(p3.year_uncertainty, 1);
+  assert.equal(r3.score_year, scoreYear(2)); assert.equal(r3.year_diff, 2); // ±1 tolerance does not stretch to 2
   aliceScores.push(r3.score);
 
   const p4 = todays[3];
@@ -397,18 +400,11 @@ await test("submit_guess scoring matches the formula (exact, <1 km, offsets, yea
   aliceScores.push(r4.score);
 });
 
-await test("year_uncertainty = 1 gives full year score for ±1", async () => {
-  const p = await one(`select * from public.photos where year_uncertainty = 1`);
-  const slot = await val(`select slot from public.day_photos where photo_id = $1`, [p.id]);
-  const day = await val(`select day::text from public.day_photos where photo_id = $1`, [p.id]);
-  assert.ok(slot && day, "photo with year_uncertainty was not scheduled");
-  // carol is Pro -> may play any past/today day; a future day is locked, so only check scoring helper path when playable
-  if (day <= TODAY) {
-    const r = await rpc(db, U.carol.who, "submit_guess", { p_day: day, p_slot: slot, p_lat: p.lat, p_lng: p.lng, p_year: p.year + 1 });
-    assert.equal(r.score_year, 500);
-  } else {
-    assert.equal(await val(`select public.score_year(0)`), 500);
-  }
+await test("year_uncertainty = 1 gives full year score for ±1 (and normal scoring beyond)", async () => {
+  const p = todays[2];
+  assert.equal(p.year_uncertainty, 1);
+  const r = await rpc(db, U.judy.who, "submit_guess", { p_day: TODAY, p_slot: 3, p_lat: p.lat, p_lng: p.lng, p_year: p.year + 1 });
+  assert.equal(r.score_year, 500); assert.equal(r.year_diff, 0);
 });
 
 await test("submit_guess input validation", async () => {

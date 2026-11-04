@@ -4,7 +4,7 @@ document.querySelectorAll("[data-header]").forEach((el) => {
   <nav><a href="/destek/">Destek</a><a href="/kaynaklar/">Kaynaklar</a></nav></header>`;
 });
 document.querySelectorAll("[data-footer]").forEach((el) => {
-  el.outerHTML = `<footer class="site wrap"><div><a href="/gizlilik/">Gizlilik</a><a href="/kvkk/">KVKK</a><a href="/kosullar/">Kullanım koşulları</a><a href="/kaynaklar/">Kaynaklar ve lisanslar</a><a href="/hesap-silme/">Hesap silme</a><a href="/destek/">Destek</a><a href="/en/privacy/">Privacy (EN)</a></div>
+  el.outerHTML = `<footer class="site wrap"><div><a href="/gizlilik/">Gizlilik</a><a href="/kvkk/">KVKK</a><a href="/kosullar/">Kullanım koşulları</a><a href="/kaynaklar/">Kaynaklar ve lisanslar</a><a href="/hesap-silme/">Hesap silme</a><a href="/destek/">Destek</a><a href="/basin/">Basın</a><a href="/en/privacy/">Privacy (EN)</a></div>
   <p>© ${new Date().getFullYear()} Mazi Türkiye. Fotoğraflar kamu malı veya açık lisanslı arşivlerden; her fotoğrafın atfı uygulamada ve <a href="/kaynaklar/">kaynaklar</a> sayfasında.</p></footer>`;
 });
 window.MAZI = {

@@ -32,11 +32,17 @@ Bu tablo `render.mjs` tarafından okunur: başlığı burada değiştirip `rende
 ## Yeniden üretme
 
 ```bash
-node store/screenshots/prepare.mjs                       # künyeler + (yoksa) yer tutucu fotoğraflar → app/public/demo/
-cd app && EXPO_PUBLIC_DEMO=1 npx expo export --platform web --output-dir ../.screenshots-build && cd ..
-node store/screenshots/render.mjs .screenshots-build     # → store/screenshots/out/
-node store/screenshots/render.mjs .screenshots-build --dark   # isteğe bağlı karanlık set → out/*-dark/
+node store/screenshots/prepare.mjs            # künyeler + (yoksa) yer tutucu fotoğraflar → app/public/demo/
+(cd app && EXPO_PUBLIC_DEMO=1 npx expo export --platform web --output-dir ../store/screenshots/.build)
+node store/screenshots/render.mjs store/screenshots/.build          # → store/screenshots/out/
+node store/screenshots/render.mjs store/screenshots/.build --dark   # isteğe bağlı karanlık set → out/*-dark/
+# seçenekler: --only=01,03  --platforms=ios  --no-extras (IAP + öne çıkan görsel yok)  --keep-work (ara HTML/PNG'ler)
 ```
+
+Playwright yoksa: `cd store/screenshots && npm ci && npx playwright install --with-deps chromium`.
+Demo ekranlarını tarayıcıda gezmek için derlemeyi herhangi bir tek sayfa sunucusuyla açıp adres satırına
+`/play?demo_state=reveal`, `/duel/demo?phase=guessing` vb. yaz (tam liste: `app/src/lib/demo.ts` başı).
+Ekran adresine `demo_scroll=<metin>` eklenirse render.mjs o metni içeren kartı ekranın üstüne kaydırır.
 
 `fixtures.json`'daki fotoğrafların hepsinde `commons_url` doluysa CI (`.github/workflows/screenshots.yml`) gerçek fotoğrafları
 indirir, görselleri üretir ve `store/screenshots/out/`'u aynı dala commit'ler. Yer tutucu fotoğraflı yerel taslaklarda

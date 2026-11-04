@@ -1,0 +1,90 @@
+# Mağaza ekran görüntüleri. store/screenshots/fixtures.json (veya captions.md) değişince ya da elle çalıştırılınca:
+# gerçek Wikimedia fotoğrafları indirilir, uygulama demo modunda web'e derlenir, Playwright ile ekranlar yakalanır
+# ve store/screenshots/out aynı dala commit'lenir. fixtures.json'da boş commons_url varsa hiçbir şey üretilmez.
+name: store-screenshots
+on:
+  push:
+    branches: ["**"]
+    paths:
+      - "store/screenshots/fixtures.json"
+      - "store/screenshots/captions.md"
+  workflow_dispatch:
+    inputs:
+      dark:
+        description: "Karanlık mod setini de üret (out/*-dark)"
+        type: boolean
+        default: false
+permissions:
+  contents: write
+concurrency:
+  group: screenshots-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      EXPO_NO_TELEMETRY: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            app/package-lock.json
+            store/screenshots/package-lock.json
+
+      - name: Download fixture photos
+        id: prep
+        run: node store/screenshots/prepare.mjs --download
+
+      - name: Skip (placeholder fixtures)
+        if: steps.prep.outputs.ready != 'true'
+        run: echo "::notice::fixtures.json'da commons_url'si boş fotoğraf var; ekran görüntüleri üretilmedi."
+
+      - name: Install app dependencies
+        if: steps.prep.outputs.ready == 'true'
+        working-directory: app
+        run: npm ci --no-audit --no-fund
+
+      - name: Export demo web build
+        if: steps.prep.outputs.ready == 'true'
+        working-directory: app
+        env:
+          EXPO_PUBLIC_DEMO: "1"
+        run: npx expo export --platform web --output-dir ../store/screenshots/.build
+
+      - name: Install Playwright Chromium
+        if: steps.prep.outputs.ready == 'true'
+        working-directory: store/screenshots
+        run: |
+          npm ci --no-audit --no-fund
+          npx playwright install --with-deps chromium
+
+      - name: Render screenshots
+        if: steps.prep.outputs.ready == 'true'
+        run: node store/screenshots/render.mjs store/screenshots/.build
+
+      - name: Render dark set
+        if: steps.prep.outputs.ready == 'true' && inputs.dark
+        run: node store/screenshots/render.mjs store/screenshots/.build --dark --no-extras
+
+      - uses: actions/upload-artifact@v4
+        if: steps.prep.outputs.ready == 'true'
+        with:
+          name: store-screenshots
+          path: store/screenshots/out
+          retention-days: 14
+
+      - name: Commit screenshots
+        if: steps.prep.outputs.ready == 'true'
+        run: |
+          git config user.name "mazi-screenshots-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add store/screenshots/out
+          git diff --cached --quiet && exit 0
+          git commit -m "screenshots: mağaza görselleri yeniden üretildi"
+          for i in 1 2 3 4; do git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0; sleep $((i*5)); done
+          exit 1

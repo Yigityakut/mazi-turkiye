@@ -1,8 +1,8 @@
 # Sosyal medya profilleri
 
 Kullanıcı adı önceliği: `maziturkiye` → `mazi.turkiye` → `maziturkiyeapp` → `oyna.mazi`. (Müsaitlik konteynerden kontrol edilemedi; açarken sırayla dene.)
-Profil görseli: `store/brand/icon-1024.png` (Instagram/TikTok daire kırpmada iğne ortada kalır). Kapak (X/YouTube): `marketing/social/cover-1500x500.png`.
-Bağlantı: `https://maziturkiye.com/?utm_source=<kanal>&utm_medium=profile` (kanal: instagram, tiktok, x, youtube).
+Profil görseli (tüm kanallar): `marketing/social/profile-1080.png` (daire kırpmaya güvenli; uygulama ikonuyla aynı iğne). Kapak: X → `marketing/social/cover-1500x500.png` (sol alt profil fotoğrafına boş bırakıldı), YouTube → `marketing/social/youtube-banner-2560x1440.png` (yazılar 1546×423 güvenli alanda). Kaynaklar ve yeniden üretim: `marketing/social/src/` → `node marketing/social/src/render.cjs`.
+Bağlantı: `https://maziturkiye.com/?utm_source=<kanal>&utm_medium=profile&utm_campaign=<kampanya>` (kanal: instagram, tiktok, x, youtube; kampanya kuralları: `marketing/content-calendar.md` §5.1).
 
 | Kanal | Ad | Biyografi |
 | --- | --- | --- |

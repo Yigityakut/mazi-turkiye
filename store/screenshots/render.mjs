@@ -284,6 +284,7 @@ function composeHtml(platform, shot, shotSrc, draft) {
   const shadow = THEME === "dark"
     ? `0 ${40 * k}px ${80 * k}px ${-20 * k}px rgba(0,0,0,0.65), 0 ${10 * k}px ${24 * k}px ${-8 * k}px rgba(0,0,0,0.5)`
     : `0 ${46 * k}px ${90 * k}px ${-24 * k}px rgba(74,46,18,0.42), 0 ${14 * k}px ${30 * k}px ${-10 * k}px rgba(74,46,18,0.28), 0 0 0 1px rgba(74,46,18,0.08)`;
+  const rim = THEME === "dark" ? `, 0 0 0 ${1.2 * k}px rgba(241,232,216,0.16)` : "";
   return `<!doctype html><html lang="tr"><head><meta charset="utf-8"><style>${frameCss()}
     body { width: ${W}px; height: ${H}px; }
     h1 { font-size: ${h1}px; line-height: 1.02; letter-spacing: ${-0.012 * h1}px; max-width: ${ios ? 1160 : 950}px; }
@@ -296,7 +297,7 @@ function composeHtml(platform, shot, shotSrc, draft) {
       ${shot.sub ? `<div class="sub">${rich(shot.sub)}</div>` : ""}
     </div>
     ${buttons}
-    <div class="device" style="left:${devLeft}px;top:${devTop}px;width:${devW}px;height:${devH}px;border-radius:${screenR + bezel}px;box-shadow:${shadow}">
+    <div class="device" style="left:${devLeft}px;top:${devTop}px;width:${devW}px;height:${devH}px;border-radius:${screenR + bezel}px;box-shadow:${shadow}${rim}">
       <div class="screen" style="left:${bezel}px;top:${bezel}px;width:${screenW}px;height:${screenH}px;border-radius:${screenR}px">
         ${screenInner(platform, k, shotSrc)}
       </div>
@@ -368,7 +369,7 @@ function featureHtml(fixtures, draft) {
       ${pin(A[0], A[1], 74)}
     </svg>
     <div class="chip" style="left:${A[0] + 24}px;top:${A[1] - 66}px">${f.year}</div>
-    <div class="print" style="left:${mapX + 350}px;top:16px;width:194px;height:150px;transform:rotate(4deg)">
+    <div class="print" style="left:${mapX + 306}px;top:18px;width:184px;height:140px;transform:rotate(4deg)">
       <img src="/__build/demo/${f.file}">
     </div>
     <div class="brand">
