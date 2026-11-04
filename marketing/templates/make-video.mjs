@@ -25,7 +25,7 @@ const P = map.projection;
 const px = (v.lng - P.minLng) * P.k * P.scale, py = (P.maxLat - v.lat) * P.scale;
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 const provinces = map.provinces.map((p) => `<path d="${p.d}"/>`).join("");
-const W = 1080, H = 1920, D = 15;
+const W = 1080, H = 1920, D = 16, R = 11.5; // R: açılım anı
 
 const html = `<!doctype html>
 <html lang="tr">
@@ -66,27 +66,27 @@ html, body { width: ${W}px; height: ${H}px; overflow: hidden; background: var(--
 #cta { left: 54px; right: 54px; top: 1400px; padding: 40px; border-radius: 30px; background: var(--ink); color: var(--paper); }
 #cta b { display: block; font: 900 62px/1.05 "Fraunces", serif; }
 #cta span { display: block; margin-top: 14px; font: 600 36px/1.2 "Inter", sans-serif; opacity: .8; }
-#credit { left: 54px; right: 54px; bottom: 70px; font: 400 26px/1.3 "Inter", sans-serif; color: var(--muted); z-index: 6; }
+#credit { left: 54px; right: 54px; bottom: 70px; font: 400 28px/1.3 "Inter", sans-serif; color: var(--muted); z-index: 6; }
 #brand { left: 54px; top: 64px; font: 900 48px/1 "Fraunces", serif; z-index: 2; }
-#brand small { font: 600 22px/1 "Inter", sans-serif; letter-spacing: 4px; text-transform: uppercase; color: var(--muted); margin-left: 10px; }
+#brand small { font: 600 28px/1 "Inter", sans-serif; letter-spacing: 4px; text-transform: uppercase; color: var(--muted); margin-left: 10px; }
 </style>
 </head>
 <body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="${D}" data-width="${W}" data-height="${H}">
-  <div id="brand" class="abs clip" data-start="0" data-duration="${D}">Mazi<small>Türkiye</small></div>
-  <div id="photoWrap" class="abs clip" data-start="0" data-duration="${D}"><img id="photo" src="assets/photo.jpg" alt=""></div>
-  <div id="q" class="abs clip" data-start="0" data-duration="${D}">
+  <div id="brand" class="abs clip" data-start="1.4" data-duration="${R - 1.4}">Mazi<small>Türkiye</small></div>
+  <div id="photoWrap" class="abs clip" data-start="0" data-duration="${R}"><img id="photo" src="assets/photo.jpg" alt=""></div>
+  <div id="q" class="abs clip" data-start="0" data-duration="${R}">
     <h1>Bu fotoğraf <em>nerede?</em><br>Hangi <em>yıl?</em></h1>
     <p id="prompt">Tahminini yorumlara yaz 👇</p>
   </div>
-  <div id="count" class="abs clip" data-start="7" data-duration="5">
-    ${[5, 4, 3, 2, 1].map((n, i) => `<span id="c${n}" class="clip" data-start="${7 + i}" data-duration="1">${n}</span>`).join("")}
+  <div id="count" class="abs clip" data-start="${R - 5}" data-duration="5">
+    ${[5, 4, 3, 2, 1].map((n, i) => `<span id="c${n}" class="clip" data-start="${R - 5 + i}" data-duration="1">${n}</span>`).join("")}
   </div>
-  <div id="reveal" class="abs clip" data-start="12" data-duration="3">
+  <div id="reveal" class="abs clip" data-start="${R}" data-duration="${D - R}">
     <div id="mapBox" class="abs">
-      <svg viewBox="${Math.max(px - 520, 0).toFixed(0)} ${Math.max(py - 290, 0).toFixed(0)} 1040 580" preserveAspectRatio="xMidYMid slice">
+      <svg viewBox="-20 -20 ${map.width + 40} ${map.height + 40}" preserveAspectRatio="xMidYMid meet">
         <g>${provinces}</g>
-        <g id="pinG" transform="translate(${px.toFixed(1)} ${py.toFixed(1)})">
+        <g id="pinG" transform="translate(${px.toFixed(1)} ${py.toFixed(1)}) scale(1.7)">
           <g id="pin"><circle r="20" cy="-34" fill="#1E1913"/><path d="M-20 -34 L0 0 L20 -34Z" fill="#1E1913"/><circle r="8" cy="-34" fill="#FBF7EF"/></g>
         </g>
       </svg>
@@ -96,25 +96,25 @@ html, body { width: ${W}px; height: ${H}px; overflow: hidden; background: var(--
     <div id="place" class="abs">${esc(v.location)}</div>
     <div id="cta" class="abs"><b>Her gün 5 fotoğraf.</b><span>Mazi Türkiye · App Store ve Google Play</span></div>
   </div>
-  <div id="credit" class="abs clip" data-start="0" data-duration="${D}">Fotoğraf: ${esc(v.author)} · ${esc(v.source)} · ${esc(v.license)}</div>
+  <div id="credit" class="abs clip" data-start="1.4" data-duration="${D - 1.4}">Fotoğraf: ${esc(v.author)} · ${esc(v.source)} · ${esc(v.license)}</div>
   <div id="intro" class="abs clip" data-start="0" data-duration="1.4"><div class="small">Mazi Türkiye</div><div class="big">Bil bakalım</div></div>
 </div>
 <script>
 const tl = gsap.timeline({ paused: true });
 tl.fromTo("#intro .big", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0.05);
 tl.to("#intro .big", { scale: 1.06, duration: 0.8, ease: "none" }, 0.5);
-tl.fromTo("#photo", { scale: 1.0 }, { scale: 1.1, duration: 12, ease: "none" }, 0);
+tl.fromTo("#photo", { scale: 1.0 }, { scale: 1.1, duration: ${R}, ease: "none" }, 0);
 tl.fromTo("#q h1", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 1.5);
 tl.fromTo("#prompt", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 2.6);
-tl.fromTo("#count", { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2)" }, 7);
-[5, 4, 3, 2, 1].forEach((n, i) => tl.fromTo("#c" + n, { scale: 1.3 }, { scale: 1, duration: 0.3, ease: "power2.out" }, 7 + i));
-tl.fromTo("#reveal", { opacity: 0 }, { opacity: 1, duration: 0.25 }, 12);
-tl.fromTo("#pin", { y: -160, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "bounce.out" }, 12.2);
+tl.fromTo("#count", { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2)" }, ${R - 5});
+[5, 4, 3, 2, 1].forEach((n, i) => tl.fromTo("#c" + n, { scale: 1.3 }, { scale: 1, duration: 0.3, ease: "power2.out" }, ${R - 5} + i));
+tl.fromTo("#reveal", { opacity: 0 }, { opacity: 1, duration: 0.25 }, ${R});
+tl.fromTo("#pin", { y: -160, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "bounce.out" }, ${R + 0.2});
 const yr = { v: ${v.year - 30} };
 tl.to(yr, { v: ${v.year}, duration: 1.0, ease: "power3.out",
-  onUpdate: () => { document.getElementById("yearN").textContent = Math.round(yr.v); } }, 12.2);
-tl.fromTo("#place", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4 }, 12.9);
-tl.fromTo("#cta", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 13.3);
+  onUpdate: () => { document.getElementById("yearN").textContent = Math.round(yr.v); } }, ${R + 0.2});
+tl.fromTo("#place", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4 }, ${R + 0.7});
+tl.fromTo("#cta", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, ${R + 1.1});
 window.__timelines["main"] = tl;
 tl.seek(0);
 </script>
