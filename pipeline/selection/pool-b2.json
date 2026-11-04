@@ -1,0 +1,325 @@
+{
+  "set": "pool-b2",
+  "reviewed_sheets": [
+    "pool-b2/sheet-01",
+    "pool-b2-needgeo/sheet-01",
+    "pool-b2-needgeo/sheet-02",
+    "pool-b2-needgeo/sheet-03",
+    "pool-b2-needgeo/sheet-04",
+    "pool-b2-needgeo/sheet-05",
+    "pool-b2-needgeo/sheet-06",
+    "pool-b2-needgeo/sheet-07",
+    "pool-b2-needgeo/sheet-08"
+  ],
+  "items": [
+    {
+      "key": "1-1@pool-b2",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Ayasofya (İznik), Bursa",
+      "title_tr": "İznik Ayasofya'sının yıkık duvarları",
+      "story_tr": "Paolo Monti 1962'de İznik'te, antik Nikaia'da renkli bir kare çekti. Restorasyondan önceki Ayasofya'nın kemerli tuğla ve taş duvarları yarı yıkık hâlde görülüyor. Arşiv kaydı fotoğrafı kentin ünlü konsilleriyle ilişkilendiriyor."
+    },
+    {
+      "key": "1-4@pool-b2",
+      "pool": "duel",
+      "difficulty": "kolay",
+      "location_name": "Haliç ve Galata Köprüsü çevresi, İstanbul",
+      "title_tr": "1981'de tepeden İstanbul",
+      "story_tr": "Daniel Villafruela'nın 1981'de çektiği bu karede İstanbul yüksekten, Galata Köprüsü yönüne doğru görülüyor. Ufukta tarihi yarımadanın kubbe ve minareleri, aşağıda liman ve rıhtımlar seçiliyor."
+    },
+    {
+      "key": "1-14@pool-b2-needgeo",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Dolmabahçe Saat Kulesi, İstanbul",
+      "title_tr": "Dolmabahçe Saat Kulesi önünde",
+      "story_tr": "Zdravko Pečar'ın 1953'te çektiği bu karede Veda Zagorac, Dolmabahçe Saat Kulesi'nin önündeki meydanda yürüyor. Sağda sarayın yanındaki taş binanın cephesi, arkada ağaçlar arasında kulenin katları görülüyor.",
+      "lat": 41.039,
+      "lng": 29.0006
+    },
+    {
+      "key": "1-15@pool-b2-needgeo",
+      "pool": "bonus",
+      "difficulty": "orta",
+      "location_name": "Boğaz'ın güney ucu, İstanbul",
+      "title_tr": "Boğaz'da yelkenli bir kayık",
+      "story_tr": "Zdravko Pečar 1953'te İstanbul Boğazı'nda küçük, yelkenli bir kayığı fotoğrafladı. Dalgalı suyun ardında kıyıdaki yapılar ve tepedeki kubbeli bir cami seçiliyor."
+    ,
+      "lat": 41.025,
+      "lng": 28.995
+    },
+    {
+      "key": "2-14@pool-b2-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Nusretiye Camii ve Tophane, İstanbul",
+      "title_tr": "Tophane'de 1959 sonbaharı",
+      "story_tr": "Bu kare, Hollanda Ulusal Arşivi'ndeki Anefo koleksiyonundan; 29 Ekim 1959'da bir Lockheed Electra uçağının İstanbul'a yaptığı uçuş haberi için çekildi. Geniş caddede tek bir otomobil ilerliyor, solda Tophane'deki Nusretiye Camii'nin iki ince minaresi yükseliyor.",
+      "lat": 41.0269,
+      "lng": 28.9822
+    },
+    {
+      "key": "2-15@pool-b2-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Karaköy iskelesi çevresi, İstanbul",
+      "title_tr": "Limanda kalabalık",
+      "story_tr": "Anefo ajansının 29 Ekim 1959'da İstanbul'da çektiği seriden bir kare. Liman kıyısında yürüyen kalabalığın ardında gemiler, vinçler ve dumanı tüten bacalar görülüyor.",
+      "lat": 41.0215,
+      "lng": 28.976
+    },
+    {
+      "key": "3-4@pool-b2-needgeo",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Afrodisias, Aydın",
+      "title_tr": "Afrodisias'ta gölgede bir mola",
+      "story_tr": "Paolo Monti'nin 1962'de çektiği renkli diyaların şasisine 'Afrodisia' notu düşülmüş. Ahşap direkli, saçaklı bir yapının gölgesinde oturan insanlar ve taş döşeli bir avlu görülüyor."
+    ,
+      "lat": 37.7086,
+      "lng": 28.7238
+    },
+    {
+      "key": "3-5@pool-b2-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Efes Müzesi, Selçuk, İzmir",
+      "title_tr": "Artemis heykelinin önünde",
+      "story_tr": "Paolo Monti 1962'de Selçuk'ta, Efes Artemisi heykelinin önünde toplanan ziyaretçileri fotoğrafladı. Başörtülü kadınlar ve şapkalı bir adam, duvar dibindeki heykeli inceliyor; renkler eski diya filminden dolayı mora çalıyor.",
+      "lat": 37.9474,
+      "lng": 27.3684
+    },
+    {
+      "key": "3-6@pool-b2-needgeo",
+      "pool": "duel",
+      "difficulty": "kolay",
+      "location_name": "Dolmabahçe Camii, İstanbul",
+      "title_tr": "Dolmabahçe Camii önünde gezi",
+      "story_tr": "1964'te İstanbul'a gelen Amsterdam takımı DWS'nin futbolcuları şehri geziyor. Arka planda Dolmabahçe Camii'nin kubbesi ve minaresi görülüyor; fotoğraf Türk Haberler Ajansı üzerinden servis edilmiş.",
+      "lat": 41.0372,
+      "lng": 29.0
+    },
+    {
+      "key": "3-13@pool-b2-needgeo",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Edirne",
+      "title_tr": "Edirne'de yol kenarında çocuklar",
+      "story_tr": "Wilford Peloquin'in 1966'daki Türkiye gezisinden, Edirne'de çekilmiş bir kare. Duvar boyunca uzanan yolda çocuklar yürüyor, ileride bir adam ve elektrik direkleri görülüyor.",
+      "lat": 41.6771,
+      "lng": 26.5557
+    },
+    {
+      "key": "3-14@pool-b2-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Göreme, Nevşehir",
+      "title_tr": "Göreme vadileri, 1966",
+      "story_tr": "Wilford Peloquin 1966'da Türkiye yolculuğunda Göreme'den de geçti. Siyah-beyaz karede aşınmış tüf kayalıkları, içlerine oyulmuş açıklıklar ve vadiden kıvrılarak geçen bir yol görülüyor.",
+      "lat": 38.6431,
+      "lng": 34.8289
+    },
+    {
+      "key": "4-10@pool-b2-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Bergama çarşısı, İzmir",
+      "title_tr": "Bergama'nın ana caddesinde dükkânlar",
+      "story_tr": "Volker Höhfeld Mayıs 1974'te Bergama'nın ana caddesini fotoğrafladı. Açıklamaya göre sık dokulu eski şehir ile yeşil alanlı yeni merkez arasında, ana cadde boyunca zamanla uzun bir çarşı oluştu. Kiremit çatılı dükkânlar ve parke taşlı yol dikkat çekiyor.",
+      "lat": 39.1214,
+      "lng": 27.1799
+    },
+    {
+      "key": "4-15@pool-b2-needgeo",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Kadifekale'den İzmir Körfezi, İzmir",
+      "title_tr": "Kadifekale'den körfeze bakış",
+      "story_tr": "Daniel Villafruela 1981'de İzmir'i Kadifekale'den fotoğrafladı. Konak'ın sık yapılaşmış mahalleleri körfeze doğru iniyor, karşı kıyıda Karşıyaka seçiliyor.",
+      "lat": 38.4136,
+      "lng": 27.1446
+    },
+    {
+      "key": "4-16@pool-b2-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Aziz Yuhanna Bazilikası, Selçuk, İzmir",
+      "title_tr": "Aziz Yuhanna Bazilikası'nın vaftizhanesi",
+      "story_tr": "Daniel Villafruela'nın 1981'de Selçuk'ta çektiği bu karede Aziz Yuhanna Bazilikası'nın vaftizhane kısmı görülüyor. Yarım kalmış tuğla ve taş duvarların üstünde kemerler gökyüzüne açılıyor.",
+      "lat": 37.9532,
+      "lng": 27.3675
+    },
+    {
+      "key": "4-17@pool-b2-needgeo",
+      "pool": "duel",
+      "difficulty": "kolay",
+      "location_name": "Topkapı Sarayı, İstanbul",
+      "title_tr": "Topkapı Sarayı'nda bahçe ve köşk",
+      "story_tr": "Daniel Villafruela 1981'de Topkapı Sarayı'nda bir köşkü ve çevresindeki bahçeyi fotoğrafladı. Kubbeli yapı, arşiv kaydında Enderûn Kütüphanesi olarak tanımlanıyor; önünde palmiyeler ve servilerle çevrili bir yol uzanıyor.",
+      "lat": 41.0115,
+      "lng": 28.9834
+    },
+    {
+      "key": "5-4@pool-b2-needgeo",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Seleukeia Antik Kenti (Manavgat), Antalya",
+      "title_tr": "Seleukeia'nın hamam kalıntıları",
+      "story_tr": "1983'te çekilen bu karede Pamfilya'daki antik Seleukeia kentinin hamamları görülüyor. Kemerli taş duvarların önünde, zemini taşıyan küçük ayaklar sıra sıra dizilmiş.",
+      "lat": 36.8748,
+      "lng": 31.4734
+    },
+    {
+      "key": "5-8@pool-b2-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Datça Limanı, Muğla",
+      "title_tr": "Datça limanında iki eski tekne",
+      "story_tr": "Datça limanında suyun üstünde sallanan iki eski balıkçı teknesi, 1984. Arkada sırtları çalılarla kaplı tepeler ve mavi bir koy uzanıyor; teknelerden birinin direğinde Türk bayrağı dalgalanıyor.",
+      "lat": 36.727,
+      "lng": 27.687
+    },
+    {
+      "key": "5-11@pool-b2-needgeo",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Eski Manyas (Soğuksu), Balıkesir",
+      "title_tr": "Poemanenos'tan Eski Manyas'a bakış",
+      "story_tr": "Volker Höhfeld 1984'te antik Poemanenos kentinin akropolisine çıkıp aşağıdaki Eski Manyas (Soğuksu) köyünü fotoğrafladı. Kırmızı kiremitli evler yeşil tarlaların ortasına toplanmış, ufukta ova uzanıyor.",
+      "lat": 40.079,
+      "lng": 27.8923
+    },
+    {
+      "key": "5-13@pool-b2-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Ulu Cami, Adana",
+      "title_tr": "Palmiyeler arasında Adana Ulu Camii",
+      "story_tr": "Volker Höhfeld Ekim 1984'te Adana Ulu Camii'ni palmiyelerin arasından fotoğrafladı. 16. yüzyıldan kalan cami, medrese ve türbeyle birlikte bir külliyenin parçası; yapımına 1513'te Ramazanoğlu Halil Bey başladı, 1541'de oğlu Piri Mehmed Paşa tamamladı.",
+      "lat": 36.9839,
+      "lng": 35.3253
+    },
+    {
+      "key": "5-14@pool-b2-needgeo",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Kömür Çayı vadisi (Kemah), Erzincan",
+      "title_tr": "Kemah yakınında geniş bir dere yatağı",
+      "story_tr": "Volker Höhfeld'in Eylül 1984'te çektiği bu kare, Kömür Çayı'nın Kemah'ın kuzeyinde, Karasu'ya (Fırat) karışmadan önceki geniş çakıllı yatağını gösteriyor. Yatağın kenarında genç ağaçlar, arkada çıplak dağlar yükseliyor.",
+      "lat": 39.605,
+      "lng": 39.035
+    },
+    {
+      "key": "6-1@pool-b2-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Soli Pompeiopolis (Mezitli), Mersin",
+      "title_tr": "Soli Pompeiopolis'in sütunları",
+      "story_tr": "Volker Höhfeld 1987'de Mersin'in Mezitli semtindeki antik Soli-Pompeiopolis kentinin sütunlu caddesini fotoğrafladı. Korint başlıklı sütunlar otların arasından yükseliyor, arkada dağlar seçiliyor.",
+      "lat": 36.7419,
+      "lng": 34.54
+    },
+    {
+      "key": "6-7@pool-b2-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Yalınkaya köyü, Kars",
+      "title_tr": "Kars yaylasında tezek yığınları",
+      "story_tr": "Volker Höhfeld Haziran 1989'da Kars'ın Yalınkaya köyünde tezek yığınlarını fotoğrafladı. Hayvan gübresinin samanla karıştırılıp kurutulmasıyla yapılan tezek, ormanın az olduğu Kars-Ardahan yaylasının pek çok köyünde 21. yüzyıla kadar başlıca yakacak oldu.",
+      "lat": 40.6183,
+      "lng": 43.2583
+    },
+    {
+      "key": "6-8@pool-b2-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Gordion (Yassıhüyük, Polatlı), Ankara",
+      "title_tr": "Gordion kalıntıları ve tümülüs",
+      "story_tr": "Mayıs 1989'da Yassıhüyük yakınlarında, Sakarya kıyısındaki antik Gordion kentinin kalıntıları. Ön planda taş temeller, arka planda bölgenin büyük tümülüslerinden biri görülüyor.",
+      "lat": 39.6504,
+      "lng": 31.9782
+    },
+    {
+      "key": "6-12@pool-b2-needgeo",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Sultanahmet Camii, İstanbul",
+      "title_tr": "Sultanahmet Camii, 1989",
+      "story_tr": "Mayıs 1989'da çekilen bu karede Sultanahmet Camii'nin kademeli kubbeleri ve ince minareleri ağaçların ardından yükseliyor. Altı minaresiyle tanınan cami, İstanbul'un en bilinen siluetlerinden biri.",
+      "lat": 41.0054,
+      "lng": 28.9768
+    },
+    {
+      "key": "6-15@pool-b2-needgeo",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Binbirkilise (Madenşehri), Karaman",
+      "title_tr": "Binbirkilise'de taş bir kemer",
+      "story_tr": "Volker Höhfeld 1991'de Karaman'daki Binbirkilise'de, Madenşehri köyünde 7 numaralı eksedra kalıntısını fotoğrafladı. Kesme taştan büyük kemerin ardında Göztepe yükseliyor.",
+      "lat": 37.4372,
+      "lng": 33.1442
+    },
+    {
+      "key": "6-18@pool-b2-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Salda Gölü, Burdur",
+      "title_tr": "Salda Gölü'nün beyaz kıyısı",
+      "story_tr": "Eylül 1991'de Salda Gölü'nün güneybatı kıyısından Eşler Dağı'na doğru bakış. Gölün açık renkli kıyı şeridi ile arkadaki dağlar arasında mavi su uzanıyor.",
+      "lat": 37.53,
+      "lng": 29.66
+    },
+    {
+      "key": "6-20@pool-b2-needgeo",
+      "pool": "bonus",
+      "difficulty": "kolay",
+      "location_name": "Meke Gölü (Karapınar), Konya",
+      "title_tr": "Meke Gölü, 1994",
+      "story_tr": "Konya'nın Karapınar ilçesi yakınındaki Meke Gölü, bir volkan kraterinin içinde oluşmuş bir göl. 1994'te çekilen bu karede gölün mavi-yeşil suyu ve ortasındaki koyu renkli volkan konisi görülüyor.",
+      "lat": 37.6853,
+      "lng": 33.64
+    },
+    {
+      "key": "7-14@pool-b2-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Üsküdar balık pazarı, İstanbul",
+      "title_tr": "Üsküdar'da ampuller altında balık tezgâhı",
+      "story_tr": "Gerd Eichmann 1997'de Üsküdar'daki balık pazarını fotoğrafladı. Çıplak ampullerin aydınlattığı tezgâhta sepetler dolusu balık, arkada satıcılar görülüyor.",
+      "lat": 41.0256,
+      "lng": 29.0144
+    },
+    {
+      "key": "7-15@pool-b2-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Taşkent, Konya",
+      "title_tr": "Kayalık yamaçta Taşkent",
+      "story_tr": "Volker Höhfeld Mayıs 1997'de Konya'nın Taşkent ilçesinin eski şehir merkezini fotoğrafladı. Açıklamaya göre bugünkü ilçe merkezi eskiden Pirlevganda adlı bir köydü. Evler sarp bir yamaca basamak basamak tırmanıyor.",
+      "lat": 36.9244,
+      "lng": 32.4908
+    },
+    {
+      "key": "8-1@pool-b2-needgeo",
+      "pool": "duel",
+      "difficulty": "kolay",
+      "location_name": "Üç Güzeller (Ürgüp), Nevşehir",
+      "title_tr": "Şapkalı peri bacaları ve Erciyes",
+      "story_tr": "Volker Höhfeld Nisan 1999'da Ürgüp yakınındaki peri bacalarını fotoğrafladı. Tüf konilerin tepesindeki sert 'şapka' taşları, alttaki yumuşak tüfü aşınmaya karşı korur. Arka planda karlı Erciyes Dağı görülüyor.",
+      "lat": 38.6348,
+      "lng": 34.8908
+    },
+    {
+      "key": "8-4@pool-b2-needgeo",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Mamure Kalesi (Anamur), Mersin",
+      "title_tr": "Mamure Kalesi'nin içindeki cami",
+      "story_tr": "Nisan 1999'da Anamur yakınlarındaki Mamure Kalesi'nde çekilen bu kare, kalenin içindeki tarihi camiyi gösteriyor. Kubbe ve minare, mazgallı burç duvarlarının yanında yükseliyor.",
+      "lat": 36.0806,
+      "lng": 32.8963
+    }
+  ],
+  "rejected_notes": "pool-b2: 1-2 Efes develeri pool-bc'deki Monti karesine çok yakın; 1-3 İznik iç mekân soluk ve 1-1 ile aynı yer; 1-5 Üç Güzeller yılı yalnız kategoriden, aynı yerin 1999 tarihli 8-1'i seçildi; 1-6 Kapuzbaşı Panoramio yılı doğrulanamadı; 1-7 kelebek; 1-8/1-9 yıl 2000 + emlak reklamı. needgeo: Kariye mozaik/kapı yakın çekimleri (Byzantine Institute, ~25 kare) ve 5-15 Ayasofya mozaiği sanat eseri; 1-1 ABD savaş gemileri, 1-17 askeri geçit, 2-17 siyasiler, 4-12 siyasi toplantı, 5-16 üniformalı, 5-17 resmi tören, 7-3 protesto, 7-20 askeri tören, 7-1/7-4 ABD büyükelçiliği; 1-4/1-5 gazete taraması; 1-16 Migros Manavgat (kuruluş yılı 1954 etiketlenmiş, fotoğraf yeni); 1-19, 3-20, 5-10 ünlü/özel kişi portresi; 6-19 tanınabilir çocuk portresi; 2-16 (1960 yılı şüpheli dijital), 4-4/4-5/4-8 (aslında 2006), 4-7, 4-11, 5-20 (2005), 6-2 (2025), 6-17, 7-12 yıl güvenilmez; 3-1, 3-3, 3-7..3-12, 4-14, 5-19, 6-9..6-11 konum belirsiz (yalnız 'Turkey/Istanbul/Cappadocia'); 4-3 Kadiköy-Yüreğir, 4-6 Kula volkan alanı, 4-13 Akseki poljesi, 5-9 Cimil Dağı, 5-12 Sahara Yaylası (Şavşat'a ~17 km, kesin nokta yok), 6-4 Mersin gübre fabrikası, 6-5 Trysa, 6-13 Soğanlı Dağları, 6-14 hava fotoğrafı, 7-2/7-5 Akköprü, 8-2 Karadağ: 5 km hassasiyet sağlanamadı; 4-9 Yılankale, 6-3 Sorgun çardağı, 6-16 Lagina, 7-19 Uluborlu, 6-6 Göreme, 5-2/5-3/5-6/5-7 tekne: pool-bc veya bu setteki karelere yakın tekrar; 3-15..3-19, 4-1, 4-2, 4-18, 4-20, 7-6..7-11, 7-13, 7-17, 5-1, 5-5 çizim/gravür/harita/müze objesi/tabela; 5-18 Kızılay negatifi yıl ve yer belirsiz; 7-16 Medusa başı karanlık obje yakın çekimi; 7-18 içecek kutusu; 8-3, 8-5, 8-6 müze içi."
+}

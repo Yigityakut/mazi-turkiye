@@ -1,0 +1,143 @@
+{
+  "set": "pool-a2",
+  "reviewed_sheets": [
+    "pool-a2/sheet-01",
+    "pool-a2-needgeo/sheet-01",
+    "pool-a2-needgeo/sheet-02",
+    "pool-a2-needgeo/sheet-03",
+    "pool-a2-needgeo/sheet-04",
+    "pool-a2-needgeo/sheet-05",
+    "pool-a2-needgeo/sheet-06",
+    "pool-a2-needgeo/sheet-07",
+    "pool-a2-needgeo/sheet-08",
+    "pool-a2-needgeo/sheet-09",
+    "pool-a2-needgeo/sheet-10",
+    "pool-a2-needgeo/sheet-11",
+    "pool-a2-needgeo/sheet-12",
+    "pool-a2-needgeo/sheet-13",
+    "pool-a2-needgeo/sheet-14",
+    "pool-a2-needgeo/sheet-15",
+    "pool-a2-needgeo/sheet-16",
+    "pool-a2-needgeo/sheet-17",
+    "pool-a2-needgeo/sheet-18"
+  ],
+  "items": [
+    {
+      "key": "1-3@pool-a2",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "İstiklal Caddesi (Grande Rue de Péra), İstanbul",
+      "title_tr": "Grande Rue de Péra'da bir gün",
+      "story_tr": "Underwood & Underwood'un bu stereograf karesi, bugünkü İstiklal Caddesi olan Grande Rue de Péra'yı gösteriyor. Kemerli cepheler, sepet taşıyan hamallar, şapkalı yayalar ve duvarlardaki reklamlar, Pera'nın o yıllardaki kalabalık çarşı havasını yansıtıyor."
+    },
+    {
+      "key": "1-4@pool-a2",
+      "pool": "duel",
+      "difficulty": "kolay",
+      "location_name": "Galata Köprüsü, İstanbul",
+      "title_tr": "Galata Köprüsü'nde yürüyenler",
+      "story_tr": "1920 İstanbul'undan bir kare: köprünün üzerinde çarşaflı kadınlar, sırtında yük taşıyan bir hamal ve gelip geçenler. Arkada, Haliç'in öbür yakasında tarihi yarımadanın silueti seçiliyor."
+    },
+    {
+      "key": "2-1@pool-a2-needgeo",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Trabzon şehir merkezi, Trabzon",
+      "title_tr": "Trabzon'da II. Solomon'un türbesi",
+      "story_tr": "Cacouli Frères'in 1893'te çektiği bu fotoğraf, Trabzon'daki Aziz Nyssalı Gregorios Kilisesi'nin avlusunda bulunan türbeyi gösteriyor. Burada, İmereti'nin son kralı II. Solomon yatıyordu; 1815'te Trabzon'da ölen kralın naaşı 1990'da Gürcistan'daki Gelati Manastırı'na taşındı.",
+      "lat": 41.005,
+      "lng": 39.727
+    },
+    {
+      "key": "3-3@pool-a2-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Bana Katedrali (Penek, Şenkaya), Erzurum",
+      "title_tr": "Bana Katedrali'nin kalıntıları",
+      "story_tr": "Gürcü tarihçi Ekvtime Takaişvili'nin 1902'deki keşif gezisinde çekilen bu kare, Bana Katedrali'nin yıkık duvarlarını gösteriyor. Katedral, Erzurum'un Şenkaya ilçesine bağlı Penek köyünde, Penek Çayı'nın kuzey kıyısında yer alıyor.",
+      "lat": 40.6681,
+      "lng": 42.27
+    },
+    {
+      "key": "5-1@pool-a2-needgeo",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Bursa şehir merkezi, Bursa",
+      "title_tr": "Gül ve Bülbül Odası",
+      "story_tr": "Auguste Léon, Albert Kahn'ın renkli fotoğraf arşivi için 1913 baharında Bursa'daydı. Bu otokrom, Fransız konsolosu Grégoire Bay'in evindeki 'Gül ve Bülbül Odası'nı; ahşap tavanı, vitrayları, çinileri ve sedirleriyle gösteriyor.",
+      "lat": 40.188,
+      "lng": 29.061
+    },
+    {
+      "key": "5-4@pool-a2-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Çarşı semti, Bursa",
+      "title_tr": "Asma gölgesinde Bursa çarşısı",
+      "story_tr": "Auguste Léon'un 1913'te Albert Kahn arşivi için çektiği bu otokrom, Bursa çarşısının hasır ve ip işlerine ayrılmış bir sokağını gösteriyor. Özgün başlığı 'asma çardaklı bağlar ve çarşılardan biri'; dükkânların önünde çocuklar ve esnaf objektife bakıyor.",
+      "lat": 40.184,
+      "lng": 29.062
+    },
+    {
+      "key": "6-5@pool-a2-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Rize sahili, Rize",
+      "title_tr": "Denizden Rize",
+      "story_tr": "Bu görünüm, Servet-i Fünun dergisinin 7 Mart 1918 tarihli sayısında Rize'den bir manzara olarak yayımlandı. Kıyıdaki kayalıkların ardında yamaçlara yayılan evler ve arkada yükselen yeşil dağlar Doğu Karadeniz'in tanıdık manzarası.",
+      "lat": 41.025,
+      "lng": 40.52
+    },
+    {
+      "key": "6-12@pool-a2-needgeo",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Sultanahmet Meydanı (Hipodrom), İstanbul",
+      "title_tr": "Hipodrom'da yük hayvanları",
+      "story_tr": "Fransız Rol ajansının Haziran 1925'te çektiği bu basın fotoğrafı, Hipodrom'u, yani bugünkü Sultanahmet Meydanı'nı gösteriyor. Dikilitaşın önünde yük hayvanları ve taş yığınları duruyor; Bizans döneminden kalan meydan yüzyıllardır şehrin buluşma yeri.",
+      "lat": 41.0058,
+      "lng": 28.9753
+    },
+    {
+      "key": "9-5@pool-a2-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Türkiye İş Bankası binası (Ulus), Ankara",
+      "title_tr": "Ulus'ta İş Bankası binası",
+      "story_tr": "Matson Koleksiyonu'ndaki bu negatif, Ankara'da Ulus'taki Türkiye İş Bankası binasını gösteriyor. Cumhuriyet'in ilk yıllarında yeni başkentin merkezi olan Ulus'ta, geniş meydanda yayalar ve şemsiye altında görevli bir trafik memuru seçiliyor.",
+      "lat": 39.941,
+      "lng": 32.8547
+    },
+    {
+      "key": "9-8@pool-a2-needgeo",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Ayasofya ve Sultanahmet Parkı, İstanbul",
+      "title_tr": "Parktan Ayasofya",
+      "story_tr": "Macar Fortepan arşivinden bu kare, Ayasofya'yı Sultanahmet Parkı'ndan gösteriyor. Ayasofya, 1934'te müzeye dönüştürülmüş ve 1935'te ziyarete açılmıştı; önündeki parkta ağaçların arasında birkaç ziyaretçi dolaşıyor.",
+      "lat": 41.0086,
+      "lng": 28.9802
+    },
+    {
+      "key": "15-11@pool-a2-needgeo",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Muş şehir merkezi, Muş",
+      "title_tr": "Muş'ta çarşı yanında bir sokak",
+      "story_tr": "Norveçli hemşire ve misyoner Bodil Biørn'ün albümünden bu fotoğrafın altında el yazısıyla 'Muş'ta çarşı yanındaki sokak, 1912' yazıyor. Toprak damlı evler, minare ve arkadaki dağların önünde sokağı dolduran kalabalık seçiliyor.",
+      "lat": 38.746,
+      "lng": 41.506
+    },
+    {
+      "key": "17-11@pool-a2-needgeo",
+      "pool": "bonus",
+      "difficulty": "orta",
+      "location_name": "Eyüp sırtları ve Haliç, İstanbul",
+      "title_tr": "Eyüp'ten Haliç'e bakış",
+      "story_tr": "Frédéric Gadmer'in 1922–1923 kışında Albert Kahn arşivi için çektiği bu otokrom, Eyüp'ün kubbeli yapılarını ve ardında uzanan Haliç'i gösteriyor. Özgün başlıkta, uzakta Galata ve Stamboul'un göründüğü yazıyor.",
+      "lat": 41.048,
+      "lng": 28.934
+    }
+  ],
+  "rejected_notes": "Çoğu kare Türkiye dışı (Kudüs, Yafa, Mekke, Beyrut, Zahle, Hicaz), çizim/gravür/tablo, harita (Goad sigorta paftaları), pul, el yazması, gazete sayfası, futbol takımı ya da siyasi/ünlü portre (Atatürk, İnönü, Enver vb.) olduğu için elendi. Askerî/siyasi: Kum Kale top mevzii, Hürriyet Abidesi, Kaiser ziyareti, Yavuz zırhlısı, İzmir yangını 1922, kadın mitingi 1930. Yıl belirsiz: Matson/Bain/photochrom tarih aralıkları (2-10, 2-11, 4-15, 16-9, 16-11), von Hallwyl 1901 albümündeki Sebah & Joaillier/Berggren satın alma baskıları (2-16..2-20, 3-1, 16-13), kitap baskıları (3-10, 16-16, 1-20), Schwarzenbach 1946 (aslında 1930'lar), Collier's 1921, 8-5 ('1931 veya önce'). Konum belirsiz: Jilu (4-20, 'muhtemelen' Zir), 3-9 Goodyear, 9-4 Cappadocia, 10-19 Gullers, 12-9 'İzmir yakınları'. Cevabı yazan altyazı: 2-3/2-4 Polycarp ('Smyrna, 1895'), 9-7/17-20/18-1 Wehrli slaytları. Mükerrer (pool-a'da aynı 1913/1917 serisi var): 17-1 Rumeli Hisarı, 5-3 Bursa panoraması, 5-18/5-19 Truva; 6-1/6-2 Eyüp 1918 (17-11 seçildi), 5-2 (5-4 ile aynı çarşı), 3-2/3-4/3-6/3-7 (3-3 seçildi). İstanbul payı ~%40'ta tutulsun diye kabul edilebilir İstanbul yedekleri dışarıda bırakıldı: 8-18 Haliç 1934, 17-19 Üsküdar 1934, 18-2 Süleymaniye 1936, 18-3 Sultanahmet Camii içi 1937, 6-8 denizden İstanbul 1923, 6-13 Haydarpaşa 1925, 7-10 Seyr-i Sefain binası 1928 (dergi baskısı), 16-17 Ayasofya 1908, 17-2 Süleymaniye 1913, 5-5 Sultanahmet yangın yeri 1913."
+}

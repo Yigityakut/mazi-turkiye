@@ -1,0 +1,109 @@
+{
+  "set": "pool-b3",
+  "reviewed_sheets": [
+    "pool-b3/sheet-01",
+    "pool-b3-needgeo/sheet-01",
+    "pool-b3-needgeo/sheet-02"
+  ],
+  "items": [
+    {
+      "key": "1-2@pool-b3",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Alemdar Caddesi (Gülhane), İstanbul",
+      "title_tr": "Alemdar Caddesi'nde kırmızı troleybüs",
+      "story_tr": "Ekim 1981'de Alemdar Caddesi'nden Hüdavendigar Caddesi'ne dönen 18 numaralı İstanbul troleybüsü. Araç, 1962'de İtalya'dan alınan Alfa Romeo troleybüslerden biriydi; İstanbul'daki sistem 1984'te kapanınca İzmir'e gönderildi."
+    },
+    {
+      "key": "1-3@pool-b3-needgeo",
+      "pool": "duel",
+      "difficulty": "kolay",
+      "location_name": "Dolmabahçe Camii önü, İstanbul",
+      "title_tr": "Dolmabahçe Camii önünde otomobiller",
+      "story_tr": "Hollandalı fotoğrafçı Harry Pot, 29 Ekim 1959'da İstanbul'a düzenlenen bir Lockheed Electra uçuşu sırasında Dolmabahçe Camii önündeki sahil yolunu görüntüledi. Geniş yolda dönemin iri gövdeli otomobilleri ilerliyor.",
+      "lat": 41.0379,
+      "lng": 28.999
+    },
+    {
+      "key": "1-6@pool-b3-needgeo",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Nusretiye Camii (Tophane), İstanbul",
+      "title_tr": "Tophane'den Galata Kulesi'ne",
+      "story_tr": "Fortepan arşivindeki 1965 tarihli bu fotoğraf Tophane'deki Nusretiye Camii'ni gösteriyor; arka planda Galata Kulesi seçiliyor. Ön planda park etmiş yuvarlak hatlı otomobiller, altmışların İstanbul trafiğinden bir iz.",
+      "lat": 41.027,
+      "lng": 28.9818
+    },
+    {
+      "key": "1-12@pool-b3-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Üç Şerefeli Camii, Edirne",
+      "title_tr": "Üç Şerefeli Camii'nin minareleri",
+      "story_tr": "Wilford Peloquin'in 1966'daki Edirne gezisinden bir kare. Fotoğrafçının notuna göre sağda Üç Şerefeli Camii'nin üç şerefeli minaresi, solda ise burmalı minare görülüyor.",
+      "lat": 41.6777,
+      "lng": 26.5553
+    },
+    {
+      "key": "1-17@pool-b3-needgeo",
+      "pool": "bonus",
+      "difficulty": "orta",
+      "location_name": "Eminönü rıhtımı, İstanbul",
+      "title_tr": "Eminönü'nde balık ekmek kayıkları",
+      "story_tr": "Ağustos 1976'da Eminönü rıhtımında, kayıkta balık kızartıp ekmek arasında satan balıkçılar. Fotoğrafçının notuna göre Haliç'in ağzındaki bu teknelere 'balık ekmek kayıkları' deniyordu; rıhtımda sıraya girmiş müşteriler görülüyor.",
+      "lat": 41.0175,
+      "lng": 28.9725
+    },
+    {
+      "key": "1-18@pool-b3-needgeo",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Galata Kulesi'nden Haliç, İstanbul",
+      "title_tr": "Galata Kulesi'nden Haliç, 1976",
+      "story_tr": "1976'da Galata Kulesi'nden Haliç'e doğru bakış. Fotoğrafçının notuna göre uzakta beyaz yolcu gemisi 'Kadeş' ve tersaneler, onların ötesinde de Fatih ve Eyüp semtleri uzanıyor.",
+      "lat": 41.03,
+      "lng": 28.965
+    },
+    {
+      "key": "1-20@pool-b3-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Etnografya Müzesi, Ankara",
+      "title_tr": "Ankara Etnografya Müzesi önünde",
+      "story_tr": "Marek Gawęcki'nin 1976 tarihli bu karesi Ankara Etnografya Müzesi'ni gösteriyor. Kubbeli, beyaz cepheli bina Namazgâh Tepesi'nde yer alıyor; önündeki geniş meydanda tek başına bir adam duruyor.",
+      "lat": 39.9365,
+      "lng": 32.853
+    },
+    {
+      "key": "2-5@pool-b3-needgeo",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Çukur Han, Bergama, İzmir",
+      "title_tr": "Bergama'da Çukur Han",
+      "story_tr": "Bergama'daki Çukur Han'ın kuzey kanadı, 28 Eylül 1983. Fotoğrafçı Volker Höhfeld'in notuna göre han, 1980'lerde üst katında hâlâ kısmen otel olarak kullanılıyordu.",
+      "lat": 39.1213,
+      "lng": 27.1806
+    },
+    {
+      "key": "2-18@pool-b3-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Ankara Kalesi, Ankara",
+      "title_tr": "Ankara Kalesi surları",
+      "story_tr": "1993'te Ankara Kalesi'nin surları ve hemen üzerlerine kurulmuş evler. Fotoğrafçı Mark Landon'ın kaydına göre bunlar akropolisteki Orta Çağ kalesinin çevre duvarları.",
+      "lat": 39.9405,
+      "lng": 32.864
+    },
+    {
+      "key": "2-19@pool-b3-needgeo",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Şehir merkezi, Diyarbakır",
+      "title_tr": "Diyarbakır'da bir yoğurt dükkânı",
+      "story_tr": "1990'da Diyarbakır'da bir yoğurt dükkânı. Büyük metal kaplarda satışa hazır bekleyen yoğurt, şehrin gündelik mutfak hayatından bir kare.",
+      "lat": 37.9144,
+      "lng": 40.2306
+    }
+  ],
+  "rejected_notes": "pool-b3 (koordinatlı): 1-1 Anadoluhisarı yalısı ve 1-3 Anadolu Hisarı (1981) iyi kareler ama aynı nokta ve İstanbul payı yüksek → yedekte (gerekirse 1-1 alınabilir); 1-4 1990 Boğaz köprüsünden puslu, düşük kalite. pool-b3-needgeo: 1-1 Nusretiye 1959 (1-3 ve 1-6 ile benzer kompozisyon), 1-2 iskelede tanınabilir yüzlü kalabalık, 1-4 Rasattepe 1952 (yıl dergi taramasının EXIF'i, kalite düşük), 1-5 Bergama 1962 karanlık/mor, 1-7 Bulgar deniz harp okulu gemisi (askerî), 1-8 gemi direkleri kadrajı kaplıyor, 1-9/1-19/2-9/2-10 ABD elçiliği binaları ve iç mekânları (sıkıcı/güvenlik), 1-10/1-13 Edirne karpuz yiyen tanınabilir çocuklar, 1-11 Edirne yolu (konum belirsiz), 1-14 Truva sütun parçaları (soluk, ipucusuz), 1-15/2-15 siyasi/askerî tören, 1-16 balık ekmekçilerin yakın portresi, 2-1 Etnografya Müzesi tekrar, 2-2 'Ankara-Ataturk 1970' kapı (konu belirsiz), 2-3 Aşkale–Trabzon yolunda bir kasaba (konum yok, yakın yüzler), 2-4 'eski mahalleler' (konum yok), 2-6 Karacaören koyun sürüsü ve 2-8 Çubuk Ovası (≤5 km kesinlik yok), 2-7 devrilmiş akaryakıt tankeri (kaza), 2-11 Üsküdar pazarı 1997 ve 2-13 nostaljik tramvay 1992 (iyi ama 1990'lar öncelik değil ve İstanbul payı; yedek), 2-12 kola kutusu, 2-14/2-16 bulanık hava fotoğrafları, 2-17 kale suru 2-18 ile tekrar. Dosyada İstanbul 5/10; pool-a3 ile birlikte 9/30 (%30)."
+}

@@ -1,0 +1,216 @@
+{
+  "set": "pool-a3",
+  "reviewed_sheets": [
+    "pool-a3/sheet-01",
+    "pool-a3-needgeo/sheet-01",
+    "pool-a3-needgeo/sheet-02",
+    "pool-a3-needgeo/sheet-03",
+    "pool-a3-needgeo/sheet-04",
+    "pool-a3-needgeo/sheet-05",
+    "pool-a3-needgeo/sheet-06",
+    "pool-a3-needgeo/sheet-07"
+  ],
+  "items": [
+    {
+      "key": "1-11@pool-a3-needgeo",
+      "pool": "duel",
+      "difficulty": "kolay",
+      "location_name": "Tarihi Yarımada, İstanbul",
+      "title_tr": "Tarihi Yarımada'nın damları",
+      "story_tr": "Kaynağında 1880 tarihli olarak kayıtlı bu fotoğraf, Osmanlı İstanbul'unun tarihi yarımadasına yukarıdan bakıyor. Sık dokulu çatıların ardında kubbeler ve minareler, uzakta da deniz görülüyor.",
+      "lat": 41.0105,
+      "lng": 28.968
+    },
+    {
+      "key": "3-15@pool-a3-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Ulu Cami çevresi, Bursa",
+      "title_tr": "Ulu Cami minaresi önünde eski çarşı",
+      "story_tr": "Albert Kahn'ın 'Gezegenin Arşivleri' projesi için Auguste Léon, 1913 baharında Bursa'da bu renkli otokromu çekti. Özgün başlığa göre kare, eski çarşıyı Ulu Cami'nin minarelerinden birinin önünde gösteriyor; fotoğrafçı görüntüyü yakındaki harabelerden almış.",
+      "lat": 40.184,
+      "lng": 29.0618
+    },
+    {
+      "key": "3-17@pool-a3-needgeo",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Kasaplar Sokağı (Hisar yönü), Bursa",
+      "title_tr": "Bursa'da Kasaplar Sokağı",
+      "story_tr": "Auguste Léon'un 1913'te Albert Kahn arşivi için çektiği bu otokrom, Bursa'da 'Kasaplar Sokağı' diye anılan yolu kaleye doğru gösteriyor. Cumbalı ahşap evler ve dükkânların önündeki kalabalık, dönemin çarşı hayatından bir an.",
+      "lat": 40.186,
+      "lng": 29.059
+    },
+    {
+      "key": "4-4@pool-a3-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Batı yamacından şehir, Bursa",
+      "title_tr": "Batı yamacından Bursa panoraması",
+      "story_tr": "Auguste Léon, 1913 baharında Bursa'yı şehrin batısındaki yamaçtan bu panoramayla görüntüledi. Ağaçlar arasına yayılan şehir ve ardındaki geniş ova, Albert Kahn arşivinin renkli cam plaklarından birinde korunuyor.",
+      "lat": 40.188,
+      "lng": 29.05
+    },
+    {
+      "key": "4-5@pool-a3-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Muradiye Külliyesi, Bursa",
+      "title_tr": "Muradiye'de türbeler ve şadırvan",
+      "story_tr": "II. Murad Camii'nin hazîresi, özgün açıklamaya göre Osmanlı hanedanına ait on bir türbeyi barındırıyor. Auguste Léon 1913'te Albert Kahn arşivi için çektiği bu otokromda küçük türbeleri, önde de abdest havuzunu görüntüledi.",
+      "lat": 40.1907,
+      "lng": 29.0475
+    },
+    {
+      "key": "4-7@pool-a3-needgeo",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Eski mahalleler, Bursa",
+      "title_tr": "Bursa'da yapım hâlinde bir ev",
+      "story_tr": "Bursa'da ahşap iskeletli, dolgu duvarlı katlı evler; özgün başlığa göre biri henüz inşaat hâlinde ve çatkısı açıkta. Auguste Léon'un 1913 tarihli bu otokromu, Albert Kahn'ın 'Gezegenin Arşivleri' koleksiyonundan.",
+      "lat": 40.184,
+      "lng": 29.062
+    },
+    {
+      "key": "4-2@pool-a3-needgeo",
+      "pool": "bonus",
+      "difficulty": "kolay",
+      "location_name": "Galata Kulesi'nden Haliç, İstanbul",
+      "title_tr": "Galata Kulesi'nden renkli Haliç",
+      "story_tr": "Auguste Léon, 1913 baharında Galata Kulesi'nin tepesinden Haliç'i ve Galata Köprüsü'nü bu renkli otokromla görüntüledi. Önde Galata'nın kiremit çatıları, suyun üzerinde gemiler ve karşı kıyıda şehir uzanıyor.",
+      "lat": 41.0215,
+      "lng": 28.973
+    },
+    {
+      "key": "4-3@pool-a3-needgeo",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Süleymaniye Camii, İstanbul",
+      "title_tr": "Süleymaniye Camii'nin bir cephesi",
+      "story_tr": "Albert Kahn arşivi için 1913'te çekilen bu otokrom, Süleymaniye Camii'nin cephelerinden birini gösteriyor. Mimar Sinan'ın Kanuni Sultan Süleyman için inşa ettiği cami, İstanbul siluetinin en tanıdık yapılarından.",
+      "lat": 41.0162,
+      "lng": 28.964
+    },
+    {
+      "key": "4-12@pool-a3-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Ulu Cami, Diyarbakır",
+      "title_tr": "Diyarbakır Ulu Camii'nin avlusu",
+      "story_tr": "Library of Congress kaydına göre bu fotoğraf 15 Eylül 1919'da çekildi ve Diyarbakır Ulu Camii'nin avlusunu gösteriyor. Kemerli taş yapıların önünden geçen birkaç kişi, avlunun gündelik hâlini yansıtıyor.",
+      "lat": 37.9106,
+      "lng": 40.2365
+    },
+    {
+      "key": "5-1@pool-a3-needgeo",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Eski şehir, Ankara",
+      "title_tr": "1924 Ankara'sında öküz arabası",
+      "story_tr": "KLM'in Hollanda Doğu Hint Adaları'na yaptığı ilk uçuşta görev alan Fokker uçağının mürettebatından biri, Kasım 1924'te Ankara'da bu sokak görüntüsünü çekti. Taş duvarların önünde öküz arabası ve gölgede dinlenen insanlar, yeni başkentin ilk yıllarından bir an.",
+      "lat": 39.94,
+      "lng": 32.858
+    },
+    {
+      "key": "5-3@pool-a3-needgeo",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Eski şehir, Ankara",
+      "title_tr": "Yıkıntılar arasında öğle molası",
+      "story_tr": "Hollanda arşivindeki 1926 tarihli bu fotoğrafın açıklamasına göre Ankara'yı yeni bir başkente dönüştürme çalışmaları sırasında pek çok yapı yıkılıp yeniden inşa ediliyordu. Karede, yarı yıkık evlerin önünde öğle molası veren işçiler görülüyor.",
+      "lat": 39.94,
+      "lng": 32.856
+    },
+    {
+      "key": "5-4@pool-a3-needgeo",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Elçilikler bölgesi, Ankara",
+      "title_tr": "İnşa hâlindeki Sovyet elçiliği",
+      "story_tr": "1926'da Ankara'nın elçilikler bölgesinde yapımı süren Sovyet elçiliği binası. Hollanda arşivindeki açıklama, bütçenin kısıtlı olduğunu ve binanın biraz yoksul göründüğünü not ediyor; önden geçen toprak yol, şehrin henüz kurulmakta olduğunu hatırlatıyor.",
+      "lat": 39.915,
+      "lng": 32.856
+    },
+    {
+      "key": "5-6@pool-a3-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "İzmir Limanı, İzmir",
+      "title_tr": "İzmir limanında rıhtım",
+      "story_tr": "İsviçreli pilot ve fotoğrafçı Walter Mittelholzer, 1924–1925'teki İran uçuşu sırasında İzmir limanında bu kareyi çekti. Rıhtımda yük sandıkları ve insanlar, arkada ise kıyı boyunca sıralanan binalar görülüyor.",
+      "lat": 38.425,
+      "lng": 27.135
+    },
+    {
+      "key": "5-20@pool-a3-needgeo",
+      "pool": "duel",
+      "difficulty": "kolay",
+      "location_name": "Mihrimah Sultan Camii (Üsküdar), İstanbul",
+      "title_tr": "Üsküdar'da Mihrimah Sultan Camii",
+      "story_tr": "Fortepan arşivindeki 1935 tarihli bu fotoğraf, Üsküdar'daki Mihrimah Sultan Camii'ni ve önündeki meydanı gösteriyor. Mimar Sinan'ın Kanuni'nin kızı Mihrimah Sultan için yaptığı caminin önünde, yürüyen insanlar sıradan bir günü yansıtıyor.",
+      "lat": 41.027,
+      "lng": 29.0155
+    },
+    {
+      "key": "6-2@pool-a3-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Hıfzıssıhha Enstitüsü (Sıhhiye), Ankara",
+      "title_tr": "Ankara'da Hıfzıssıhha Enstitüsü",
+      "story_tr": "G. Eric ve Edith Matson koleksiyonundaki 1935 tarihli bu kare, kayıtta 'Sanitary Institute' olarak geçen Ankara'daki Hıfzıssıhha (sağlık) Enstitüsü binalarını gösteriyor. Geniş bir arazide yükselen yapılar, genç Cumhuriyet'in başkentte kurduğu kurumlardan biri.",
+      "lat": 39.93,
+      "lng": 32.856
+    },
+    {
+      "key": "6-3@pool-a3-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Ulus, Ankara",
+      "title_tr": "Ulus'ta İş Bankası binası",
+      "story_tr": "Matson koleksiyonundaki 1935 tarihli bu fotoğraf, Ankara'da Türkiye İş Bankası'nın köşe binasını gösteriyor. Kubbeli ve kuleli bina, meydanın kenarında yükseliyor; önünde yayalar ve birkaç otomobil var.",
+      "lat": 39.9412,
+      "lng": 32.8545
+    },
+    {
+      "key": "6-4@pool-a3-needgeo",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Birinci Meclis binası (Ulus), Ankara",
+      "title_tr": "Eski Meclis binası önünde otobüs",
+      "story_tr": "Matson koleksiyonunda 'eski bir meclis binası, önünde otobüs' notuyla saklanan 1935 tarihli kare. Ulus'taki bu yapı Türkiye Büyük Millet Meclisi'nin ilk binasıydı; önünde dönemin bir otobüsü bekliyor.",
+      "lat": 39.9437,
+      "lng": 32.8543
+    },
+    {
+      "key": "6-5@pool-a3-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Çankaya Köşkü, Ankara",
+      "title_tr": "Çankaya sırtlarında köşk",
+      "story_tr": "Matson koleksiyonundaki 1935 tarihli bu fotoğraf, kayıtta 'Atatürk'ün sarayı' olarak geçen Çankaya'daki köşkü uzaktan gösteriyor. Ağaçlık yamacın üzerinde beyaz, yalın çizgili bir bina yükseliyor.",
+      "lat": 39.892,
+      "lng": 32.865
+    },
+    {
+      "key": "6-8@pool-a3-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Saat Kulesi çevresi, Kayseri",
+      "title_tr": "Kayseri'de bayram süsleri",
+      "story_tr": "Matson koleksiyonunun 1935 tarihli bu karesi, kayda göre Anayasa Günü için süslenmiş bir Kayseri caddesini gösteriyor. Süslü takın önünde dolaşan kalabalığın ardında bir saat kulesi yükseliyor.",
+      "lat": 38.7215,
+      "lng": 35.4875
+    },
+    {
+      "key": "6-10@pool-a3-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Şehir merkezi, Kayseri",
+      "title_tr": "Kayseri'de anıtın çevresinde çocuklar",
+      "story_tr": "1935'te Kayseri'de Atatürk heykelinin kaidesine tırmanmış çocuklar ve çevresinde toplanan insanlar. Kare, Library of Congress'teki Matson koleksiyonunda 'okul çocukları ve gruplar' notuyla saklanıyor.",
+      "lat": 38.722,
+      "lng": 35.488
+    }
+  ],
+  "rejected_notes": "pool-a3 (koordinatlı) 2 Photochrom baskısı (Fenerbahçe feneri, Kariye) 'between 1890 and 1900' / 'ca. 1908' → kesin yıl yok, ele. pool-a3-needgeo 124 karede ret nedenleri: gravür/çizim/resim/kitap illüstrasyonu (Schliemann Ilios, Texier 1882, Aivazovski, Gartenlaube, Walker, SEM, Osman Hamdi, ~30), harita/plan/Goad-Pervititch paftaları/pul/bayrak (~8), BnF Poinsot zarf/kartpostal arkası/el yazısı listeler (~13), gazete/dergi taramaları (Akşam, Milliyet, Ulus, Tan, Spor Alemi, Niva 1916 Erzurum, Anadolu hediyesi, ~16), bireysel/grup portreleri ve ünlüler (Muş kız okulu, dul Runde, Kezad Bey, Atatürk, Edirne belediye meclisi, Mehmet Kum, futbol takımları, ~12), askerî/siyasi (1919 miting, 1923 Edirne'ye giren birlikler, Yavuz zırhlısı ve USS Missouri kareleri, İzmir'de harp gemileri, ~10), yılı belirsiz ticari baskılar (Hallwyl albümündeki Sébah & Joaillier/Berggren baskıları, 'um 1880' Abdullah Frères, 'Smyrne' 1880 onlu yıl kategorisi, 1924 kitap fotoğrafı incir paketleme; önceki kararla tutarlı), cevabı yazan altyazı (Bain 'Smyrna wharf', R.E.M. Bain 'Steamers in Smyrna', Wehrli renklendirilmiş dia altyazıları, Carpenter albüm sayfaları), hamam içi çıplak figürler, Diyarbakır dışı mezarlık (konum belirsiz), KLM kanat detayı, karanlık Osmanlı Bankası Antalya karesi. Bursa 1913 otokromlarından 5'i alındı; 3-16 (konsolos kapısı) ve 4-6 (üç adam) tekrar sayılıp yedekte. Matson Kayseri 6-9 ve 6-11, 6-8/6-10'un .tif kopyası."
+}
