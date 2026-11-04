@@ -1,0 +1,307 @@
+{
+  "set": "pool-c2",
+  "reviewed_sheets": [
+    "pool-c2/sheet-01",
+    "pool-c2/sheet-02",
+    "pool-c2/sheet-03",
+    "pool-c2/sheet-04",
+    "pool-c2/sheet-05",
+    "pool-c2/sheet-06",
+    "pool-c2/sheet-07",
+    "pool-c2/sheet-08",
+    "pool-c2/sheet-09",
+    "pool-c2/sheet-10",
+    "pool-c2/sheet-11",
+    "pool-c2/sheet-12",
+    "pool-c2/sheet-13",
+    "pool-c2/sheet-14",
+    "pool-c2/sheet-15",
+    "pool-c2/sheet-16",
+    "pool-c2/sheet-17",
+    "pool-c2/sheet-18",
+    "pool-c2/sheet-19"
+  ],
+  "items": [
+    {
+      "key": "1-3@pool-c2",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Akdamar Adası, Gevaş, Van",
+      "title_tr": "Uzaktan Akdamar Kilisesi",
+      "story_tr": "2012'de Van Gölü kıyısından, güneyden Akdamar Adası'ndaki kiliseye bakış. 10. yüzyılda yapılan Ermeni Kutsal Haç Kilisesi adanın yamacında yükseliyor. Fotoğrafçı, yaklaşırken görülen manzaranın restorasyondan sonra çok değiştiğini not etmiş."
+    },
+    {
+      "key": "1-7@pool-c2",
+      "pool": "duel",
+      "difficulty": "kolay",
+      "location_name": "Çifte Minareli Medrese, Erzurum",
+      "title_tr": "Çifte Minareli Medrese'nin avlusu",
+      "story_tr": "2022'de Erzurum'daki Çifte Minareli Medrese'nin avlusu. Kemerli girişin ardında yapıya adını veren iki tuğla minare yükseliyor. Medrese 13. yüzyılın ortalarına, Selçuklu dönemine tarihleniyor."
+    },
+    {
+      "key": "1-11@pool-c2",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Ani Ören Yeri, Kars",
+      "title_tr": "Ani'nin kuzey surları",
+      "story_tr": "2012'de Ani Ören Yeri'nin kuzeyindeki surlar ve kuleler. Fotoğrafçı kentin etkileyici kuzey surlarını iki ayrı ziyarette görüntülemiş. Ortaçağ'ın önemli kentlerinden Ani, Kars'ın doğusunda Arpaçay kıyısında yer alıyor."
+    },
+    {
+      "key": "11-7@pool-c2",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Kars Garı, Kars",
+      "title_tr": "Doğu Ekspresi yola çıkmadan önce",
+      "story_tr": "11 Kasım 2025 sabahı Kars Garı'nda Ankara'ya kalkışa hazırlanan Doğu Ekspresi. Kaynağa göre 1200 kilometreyi aşan ve yaklaşık 26 saat süren bu yolculuk Türkiye'nin en uzun tren seferi."
+    },
+    {
+      "key": "5-6@pool-c2",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Bitlis Kalesi çevresi, Bitlis",
+      "title_tr": "Bitlis'te dere vadisi",
+      "story_tr": "2012'de Bitlis'te, kalenin çevresinde çekilen bir dizi fotoğraftan biri. Dar vadinin dibinde akan derenin iki yanında ağaçlar, yamacın üstünde ise taş evler görülüyor."
+    },
+    {
+      "key": "5-14@pool-c2",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Mama Hatun Kümbeti, Tercan, Erzincan",
+      "title_tr": "Mama Hatun Kümbeti'nin avlusu",
+      "story_tr": "2006'da Erzincan'ın Tercan ilçesindeki Mama Hatun Kümbeti. Bir duvarla çevrili avlunun ortasında silindir gövdeli türbe yükseliyor. Fotoğrafçının notuna göre yapı, birlikleriyle Selahaddin'in seferlerini desteklemiş bir prenses olan Mama Hatun'un mezar anıtı."
+    },
+    {
+      "key": "5-11@pool-c2",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "İshak Paşa Sarayı doğusu, Doğubayazıt, Ağrı",
+      "title_tr": "Doğubayazıt'a tepeden bakış",
+      "story_tr": "2012'de Doğubayazıt'ta, İshak Paşa Sarayı'nın doğusundaki vadiye tırmanırken çekilmiş bir kare. Kayalık sırtın ardında ovaya yayılan kasaba görülüyor."
+    },
+    {
+      "key": "8-20@pool-c2",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Murat Nehri vadisi (Beyhan–Palu arası), Elazığ",
+      "title_tr": "Murat Nehri boyunca yük treni",
+      "story_tr": "2022'de Elazığ'da Beyhan ile Palu arasında, Murat Nehri kıyısında ilerleyen bir yük treni. Kaynağa göre Tatvan'dan Malatya'ya giden trenin arkasında iki yardımcı lokomotif daha bulunuyor."
+    },
+    {
+      "key": "9-6@pool-c2",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Munzur Vadisi, Tunceli",
+      "title_tr": "Munzur Vadisi",
+      "story_tr": "2023'te Tunceli'deki Munzur Vadisi. Munzur Çayı yeşil yamaçlar ve sarp kayalıklar arasından akıyor. Fotoğrafın açıklamasına göre nehir, bölge halkı için kutsal sayılıyor; vadi milli park olarak korunuyor."
+    },
+    {
+      "key": "9-7@pool-c2",
+      "pool": "bonus",
+      "difficulty": "zor",
+      "location_name": "Munzur Vadisi, Tunceli",
+      "title_tr": "Karlı vadide asma köprü",
+      "story_tr": "Mart 2019'da Munzur Vadisi'nde karla kaplı yamaçlar arasında bir asma köprü. Fotoğrafçının notuna göre vadideki asma köprüler yöre halkına büyük kolaylık sağlıyor ve ziyaretçilerin en sık uğradığı yerler arasında."
+    },
+    {
+      "key": "9-11@pool-c2",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Murat Köprüsü, Muş",
+      "title_tr": "Murat Nehri üzerinde taş köprü",
+      "story_tr": "2018'de Muş'ta Murat Nehri üzerindeki çok kemerli taş köprü. Kaynakta Ermenice adıyla, Sulukh köprüsü olarak kayıtlı. Köprü, ovada geniş bir nehir yatağını aşıyor."
+    },
+    {
+      "key": "9-16@pool-c2",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Kızılcaziyaret Dağı (Şiş Dağı), Iğdır",
+      "title_tr": "Dağ eteğinde arı kovanları",
+      "story_tr": "2013'te Iğdır'daki Kızılcaziyaret Dağı'nın, yöredeki adıyla Şiş Dağı'nın eteklerinde sıralanmış arı kovanları. Kaynak başlığı kareyi yöredeki arıcılıkla ilişkilendiriyor."
+    },
+    {
+      "key": "5-4@pool-c2",
+      "pool": "bonus",
+      "difficulty": "kolay",
+      "location_name": "Nemrut Dağı, Kâhta, Adıyaman",
+      "title_tr": "Nemrut Dağı'nın batı terası",
+      "story_tr": "2014'te Nemrut Dağı'nın batı terasında yere devrilmiş dev heykel başları. Arkada, Kommagene Kralı I. Antiokhos'un MÖ 1. yüzyılda yaptırdığı anıt mezarın taş yığması tümülüsü yükseliyor."
+    },
+    {
+      "key": "8-12@pool-c2",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Cendere Köprüsü, Kâhta, Adıyaman",
+      "title_tr": "Cendere Köprüsü'nün sütunları",
+      "story_tr": "2014'te Adıyaman'daki Cendere Köprüsü, kaynaktaki adıyla Severan Köprüsü. Roma döneminden kalan köprünün başında yükselen sütunlar, yapıyı İmparator Septimius Severus ve ailesi adına anıyor."
+    },
+    {
+      "key": "8-10@pool-c2",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Atatürk Bulvarı, Adıyaman",
+      "title_tr": "Adıyaman'da ana cadde",
+      "story_tr": "2014'te Adıyaman'ın Atatürk Bulvarı. Ağaçlı refüjlü geniş caddenin iki yanında apartmanlar, dükkânlar ve bir akaryakıt istasyonu sıralanıyor."
+    },
+    {
+      "key": "1-13@pool-c2",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Midyat Konukevi, Midyat, Mardin",
+      "title_tr": "Midyat Konukevi'nin cephesi",
+      "story_tr": "2010'da Midyat Konukevi'nin oymalı taş cephesi. Kaynağa göre üç katlı yapının en alt katı ana kayaya oyulmuş bir odadan oluşuyor; bina Midyat Kaymakamlığı tarafından satın alınmış."
+    },
+    {
+      "key": "1-15@pool-c2",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Deyrulzafaran Manastırı, Mardin",
+      "title_tr": "Deyrulzafaran Manastırı",
+      "story_tr": "2013'te Mardin yakınlarındaki Deyrulzafaran (Mor Hananyo) Manastırı. Süryani Ortodoks Kilisesi'nin önemli manastırlarından biri olan yapı, Tur Abdin olarak bilinen bölgede yer alıyor."
+    },
+    {
+      "key": "2-3@pool-c2",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Ulu Cami ve Mesudiye Medresesi, Diyarbakır",
+      "title_tr": "Mesudiye Medresesi'nin revakı",
+      "story_tr": "2014'te Diyarbakır Ulu Camii'nin avlusunda, Mesudiye Medresesi'nin revakından bir görünüm. Kaynağa göre 1193 tarihli medresenin yapısında eski yapılardan devşirilmiş taşlar ile yeni taş işçiliği bir arada kullanılmış."
+    },
+    {
+      "key": "9-2@pool-c2",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "İçkale, Diyarbakır",
+      "title_tr": "Diyarbakır İçkale'nin girişi",
+      "story_tr": "2010'da Diyarbakır İçkale. Kaynağa göre iç kaleye 9–10 metre genişliğindeki Artuklu Kemeri'nden giriliyor; kemerin iki yanındaki aslan-boğa mücadelesi kabartmaları yüzünden kapıya Aslanlı Kapı da deniyor."
+    },
+    {
+      "key": "8-13@pool-c2",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Eski Köprü çevresi, Hasankeyf, Batman",
+      "title_tr": "Hasankeyf'te Dicle kıyısı",
+      "story_tr": "2010'da Hasankeyf'te Dicle Nehri'nin kıyısında suya giren sığırlar. Fotoğrafçı, 12. yüzyılın ortasında Artuklular döneminde yapılan Eski Köprü'nün çevresini iki ayrı ziyarette görüntülemiş; bu kıyılar sonradan baraj gölünün altında kaldı."
+    },
+    {
+      "key": "9-19@pool-c2",
+      "pool": "duel",
+      "difficulty": "kolay",
+      "location_name": "Hasankeyf Kalesi, Batman",
+      "title_tr": "Hasankeyf'in kayalıkları",
+      "story_tr": "Nisan 2008'de Hasankeyf'te Dicle kıyısındaki sarp kayalıkların üzerinde kale kalıntıları. Tarihi yerleşimin büyük bölümü 2020'de Ilısu Barajı'nın suları altında kaldı."
+    },
+    {
+      "key": "8-14@pool-c2",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Tillo, Siirt",
+      "title_tr": "Tillo'da eski bir sokak",
+      "story_tr": "Haziran 2010'da Siirt'in Tillo ilçesinin eski mahallelerinden bir sokak. Fotoğrafçıya göre modern binaların yanında süslemeli eski evler ilçeye havasını veriyor; bazı yapılar restorasyon bekliyor."
+    },
+    {
+      "key": "2-5@pool-c2",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Tarihi kent merkezi, Gaziantep",
+      "title_tr": "Gaziantep'te yarı yıkık bir han",
+      "story_tr": "2025'te Gaziantep'te yarı yıkık, büyük bir taş yapı topluluğu. Fotoğrafçı burada defalarca bulunmuş ve yapının kısmen yıkılmış bir han olabileceğini düşünüyor; arkada yeni binalar yükseliyor."
+    },
+    {
+      "key": "1-17@pool-c2",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Divanyolu Caddesi, Şanlıurfa",
+      "title_tr": "Urfa'da taş bir cephe",
+      "story_tr": "2010'da Şanlıurfa'da, Divanyolu Caddesi'nde Ulu Cami girişinin yanındaki sokakta bir taş yapı. Kesme taş cephe, parmaklıklı kemerli pencere ve süslemeli kemer kentin eski dokusunu yansıtıyor."
+    },
+    {
+      "key": "2-14@pool-c2",
+      "pool": "bonus",
+      "difficulty": "kolay",
+      "location_name": "Sümela Manastırı, Maçka, Trabzon",
+      "title_tr": "Karşı yamaçtan Sümela",
+      "story_tr": "2009'da Altındere Vadisi'nin karşı yamacından Sümela Manastırı. Trabzon'un güneyinde sarp bir kayalığa yaslanan manastır, vadinin ormanları üzerinde asılı gibi duruyor."
+    },
+    {
+      "key": "2-16@pool-c2",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Gökçeköy, Şalpazarı, Trabzon",
+      "title_tr": "Yaylada konik ot yığını",
+      "story_tr": "2015'te Trabzon'un Şalpazarı ilçesine bağlı Gökçeköy'de, ortasındaki bir direğin çevresine yığılmış konik bir ot yığını. Arkada Doğu Karadeniz'in ladin ormanları görülüyor."
+    },
+    {
+      "key": "2-18@pool-c2",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Kral Kaya Mezarları, Amasya",
+      "title_tr": "Amasya ve kral mezarları",
+      "story_tr": "2011'de Amasya'nın güneyindeki dağlardan kente bakış. Evlerin üzerindeki kayalığa oyulmuş Pontus kral mezarları ve tepedeki kale seçiliyor."
+    },
+    {
+      "key": "1-5@pool-c2",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Hanzta Manastırı, Artvin",
+      "title_tr": "Ormanın içinde Hanzta Manastırı",
+      "story_tr": "2010'da Artvin'de, tarihi Tao-Klarceti bölgesindeki Gürcü manastırı Hanzta'nın kalıntıları. Kaynağa göre manastır bölgenin en önemli kültür merkezlerinden biri olmuş; kilisenin 2007'ye kadar ayakta duran kubbesi bugün yok."
+    },
+    {
+      "key": "6-4@pool-c2",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Mahmut Bey Camii, Kasaba köyü, Kastamonu",
+      "title_tr": "Çivisiz caminin ahşap içi",
+      "story_tr": "2012'de Kastamonu'nun Kasaba köyündeki Mahmut Bey Camii'nin ahşap iç mekânı. 'Çivisiz cami' olarak da bilinen 14. yüzyıl yapısı, ahşap direkleri ve boyalı ahşap tavanlarıyla tanınıyor."
+    },
+    {
+      "key": "5-18@pool-c2",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Katırcılar Hanı, Tokat",
+      "title_tr": "Tokat'ta han girişi",
+      "story_tr": "2011'de Tokat'ta Katırcılar Hanı'nın önü. Ahşap çıkmalı eski bir yapı ve kemerli han girişi, modern dükkânların arasında duruyor."
+    },
+    {
+      "key": "8-6@pool-c2",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Alivara (Beylerce) köyü, Ünye, Ordu",
+      "title_tr": "Ünye'de yamaç köyü",
+      "story_tr": "2020'de Ordu'nun Ünye ilçesine bağlı Alivara, resmî adıyla Beylerce köyünün genel görünümü. Yeşil yamaçlara dağılmış evler ve bahçeler, Karadeniz kırsalının alışıldık görüntüsü."
+    },
+    {
+      "key": "10-14@pool-c2",
+      "pool": "duel",
+      "difficulty": "kolay",
+      "location_name": "Amasra Müzesi ve liman, Amasra, Bartın",
+      "title_tr": "Akşamüstü Amasra",
+      "story_tr": "Ekim 2026'da Amasra'ya akşamüstü havadan bakış. Ön planda Amasra Müzesi'nin binası, arkada ise koy ve yarımadadaki eski kent görülüyor."
+    },
+    {
+      "key": "10-19@pool-c2",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Çarşı, Safranbolu, Karabük",
+      "title_tr": "Safranbolu'nun konakları",
+      "story_tr": "Ocak 2018'de Safranbolu'da kırmızı kiremit çatılı geleneksel konaklar. Osmanlı dönemi kent dokusunu koruyan Safranbolu, 1994'ten beri UNESCO Dünya Mirası Listesi'nde."
+    },
+    {
+      "key": "11-4@pool-c2",
+      "pool": "duel",
+      "difficulty": "kolay",
+      "location_name": "Hattuşa, Boğazkale, Çorum",
+      "title_tr": "Hattuşa'nın sur ve kuleleri",
+      "story_tr": "2014'te Hitit başkenti Hattuşa'nın Aşağı Şehri'nde yeniden inşa edilmiş sur bölümü. Kuleli duvarlar, kentin bir zamanlar nasıl korunduğunu gösteriyor. Hattuşa 1986'dan beri UNESCO Dünya Mirası Listesi'nde."
+    },
+    {
+      "key": "6-7@pool-c2",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "İzzet Baysal Caddesi, Bolu",
+      "title_tr": "Bolu'nun ana caddesi",
+      "story_tr": "Haziran 2019'da Bolu'nun ana alışveriş caddesi İzzet Baysal Caddesi. Kaynağa göre kentin kalbi sayılan cadde, belediye ve kültür merkezinin bulunduğu bir meydana açılıyor; uzakta Bayezid Camii görülüyor."
+    }
+  ],
+  "rejected_notes": "Seçim Doğu Anadolu (12), Güneydoğu (12) ve Karadeniz (11) odaklı. Ele: bitki/böcek/hayvan yakın çekimleri; müze içi tek objeler ve maketler (Miniatürk, mozaik, heykel, Assur kabartma replikası, Hitit tableti); resim/tablo (2-6); siyasi/miting ve tören sahneleri (9-9, 12-12), askerî hava aracı/İHA (10-12, 19-3); spor ve özel kişi portreleri (basketbol, WEF, güvercinli çocuk, Muş yün yıkama 8-18/9-1); rögar kapakları; uydu/ISS görüntüleri ve tutulma; resmî bina tabelası (9-5 Karakoçan Kaymakamlığı); yazı ağırlıklı kareler (1-1 Xerxes yazıtı, 13-3, 11-3); görüntüye basılı tarih damgası olanlar (8-17 Hakkâri, 13-18 Zile, 15-2/15-5/15-13/15-14, 12-15/16/18, 14-11); yılı belirsiz (8-16 Siirt: 2005/2010 karışık). Yakın tekrarlar: Akdamar 1-4, Ani 1-9/1-10, Kars panoraması 1-12, Nemrut 5-2/5-3/5-5, Hasankeyf 9-18, Mor Hananyo 1-16, Latifiye kapıları 9-20/10-1, Amasya 2-13/3-6/3-9/3-10/3-11, Amasra 10-16/10-17, Alaca Höyük 11-5/11-6, Doğubayazıt 5-10/5-12, Iğdır 9-14/9-15/9-17/16-3/16-4, Tunceli 9-8/9-10 elendi. İl çeşitliliği için ikinci/üçüncü kareler bırakıldı (Erzurum 1-6/1-8, Bitlis 5-8, Ahlat detayları, Kastamonu 6-2/6-3, Bolu 6-6/6-8/6-9, Trabzon 2-17/2-20, Muş 8-19, Siirt 8-15). Pano etiketlerindeki bazı il adları eski konumlamadan (5-14 'Bayburt' aslında Tercan/Erzincan, 5-10..12 'Iğdır' aslında Doğubayazıt/Ağrı); approve.mjs locate() doğru ili veriyor. 13-11 Çokrak (2003) Sivas/İç Anadolu, hedef dışı. Diğer bölgeler (sayfa 3–7, 10–19) olağanüstü kare içermediği için alınmadı."
+}
