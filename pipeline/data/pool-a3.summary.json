@@ -1,0 +1,1256 @@
+{
+ "total": 2,
+ "needGeo": 124,
+ "summary": [
+  {
+   "q": "deepcat:\"Turkey in the 1880s\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 19,
+   "rejected": {
+    "small": 16,
+    "aspect": 1,
+    "no_coords": 19,
+    "content": 10,
+    "year_range": 47,
+    "no_year": 4,
+    "dup_key": 1,
+    "license": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1880s\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 6,
+   "rejected": {
+    "no_year": 10,
+    "small": 59,
+    "dup_key": 14,
+    "no_coords": 6,
+    "content": 10,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1880s\"",
+   "hits": 1,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1880s\"",
+   "hits": 6,
+   "kept": 2,
+   "pool": 2,
+   "rejected": {
+    "small": 3,
+    "no_coords": 2,
+    "no_year": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1880s\"",
+   "hits": 1,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1880s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1880s\"",
+   "hits": 1,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Konya in the 1880s\"",
+   "hits": 2,
+   "kept": 2,
+   "pool": 2,
+   "rejected": {
+    "no_coords": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Adana in the 1880s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1880s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1880s\"",
+   "hits": 1,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Diyarbakır in the 1880s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1880s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1880s\"",
+   "hits": 1,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1880s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Eskişehir in the 1880s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1880s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Çanakkale in the 1880s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1880s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Van in the 1880s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Turkey in the 1890s\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 13,
+   "rejected": {
+    "small": 10,
+    "dup_key": 34,
+    "year_range": 37,
+    "no_coords": 12,
+    "no_year": 2,
+    "license": 1,
+    "content": 2,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1890s\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 47,
+   "rejected": {
+    "dup_key": 20,
+    "no_coords": 46,
+    "no_year": 5,
+    "small": 24,
+    "content": 2,
+    "year_range": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1890s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1890s\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 55,
+   "rejected": {
+    "no_coords": 55,
+    "dup_key": 45
+   }
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1890s\"",
+   "hits": 16,
+   "kept": 2,
+   "pool": 2,
+   "rejected": {
+    "no_year": 8,
+    "small": 5,
+    "no_coords": 2,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1890s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1890s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Konya in the 1890s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Adana in the 1890s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1890s\"",
+   "hits": 7,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 6,
+    "dup_key": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1890s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Diyarbakır in the 1890s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1890s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1890s\"",
+   "hits": 5,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 4,
+    "dup_key": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1890s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Eskişehir in the 1890s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1890s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Çanakkale in the 1890s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1890s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Van in the 1890s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Turkey in the 1900s\"",
+   "hits": 50,
+   "kept": 5,
+   "pool": 5,
+   "rejected": {
+    "year_range": 75,
+    "no_coords": 5,
+    "small": 15,
+    "aspect": 2,
+    "license": 1,
+    "dup_key": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1900s\"",
+   "hits": 50,
+   "kept": 3,
+   "pool": 39,
+   "rejected": {
+    "small": 22,
+    "dup_key": 13,
+    "no_year": 10,
+    "content": 9,
+    "year_range": 7,
+    "no_coords": 39
+   }
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1900s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1900s\"",
+   "hits": 21,
+   "kept": 3,
+   "pool": 3,
+   "rejected": {
+    "small": 10,
+    "year_range": 3,
+    "no_year": 5,
+    "no_coords": 3
+   }
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1900s\"",
+   "hits": 20,
+   "kept": 4,
+   "pool": 17,
+   "rejected": {
+    "no_coords": 17,
+    "dup_key": 3
+   }
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1900s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1900s\"",
+   "hits": 1,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Konya in the 1900s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Adana in the 1900s\"",
+   "hits": 29,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "content": 13,
+    "small": 16
+   }
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1900s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1900s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Diyarbakır in the 1900s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1900s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1900s\"",
+   "hits": 2,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "dup_key": 1,
+    "small": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1900s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Eskişehir in the 1900s\"",
+   "hits": 2,
+   "kept": 2,
+   "pool": 2,
+   "rejected": {
+    "no_coords": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1900s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Çanakkale in the 1900s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1900s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Van in the 1900s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Turkey in the 1910s\"",
+   "hits": 50,
+   "kept": 6,
+   "pool": 9,
+   "rejected": {
+    "content": 26,
+    "year_range": 35,
+    "dup_key": 12,
+    "no_coords": 9,
+    "small": 15,
+    "no_year": 1,
+    "license": 1,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1910s\"",
+   "hits": 50,
+   "kept": 3,
+   "pool": 57,
+   "rejected": {
+    "small": 19,
+    "year_range": 3,
+    "dup_key": 10,
+    "content": 10,
+    "year_conflict": 1,
+    "no_coords": 57
+   }
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1910s\"",
+   "hits": 14,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 6,
+    "content": 6,
+    "no_year": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1910s\"",
+   "hits": 11,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 6,
+    "year_range": 1,
+    "content": 2,
+    "dup_key": 1,
+    "no_year": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1910s\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 82,
+   "rejected": {
+    "no_coords": 82,
+    "dup_key": 8,
+    "small": 9,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1910s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1910s\"",
+   "hits": 1,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "year_range": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Konya in the 1910s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Adana in the 1910s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1910s\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "content": 28,
+    "dup_key": 3,
+    "small": 20,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1910s\"",
+   "hits": 31,
+   "kept": 4,
+   "pool": 4,
+   "rejected": {
+    "small": 4,
+    "year_range": 9,
+    "content": 12,
+    "aspect": 1,
+    "no_coords": 4,
+    "dup_key": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Diyarbakır in the 1910s\"",
+   "hits": 3,
+   "kept": 2,
+   "pool": 2,
+   "rejected": {
+    "small": 1,
+    "no_coords": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1910s\"",
+   "hits": 1,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1910s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1910s\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "year_range": 59,
+    "dup_key": 10,
+    "small": 19,
+    "content": 9,
+    "no_year": 2,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Eskişehir in the 1910s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1910s\"",
+   "hits": 1,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Çanakkale in the 1910s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1910s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Van in the 1910s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Turkey in the 1920s\"",
+   "hits": 50,
+   "kept": 5,
+   "pool": 5,
+   "rejected": {
+    "no_coords": 5,
+    "dup_key": 30,
+    "year_range": 48,
+    "content": 7,
+    "small": 9,
+    "no_year": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1920s\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 40,
+   "rejected": {
+    "no_year": 3,
+    "dup_key": 6,
+    "no_coords": 40,
+    "small": 18,
+    "content": 17,
+    "year_range": 16
+   }
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1920s\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 11,
+   "rejected": {
+    "mime": 1,
+    "small": 38,
+    "dup_key": 7,
+    "year_range": 35,
+    "no_coords": 11,
+    "content": 8
+   }
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1920s\"",
+   "hits": 21,
+   "kept": 4,
+   "pool": 12,
+   "rejected": {
+    "small": 4,
+    "content": 5,
+    "no_coords": 12
+   }
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1920s\"",
+   "hits": 5,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "small": 3,
+    "content": 1,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1920s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1920s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Konya in the 1920s\"",
+   "hits": 2,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Adana in the 1920s\"",
+   "hits": 5,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 5
+   }
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1920s\"",
+   "hits": 4,
+   "kept": 2,
+   "pool": 2,
+   "rejected": {
+    "small": 1,
+    "no_coords": 2,
+    "dup_key": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1920s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Diyarbakır in the 1920s\"",
+   "hits": 1,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1920s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1920s\"",
+   "hits": 3,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "small": 2,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1920s\"",
+   "hits": 25,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 24,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Eskişehir in the 1920s\"",
+   "hits": 7,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 5,
+    "content": 1,
+    "no_year": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1920s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Çanakkale in the 1920s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1920s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Van in the 1920s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Turkey in the 1930s\"",
+   "hits": 50,
+   "kept": 5,
+   "pool": 5,
+   "rejected": {
+    "small": 12,
+    "no_year": 2,
+    "content": 3,
+    "dup_key": 32,
+    "year_range": 43,
+    "aspect": 1,
+    "mime": 1,
+    "no_coords": 5,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1930s\"",
+   "hits": 50,
+   "kept": 3,
+   "pool": 30,
+   "rejected": {
+    "small": 21,
+    "content": 27,
+    "aspect": 3,
+    "no_year": 4,
+    "no_coords": 30,
+    "dup_key": 9,
+    "year_range": 5,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1930s\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 7,
+   "rejected": {
+    "small": 18,
+    "dup_key": 8,
+    "year_range": 41,
+    "content": 3,
+    "no_year": 22,
+    "no_coords": 7,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1930s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1930s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1930s\"",
+   "hits": 1,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1930s\"",
+   "error": "Error: Invalid value \"undefined\" for integer parameter \"gsroffset\"."
+  },
+  {
+   "q": "deepcat:\"Konya in the 1930s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Adana in the 1930s\"",
+   "hits": 2,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 1,
+    "year_range": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1930s\"",
+   "hits": 3,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "no_coords": 1,
+    "small": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1930s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Diyarbakır in the 1930s\"",
+   "hits": 3,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 3
+   }
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1930s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1930s\"",
+   "hits": 12,
+   "kept": 4,
+   "pool": 10,
+   "rejected": {
+    "year_range": 1,
+    "no_coords": 10,
+    "small": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1930s\"",
+   "hits": 25,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 22,
+    "dup_key": 1,
+    "year_range": 1,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Eskişehir in the 1930s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1930s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Çanakkale in the 1930s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1930s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Van in the 1930s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Turkey in the 1940s\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 4,
+   "rejected": {
+    "small": 17,
+    "dup_key": 27,
+    "no_coords": 4,
+    "year_range": 42,
+    "license": 3,
+    "aspect": 3,
+    "content": 3,
+    "mime": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1940s\"",
+   "hits": 50,
+   "kept": 5,
+   "pool": 5,
+   "rejected": {
+    "content": 2,
+    "no_coords": 5,
+    "dup_key": 4,
+    "small": 13,
+    "year_range": 33,
+    "aspect": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1940s\"",
+   "hits": 37,
+   "kept": 4,
+   "pool": 7,
+   "rejected": {
+    "year_range": 18,
+    "dup_key": 4,
+    "content": 4,
+    "no_coords": 7,
+    "aspect": 1,
+    "small": 3
+   }
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1940s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1940s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1940s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1940s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Konya in the 1940s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Adana in the 1940s\"",
+   "hits": 1,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1940s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1940s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Diyarbakır in the 1940s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1940s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1940s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1940s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Eskişehir in the 1940s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1940s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Çanakkale in the 1940s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1940s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Van in the 1940s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  }
+ ]
+}

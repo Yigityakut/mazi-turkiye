@@ -1,0 +1,824 @@
+{
+ "total": 4,
+ "needGeo": 39,
+ "summary": [
+  {
+   "q": "deepcat:\"Turkey in the 1950s\"",
+   "hits": 50,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "year_range": 72,
+    "content": 6,
+    "small": 8,
+    "dup_key": 11,
+    "license": 1,
+    "aspect": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1950s\"",
+   "hits": 50,
+   "kept": 3,
+   "pool": 76,
+   "rejected": {
+    "year_range": 4,
+    "small": 3,
+    "no_coords": 76,
+    "dup_key": 13,
+    "content": 4
+   }
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1950s\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "dup_key": 9,
+    "year_range": 53,
+    "content": 21,
+    "small": 12,
+    "no_year": 3,
+    "no_coords": 1,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1950s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1950s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1950s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1950s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Konya in the 1950s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Adana in the 1950s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1950s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1950s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Diyarbakır in the 1950s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1950s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1950s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1950s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Eskişehir in the 1950s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1950s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Çanakkale in the 1950s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1950s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Van in the 1950s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Turkey in the 1960s\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "year_range": 76,
+    "license": 3,
+    "small": 5,
+    "dup_key": 14,
+    "content": 1,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1960s\"",
+   "hits": 50,
+   "kept": 3,
+   "pool": 72,
+   "rejected": {
+    "small": 14,
+    "content": 2,
+    "dup_key": 7,
+    "no_coords": 72,
+    "year_range": 5
+   }
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1960s\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "small": 5,
+    "year_range": 89,
+    "aspect": 1,
+    "content": 2,
+    "dup_key": 2,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1960s\"",
+   "hits": 1,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1960s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1960s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1960s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Konya in the 1960s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Adana in the 1960s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1960s\"",
+   "hits": 6,
+   "kept": 4,
+   "pool": 4,
+   "rejected": {
+    "no_coords": 4,
+    "year_range": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1960s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Diyarbakır in the 1960s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1960s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1960s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1960s\"",
+   "hits": 6,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 6
+   }
+  },
+  {
+   "q": "deepcat:\"Eskişehir in the 1960s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1960s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Çanakkale in the 1960s\"",
+   "hits": 1,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1960s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Van in the 1960s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Turkey in the 1970s\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "year_range": 87,
+    "aspect": 7,
+    "dup_key": 2,
+    "license": 1,
+    "small": 2,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1970s\"",
+   "hits": 50,
+   "kept": 3,
+   "pool": 34,
+   "rejected": {
+    "no_coords": 34,
+    "small": 3,
+    "content": 3,
+    "year_range": 58,
+    "dup_key": 1,
+    "outside_tr": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1970s\"",
+   "hits": 50,
+   "kept": 4,
+   "pool": 4,
+   "rejected": {
+    "small": 4,
+    "year_range": 87,
+    "content": 1,
+    "no_coords": 4,
+    "dup_key": 4
+   }
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1970s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1970s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1970s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1970s\"",
+   "hits": 1,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Konya in the 1970s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Adana in the 1970s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1970s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1970s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Diyarbakır in the 1970s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1970s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1970s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1970s\"",
+   "hits": 1,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Eskişehir in the 1970s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1970s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Çanakkale in the 1970s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1970s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Van in the 1970s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Turkey in the 1980s\"",
+   "hits": 50,
+   "kept": 2,
+   "pool": 2,
+   "rejected": {
+    "year_range": 85,
+    "aspect": 1,
+    "dup_key": 4,
+    "license": 1,
+    "content": 2,
+    "no_coords": 2,
+    "small": 5
+   }
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1980s\"",
+   "hits": 50,
+   "kept": 3,
+   "pool": 27,
+   "rejected": {
+    "no_coords": 23,
+    "license": 1,
+    "year_range": 8,
+    "content": 6,
+    "dup_key": 7,
+    "small": 26
+   }
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1980s\"",
+   "hits": 21,
+   "kept": 5,
+   "pool": 10,
+   "rejected": {
+    "small": 8,
+    "license": 1,
+    "no_coords": 10,
+    "dup_key": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1980s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1980s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1980s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1980s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Konya in the 1980s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Adana in the 1980s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1980s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1980s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Diyarbakır in the 1980s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1980s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1980s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1980s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Eskişehir in the 1980s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1980s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Çanakkale in the 1980s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1980s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Van in the 1980s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Turkey in the 1990s\"",
+   "hits": 50,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "year_range": 75,
+    "small": 9,
+    "aspect": 2,
+    "content": 4,
+    "dup_key": 8,
+    "no_coords": 1,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1990s\"",
+   "hits": 50,
+   "kept": 3,
+   "pool": 17,
+   "rejected": {
+    "small": 70,
+    "dup_key": 9,
+    "year_range": 3,
+    "no_coords": 16,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1990s\"",
+   "hits": 50,
+   "kept": 5,
+   "pool": 31,
+   "rejected": {
+    "small": 20,
+    "no_coords": 31,
+    "year_range": 43,
+    "dup_key": 4,
+    "content": 2
+   }
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1990s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1990s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1990s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1990s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Konya in the 1990s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Adana in the 1990s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1990s\"",
+   "hits": 1,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "small": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1990s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Diyarbakır in the 1990s\"",
+   "hits": 2,
+   "kept": 1,
+   "pool": 1,
+   "rejected": {
+    "no_coords": 1,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1990s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1990s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1990s\"",
+   "hits": 1,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {
+    "year_range": 1
+   }
+  },
+  {
+   "q": "deepcat:\"Eskişehir in the 1990s\"",
+   "error": "Error: Invalid value \"undefined\" for integer parameter \"gsroffset\"."
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1990s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Çanakkale in the 1990s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1990s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"Van in the 1990s\"",
+   "hits": 0,
+   "kept": 0,
+   "pool": 0,
+   "rejected": {}
+  }
+ ]
+}
