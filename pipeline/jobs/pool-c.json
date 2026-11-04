@@ -1,0 +1,163 @@
+{
+ "name": "pool-c",
+ "keepNoCoords": true,
+ "sheetsNeedGeo": true,
+ "queries": [
+  {
+   "q": "deepcat:\"2000 in Turkey\"",
+   "year": 2000,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2001 in Turkey\"",
+   "year": 2001,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2002 in Turkey\"",
+   "year": 2002,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2003 in Turkey\"",
+   "year": 2003,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2004 in Turkey\"",
+   "year": 2004,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2005 in Turkey\"",
+   "year": 2005,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2006 in Turkey\"",
+   "year": 2006,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2007 in Turkey\"",
+   "year": 2007,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2008 in Turkey\"",
+   "year": 2008,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2009 in Turkey\"",
+   "year": 2009,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2010 in Turkey\"",
+   "year": 2010,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2011 in Turkey\"",
+   "year": 2011,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2012 in Turkey\"",
+   "year": 2012,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2013 in Turkey\"",
+   "year": 2013,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2014 in Turkey\"",
+   "year": 2014,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2015 in Turkey\"",
+   "year": 2015,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2016 in Turkey\"",
+   "year": 2016,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2017 in Turkey\"",
+   "year": 2017,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2018 in Turkey\"",
+   "year": 2018,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2019 in Turkey\"",
+   "year": 2019,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2020 in Turkey\"",
+   "year": 2020,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2021 in Turkey\"",
+   "year": 2021,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2022 in Turkey\"",
+   "year": 2022,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2023 in Turkey\"",
+   "year": 2023,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2024 in Turkey\"",
+   "year": 2024,
+   "pages": 2,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2025 in Turkey\"",
+   "year": 2025,
+   "pages": 2,
+   "cap": 6
+  }
+ ]
+}

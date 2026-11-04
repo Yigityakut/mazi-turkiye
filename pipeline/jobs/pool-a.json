@@ -1,0 +1,685 @@
+{
+ "name": "pool-a",
+ "keepNoCoords": true,
+ "sheetsNeedGeo": true,
+ "queries": [
+  {
+   "q": "deepcat:\"1880 in Turkey\"",
+   "year": 1880,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1880 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1880,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1881 in Turkey\"",
+   "year": 1881,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1881 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1881,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1882 in Turkey\"",
+   "year": 1882,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1882 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1882,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1883 in Turkey\"",
+   "year": 1883,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1883 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1883,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1884 in Turkey\"",
+   "year": 1884,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1884 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1884,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1885 in Turkey\"",
+   "year": 1885,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1885 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1885,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1886 in Turkey\"",
+   "year": 1886,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1886 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1886,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1887 in Turkey\"",
+   "year": 1887,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1887 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1887,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1888 in Turkey\"",
+   "year": 1888,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1888 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1888,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1889 in Turkey\"",
+   "year": 1889,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1889 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1889,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1890 in Turkey\"",
+   "year": 1890,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1890 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1890,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1891 in Turkey\"",
+   "year": 1891,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1891 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1891,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1892 in Turkey\"",
+   "year": 1892,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1892 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1892,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1893 in Turkey\"",
+   "year": 1893,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1893 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1893,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1894 in Turkey\"",
+   "year": 1894,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1894 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1894,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1895 in Turkey\"",
+   "year": 1895,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1895 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1895,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1896 in Turkey\"",
+   "year": 1896,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1896 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1896,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1897 in Turkey\"",
+   "year": 1897,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1897 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1897,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1898 in Turkey\"",
+   "year": 1898,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1898 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1898,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1899 in Turkey\"",
+   "year": 1899,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1899 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1899,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1900 in Turkey\"",
+   "year": 1900,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1900 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1900,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1901 in Turkey\"",
+   "year": 1901,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1901 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1901,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1902 in Turkey\"",
+   "year": 1902,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1902 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1902,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1903 in Turkey\"",
+   "year": 1903,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1903 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1903,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1904 in Turkey\"",
+   "year": 1904,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1904 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1904,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1905 in Turkey\"",
+   "year": 1905,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1905 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1905,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1906 in Turkey\"",
+   "year": 1906,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1906 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1906,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1907 in Turkey\"",
+   "year": 1907,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1907 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1907,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1908 in Turkey\"",
+   "year": 1908,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1908 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1908,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1909 in Turkey\"",
+   "year": 1909,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1909 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1909,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1910 in Turkey\"",
+   "year": 1910,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1910 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1910,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1911 in Turkey\"",
+   "year": 1911,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1911 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1911,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1912 in Turkey\"",
+   "year": 1912,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1912 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1912,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1913 in Turkey\"",
+   "year": 1913,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1913 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1913,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1914 in Turkey\"",
+   "year": 1914,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1914 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1914,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1915 in Turkey\"",
+   "year": 1915,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1915 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1915,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1916 in Turkey\"",
+   "year": 1916,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1916 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1916,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1917 in Turkey\"",
+   "year": 1917,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1917 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1917,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1918 in Turkey\"",
+   "year": 1918,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1918 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1918,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1919 in Turkey\"",
+   "year": 1919,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1919 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1919,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1920 in Turkey\"",
+   "year": 1920,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1920 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1920,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1921 in Turkey\"",
+   "year": 1921,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1921 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1921,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1922 in Turkey\"",
+   "year": 1922,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1922 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "year": 1922,
+   "pages": 1,
+   "cap": 3
+  },
+  {
+   "q": "deepcat:\"1923 in Turkey\"",
+   "year": 1923,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1924 in Turkey\"",
+   "year": 1924,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1925 in Turkey\"",
+   "year": 1925,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1926 in Turkey\"",
+   "year": 1926,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1927 in Turkey\"",
+   "year": 1927,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1928 in Turkey\"",
+   "year": 1928,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1929 in Turkey\"",
+   "year": 1929,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1930 in Turkey\"",
+   "year": 1930,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1931 in Turkey\"",
+   "year": 1931,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1932 in Turkey\"",
+   "year": 1932,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1933 in Turkey\"",
+   "year": 1933,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1934 in Turkey\"",
+   "year": 1934,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1935 in Turkey\"",
+   "year": 1935,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1936 in Turkey\"",
+   "year": 1936,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1937 in Turkey\"",
+   "year": 1937,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1938 in Turkey\"",
+   "year": 1938,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1939 in Turkey\"",
+   "year": 1939,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1940 in Turkey\"",
+   "year": 1940,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1941 in Turkey\"",
+   "year": 1941,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1942 in Turkey\"",
+   "year": 1942,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1943 in Turkey\"",
+   "year": 1943,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1944 in Turkey\"",
+   "year": 1944,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1945 in Turkey\"",
+   "year": 1945,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1946 in Turkey\"",
+   "year": 1946,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1947 in Turkey\"",
+   "year": 1947,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1948 in Turkey\"",
+   "year": 1948,
+   "pages": 2,
+   "cap": 5
+  },
+  {
+   "q": "deepcat:\"1949 in Turkey\"",
+   "year": 1949,
+   "pages": 2,
+   "cap": 5
+  }
+ ]
+}

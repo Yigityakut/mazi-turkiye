@@ -1,9 +1,0 @@
-{"name":"diag-1","sheets":false,"keepNoCoords":true,"queries":[
- {"q":"deepcat:\"Turkey in 1965\"","year":1965},
- {"q":"incategory:\"Istanbul in 1965\"","year":1965},
- {"q":"incategory:\"1965 in Istanbul\"","year":1965},
- {"q":"deepcategory:\"Istanbul in the 1960s\""},
- {"q":"incategory:\"Turkey in 1965\"","year":1965},
- {"q":"Galata Bridge 1965"},
- {"q":"haswbstatement:P1071 Istanbul 1965"}
-]}

@@ -132,6 +132,27 @@ async function harvestQuery(q, seen, keepNoCoords) {
   return { rows, needGeo, reasons };
 }
 
+// Yıl başına en iyi adayları seç: kalite kategorisi, koordinat, çözünürlük, açıklama zenginliği; İstanbul en fazla üçte bir.
+const IST = /istanbul|constantinople|galata|beyo[gğ]lu|pera\b|eminön|üsküdar|uskudar|kadık|kadikoy|bosphorus|bo[gğ]az|sultanahmet|hagia sophia|ayasofya|taksim|beşiktaş|besiktas/i;
+function pick(items, cap) {
+  if (items.length <= cap) return items;
+  const score = (x) => {
+    const cats = (x.categories ?? []).join(" ");
+    return (/Quality images|Featured pictures|Valued images/.test(cats) ? 4 : 0) + (x._noGeo ? 0 : 3) +
+      Math.min(Math.max(x.width, x.height) / 2000, 2) + Math.min((x.description ?? "").length / 300, 1.5) + Math.random() * 0.8;
+  };
+  const sorted = [...items].sort((a, b) => score(b) - score(a));
+  const out = []; let ist = 0;
+  for (const x of sorted) {
+    if (out.length >= cap) break;
+    const isIst = x.province === "İstanbul" || IST.test(`${x.title} ${(x.categories ?? []).join(" ")}`);
+    if (isIst && ist >= Math.ceil(cap / 3)) continue;
+    if (isIst) ist++;
+    out.push(x);
+  }
+  return out;
+}
+
 async function contactSheets(name, items) {
   const sharp = (await import("sharp")).default;
   const dir = path.join(ROOT, "pipeline/review", name);
@@ -175,7 +196,10 @@ async function main() {
   for (const q of job.queries) {
     try {
       const r = await harvestQuery(q, seen, job.keepNoCoords);
-      all.push(...r.rows); needGeo.push(...r.needGeo);
+      const cap = q.cap ?? job.cap ?? Infinity;
+      const picked = pick([...r.rows, ...r.needGeo.map((x) => ({ ...x, _noGeo: true }))], cap);
+      all.push(...picked.filter((x) => !x._noGeo));
+      needGeo.push(...picked.filter((x) => x._noGeo).map(({ _noGeo, ...x }) => x));
       summary.push({ q: q.q, kept: r.rows.length, needGeo: r.needGeo.length, rejected: r.reasons });
       console.log(q.q, "kept", r.rows.length, "needGeo", r.needGeo.length, JSON.stringify(r.reasons));
     } catch (e) {
