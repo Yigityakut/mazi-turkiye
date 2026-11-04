@@ -5,7 +5,8 @@
 //   cd <çıktı klasörü> && npx hyperframes@0.9.10 check && npx hyperframes@0.9.10 render
 //
 // video.json: { "id": "bb-001", "image": "photo.jpg" (yerel dosya yolu), "year": 1965, "location": "Galata Köprüsü, İstanbul",
-//               "lat": 41.02, "lng": 28.97, "author": "…", "source": "Wikimedia Commons", "license": "CC BY-SA 4.0" }
+//               "lat": 41.02, "lng": 28.97, "author": "…", "source": "Wikimedia Commons", "license": "CC BY-SA 4.0",
+//               "cta": { "title": "…", "sub": "…" } (isteğe bağlı; döneme göre metinler: marketing/content-calendar.md §1.1) }
 // Kural: Günün gerçek fotoğrafları ASLA kullanılmaz; sadece geçmiş günler veya bonus havuz (Plan 9.2).
 import fs from "node:fs";
 import path from "node:path";
@@ -94,7 +95,7 @@ html, body { width: ${W}px; height: ${H}px; overflow: hidden; background: var(--
     <div id="year" class="abs"><span id="yearN">${v.year - 30}</span></div>
     <div id="thumb" class="abs"><img src="assets/photo.jpg" alt=""></div>
     <div id="place" class="abs">${esc(v.location)}</div>
-    <div id="cta" class="abs"><b>Her gün 5 fotoğraf.</b><span>Mazi Türkiye · App Store ve Google Play</span></div>
+    <div id="cta" class="abs"><b>${esc(v.cta?.title ?? "Her gün 5 fotoğraf.")}</b><span>${esc(v.cta?.sub ?? "Mazi Türkiye · App Store ve Google Play")}</span></div>
   </div>
   <div id="credit" class="abs clip" data-start="1.4" data-duration="${D - 1.4}">Fotoğraf: ${esc(v.author)} · ${esc(v.source)} · ${esc(v.license)}</div>
   <div id="intro" class="abs clip" data-start="0" data-duration="1.4"><div class="small">Mazi Türkiye</div><div class="big">Bil bakalım</div></div>

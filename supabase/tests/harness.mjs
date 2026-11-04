@@ -8,7 +8,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-export const MIGRATIONS_DIR = path.resolve(here, "../migrations");
+// MIGRATIONS_DIR env var lets you run the suite against another copy (e.g. a pre-fix checkout)
+export const MIGRATIONS_DIR = path.resolve(process.env.MIGRATIONS_DIR || path.resolve(here, "../migrations"));
 
 // ---------------------------------------------------------------------------
 // Supabase platform stubs (created before the migrations, as the platform would)

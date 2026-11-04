@@ -40,7 +40,7 @@ begin
   if d > public.game_day() then raise exception 'day_locked'; end if;
   if not exists (select 1 from public.days where day = d) then raise exception 'day_not_found'; end if;
   if challenge is not null then
-    if exists (select 1 from public.challenges where code = upper(challenge) and day = d) then
+    if exists (select 1 from public.challenges where code = upper(trim(challenge)) and day = d) then
       return 'challenge';
     end if;
     raise exception 'challenge_not_found';
@@ -131,7 +131,7 @@ create or replace function public.submit_guess(
 returns jsonb language plpgsql security definer set search_path = public as $$
 declare
   uid uuid := private.require_user();
-  mode public.play_mode;
+  v_mode public.play_mode;   -- "mode" adı plays.mode / day_results.mode sütunlarıyla çakışıyordu
   p public.photos;
   d_km float8; dy int; s_loc int; s_year int;
   h_loc boolean; h_year boolean;
@@ -139,9 +139,11 @@ declare
   ch public.challenges;
   min_y int := (select (value #>> '{}')::int from public.app_config where key = 'min_year');
 begin
-  mode := private.can_play_day(uid, p_day, p_challenge);
-  if p_lat not between 35.5 and 42.5 or p_lng not between 25.4 and 45.0 then raise exception 'out_of_bounds'; end if;
-  if p_year < min_y or p_year > extract(year from now())::int then raise exception 'bad_year'; end if;
+  v_mode := private.can_play_day(uid, p_day, p_challenge);
+  if p_lat is null or p_lng is null or p_lat not between 35.5 and 42.5 or p_lng not between 25.4 and 45.0 then
+    raise exception 'out_of_bounds';
+  end if;
+  if p_year is null or p_year < min_y or p_year > extract(year from now())::int then raise exception 'bad_year'; end if;
 
   select ph.* into p from public.day_photos dp join public.photos ph on ph.id = dp.photo_id
    where dp.day = p_day and dp.slot = p_slot;
@@ -159,8 +161,8 @@ begin
   begin
     insert into public.plays(user_id, day, slot, photo_id, mode, guess_lat, guess_lng, guess_year,
                              distance_km, year_diff, score_location, score_year, hint_location, hint_year, duration_ms)
-    values (uid, p_day, p_slot, p.id, mode, p_lat, p_lng, p_year, d_km, dy, s_loc, s_year, h_loc, h_year,
-            least(greatest(p_duration_ms, 0), 3600000));
+    values (uid, p_day, p_slot, p.id, v_mode, p_lat, p_lng, p_year, d_km, dy, s_loc, s_year, h_loc, h_year,
+            case when p_duration_ms is not null then least(greatest(p_duration_ms, 0), 3600000) end);
   exception when unique_violation then
     raise exception 'already_played';
   end;
@@ -171,12 +173,12 @@ begin
 
   if done = 5 then
     insert into public.day_results(user_id, day, mode, total, used_hint, on_time, started_at, challenge_code)
-    select uid, p_day, mode, total, any_hint, p_day = public.game_day(), min(created_at), upper(p_challenge)
-      from public.plays where user_id = uid and day = p_day
+    select uid, p_day, v_mode, total, any_hint, p_day = public.game_day(), min(pl.created_at), upper(trim(p_challenge))
+      from public.plays pl where pl.user_id = uid and pl.day = p_day
     on conflict (user_id, day) do nothing;
 
     if p_challenge is not null then
-      select * into ch from public.challenges where code = upper(p_challenge);
+      select * into ch from public.challenges where code = upper(trim(p_challenge));
       if ch.creator_id is not null and ch.creator_id <> uid then
         insert into public.friendships(user_a, user_b)
         values (least(uid, ch.creator_id), greatest(uid, ch.creator_id)) on conflict do nothing;
@@ -231,6 +233,9 @@ begin
 
   return jsonb_build_object('current', cur, 'best', greatest(best, cur), 'played_today', played[1] = today);
 end $$;
+-- Herhangi bir kullanıcı id'si alır: API rollerine kapalı. get_me / get_stats / streak_danger_targets
+-- (security definer, sahibi postgres) içinden çağrılır. Supabase public'teki fonksiyonları anon'a da açar.
+revoke execute on function public.streak_of(uuid) from public, anon, authenticated;
 
 -- ---------- Profil ----------
 create or replace function public.get_me()
@@ -259,19 +264,35 @@ end $$;
 
 create or replace function public.update_profile(p jsonb)
 returns void language plpgsql security definer set search_path = public as $$
-declare uid uuid := private.require_user();
+declare
+  uid uuid := private.require_user();
+  nick text;
 begin
+  if p is null or jsonb_typeof(p) <> 'object' then raise exception 'bad_profile'; end if;
   if p ? 'nickname' then
-    if (p->>'nickname') is not null and (p->>'nickname') !~ '^[[:alnum:]çğıöşüÇĞİÖŞÜ _.\-]{2,20}$' then
+    -- Doğrulama kırpılmış değer üzerinde yapılır (" a " kırpılınca 1 karakter kalır → check ihlali yerine bad_nickname)
+    nick := nullif(btrim(p->>'nickname'), '');
+    if nick is not null and nick !~ '^[[:alnum:]çğıöşüÇĞİÖŞÜ _.\-]{2,20}$' then
       raise exception 'bad_nickname';
     end if;
-    update public.profiles set nickname = nullif(trim(p->>'nickname'), '') where id = uid;
+    update public.profiles set nickname = nick where id = uid;
   end if;
-  if p ? 'push_token' then update public.profiles set push_token = p->>'push_token' where id = uid; end if;
+  if p ? 'push_token' then
+    if jsonb_typeof(p->'push_token') not in ('string', 'null') or char_length(p->>'push_token') > 255 then
+      raise exception 'bad_push_token';
+    end if;
+    update public.profiles set push_token = nullif(p->>'push_token', '') where id = uid;
+  end if;
   if p ? 'reminder_hour' then
-    update public.profiles set reminder_hour = least(greatest((p->>'reminder_hour')::int, 9), 23) where id = uid;
+    if jsonb_typeof(p->'reminder_hour') <> 'null' and coalesce(p->>'reminder_hour', '') !~ '^\d{1,2}$' then
+      raise exception 'bad_reminder_hour';
+    end if;
+    -- null = hatırlatma kapalı (greatest(null, 9) = 9 olduğundan null ayrıca ele alınır)
+    update public.profiles set reminder_hour = case when p->>'reminder_hour' is not null
+      then least(greatest((p->>'reminder_hour')::int, 9), 23) end where id = uid;
   end if;
   if p ? 'show_on_leaderboard' then
+    if jsonb_typeof(p->'show_on_leaderboard') <> 'boolean' then raise exception 'bad_show_on_leaderboard'; end if;
     update public.profiles set show_on_leaderboard = (p->>'show_on_leaderboard')::boolean where id = uid;
   end if;
 end $$;
@@ -338,7 +359,7 @@ begin
   select
     (select coalesce(jsonb_agg(jsonb_build_object('rank', rnk, 'name', case when visible or user_id = uid then name else 'Gizli oyuncu' end,
              'total', total, 'used_hint', used_hint, 'is_me', user_id = uid) order by rnk), '[]')
-       from (select * from ranked order by rnk limit p_limit) t),
+       from (select * from ranked order by rnk limit least(greatest(coalesce(p_limit, 50), 1), 100)) t),
     (select jsonb_build_object('rank', rnk, 'total', total) from ranked where user_id = uid),
     (select count(*) from ranked)
   into rows, me, total_players;
@@ -415,13 +436,19 @@ create or replace function public.report_photo(p_photo_id uuid, p_reason text, p
 returns void language plpgsql security definer set search_path = public as $$
 declare uid uuid := private.require_user(); n int;
 begin
+  if p_reason is null or p_reason not in ('yil', 'konum', 'uygunsuz', 'telif', 'diger') then raise exception 'bad_reason'; end if;
+  -- Görülmüş: günlük oyunda tahmin edilmiş ya da 1v1'de ekrana gelmiş (henüz başlamamış turların fotoğrafı sayılmaz)
   if not exists (select 1 from public.plays where user_id = uid and photo_id = p_photo_id)
      and not exists (select 1 from public.duel_rounds r join public.duels d on d.id = r.duel_id
-                      where r.photo_id = p_photo_id and (d.player_a = uid or d.player_b = uid)) then
+                      where r.photo_id = p_photo_id and (d.player_a = uid or d.player_b = uid)
+                        and (d.state = 'finished' or r.round < d.current_round
+                             or (r.round = d.current_round and now() >= d.round_started_at))) then
     raise exception 'not_seen';
   end if;
   insert into public.photo_reports(photo_id, user_id, reason, note) values (p_photo_id, uid, p_reason, left(p_note, 500))
   on conflict do nothing;
+  -- Aynı kullanıcının tekrar bildirmesi sayacı ve admin bildirimini tetiklemez (aksi halde Telegram spam'lenebilir)
+  if not found then return; end if;
   update public.photos set report_count = (select count(*) from public.photo_reports where photo_id = p_photo_id)
    where id = p_photo_id returning report_count into n;
   if n = 3 or p_reason = 'telif' then
@@ -462,6 +489,7 @@ declare
   uid uuid := private.require_user();
   old uuid;
   moved int;
+  taken date[];
 begin
   update public.merge_tickets set used_at = now()
    where ticket = p_ticket and used_at is null and created_at > now() - interval '1 hour'
@@ -470,12 +498,18 @@ begin
   if not exists (select 1 from auth.users where id = old and is_anonymous) then raise exception 'not_anonymous'; end if;
 
   insert into public.profiles(id) values (uid) on conflict do nothing;
-  update public.plays set user_id = uid
-   where user_id = old and day not in (select day from public.plays where user_id = uid);
+  -- Girişli hesabın herhangi bir verisi olan günler olduğu gibi kalır; diğer günler (tahmin, ipucu, sonuç,
+  -- meydan okuma) birlikte taşınır. Tablo tablo ayrı kontrol, bir günün sonucunu tahminleri olmadan taşıyabiliyordu.
+  select coalesce(array_agg(distinct s.day), '{}') into taken from (
+    select day from public.plays where user_id = uid
+    union all select day from public.hints where user_id = uid
+    union all select day from public.day_results where user_id = uid
+    union all select day from public.challenges where creator_id = uid) s;
+  update public.plays set user_id = uid where user_id = old and day <> all(taken);
   get diagnostics moved = row_count;
-  update public.hints set user_id = uid where user_id = old and day not in (select day from public.hints where user_id = uid);
-  update public.day_results set user_id = uid where user_id = old and day not in (select day from public.day_results where user_id = uid);
-  update public.challenges set creator_id = uid where creator_id = old and day not in (select day from public.challenges where creator_id = uid);
+  update public.hints set user_id = uid where user_id = old and day <> all(taken);
+  update public.day_results set user_id = uid where user_id = old and day <> all(taken);
+  update public.challenges set creator_id = uid where creator_id = old and day <> all(taken);
   insert into public.friendships(user_a, user_b)
     select least(uid, other), greatest(uid, other) from (
       select case when user_a = old then user_b else user_a end as other from public.friendships where old in (user_a, user_b)) s

@@ -7,12 +7,15 @@ alter table public.waitlist enable row level security;
 
 create or replace function public.join_waitlist(p_email text)
 returns void language plpgsql security definer set search_path = public as $$
+declare e text := lower(btrim(p_email));
 begin
+  -- Tablo kısıtıyla aynı kural; ham check_violation yerine istemcinin anlayacağı hata
+  if e is null or char_length(e) > 254 or e !~ '^[^@\s]+@[^@\s]+\.[^@\s]+$' then raise exception 'bad_email'; end if;
   -- basit kötüye kullanım sınırı: dakikada en fazla 30 kayıt
-  if (select count(*) from public.waitlist where created_at > now() - interval '1 minute') > 30 then
+  if (select count(*) from public.waitlist where created_at > now() - interval '1 minute') >= 30 then
     raise exception 'rate_limited';
   end if;
-  insert into public.waitlist(email) values (lower(trim(p_email))) on conflict do nothing;
+  insert into public.waitlist(email) values (e) on conflict do nothing;
 end $$;
 
 -- Edge function'ların pg_cron/pg_net çağrılarını doğrulaması için (gizli değer sadece veritabanında üretilir)

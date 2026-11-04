@@ -177,7 +177,7 @@ language plpgsql security definer set search_path = public as $$
 declare
   d public.duels; p public.photos;
   f float8; dlat float8; dlng float8; glat float8; glng float8; gyear int;
-  near private.provinces; near_km float8; dkm float8; dy int;
+  near private.provinces; dkm float8; dy int;
 begin
   select * into d from public.duels where id = did;
   select ph.* into p from public.duel_rounds r join public.photos ph on ph.id = r.photo_id where r.duel_id = did and r.round = rnd;
@@ -186,9 +186,10 @@ begin
   dlng := private.gauss() * 200 * f / (111.0 * cos(radians(p.lat))) / sqrt(2);
   glat := least(greatest(p.lat + dlat, 36.0), 42.0);
   glng := least(greatest(p.lng + dlng, 26.0), 44.7);
-  select * into near from private.provinces order by public.haversine_km(glat, glng, lat, lng) limit 1;
-  near_km := public.haversine_km(glat, glng, near.lat, near.lng);
-  if near_km > 45 then glat := near.lat; glng := near.lng; end if;   -- denize/yurt dışına düşmesin
+  -- En yakın il merkezine oturt: tahmin her zaman karada/yurt içinde olur ve insan tahmini gibi görünür.
+  -- (Eski kural sadece 45 km'den uzaksa oturtuyordu; kıyı illerinde 45 km içi deniz olabiliyordu.)
+  select * into near from private.provinces pv order by public.haversine_km(glat, glng, pv.lat, pv.lng) limit 1;
+  glat := near.lat; glng := near.lng;
   gyear := least(greatest(p.year + round(private.gauss() * 12 * f)::int, private.cfg_int('min_year')), extract(year from now())::int);
   dkm := public.haversine_km(glat, glng, p.lat, p.lng);
   dy := abs(gyear - p.year); if dy <= p.year_uncertainty then dy := 0; end if;
@@ -206,20 +207,23 @@ declare
   both_in boolean;
   reveal_secs int := private.cfg_int('duel_reveal_seconds');
   round_secs int := private.cfg_int('duel_round_seconds');
+  -- duel_guess, süre bittikten sonra 2 sn'ye kadar gelen tahmini kabul eder (ağ gecikmesi). Tur bu tolerans
+  -- bitmeden kapatılırsa (istemci 1,2 sn'de bir duel_state yokluyor) o tahminler round_closed ile kaybolur.
+  grace interval := interval '2 seconds';
   ea float8; sa float8; k int := 32; rb int;
 begin
   for i in 1..12 loop  -- birden fazla aşama geride kalmışsa yakala
     select * into d from public.duels where id = did for update;
-    if d.state <> 'active' then return; end if;
+    if not found or d.state <> 'active' then return; end if;
     if d.reveal_until is null then
       select count(*) = 2 into both_in from public.duel_guesses
        where duel_id = did and round = d.current_round and visible_at <= now();
-      if now() < d.round_deadline and not both_in then return; end if;
+      if now() < d.round_deadline + grace and not both_in then return; end if;
       -- tahmin etmeyen 0 puan alır
       insert into public.duel_guesses(duel_id, round, side, visible_at) values (did, d.current_round, 'a', d.round_deadline) on conflict do nothing;
       insert into public.duel_guesses(duel_id, round, side, visible_at) values (did, d.current_round, 'b', d.round_deadline) on conflict do nothing;
       update public.duels set
-        reveal_until = least(now(), d.round_deadline) + make_interval(secs => reveal_secs),
+        reveal_until = least(now(), d.round_deadline + grace) + make_interval(secs => reveal_secs),
         score_a = (select coalesce(sum(score_location + score_year), 0) from public.duel_guesses where duel_id = did and side = 'a' and round <= d.current_round),
         score_b = (select coalesce(sum(score_location + score_year), 0) from public.duel_guesses where duel_id = did and side = 'b' and round <= d.current_round)
        where id = did;
@@ -251,9 +255,13 @@ end $$;
 -- Kuyruktaki bir kullanıcı için zaman aşımı kuralları: 60 sn admin bildirimi, 120 sn bot
 create or replace function private.queue_timeouts(q public.duel_queue) returns void
 language plpgsql security definer set search_path = public as $$
-declare waited int := extract(epoch from now() - q.created_at)::int; base text;
+declare waited int; base text;
 begin
-  if q.status <> 'waiting' then return; end if;
+  -- Güncel satırı kilitle: pg_cron tick'i ile istemcinin duel_queue_status yoklaması aynı anda çalışabilir;
+  -- eski kopya ile karar verilirse iki bot maçı / iki Telegram bildirimi oluşur.
+  select * into q from public.duel_queue where user_id = q.user_id for update;
+  if not found or q.status <> 'waiting' then return; end if;
+  waited := extract(epoch from now() - q.created_at)::int;
   if waited >= private.cfg_int('duel_admin_after_seconds') and q.admin_notified_at is null then
     update public.duel_queue set admin_notified_at = now() where user_id = q.user_id;
     select value #>> '{}' into base from public.app_config where key = 'public_web_url';
@@ -265,15 +273,47 @@ begin
   end if;
 end $$;
 
+-- Kuyruktaki bir oyuncuyu bekleyen başka bir oyuncuyla eşleştirmeye çalışır. Derece penceresi, uzun bekleyenin
+-- süresiyle genişler (200 + 10/sn). duel_find sadece çağrı anında eşleştirdiği için, aynı anda kuyruğa girenler
+-- veya o an pencere dışında kalanlar daha sonra hiç eşleşmiyor, 120. saniyede bota düşüyordu.
+create or replace function private.try_match(uid uuid) returns uuid
+language plpgsql security definer set search_path = public as $$
+declare me public.duel_queue; other public.duel_queue;
+begin
+  select * into me from public.duel_queue where user_id = uid and status = 'waiting' for update skip locked;
+  if not found then return null; end if;
+  select * into other from public.duel_queue q
+   where q.status = 'waiting' and q.user_id <> uid
+     and abs(q.elo - me.elo) <= 200 + 10 * extract(epoch from now() - least(q.created_at, me.created_at))
+   order by q.created_at
+   limit 1 for update skip locked;
+  if not found then return null; end if;
+  if other.created_at <= me.created_at then
+    return private.create_duel(other.user_id, uid, 'player', extract(epoch from now() - other.created_at)::int);
+  end if;
+  return private.create_duel(uid, other.user_id, 'player', extract(epoch from now() - me.created_at)::int);
+end $$;
+
 create or replace function private.duel_tick() returns void
 language plpgsql security definer set search_path = public as $$
 declare q public.duel_queue; did uuid;
 begin
-  for q in select * from public.duel_queue where status = 'waiting' loop
-    perform private.queue_timeouts(q);
+  -- Her kayıt kendi alt işleminde: biri hata verirse (örn. duel_pool_empty) diğer kuyruklar ve maçlar durmaz.
+  for q in select * from public.duel_queue where status = 'waiting' order by created_at loop
+    begin
+      if private.try_match(q.user_id) is null then
+        perform private.queue_timeouts(q);
+      end if;
+    exception when others then
+      raise warning 'duel_tick: queue % failed: %', q.user_id, sqlerrm;
+    end;
   end loop;
   for did in select id from public.duels where state = 'active' loop
-    perform private.duel_advance(did);
+    begin
+      perform private.duel_advance(did);
+    exception when others then
+      raise warning 'duel_tick: duel % failed: %', did, sqlerrm;
+    end;
   end loop;
   update public.duel_queue set status = 'cancelled' where status = 'waiting' and created_at < now() - interval '10 minutes';
 end $$;
@@ -289,7 +329,10 @@ declare
   did uuid;
   today_count int;
 begin
+  insert into public.profiles(id) values (uid) on conflict do nothing;
   select * into me from public.profiles where id = uid;
+  -- Kendi kuyruk satırını kilitle: aynı anda başka bir oturumun try_match'i bu oyuncuyu da eşleştirmesin
+  perform 1 from public.duel_queue where user_id = uid for update;
   select id into active from public.duels where state = 'active' and uid in (player_a, player_b) limit 1;
   if active is not null then return jsonb_build_object('status', 'matched', 'duel_id', active); end if;
 
@@ -322,7 +365,10 @@ declare uid uuid := private.require_user(); q public.duel_queue;
 begin
   select * into q from public.duel_queue where user_id = uid;
   if q.user_id is null then return jsonb_build_object('status', 'none'); end if;
-  perform private.queue_timeouts(q);
+  -- İstemci 2 sn'de bir yokluyor: önce bekleyen gerçek bir rakip ara, yoksa 60/120 sn kurallarını uygula
+  if q.status = 'waiting' and private.try_match(uid) is null then
+    perform private.queue_timeouts(q);
+  end if;
   select * into q from public.duel_queue where user_id = uid;
   return jsonb_build_object('status', q.status, 'duel_id', q.duel_id, 'waited', extract(epoch from now() - q.created_at)::int);
 end $$;
@@ -342,6 +388,7 @@ begin
   if q.user_id is null or q.status <> 'waiting' then
     return jsonb_build_object('status', 'gone', 'duel_id', q.duel_id);
   end if;
+  if q.user_id = uid then raise exception 'own_queue'; end if;
   did := private.create_duel(q.user_id, uid, 'admin', extract(epoch from now() - q.created_at)::int);
   return jsonb_build_object('status', 'matched', 'duel_id', did);
 end $$;
@@ -360,6 +407,13 @@ begin
   if d.state <> 'active' or d.current_round <> p_round or d.reveal_until is not null
      or now() > d.round_deadline + interval '2 seconds' or now() < d.round_started_at then
     raise exception 'round_closed';
+  end if;
+  -- submit_guess ile aynı girdi kuralları
+  if p_lat is null or p_lng is null or p_lat not between 35.5 and 42.5 or p_lng not between 25.4 and 45.0 then
+    raise exception 'out_of_bounds';
+  end if;
+  if p_year is null or p_year < private.cfg_int('min_year') or p_year > extract(year from now())::int then
+    raise exception 'bad_year';
   end if;
   select ph.* into p from public.duel_rounds r join public.photos ph on ph.id = r.photo_id where r.duel_id = p_duel and r.round = p_round;
   dkm := public.haversine_km(p_lat, p_lng, p.lat, p.lng);
@@ -433,39 +487,39 @@ create or replace function public.schedule_days(p_horizon int default 14)
 returns int language plpgsql security definer set search_path = public as $$
 declare
   d date;
-  last date;
+  last_day date;
   created int := 0;
   picked uuid[];
-  regions text[]; eras text[];
+  regions text[]; eras text[]; diffs text[];
   cand record;
-  need_easy boolean; need_hard boolean;
+  k int;
   slot int;
 begin
-  if coalesce(auth.role(), '') in ('anon', 'authenticated') then raise exception 'forbidden'; end if;
-  select coalesce(max(day), public.game_day() - 1) into last from public.days;
-  d := greatest(last + 1, public.game_day());
-  while d <= public.game_day() + p_horizon loop
-    picked := '{}'; regions := '{}'; eras := '{}';
-    -- 1) bir kolay, 2) bir zor, 3) üç tane farklı bölge/dönem. Yetmezse kurallar gevşer.
-    for pss in 1..3 loop
-      for cand in
-        select p.id, p.region, public.era_of(p.year) as era, p.difficulty, p.province
-          from public.photos p
-         where p.pool = 'daily' and p.status = 'onayli' and p.scheduled_date is null
-           and p.image_path is not null and p.id <> all(picked)
-         order by
-           case when pss = 1 and coalesce(array_length(picked, 1), 0) = 0 and p.difficulty <> 'kolay' then 1
-                when pss = 1 and coalesce(array_length(picked, 1), 0) = 1 and p.difficulty <> 'zor' then 1 else 0 end,
-           random()
-      loop
-        exit when coalesce(array_length(picked, 1), 0) = 5;
-        if pss < 3 and (cand.region = any(regions) or cand.era = any(eras)) then continue; end if;
-        if pss = 2 and cand.region = any(regions) then continue; end if;
-        if pss = 1 and coalesce(array_length(picked, 1), 0) = 0 and cand.difficulty <> 'kolay' then continue; end if;
-        if pss = 1 and coalesce(array_length(picked, 1), 0) = 1 and cand.difficulty <> 'zor' then continue; end if;
-        picked := picked || cand.id; regions := regions || cand.region; eras := eras || cand.era;
-      end loop;
-      exit when coalesce(array_length(picked, 1), 0) = 5;
+  -- Sadece servis rolü (edge function) veya sunucu içi çağrı (pg_cron: JWT yok). İzin listesi: bilinmeyen roller de reddedilir.
+  if auth.role() is not null and auth.role() <> 'service_role' then raise exception 'forbidden'; end if;
+  select coalesce(max(day), public.game_day() - 1) into last_day from public.days;
+  d := greatest(last_day + 1, public.game_day());
+  while d <= public.game_day() + least(coalesce(p_horizon, 14), 60) loop
+    picked := '{}'; regions := '{}'; eras := '{}'; diffs := '{}';
+    -- Açgözlü seçim, her adımda öncelik sırası:
+    --   1) henüz olmayan zorunlu zorluk (en az bir kolay ve en az bir zor),
+    --   2) henüz olmayan bölge, 3) henüz olmayan dönem, 4) rastgele.
+    -- Havuz yetmezse kurallar kendiliğinden gevşer. (Eski 3 geçişli döngüde 2. geçiş hiç gevşemiyordu ve
+    -- kolay/zor şartı 2. geçişte tamamen düşüyordu.)
+    for k in 1..5 loop
+      select p.id, p.region, public.era_of(p.year) as era, p.difficulty::text as difficulty into cand
+        from public.photos p
+       where p.pool = 'daily' and p.status = 'onayli' and p.scheduled_date is null
+         and p.image_path is not null and p.id <> all(picked)
+       order by
+         (p.difficulty in ('kolay', 'zor') and not (p.difficulty::text = any(diffs))) desc,
+         (p.region = any(regions)),
+         (public.era_of(p.year) = any(eras)),
+         random()
+       limit 1;
+      exit when not found;
+      picked := picked || cand.id; regions := regions || cand.region; eras := eras || cand.era;
+      diffs := diffs || cand.difficulty;
     end loop;
     exit when coalesce(array_length(picked, 1), 0) < 5;   -- havuz bitti
 

@@ -37,9 +37,12 @@ const OPPONENT = { name: "Çağla", elo: 1212 };
 const FRIEND = "Ayşe";
 const HOUR = 3600_000;
 
-/** Günün 5 fotoğrafı için tahminlerin doğru cevaptan sapması (km, yıl). Puanlar gerçek formülle hesaplanır. */
-const DAY_MISS: { km: number; years: number }[] = [
-  { km: 12, years: 1 }, { km: 64, years: 6 }, { km: 27, years: -2 }, { km: 110, years: 4 }, { km: 8, years: 0 },
+/**
+ * Günün 5 fotoğrafı için tahminlerin doğru cevaptan sapması (km, yıl; yön: Türkiye'nin ortasına göre derece sapması).
+ * Puanlar gerçek formülle hesaplanır. 3. fotoğraf ekran görüntülerindeki tahmin/açılım: çizgi haritada okunacak kadar uzun.
+ */
+const DAY_MISS: { km: number; years: number; bearing?: number }[] = [
+  { km: 12, years: 1 }, { km: 64, years: 6 }, { km: 46, years: -2, bearing: -30 }, { km: 110, years: 4 }, { km: 8, years: 0 },
 ];
 /** Arkadaşın (meydan okuyan) aynı 5 fotoğraftaki puanları */
 const FRIEND_SCORES = [760, 702, 655, 498, 897];
@@ -98,7 +101,7 @@ function score(answer: Answer, guess: LatLng, year: number) {
 function dayGuess(slot: number) {
   const a = answerOf(fixtures[slot - 1], `demo-${slot}`);
   const miss = DAY_MISS[slot - 1];
-  return { answer: a, pin: shift(a, miss.km), year: a.year + miss.years };
+  return { answer: a, pin: shift(a, miss.km, miss.bearing), year: a.year + miss.years };
 }
 
 function playFor(slot: number): Play {

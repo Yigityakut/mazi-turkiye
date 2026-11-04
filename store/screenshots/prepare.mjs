@@ -64,13 +64,13 @@ function placeholder(file, i) {
     "(", "-size", "1600x1067", "gradient:gray(100%)-gray(62%)", ")", "-compose", "multiply", "-composite",
     "(", "-size", "1600x1067", "radial-gradient:gray(100%)-gray(40%)", "-resize", "180%", "-gravity", "center", "-extent", "1600x1067", ")",
     "-compose", "multiply", "-composite", "-colorspace", "sRGB", "-type", "TrueColor",
-    "(", "+clone", "-fill", tint, "-colorize", "100", ")", "-compose", "soft-light", "-composite",
-    "-sepia-tone", "80%", "-modulate", "100,70",
+    "-sepia-tone", "82%", "-modulate", "104,42",
+    "(", "+clone", "-fill", tint, "-colorize", "100", ")", "-compose", "blend", "-define", "compose:args=12", "-composite",
     "-attenuate", "0.25", "+noise", "Gaussian",
-    "-gravity", "SouthWest", "-font", FONT, "-pointsize", "30", "-kerning", "3",
-    "-fill", "rgba(255,248,238,0.78)", "-annotate", "+46+38", `FOTOĞRAF ${i + 1}`,
-    "-gravity", "SouthEast", "-pointsize", "22", "-kerning", "2",
-    "-fill", "rgba(255,248,238,0.55)", "-annotate", "+46+42", "YER TUTUCU",
+    // Etiket ortada: oyun fotoğrafı "cover" ile kırptığı için kenarlar görünmeyebilir
+    "-gravity", "Center", "-font", FONT, "-pointsize", "34", "-kerning", "4",
+    "-fill", "rgba(255,248,238,0.82)", "-annotate", "+0-16", `FOTOĞRAF ${i + 1}`,
+    "-pointsize", "21", "-kerning", "3", "-fill", "rgba(255,248,238,0.55)", "-annotate", "+0+28", "YER TUTUCU",
     "-quality", "84", out,
   ]);
   console.log(`yer tutucu: ${file}`);
