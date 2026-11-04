@@ -84,7 +84,7 @@ async function harvestQuery(q, seen, keepNoCoords) {
       prop: "imageinfo|coordinates|categories", iiprop: "url|size|extmetadata|mime", iiurlwidth: 1280,
       iiextmetadatalanguage: "en", coprimary: "all", coprop: "type", colimit: "max", clshow: "!hidden", cllimit: "max", ...cont,
     });
-    if (page === 0) console.log("  hits", data.query?.pages?.length ?? 0, data.warnings ? JSON.stringify(data.warnings).slice(0, 300) : "");
+    if (page === 0) { q._hits = data.query?.pages?.length ?? 0; q._warn = data.warnings ? JSON.stringify(data.warnings).slice(0, 200) : undefined; }
     for (const p of data.query?.pages ?? []) {
       const key = `commons:${p.title}`;
       if (seen.has(key)) { rej("dup_key"); continue; }
@@ -101,11 +101,13 @@ async function harvestQuery(q, seen, keepNoCoords) {
       const cats = (p.categories ?? []).map((c) => c.title.replace(/^Category:/, ""));
       if (BLOCK.test(`${p.title} ${desc} ${cats.join(" ")}`)) { rej("content"); continue; }
       let y = exactYear(meta.DateTimeOriginal?.value), ysrc = "DateTimeOriginal";
-      const catYears = [...new Set(cats.map((c) => c.match(/\b(?:in|of) (\d{4})$/)?.[1]).filter(Boolean).map(Number))];
+      // Sadece "1965 in Istanbul" / "1965 in Turkey" biçimli yer-yıl kategorileri (ör. "Buildings completed in 1890" sayılmaz)
+      const catYears = [...new Set(cats.map((c) => c.match(/^(18[5-9]\d|19\d\d|20[0-2]\d) in (?:the )?[A-ZÇĞİÖŞÜ][\wçğıöşüÇĞİÖŞÜ.'-]*(?: [A-ZÇĞİÖŞÜ][\wçğıöşüÇĞİÖŞÜ.'-]*){0,3}$/)?.[1]).filter(Boolean).map(Number))];
       if (y && q.year && Math.abs(y - q.year) > 1) { rej("year_conflict"); continue; }
       if (!y && q.year) { y = q.year; ysrc = "category"; }
       if (!y && catYears.length === 1) { y = catYears[0]; ysrc = "category"; }
       if (!y) { rej("no_year"); continue; }
+      if ((q.minYear && y < q.minYear) || (q.maxYear && y > q.maxYear)) { rej("year_range"); continue; }
       if (catYears.some((cy) => Math.abs(cy - y) > 1)) { rej("year_conflict"); continue; }
       const coords = p.coordinates ?? [];
       const c = coords.find((x) => x.primary) ?? coords[0];
@@ -189,7 +191,7 @@ async function main() {
   const outDir = path.join(ROOT, "pipeline/data");
   fs.mkdirSync(outDir, { recursive: true });
   const seen = new Set();
-  for (const f of fs.readdirSync(outDir).filter((f) => f.endsWith(".candidates.jsonl"))) {
+  for (const f of fs.readdirSync(outDir).filter((f) => f.endsWith(".jsonl"))) {
     for (const line of fs.readFileSync(path.join(outDir, f), "utf8").split("\n").filter(Boolean)) seen.add(JSON.parse(line).source_key);
   }
   const all = [], needGeo = [], summary = [];
@@ -200,7 +202,7 @@ async function main() {
       const picked = pick([...r.rows, ...r.needGeo.map((x) => ({ ...x, _noGeo: true }))], cap);
       all.push(...picked.filter((x) => !x._noGeo));
       needGeo.push(...picked.filter((x) => x._noGeo).map(({ _noGeo, ...x }) => x));
-      summary.push({ q: q.q, kept: r.rows.length, needGeo: r.needGeo.length, rejected: r.reasons });
+      summary.push({ q: q.q, hits: q._hits, warn: q._warn, kept: picked.length, pool: r.rows.length + r.needGeo.length, rejected: r.reasons });
       console.log(q.q, "kept", r.rows.length, "needGeo", r.needGeo.length, JSON.stringify(r.reasons));
     } catch (e) {
       summary.push({ q: q.q, error: String(e) });

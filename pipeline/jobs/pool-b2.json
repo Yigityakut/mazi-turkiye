@@ -1,0 +1,307 @@
+{
+ "name": "pool-b2",
+ "keepNoCoords": true,
+ "sheetsNeedGeo": true,
+ "queries": [
+  {
+   "q": "deepcat:\"1950 in Turkey\"",
+   "year": 1950,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1951 in Turkey\"",
+   "year": 1951,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1952 in Turkey\"",
+   "year": 1952,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1953 in Turkey\"",
+   "year": 1953,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1954 in Turkey\"",
+   "year": 1954,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1955 in Turkey\"",
+   "year": 1955,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1956 in Turkey\"",
+   "year": 1956,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1957 in Turkey\"",
+   "year": 1957,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1958 in Turkey\"",
+   "year": 1958,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1959 in Turkey\"",
+   "year": 1959,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1960 in Turkey\"",
+   "year": 1960,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1961 in Turkey\"",
+   "year": 1961,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1962 in Turkey\"",
+   "year": 1962,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1963 in Turkey\"",
+   "year": 1963,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1964 in Turkey\"",
+   "year": 1964,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1965 in Turkey\"",
+   "year": 1965,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1966 in Turkey\"",
+   "year": 1966,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1967 in Turkey\"",
+   "year": 1967,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1968 in Turkey\"",
+   "year": 1968,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1969 in Turkey\"",
+   "year": 1969,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1970 in Turkey\"",
+   "year": 1970,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1971 in Turkey\"",
+   "year": 1971,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1972 in Turkey\"",
+   "year": 1972,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1973 in Turkey\"",
+   "year": 1973,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1974 in Turkey\"",
+   "year": 1974,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1975 in Turkey\"",
+   "year": 1975,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1976 in Turkey\"",
+   "year": 1976,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1977 in Turkey\"",
+   "year": 1977,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1978 in Turkey\"",
+   "year": 1978,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1979 in Turkey\"",
+   "year": 1979,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1980 in Turkey\"",
+   "year": 1980,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1981 in Turkey\"",
+   "year": 1981,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1982 in Turkey\"",
+   "year": 1982,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1983 in Turkey\"",
+   "year": 1983,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1984 in Turkey\"",
+   "year": 1984,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1985 in Turkey\"",
+   "year": 1985,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1986 in Turkey\"",
+   "year": 1986,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1987 in Turkey\"",
+   "year": 1987,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1988 in Turkey\"",
+   "year": 1988,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1989 in Turkey\"",
+   "year": 1989,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1990 in Turkey\"",
+   "year": 1990,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1991 in Turkey\"",
+   "year": 1991,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1992 in Turkey\"",
+   "year": 1992,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1993 in Turkey\"",
+   "year": 1993,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1994 in Turkey\"",
+   "year": 1994,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1995 in Turkey\"",
+   "year": 1995,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1996 in Turkey\"",
+   "year": 1996,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1997 in Turkey\"",
+   "year": 1997,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1998 in Turkey\"",
+   "year": 1998,
+   "pages": 4,
+   "cap": 8
+  },
+  {
+   "q": "deepcat:\"1999 in Turkey\"",
+   "year": 1999,
+   "pages": 4,
+   "cap": 8
+  }
+ ]
+}

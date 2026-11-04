@@ -1,0 +1,558 @@
+{
+ "name": "pool-c2",
+ "keepNoCoords": false,
+ "queries": [
+  {
+   "q": "deepcat:\"Van Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Erzurum Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Kars Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Mardin Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"\u015eanl\u0131urfa Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Diyarbak\u0131r Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Gaziantep Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Hatay Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Trabzon Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Rize Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Artvin Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Samsun Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Sinop Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Amasya Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Konya Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Kayseri Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Sivas Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Eski\u015fehir Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Denizli Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Mu\u011fla Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"\u00c7anakkale Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Edirne Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Malatya Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Bitlis Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"A\u011fr\u0131 Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Erzincan Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Tokat Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Kastamonu Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Bolu Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Isparta Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Afyonkarahisar Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"K\u00fctahya Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Manisa Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Ayd\u0131n Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Bal\u0131kesir Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Adana Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Mersin Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Giresun Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Ordu Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Ad\u0131yaman Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Siirt Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Hakkari Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Mu\u015f Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Elaz\u0131\u011f Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Tunceli Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Bing\u00f6l Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Ardahan Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"I\u011fd\u0131r Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Batman Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Kahramanmara\u015f Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"K\u0131rklareli Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Tekirda\u011f Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Bart\u0131n Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Zonguldak Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Karab\u00fck Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"\u00c7orum Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Yozgat Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Nev\u015fehir Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Ni\u011fde Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Aksaray Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"K\u0131r\u015fehir Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Burdur Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"U\u015fak Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Bilecik Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"Sakarya Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"D\u00fczce Province\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 2000
+  },
+  {
+   "q": "deepcat:\"2000 in Turkey\"",
+   "year": 2000,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2001 in Turkey\"",
+   "year": 2001,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2002 in Turkey\"",
+   "year": 2002,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2003 in Turkey\"",
+   "year": 2003,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2004 in Turkey\"",
+   "year": 2004,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2005 in Turkey\"",
+   "year": 2005,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2006 in Turkey\"",
+   "year": 2006,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2007 in Turkey\"",
+   "year": 2007,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2008 in Turkey\"",
+   "year": 2008,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2009 in Turkey\"",
+   "year": 2009,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2010 in Turkey\"",
+   "year": 2010,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2011 in Turkey\"",
+   "year": 2011,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2012 in Turkey\"",
+   "year": 2012,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2013 in Turkey\"",
+   "year": 2013,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2014 in Turkey\"",
+   "year": 2014,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2015 in Turkey\"",
+   "year": 2015,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2016 in Turkey\"",
+   "year": 2016,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2017 in Turkey\"",
+   "year": 2017,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2018 in Turkey\"",
+   "year": 2018,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2019 in Turkey\"",
+   "year": 2019,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2020 in Turkey\"",
+   "year": 2020,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2021 in Turkey\"",
+   "year": 2021,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2022 in Turkey\"",
+   "year": 2022,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2023 in Turkey\"",
+   "year": 2023,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2024 in Turkey\"",
+   "year": 2024,
+   "pages": 3,
+   "cap": 6
+  },
+  {
+   "q": "deepcat:\"2025 in Turkey\"",
+   "year": 2025,
+   "pages": 3,
+   "cap": 6
+  }
+ ]
+}
