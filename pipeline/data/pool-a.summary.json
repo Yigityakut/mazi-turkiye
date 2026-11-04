@@ -1,0 +1,1165 @@
+{
+ "total": 3,
+ "needGeo": 220,
+ "summary": [
+  {
+   "q": "deepcat:\"1880 in Turkey\"",
+   "kept": 0,
+   "needGeo": 13,
+   "rejected": {
+    "year_conflict": 9,
+    "no_coords": 13,
+    "small": 57
+   }
+  },
+  {
+   "q": "deepcat:\"1880 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "dup_key": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1881 in Turkey\"",
+   "kept": 0,
+   "needGeo": 4,
+   "rejected": {
+    "small": 5,
+    "content": 7,
+    "no_coords": 4,
+    "year_conflict": 5
+   }
+  },
+  {
+   "q": "deepcat:\"1881 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1882 in Turkey\"",
+   "kept": 0,
+   "needGeo": 69,
+   "rejected": {
+    "no_coords": 69,
+    "year_conflict": 10,
+    "small": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1882 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1883 in Turkey\"",
+   "kept": 0,
+   "needGeo": 1,
+   "rejected": {
+    "no_coords": 1,
+    "small": 27,
+    "year_conflict": 66,
+    "content": 4,
+    "dup_key": 1,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1883 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1884 in Turkey\"",
+   "kept": 2,
+   "needGeo": 5,
+   "rejected": {
+    "no_coords": 5,
+    "year_conflict": 62,
+    "small": 13,
+    "aspect": 1,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1884 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1885 in Turkey\"",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "year_conflict": 81,
+    "small": 1,
+    "dup_key": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1885 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1886 in Turkey\"",
+   "kept": 0,
+   "needGeo": 2,
+   "rejected": {
+    "small": 7,
+    "year_conflict": 82,
+    "license": 5,
+    "no_coords": 2,
+    "content": 3,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1886 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1887 in Turkey\"",
+   "kept": 0,
+   "needGeo": 1,
+   "rejected": {
+    "small": 4,
+    "year_conflict": 86,
+    "no_coords": 1,
+    "license": 3,
+    "aspect": 5,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1887 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1888 in Turkey\"",
+   "kept": 0,
+   "needGeo": 3,
+   "rejected": {
+    "small": 46,
+    "no_coords": 3,
+    "year_conflict": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1888 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1889 in Turkey\"",
+   "kept": 0,
+   "needGeo": 1,
+   "rejected": {
+    "no_coords": 1,
+    "small": 1,
+    "year_conflict": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1889 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1890 in Turkey\"",
+   "kept": 0,
+   "needGeo": 1,
+   "rejected": {
+    "year_conflict": 37,
+    "dup_key": 49,
+    "small": 9,
+    "license": 1,
+    "content": 1,
+    "mime": 1,
+    "no_coords": 1,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1890 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1891 in Turkey\"",
+   "kept": 0,
+   "needGeo": 4,
+   "rejected": {
+    "small": 7,
+    "year_conflict": 86,
+    "no_coords": 4,
+    "content": 1,
+    "aspect": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1891 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1892 in Turkey\"",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "dup_key": 1,
+    "small": 25,
+    "year_conflict": 47,
+    "content": 23,
+    "aspect": 3,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1892 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1893 in Turkey\"",
+   "kept": 0,
+   "needGeo": 20,
+   "rejected": {
+    "no_coords": 20,
+    "small": 40,
+    "year_conflict": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1893 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1894 in Turkey\"",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "small": 5,
+    "year_conflict": 62,
+    "dup_key": 26,
+    "content": 4,
+    "aspect": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1894 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "year_conflict": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1895 in Turkey\"",
+   "kept": 0,
+   "needGeo": 17,
+   "rejected": {
+    "small": 9,
+    "no_coords": 17,
+    "aspect": 11,
+    "year_conflict": 40,
+    "dup_key": 21,
+    "content": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1895 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1896 in Turkey\"",
+   "kept": 0,
+   "needGeo": 6,
+   "rejected": {
+    "dup_key": 35,
+    "small": 31,
+    "no_coords": 6,
+    "year_conflict": 28
+   }
+  },
+  {
+   "q": "deepcat:\"1896 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "small": 4,
+    "dup_key": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1897 in Turkey\"",
+   "kept": 0,
+   "needGeo": 3,
+   "rejected": {
+    "small": 4,
+    "year_conflict": 90,
+    "content": 3,
+    "no_coords": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1897 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "small": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1898 in Turkey\"",
+   "kept": 0,
+   "needGeo": 4,
+   "rejected": {
+    "year_conflict": 4,
+    "small": 3,
+    "no_coords": 4,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1898 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1899 in Turkey\"",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "dup_key": 30,
+    "small": 14,
+    "year_conflict": 46,
+    "license": 7,
+    "aspect": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1899 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1900 in Turkey\"",
+   "kept": 0,
+   "needGeo": 21,
+   "rejected": {
+    "year_conflict": 27,
+    "small": 28,
+    "no_coords": 21,
+    "content": 19,
+    "aspect": 3,
+    "dup_key": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1900 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1901 in Turkey\"",
+   "kept": 0,
+   "needGeo": 17,
+   "rejected": {
+    "year_conflict": 73,
+    "no_coords": 17,
+    "small": 4,
+    "content": 2,
+    "dup_key": 3,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1901 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1902 in Turkey\"",
+   "kept": 0,
+   "needGeo": 13,
+   "rejected": {
+    "small": 10,
+    "year_conflict": 11,
+    "no_coords": 13
+   }
+  },
+  {
+   "q": "deepcat:\"1902 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1903 in Turkey\"",
+   "kept": 0,
+   "needGeo": 28,
+   "rejected": {
+    "small": 10,
+    "no_coords": 28,
+    "year_conflict": 18,
+    "content": 4
+   }
+  },
+  {
+   "q": "deepcat:\"1903 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "small": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1904 in Turkey\"",
+   "kept": 0,
+   "needGeo": 8,
+   "rejected": {
+    "year_conflict": 52,
+    "no_coords": 8,
+    "small": 5,
+    "dup_key": 35
+   }
+  },
+  {
+   "q": "deepcat:\"1904 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1905 in Turkey\"",
+   "kept": 0,
+   "needGeo": 36,
+   "rejected": {
+    "small": 18,
+    "aspect": 5,
+    "year_conflict": 38,
+    "no_coords": 36,
+    "license": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1905 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1906 in Turkey\"",
+   "kept": 0,
+   "needGeo": 17,
+   "rejected": {
+    "small": 10,
+    "dup_key": 6,
+    "year_conflict": 37,
+    "no_coords": 17
+   }
+  },
+  {
+   "q": "deepcat:\"1906 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1907 in Turkey\"",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "year_conflict": 90,
+    "small": 6,
+    "aspect": 4
+   }
+  },
+  {
+   "q": "deepcat:\"1907 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1908 in Turkey\"",
+   "kept": 0,
+   "needGeo": 1,
+   "rejected": {
+    "year_conflict": 74,
+    "small": 17,
+    "aspect": 3,
+    "dup_key": 3,
+    "content": 2,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1908 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "small": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1909 in Turkey\"",
+   "kept": 0,
+   "needGeo": 10,
+   "rejected": {
+    "small": 29,
+    "year_conflict": 54,
+    "content": 5,
+    "no_coords": 10,
+    "dup_key": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1909 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "year_conflict": 22,
+    "dup_key": 28
+   }
+  },
+  {
+   "q": "deepcat:\"1910 in Turkey\"",
+   "kept": 0,
+   "needGeo": 50,
+   "rejected": {
+    "small": 33,
+    "no_coords": 50,
+    "year_conflict": 14,
+    "license": 1,
+    "aspect": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1910 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1911 in Turkey\"",
+   "kept": 0,
+   "needGeo": 2,
+   "rejected": {
+    "year_conflict": 40,
+    "dup_key": 42,
+    "small": 12,
+    "content": 4,
+    "no_coords": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1911 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "small": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1912 in Turkey\"",
+   "kept": 0,
+   "needGeo": 2,
+   "rejected": {
+    "no_coords": 2,
+    "dup_key": 24,
+    "year_conflict": 66,
+    "small": 6,
+    "aspect": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1912 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 1,
+   "rejected": {
+    "content": 5,
+    "small": 5,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1913 in Turkey\"",
+   "kept": 0,
+   "needGeo": 65,
+   "rejected": {
+    "no_coords": 65,
+    "small": 18,
+    "dup_key": 5,
+    "year_conflict": 5,
+    "content": 5,
+    "aspect": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1913 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "dup_key": 12
+   }
+  },
+  {
+   "q": "deepcat:\"1914 in Turkey\"",
+   "kept": 0,
+   "needGeo": 11,
+   "rejected": {
+    "no_coords": 11,
+    "year_conflict": 67,
+    "small": 7,
+    "aspect": 8,
+    "dup_key": 7
+   }
+  },
+  {
+   "q": "deepcat:\"1914 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 1,
+   "rejected": {
+    "no_coords": 1,
+    "year_conflict": 6,
+    "dup_key": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1915 in Turkey\"",
+   "kept": 0,
+   "needGeo": 4,
+   "rejected": {
+    "content": 34,
+    "small": 31,
+    "no_coords": 4,
+    "dup_key": 2,
+    "year_conflict": 29
+   }
+  },
+  {
+   "q": "deepcat:\"1915 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "dup_key": 1,
+    "small": 4
+   }
+  },
+  {
+   "q": "deepcat:\"1916 in Turkey\"",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "dup_key": 89,
+    "content": 8,
+    "year_conflict": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1916 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "dup_key": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1917 in Turkey\"",
+   "kept": 0,
+   "needGeo": 29,
+   "rejected": {
+    "small": 22,
+    "no_coords": 29,
+    "content": 7,
+    "dup_key": 6,
+    "year_conflict": 4
+   }
+  },
+  {
+   "q": "deepcat:\"1917 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {}
+  },
+  {
+   "q": "deepcat:\"1918 in Turkey\"",
+   "kept": 0,
+   "needGeo": 27,
+   "rejected": {
+    "no_coords": 27,
+    "dup_key": 18,
+    "content": 14,
+    "year_conflict": 30,
+    "small": 11
+   }
+  },
+  {
+   "q": "deepcat:\"1918 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 1,
+   "rejected": {
+    "small": 1,
+    "no_coords": 1,
+    "dup_key": 1,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1919 in Turkey\"",
+   "kept": 0,
+   "needGeo": 3,
+   "rejected": {
+    "dup_key": 5,
+    "content": 16,
+    "year_conflict": 49,
+    "small": 25,
+    "license": 1,
+    "aspect": 1,
+    "no_coords": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1919 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "dup_key": 5,
+    "year_conflict": 3,
+    "small": 4
+   }
+  },
+  {
+   "q": "deepcat:\"1920 in Turkey\"",
+   "kept": 0,
+   "needGeo": 6,
+   "rejected": {
+    "dup_key": 69,
+    "year_conflict": 15,
+    "content": 1,
+    "small": 9,
+    "no_coords": 6
+   }
+  },
+  {
+   "q": "deepcat:\"1920 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 1,
+   "rejected": {
+    "dup_key": 13,
+    "content": 1,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1921 in Turkey\"",
+   "kept": 0,
+   "needGeo": 2,
+   "rejected": {
+    "small": 8,
+    "year_conflict": 22,
+    "aspect": 1,
+    "dup_key": 62,
+    "no_coords": 2,
+    "content": 5
+   }
+  },
+  {
+   "q": "deepcat:\"1921 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "dup_key": 12
+   }
+  },
+  {
+   "q": "deepcat:\"1922 in Turkey\"",
+   "kept": 1,
+   "needGeo": 1,
+   "rejected": {
+    "small": 7,
+    "year_conflict": 59,
+    "dup_key": 27,
+    "content": 3,
+    "license": 2,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1922 in the Ottoman Empire\" Constantinople OR Smyrna OR Anatolia OR Istanbul OR Izmir OR Bursa OR Trebizond OR Edirne",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "dup_key": 12
+   }
+  },
+  {
+   "q": "deepcat:\"1923 in Turkey\"",
+   "kept": 0,
+   "needGeo": 2,
+   "rejected": {
+    "year_conflict": 22,
+    "dup_key": 64,
+    "no_coords": 2,
+    "small": 8,
+    "content": 3,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1924 in Turkey\"",
+   "kept": 0,
+   "needGeo": 3,
+   "rejected": {
+    "dup_key": 37,
+    "small": 14,
+    "year_conflict": 37,
+    "no_coords": 3,
+    "content": 4,
+    "license": 3,
+    "aspect": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1925 in Turkey\"",
+   "kept": 0,
+   "needGeo": 29,
+   "rejected": {
+    "mime": 1,
+    "small": 51,
+    "no_coords": 29,
+    "dup_key": 3,
+    "content": 7,
+    "aspect": 1,
+    "year_conflict": 8
+   }
+  },
+  {
+   "q": "deepcat:\"1926 in Turkey\"",
+   "kept": 0,
+   "needGeo": 7,
+   "rejected": {
+    "small": 46,
+    "content": 4,
+    "no_coords": 7,
+    "dup_key": 21,
+    "year_conflict": 21,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1927 in Turkey\"",
+   "kept": 0,
+   "needGeo": 1,
+   "rejected": {
+    "year_conflict": 69,
+    "small": 4,
+    "dup_key": 22,
+    "content": 2,
+    "no_coords": 1,
+    "aspect": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1928 in Turkey\"",
+   "kept": 0,
+   "needGeo": 23,
+   "rejected": {
+    "small": 18,
+    "dup_key": 20,
+    "year_conflict": 35,
+    "no_coords": 23,
+    "aspect": 1,
+    "content": 2,
+    "mime": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1929 in Turkey\"",
+   "kept": 0,
+   "needGeo": 13,
+   "rejected": {
+    "small": 31,
+    "dup_key": 32,
+    "year_conflict": 16,
+    "license": 3,
+    "content": 3,
+    "no_coords": 13,
+    "aspect": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1930 in Turkey\"",
+   "kept": 0,
+   "needGeo": 2,
+   "rejected": {
+    "content": 2,
+    "small": 22,
+    "dup_key": 38,
+    "year_conflict": 29,
+    "aspect": 5,
+    "no_coords": 2,
+    "license": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1931 in Turkey\"",
+   "kept": 0,
+   "needGeo": 13,
+   "rejected": {
+    "small": 33,
+    "content": 1,
+    "year_conflict": 13,
+    "no_coords": 13,
+    "dup_key": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1932 in Turkey\"",
+   "kept": 0,
+   "needGeo": 7,
+   "rejected": {
+    "small": 23,
+    "year_conflict": 53,
+    "content": 2,
+    "no_coords": 7,
+    "dup_key": 12,
+    "license": 2,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1933 in Turkey\"",
+   "kept": 0,
+   "needGeo": 7,
+   "rejected": {
+    "no_coords": 7,
+    "small": 12,
+    "year_conflict": 56,
+    "dup_key": 23,
+    "content": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1934 in Turkey\"",
+   "kept": 0,
+   "needGeo": 15,
+   "rejected": {
+    "small": 18,
+    "dup_key": 12,
+    "no_coords": 15,
+    "year_conflict": 43,
+    "aspect": 9,
+    "license": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1935 in Turkey\"",
+   "kept": 0,
+   "needGeo": 20,
+   "rejected": {
+    "small": 7,
+    "year_conflict": 61,
+    "aspect": 3,
+    "no_coords": 20,
+    "license": 6,
+    "content": 2,
+    "dup_key": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1936 in Turkey\"",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "small": 5,
+    "year_conflict": 68,
+    "dup_key": 27
+   }
+  },
+  {
+   "q": "deepcat:\"1937 in Turkey\"",
+   "kept": 0,
+   "needGeo": 5,
+   "rejected": {
+    "small": 20,
+    "dup_key": 32,
+    "year_conflict": 39,
+    "content": 4,
+    "no_coords": 5
+   }
+  },
+  {
+   "q": "deepcat:\"1938 in Turkey\"",
+   "kept": 0,
+   "needGeo": 6,
+   "rejected": {
+    "small": 24,
+    "dup_key": 22,
+    "content": 19,
+    "year_conflict": 23,
+    "no_coords": 6,
+    "aspect": 4,
+    "mime": 1,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1939 in Turkey\"",
+   "kept": 0,
+   "needGeo": 20,
+   "rejected": {
+    "no_coords": 20,
+    "small": 28,
+    "year_conflict": 5,
+    "aspect": 10,
+    "dup_key": 37
+   }
+  },
+  {
+   "q": "deepcat:\"1940 in Turkey\"",
+   "kept": 0,
+   "needGeo": 7,
+   "rejected": {
+    "small": 11,
+    "year_conflict": 46,
+    "aspect": 4,
+    "no_coords": 7,
+    "dup_key": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1941 in Turkey\"",
+   "kept": 0,
+   "needGeo": 15,
+   "rejected": {
+    "small": 20,
+    "no_coords": 15,
+    "dup_key": 4,
+    "content": 1,
+    "aspect": 1,
+    "license": 1,
+    "year_conflict": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1942 in Turkey\"",
+   "kept": 0,
+   "needGeo": 2,
+   "rejected": {
+    "year_conflict": 64,
+    "license": 2,
+    "small": 12,
+    "dup_key": 3,
+    "content": 16,
+    "no_coords": 2,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1943 in Turkey\"",
+   "kept": 0,
+   "needGeo": 8,
+   "rejected": {
+    "small": 7,
+    "no_coords": 8,
+    "dup_key": 1,
+    "year_conflict": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1944 in Turkey\"",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "small": 8,
+    "dup_key": 15,
+    "year_conflict": 75,
+    "content": 1,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1945 in Turkey\"",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "dup_key": 94,
+    "year_conflict": 6
+   }
+  },
+  {
+   "q": "deepcat:\"1946 in Turkey\"",
+   "kept": 0,
+   "needGeo": 3,
+   "rejected": {
+    "no_coords": 3,
+    "dup_key": 33,
+    "year_conflict": 44,
+    "small": 15,
+    "aspect": 3,
+    "content": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1947 in Turkey\"",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "small": 31,
+    "dup_key": 8,
+    "year_conflict": 61
+   }
+  },
+  {
+   "q": "deepcat:\"1948 in Turkey\"",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "dup_key": 8,
+    "year_conflict": 82,
+    "aspect": 3,
+    "small": 3,
+    "mime": 1,
+    "content": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1949 in Turkey\"",
+   "kept": 0,
+   "needGeo": 2,
+   "rejected": {
+    "dup_key": 21,
+    "small": 12,
+    "year_conflict": 61,
+    "no_coords": 2,
+    "aspect": 3,
+    "content": 1
+   }
+  }
+ ]
+}

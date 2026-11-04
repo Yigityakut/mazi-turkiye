@@ -1,0 +1,554 @@
+[
+ {
+  "id": "1-1",
+  "source_key": "commons:File:Bir gün - panoramio.jpg"
+ },
+ {
+  "id": "1-2",
+  "source_key": "commons:File:Kale den Kastamonu... - panoramio (2).jpg"
+ },
+ {
+  "id": "1-3",
+  "source_key": "commons:File:Bizim bahçe - panoramio.jpg"
+ },
+ {
+  "id": "1-4",
+  "source_key": "commons:File:Cevizin Altı (Mustafa DİNÇ'in evinin önü) - panoramio.jpg"
+ },
+ {
+  "id": "1-5",
+  "source_key": "commons:File:Home Sweat Home 01348.jpg"
+ },
+ {
+  "id": "1-6",
+  "source_key": "commons:File:07980 Beycik-Kemer-Antalya, Turkey - panoramio (17).jpg"
+ },
+ {
+  "id": "1-7",
+  "source_key": "commons:File:Tekirova-Kemer-Antalya, Turkey - panoramio (8).jpg"
+ },
+ {
+  "id": "1-8",
+  "source_key": "commons:File:07980 Beycik-Kemer-Antalya, Turkey - panoramio (18).jpg"
+ },
+ {
+  "id": "1-9",
+  "source_key": "commons:File:Kemer, Antalya, Turkey - panoramio (33).jpg"
+ },
+ {
+  "id": "1-10",
+  "source_key": "commons:File:Merkez, Kemer-Antalya, Turkey - panoramio (2).jpg"
+ },
+ {
+  "id": "1-11",
+  "source_key": "commons:File:Miniaturk 07201.jpg"
+ },
+ {
+  "id": "1-12",
+  "source_key": "commons:File:Ulucami-bursa - panoramio.jpg"
+ },
+ {
+  "id": "1-13",
+  "source_key": "commons:File:Miniaturk 07212.jpg"
+ },
+ {
+  "id": "1-14",
+  "source_key": "commons:File:Eyüp Sultan....... - panoramio (1).jpg"
+ },
+ {
+  "id": "1-15",
+  "source_key": "commons:File:Puente de Aspendos - panoramio.jpg"
+ },
+ {
+  "id": "1-16",
+  "source_key": "commons:File:Yeşilyöre Belediyesi - panoramio.jpg"
+ },
+ {
+  "id": "1-17",
+  "source_key": "commons:File:Turkey-2299 (2217028820) (2).jpg"
+ },
+ {
+  "id": "1-18",
+  "source_key": "commons:File:Turkey-1394 (2216630548) (2).jpg"
+ },
+ {
+  "id": "1-19",
+  "source_key": "commons:File:Cappadocia March 2006.jpg"
+ },
+ {
+  "id": "1-20",
+  "source_key": "commons:File:Turkey-2809 (2217174258) (2).jpg"
+ },
+ {
+  "id": "2-1",
+  "source_key": "commons:File:Turkey-2184 (2216209693) (2).jpg"
+ },
+ {
+  "id": "2-2",
+  "source_key": "commons:File:Turkey-2034 (2216719452) (2).jpg"
+ },
+ {
+  "id": "2-3",
+  "source_key": "commons:File:00 1356 Nemrut Dağı, antikes Heiligtum und Grabstätte (Türkei).jpg"
+ },
+ {
+  "id": "2-4",
+  "source_key": "commons:File:Eclipse IMG 0051 (139978634).jpg"
+ },
+ {
+  "id": "2-5",
+  "source_key": "commons:File:Juandesant - IMG 0074 (by-sa).jpg"
+ },
+ {
+  "id": "2-6",
+  "source_key": "commons:File:Insaat yollarinda - panoramio.jpg"
+ },
+ {
+  "id": "2-7",
+  "source_key": "commons:File:Turkey, Istanbul, Hagia Sophia (Ayasofya) (3945389734).jpg"
+ },
+ {
+  "id": "2-8",
+  "source_key": "commons:File:Eclipse IMG 0019 (139977268).jpg"
+ },
+ {
+  "id": "2-9",
+  "source_key": "commons:File:Fish farming in Aegean Turkey - panoramio.jpg"
+ },
+ {
+  "id": "2-10",
+  "source_key": "commons:File:Eğridir gölü - panoramio.jpg"
+ },
+ {
+  "id": "2-11",
+  "source_key": "commons:File:Kocatepe Camii (2007) 23.jpg"
+ },
+ {
+  "id": "2-12",
+  "source_key": "commons:File:BURSA MERMER SELAHATTİN YILMAZIN OCAĞI - panoramio.jpg"
+ },
+ {
+  "id": "2-13",
+  "source_key": "commons:File:52500 Sefalık-Aybastı-Ordu, Turkey - panoramio (69).jpg"
+ },
+ {
+  "id": "2-14",
+  "source_key": "commons:File:Çiftekaya Tepesi - panoramio - Allen Turner.jpg"
+ },
+ {
+  "id": "2-15",
+  "source_key": "commons:File:Cindi - panoramio.jpg"
+ },
+ {
+  "id": "2-16",
+  "source_key": "commons:File:Памуккале - panoramio.jpg"
+ },
+ {
+  "id": "2-17",
+  "source_key": "commons:File:KBB Trafik Hizmetleri Gebze Subesi - panoramio.jpg"
+ },
+ {
+  "id": "2-18",
+  "source_key": "commons:File:BİSMİL- BAŞMELU -OCAK 2016 - panoramio (2).jpg"
+ },
+ {
+  "id": "2-19",
+  "source_key": "commons:File:Özpak oto elektrik yeşilköy - panoramio.jpg"
+ },
+ {
+  "id": "2-20",
+  "source_key": "commons:File:Белые склоны Памуккале - panoramio.jpg"
+ },
+ {
+  "id": "3-1",
+  "source_key": "commons:File:Kocatepe Camii Ankara.JPG"
+ },
+ {
+  "id": "3-2",
+  "source_key": "commons:File:Turecko Karakuş Tumulus (07).jpg"
+ },
+ {
+  "id": "3-3",
+  "source_key": "commons:File:DSC 2971 - panoramio.jpg"
+ },
+ {
+  "id": "3-4",
+  "source_key": "commons:File:Kiler Market - panoramio.jpg"
+ },
+ {
+  "id": "3-5",
+  "source_key": "commons:File:ULUDAĞ MANZARA - panoramio.jpg"
+ },
+ {
+  "id": "3-6",
+  "source_key": "commons:File:İMAMUŞAĞI KÖYÜNE GİDERKEN DEMİR KÖPRÜ - panoramio.jpg"
+ },
+ {
+  "id": "3-7",
+  "source_key": "commons:File:Blue Mosque Courtyard Dusk Wikimedia Commons.jpg"
+ },
+ {
+  "id": "3-8",
+  "source_key": "commons:File:Cappadocia Aerial View Landscape.jpg"
+ },
+ {
+  "id": "3-9",
+  "source_key": "commons:File:Kuppel Kleine Hagia Sophia.jpg"
+ },
+ {
+  "id": "3-10",
+  "source_key": "commons:File:Tahtacık Yaylası kamil yıldırım - panoramio.jpg"
+ },
+ {
+  "id": "3-11",
+  "source_key": "commons:File:Tepe, Barbaros Cd., 48700 Marmaris-Muğla, Turkey - panoramio.jpg"
+ },
+ {
+  "id": "3-12",
+  "source_key": "commons:File:Butterfly Syrian Marbled White - Melanargia syriaca.jpg"
+ },
+ {
+  "id": "3-13",
+  "source_key": "commons:File:TR.IZ.Selcuk Ephesus 2011-10-04 Temple-of-Artemis 07 3x2-R 5K.jpg"
+ },
+ {
+  "id": "3-14",
+  "source_key": "commons:File:Hierapolis theatre scaenae frons details 4935.jpg"
+ },
+ {
+  "id": "3-15",
+  "source_key": "commons:File:İşte Gazibeyli Köyü (ELİTOKLAR DERNEĞİ) - panoramio.jpg"
+ },
+ {
+  "id": "3-16",
+  "source_key": "commons:File:Boztepe, Trabzon - panoramio (1).jpg"
+ },
+ {
+  "id": "3-17",
+  "source_key": "commons:File:Ataturk's Mausoleum (6225341313).jpg"
+ },
+ {
+  "id": "3-18",
+  "source_key": "commons:File:BURSA KOZAHAN - panoramio (7).jpg"
+ },
+ {
+  "id": "3-19",
+  "source_key": "commons:File:Entrance - Hagia Sophia (8396095708).jpg"
+ },
+ {
+  "id": "3-20",
+  "source_key": "commons:File:Cobalt blue Iznik tiles - Topkapi Palace (8396722380).jpg"
+ },
+ {
+  "id": "4-1",
+  "source_key": "commons:File:Termessos - Theater.jpg"
+ },
+ {
+  "id": "4-2",
+  "source_key": "commons:File:Butterfly Southern White Admiral - Limenitis reducta 01.jpg"
+ },
+ {
+  "id": "4-3",
+  "source_key": "commons:File:HÜYÜKLÜ-AFŞİN - panoramio.jpg"
+ },
+ {
+  "id": "4-4",
+  "source_key": "commons:File:Butterfly African Queen - Danaus chrysippus.jpg"
+ },
+ {
+  "id": "4-5",
+  "source_key": "commons:File:Demonstrations and protests against policies in Turkey 201306 1340412.jpg"
+ },
+ {
+  "id": "4-6",
+  "source_key": "commons:File:Büyükhusun Hotel - panoramio.jpg"
+ },
+ {
+  "id": "4-7",
+  "source_key": "commons:File:Sultan Ahmet Mosque February 2013.jpg"
+ },
+ {
+  "id": "4-8",
+  "source_key": "commons:File:Assmann's Fritillary - Mellicta britomartis.jpg"
+ },
+ {
+  "id": "4-9",
+  "source_key": "commons:File:Melitaea didyma - Spotted Fritillary, Kırklareli 2013-06-09 01-1.jpg"
+ },
+ {
+  "id": "4-10",
+  "source_key": "commons:File:Büyükhusun da bir Eşek -) - panoramio.jpg"
+ },
+ {
+  "id": "4-11",
+  "source_key": "commons:File:Ethnography Museum of Ankara.jpg"
+ },
+ {
+  "id": "4-12",
+  "source_key": "commons:File:Haci Bayram Mosque 01.jpg"
+ },
+ {
+  "id": "4-13",
+  "source_key": "commons:File:Arslanhane Mosque 01.jpg"
+ },
+ {
+  "id": "4-14",
+  "source_key": "commons:File:Chandelier inside Süleymaniye Mosque.JPG"
+ },
+ {
+  "id": "4-15",
+  "source_key": "commons:File:Tumulus of Karakus 12.jpg"
+ },
+ {
+  "id": "4-16",
+  "source_key": "commons:File:Mevlid-i Halil Mosque 08.jpg"
+ },
+ {
+  "id": "4-17",
+  "source_key": "commons:File:Polyommatus guezelmavi - Taşkent güzelmavisi 03.jpg"
+ },
+ {
+  "id": "4-18",
+  "source_key": "commons:File:Bafra da Kar - panoramio (3).jpg"
+ },
+ {
+  "id": "4-19",
+  "source_key": "commons:File:Polyommatus guezelmavi - Taşkent güzelmavisi 02.jpg"
+ },
+ {
+  "id": "4-20",
+  "source_key": "commons:File:African monarch - Danaus chrysippus.jpg"
+ },
+ {
+  "id": "5-1",
+  "source_key": "commons:File:Polyommatus guezelmavi - Taşkent güzelmavisi 01.jpg"
+ },
+ {
+  "id": "5-2",
+  "source_key": "commons:File:Yıldırım Bayezid hamamı bursa - panoramio.jpg"
+ },
+ {
+  "id": "5-3",
+  "source_key": "commons:File:Polyommatus amandus - Çokgözlü Amanda 02.jpg"
+ },
+ {
+  "id": "5-4",
+  "source_key": "commons:File:Polyommatus bellis antiochena - Hatay'ın Çokgözlü Güzelmavisi 02.jpg"
+ },
+ {
+  "id": "5-5",
+  "source_key": "commons:File:Polyommatus bellis antiochena - Hatay'ın Çokgözlü Güzelmavisi 26.jpg"
+ },
+ {
+  "id": "5-6",
+  "source_key": "commons:File:Argynnis aglaja - Güzel inci 09-3.jpg"
+ },
+ {
+  "id": "5-7",
+  "source_key": "commons:File:Coenonympha pamphilus - Küçük zıpzıp perisi 12.jpg"
+ },
+ {
+  "id": "5-8",
+  "source_key": "commons:File:Danaus chrysippus - African monarch in Karaisalı 2016 01-4.jpg"
+ },
+ {
+  "id": "5-9",
+  "source_key": "commons:File:Acacia farnesiana, Adana 2017-07-12 01-1.jpg"
+ },
+ {
+  "id": "5-10",
+  "source_key": "commons:File:Fenerbahçe Women's Basketball vs Yakın Doğu Üniversitesi (women's basketball) TWBL 20180521 (44).jpg"
+ },
+ {
+  "id": "5-11",
+  "source_key": "commons:File:20180109 KaymakliUnderground 3554 (39921679071).jpg"
+ },
+ {
+  "id": "5-12",
+  "source_key": "commons:File:Brintesia circe, Giresun 2017-07-07 01-1.jpg"
+ },
+ {
+  "id": "5-13",
+  "source_key": "commons:File:Göksenin Köksal Fenerbahçe Men's Basketball vs Galatasaray Men's Basketball TSL 20180304.jpg"
+ },
+ {
+  "id": "5-14",
+  "source_key": "commons:File:20180107 Safranbolu 2139 (39810232631).jpg"
+ },
+ {
+  "id": "5-15",
+  "source_key": "commons:File:Augustine Rubit 21 Brose Bamberg EuroLeague 20180209 (cropped).jpg"
+ },
+ {
+  "id": "5-16",
+  "source_key": "commons:File:Fenerbahçe Women's Basketball vs BC Nadezhda Orenburg EuroLeague Women 20171011 (68).jpg"
+ },
+ {
+  "id": "5-17",
+  "source_key": "commons:File:Calvin Dorsey Harris Jr. 11 Sakarya Büyükşehir Belediyespor 20180107.jpg"
+ },
+ {
+  "id": "5-18",
+  "source_key": "commons:File:Istanbul Airport, Arnavutköy (P1090184).jpg"
+ },
+ {
+  "id": "5-19",
+  "source_key": "commons:File:Ferry in Istanbul, 3.jpg"
+ },
+ {
+  "id": "5-20",
+  "source_key": "commons:File:Argynnis paphia - Silver-washed fritillary, Giresun 2018-08-21 8.jpg"
+ },
+ {
+  "id": "6-1",
+  "source_key": "commons:File:Mosque Ibrahim Agha 2019 G2.jpg"
+ },
+ {
+  "id": "6-2",
+  "source_key": "commons:File:Bosphorus, Istanbul (P1100293).jpg"
+ },
+ {
+  "id": "6-3",
+  "source_key": "commons:File:Marmaris beach chairs 2019 G1.jpg"
+ },
+ {
+  "id": "6-4",
+  "source_key": "commons:File:Lake and town 2019 G02.jpg"
+ },
+ {
+  "id": "6-5",
+  "source_key": "commons:File:Fatih, Istanbul (P1100233).jpg"
+ },
+ {
+  "id": "6-6",
+  "source_key": "commons:File:Dalyan water 2019 G1.jpg"
+ },
+ {
+  "id": "6-7",
+  "source_key": "commons:File:Euphorbia paralias - Sea spurge - Kum sütleğeni 11.jpg"
+ },
+ {
+  "id": "6-8",
+  "source_key": "commons:File:Alanya Dımçayı.jpg"
+ },
+ {
+  "id": "6-9",
+  "source_key": "commons:File:Vitex agnus-castus - Chaste tree 01.jpg"
+ },
+ {
+  "id": "6-10",
+  "source_key": "commons:File:Tuzla Wild Life Development Area, Adana 01.jpg"
+ },
+ {
+  "id": "6-11",
+  "source_key": "commons:File:Karakoy ferry pier, Istanbul (P1100291).jpg"
+ },
+ {
+  "id": "6-12",
+  "source_key": "commons:File:Aliağa STAR Refinery.jpg"
+ },
+ {
+  "id": "6-13",
+  "source_key": "commons:File:Elmas göl.jpg"
+ },
+ {
+  "id": "6-14",
+  "source_key": "commons:File:Mapillary (0ZGi8UCLY6TblqMo3s91yz) (ademturkmen) 2021-12-11 11H43M20S000.jpg"
+ },
+ {
+  "id": "6-15",
+  "source_key": "commons:File:To Be a Wood in Olympos.jpg"
+ },
+ {
+  "id": "6-16",
+  "source_key": "commons:File:Mapillary (0ZGi8UCLY6TblqMo3s91yz) (ademturkmen) 2021-12-11 11H35M14S000.jpg"
+ },
+ {
+  "id": "6-17",
+  "source_key": "commons:File:Tomb of Prince Musa Çelebi, son of Sultan Bayezid I of the Ottoman Empire.jpg"
+ },
+ {
+  "id": "6-18",
+  "source_key": "commons:File:H. Parkan Sanlıkol Müzesi-1, 2021.jpg"
+ },
+ {
+  "id": "6-19",
+  "source_key": "commons:File:Fatihistanbul.jpg"
+ },
+ {
+  "id": "6-20",
+  "source_key": "commons:File:Wikipedia Birthday Wikipedia Day 2022 in Turkey (1) 29.jpg"
+ },
+ {
+  "id": "7-1",
+  "source_key": "commons:File:Fenerbahçe - Austria Wien 20220825 (6).jpg"
+ },
+ {
+  "id": "7-2",
+  "source_key": "commons:File:TCDD MT15441 Bolkuş - Karabük.jpg"
+ },
+ {
+  "id": "7-3",
+  "source_key": "commons:File:TCDD DE 33 075 Konak - Murat.jpg"
+ },
+ {
+  "id": "7-4",
+  "source_key": "commons:File:TCDD DE 22 068 Kurk - Uluova.jpg"
+ },
+ {
+  "id": "7-5",
+  "source_key": "commons:File:Cumhuriyet Müzesi (II. Türkiye Büyük Millet Meclisi Binası), 2023 65.jpg"
+ },
+ {
+  "id": "7-6",
+  "source_key": "commons:File:Aid collected in Fenerbahçe Stadium, Istanbul for the 2023 Gaziantep-Kahramanmaraş earthquakes 20230210 (15).jpg"
+ },
+ {
+  "id": "7-7",
+  "source_key": "commons:File:Sheraton Hotel Adana and Seyhan River.jpg"
+ },
+ {
+  "id": "7-8",
+  "source_key": "commons:File:Ankara Aug 2023 13 36 56 939000.jpeg"
+ },
+ {
+  "id": "7-9",
+  "source_key": "commons:File:Hacı Musa Camii, 2023 22.jpg"
+ },
+ {
+  "id": "7-10",
+  "source_key": "commons:File:Cumhuriyet Müzesi (II. Türkiye Büyük Millet Meclisi Binası), 2023 59.jpg"
+ },
+ {
+  "id": "7-11",
+  "source_key": "commons:File:Istanbul (TR), Bostancı -- 2024 -- 0011.jpg"
+ },
+ {
+  "id": "7-12",
+  "source_key": "commons:File:Manhole cover 20.09.24 in Istanbul 01.jpg"
+ },
+ {
+  "id": "7-13",
+  "source_key": "commons:File:Ceiling of Galata Tower.jpg"
+ },
+ {
+  "id": "7-14",
+  "source_key": "commons:File:Roberto Jr Vizcaino at Istanbul Jazz Festival 20250701 (2).jpg"
+ },
+ {
+  "id": "7-15",
+  "source_key": "commons:File:Yağmur Öztürk (basketball, born 2009) 14 Kocaeli Kadın Basketbol 20251108 (3).jpg"
+ },
+ {
+  "id": "7-16",
+  "source_key": "commons:File:Aziz Panteleimon Kilisesi 02.jpg"
+ },
+ {
+  "id": "7-17",
+  "source_key": "commons:File:Hayme Ana Türbesi Genel Görüntüsü 2.jpg"
+ },
+ {
+  "id": "7-18",
+  "source_key": "commons:File:Scottie Wilbekin 20260129 (1).jpg"
+ }
+]

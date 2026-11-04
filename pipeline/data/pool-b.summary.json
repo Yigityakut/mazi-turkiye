@@ -1,0 +1,651 @@
+{
+ "total": 15,
+ "needGeo": 151,
+ "summary": [
+  {
+   "q": "deepcat:\"1950 in Turkey\"",
+   "kept": 0,
+   "needGeo": 16,
+   "rejected": {
+    "small": 42,
+    "year_conflict": 88,
+    "no_coords": 16,
+    "aspect": 3,
+    "dup_key": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1951 in Turkey\"",
+   "kept": 0,
+   "needGeo": 2,
+   "rejected": {
+    "small": 31,
+    "year_conflict": 113,
+    "no_coords": 2,
+    "dup_key": 4
+   }
+  },
+  {
+   "q": "deepcat:\"1952 in Turkey\"",
+   "kept": 0,
+   "needGeo": 40,
+   "rejected": {
+    "year_conflict": 25,
+    "small": 13,
+    "aspect": 2,
+    "content": 5,
+    "no_coords": 40
+   }
+  },
+  {
+   "q": "deepcat:\"1953 in Turkey\"",
+   "kept": 0,
+   "needGeo": 8,
+   "rejected": {
+    "year_conflict": 87,
+    "content": 21,
+    "small": 10,
+    "dup_key": 19,
+    "license": 1,
+    "no_coords": 8,
+    "aspect": 4
+   }
+  },
+  {
+   "q": "deepcat:\"1954 in Turkey\"",
+   "kept": 0,
+   "needGeo": 11,
+   "rejected": {
+    "year_conflict": 109,
+    "no_coords": 11,
+    "small": 20,
+    "license": 1,
+    "mime": 1,
+    "aspect": 6,
+    "content": 1,
+    "dup_key": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1955 in Turkey\"",
+   "kept": 0,
+   "needGeo": 7,
+   "rejected": {
+    "year_conflict": 115,
+    "no_coords": 7,
+    "small": 11,
+    "content": 10,
+    "aspect": 1,
+    "license": 1,
+    "dup_key": 5
+   }
+  },
+  {
+   "q": "deepcat:\"1956 in Turkey\"",
+   "kept": 0,
+   "needGeo": 3,
+   "rejected": {
+    "year_conflict": 109,
+    "small": 15,
+    "dup_key": 19,
+    "no_coords": 3,
+    "aspect": 4
+   }
+  },
+  {
+   "q": "deepcat:\"1957 in Turkey\"",
+   "kept": 0,
+   "needGeo": 2,
+   "rejected": {
+    "year_conflict": 39,
+    "small": 16,
+    "no_coords": 2,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1958 in Turkey\"",
+   "kept": 0,
+   "needGeo": 10,
+   "rejected": {
+    "small": 20,
+    "year_conflict": 113,
+    "dup_key": 2,
+    "content": 1,
+    "no_coords": 10,
+    "aspect": 3,
+    "mime": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1959 in Turkey\"",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "small": 23,
+    "year_conflict": 95,
+    "aspect": 2,
+    "dup_key": 30
+   }
+  },
+  {
+   "q": "deepcat:\"1960 in Turkey\"",
+   "kept": 0,
+   "needGeo": 6,
+   "rejected": {
+    "small": 35,
+    "year_conflict": 100,
+    "no_coords": 6,
+    "aspect": 3,
+    "content": 2,
+    "dup_key": 3,
+    "mime": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1961 in Turkey\"",
+   "kept": 0,
+   "needGeo": 20,
+   "rejected": {
+    "small": 26,
+    "year_conflict": 94,
+    "no_coords": 20,
+    "content": 4,
+    "dup_key": 6
+   }
+  },
+  {
+   "q": "deepcat:\"1962 in Turkey\"",
+   "kept": 9,
+   "needGeo": 30,
+   "rejected": {
+    "small": 12,
+    "dup_key": 4,
+    "year_conflict": 16,
+    "no_coords": 30,
+    "content": 2,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1963 in Turkey\"",
+   "kept": 0,
+   "needGeo": 1,
+   "rejected": {
+    "year_conflict": 84,
+    "small": 27,
+    "dup_key": 31,
+    "aspect": 5,
+    "license": 1,
+    "no_coords": 1,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1964 in Turkey\"",
+   "kept": 0,
+   "needGeo": 6,
+   "rejected": {
+    "year_conflict": 91,
+    "small": 27,
+    "dup_key": 11,
+    "mime": 3,
+    "no_coords": 6,
+    "content": 3,
+    "aspect": 9
+   }
+  },
+  {
+   "q": "deepcat:\"1965 in Turkey\"",
+   "kept": 0,
+   "needGeo": 1,
+   "rejected": {
+    "year_conflict": 122,
+    "aspect": 6,
+    "small": 12,
+    "no_coords": 1,
+    "content": 2,
+    "license": 6,
+    "dup_key": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1966 in Turkey\"",
+   "kept": 0,
+   "needGeo": 35,
+   "rejected": {
+    "year_conflict": 96,
+    "small": 10,
+    "dup_key": 5,
+    "mime": 1,
+    "no_coords": 35,
+    "aspect": 2,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1967 in Turkey\"",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "year_conflict": 111,
+    "small": 21,
+    "dup_key": 7,
+    "content": 8,
+    "license": 1,
+    "aspect": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1968 in Turkey\"",
+   "kept": 0,
+   "needGeo": 16,
+   "rejected": {
+    "content": 6,
+    "small": 19,
+    "dup_key": 5,
+    "year_conflict": 102,
+    "no_coords": 16,
+    "aspect": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1969 in Turkey\"",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "small": 12,
+    "year_conflict": 98,
+    "aspect": 5,
+    "dup_key": 35
+   }
+  },
+  {
+   "q": "deepcat:\"1970 in Turkey\"",
+   "kept": 0,
+   "needGeo": 1,
+   "rejected": {
+    "small": 4,
+    "dup_key": 37,
+    "year_conflict": 104,
+    "aspect": 1,
+    "content": 3,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1971 in Turkey\"",
+   "kept": 0,
+   "needGeo": 1,
+   "rejected": {
+    "no_coords": 1,
+    "small": 22,
+    "year_conflict": 108,
+    "aspect": 5,
+    "license": 5,
+    "dup_key": 8,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1972 in Turkey\"",
+   "kept": 0,
+   "needGeo": 3,
+   "rejected": {
+    "small": 10,
+    "year_conflict": 121,
+    "aspect": 1,
+    "dup_key": 13,
+    "content": 2,
+    "no_coords": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1973 in Turkey\"",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "year_conflict": 140,
+    "license": 2,
+    "aspect": 5,
+    "small": 3
+   }
+  },
+  {
+   "q": "deepcat:\"1974 in Turkey\"",
+   "kept": 0,
+   "needGeo": 9,
+   "rejected": {
+    "small": 20,
+    "year_conflict": 101,
+    "aspect": 2,
+    "dup_key": 3,
+    "content": 13,
+    "no_coords": 9,
+    "outside_tr": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1975 in Turkey\"",
+   "kept": 0,
+   "needGeo": 5,
+   "rejected": {
+    "year_conflict": 105,
+    "no_coords": 5,
+    "small": 31,
+    "dup_key": 5,
+    "aspect": 3,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1976 in Turkey\"",
+   "kept": 0,
+   "needGeo": 1,
+   "rejected": {
+    "dup_key": 73,
+    "year_conflict": 76,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1977 in Turkey\"",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "dup_key": 6,
+    "year_conflict": 116,
+    "small": 24,
+    "aspect": 2,
+    "license": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1978 in Turkey\"",
+   "kept": 0,
+   "needGeo": 1,
+   "rejected": {
+    "mime": 1,
+    "small": 49,
+    "year_conflict": 80,
+    "no_coords": 1,
+    "content": 9,
+    "dup_key": 8,
+    "license": 1,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1979 in Turkey\"",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "year_conflict": 114,
+    "dup_key": 3,
+    "small": 18,
+    "content": 11,
+    "license": 2,
+    "aspect": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1980 in Turkey\"",
+   "kept": 0,
+   "needGeo": 3,
+   "rejected": {
+    "small": 10,
+    "year_conflict": 127,
+    "content": 8,
+    "no_coords": 3,
+    "dup_key": 1,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1981 in Turkey\"",
+   "kept": 0,
+   "needGeo": 9,
+   "rejected": {
+    "year_conflict": 116,
+    "no_coords": 9,
+    "small": 12,
+    "content": 2,
+    "dup_key": 9,
+    "outside_tr": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1982 in Turkey\"",
+   "error": "Error: Search is currently too busy. Please try again later."
+  },
+  {
+   "q": "deepcat:\"1983 in Turkey\"",
+   "kept": 0,
+   "needGeo": 35,
+   "rejected": {
+    "no_coords": 35,
+    "small": 9,
+    "year_conflict": 98,
+    "dup_key": 1,
+    "aspect": 6,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1984 in Turkey\"",
+   "kept": 0,
+   "needGeo": 9,
+   "rejected": {
+    "small": 4,
+    "content": 13,
+    "year_conflict": 115,
+    "dup_key": 6,
+    "aspect": 3,
+    "no_coords": 9
+   }
+  },
+  {
+   "q": "deepcat:\"1985 in Turkey\"",
+   "kept": 0,
+   "needGeo": 4,
+   "rejected": {
+    "small": 35,
+    "dup_key": 7,
+    "year_conflict": 97,
+    "content": 2,
+    "no_coords": 4,
+    "aspect": 3,
+    "license": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1986 in Turkey\"",
+   "kept": 0,
+   "needGeo": 5,
+   "rejected": {
+    "year_conflict": 101,
+    "content": 6,
+    "small": 10,
+    "aspect": 1,
+    "no_coords": 5,
+    "license": 2,
+    "dup_key": 25
+   }
+  },
+  {
+   "q": "deepcat:\"1987 in Turkey\"",
+   "kept": 0,
+   "needGeo": 1,
+   "rejected": {
+    "year_conflict": 124,
+    "small": 7,
+    "dup_key": 14,
+    "aspect": 2,
+    "license": 2,
+    "no_coords": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1988 in Turkey\"",
+   "kept": 0,
+   "needGeo": 4,
+   "rejected": {
+    "aspect": 2,
+    "year_conflict": 117,
+    "small": 6,
+    "no_coords": 4,
+    "dup_key": 19,
+    "mime": 1,
+    "content": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1989 in Turkey\"",
+   "kept": 0,
+   "needGeo": 13,
+   "rejected": {
+    "small": 13,
+    "no_coords": 13,
+    "year_conflict": 117,
+    "license": 3,
+    "aspect": 2,
+    "dup_key": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1990 in Turkey\"",
+   "kept": 0,
+   "needGeo": 0,
+   "rejected": {
+    "year_conflict": 108,
+    "content": 2,
+    "dup_key": 27,
+    "aspect": 3,
+    "small": 10
+   }
+  },
+  {
+   "q": "deepcat:\"1991 in Turkey\"",
+   "kept": 0,
+   "needGeo": 7,
+   "rejected": {
+    "year_conflict": 130,
+    "dup_key": 5,
+    "small": 5,
+    "no_coords": 7,
+    "content": 2,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1992 in Turkey\"",
+   "kept": 0,
+   "needGeo": 6,
+   "rejected": {
+    "year_conflict": 117,
+    "content": 4,
+    "dup_key": 11,
+    "no_coords": 6,
+    "small": 9,
+    "license": 2,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1993 in Turkey\"",
+   "kept": 1,
+   "needGeo": 3,
+   "rejected": {
+    "year_conflict": 107,
+    "dup_key": 21,
+    "small": 4,
+    "content": 13,
+    "no_coords": 3,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1994 in Turkey\"",
+   "kept": 0,
+   "needGeo": 1,
+   "rejected": {
+    "year_conflict": 98,
+    "small": 6,
+    "dup_key": 42,
+    "content": 2,
+    "no_coords": 1,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1995 in Turkey\"",
+   "kept": 4,
+   "needGeo": 4,
+   "rejected": {
+    "year_conflict": 117,
+    "small": 18,
+    "content": 2,
+    "no_coords": 4,
+    "dup_key": 3,
+    "aspect": 1,
+    "outside_tr": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1996 in Turkey\"",
+   "kept": 0,
+   "needGeo": 16,
+   "rejected": {
+    "no_coords": 16,
+    "small": 18,
+    "content": 5,
+    "year_conflict": 103,
+    "dup_key": 3,
+    "aspect": 4,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1997 in Turkey\"",
+   "kept": 1,
+   "needGeo": 10,
+   "rejected": {
+    "small": 8,
+    "year_conflict": 104,
+    "aspect": 5,
+    "dup_key": 17,
+    "no_coords": 10,
+    "license": 3,
+    "mime": 2
+   }
+  },
+  {
+   "q": "deepcat:\"1998 in Turkey\"",
+   "kept": 0,
+   "needGeo": 4,
+   "rejected": {
+    "year_conflict": 82,
+    "aspect": 5,
+    "small": 47,
+    "license": 1,
+    "dup_key": 7,
+    "content": 3,
+    "no_coords": 4,
+    "mime": 1
+   }
+  },
+  {
+   "q": "deepcat:\"1999 in Turkey\"",
+   "kept": 4,
+   "needGeo": 8,
+   "rejected": {
+    "dup_key": 8,
+    "small": 56,
+    "no_coords": 8,
+    "aspect": 2,
+    "content": 30,
+    "year_conflict": 42
+   }
+  }
+ ]
+}

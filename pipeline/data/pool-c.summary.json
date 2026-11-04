@@ -1,0 +1,354 @@
+{
+ "total": 138,
+ "needGeo": 13,
+ "summary": [
+  {
+   "q": "deepcat:\"2000 in Turkey\"",
+   "kept": 1,
+   "needGeo": 2,
+   "rejected": {
+    "small": 7,
+    "year_conflict": 83,
+    "aspect": 2,
+    "no_coords": 2,
+    "content": 4,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"2001 in Turkey\"",
+   "kept": 3,
+   "needGeo": 1,
+   "rejected": {
+    "year_conflict": 74,
+    "small": 19,
+    "no_coords": 1,
+    "content": 3
+   }
+  },
+  {
+   "q": "deepcat:\"2002 in Turkey\"",
+   "kept": 12,
+   "needGeo": 19,
+   "rejected": {
+    "small": 12,
+    "year_conflict": 45,
+    "no_coords": 19,
+    "content": 4,
+    "dup_key": 7,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"2003 in Turkey\"",
+   "kept": 4,
+   "needGeo": 6,
+   "rejected": {
+    "dup_key": 7,
+    "no_coords": 6,
+    "small": 21,
+    "year_conflict": 54,
+    "outside_tr": 2,
+    "content": 3,
+    "license": 3
+   }
+  },
+  {
+   "q": "deepcat:\"2004 in Turkey\"",
+   "kept": 3,
+   "needGeo": 22,
+   "rejected": {
+    "small": 15,
+    "no_coords": 22,
+    "year_conflict": 49,
+    "outside_tr": 2,
+    "aspect": 2,
+    "dup_key": 5,
+    "content": 2
+   }
+  },
+  {
+   "q": "deepcat:\"2005 in Turkey\"",
+   "kept": 35,
+   "needGeo": 11,
+   "rejected": {
+    "year_conflict": 7,
+    "small": 4,
+    "no_coords": 11,
+    "aspect": 2,
+    "content": 12,
+    "outside_tr": 5,
+    "dup_key": 24
+   }
+  },
+  {
+   "q": "deepcat:\"2006 in Turkey\"",
+   "kept": 22,
+   "needGeo": 26,
+   "rejected": {
+    "small": 32,
+    "no_coords": 26,
+    "dup_key": 4,
+    "year_conflict": 11,
+    "outside_tr": 4,
+    "aspect": 1
+   }
+  },
+  {
+   "q": "deepcat:\"2007 in Turkey\"",
+   "kept": 21,
+   "needGeo": 21,
+   "rejected": {
+    "aspect": 3,
+    "no_coords": 21,
+    "dup_key": 23,
+    "content": 2,
+    "year_conflict": 15,
+    "small": 13,
+    "outside_tr": 2
+   }
+  },
+  {
+   "q": "deepcat:\"2008 in Turkey\"",
+   "kept": 36,
+   "needGeo": 13,
+   "rejected": {
+    "no_coords": 13,
+    "year_conflict": 14,
+    "outside_tr": 6,
+    "small": 17,
+    "content": 2,
+    "dup_key": 9,
+    "aspect": 3
+   }
+  },
+  {
+   "q": "deepcat:\"2009 in Turkey\"",
+   "kept": 38,
+   "needGeo": 15,
+   "rejected": {
+    "no_coords": 15,
+    "content": 1,
+    "dup_key": 10,
+    "small": 10,
+    "year_conflict": 11,
+    "outside_tr": 11,
+    "aspect": 3,
+    "license": 1
+   }
+  },
+  {
+   "q": "deepcat:\"2010 in Turkey\"",
+   "kept": 28,
+   "needGeo": 14,
+   "rejected": {
+    "no_coords": 14,
+    "dup_key": 14,
+    "outside_tr": 6,
+    "aspect": 3,
+    "content": 1,
+    "license": 1,
+    "small": 2,
+    "year_conflict": 31
+   }
+  },
+  {
+   "q": "deepcat:\"2011 in Turkey\"",
+   "kept": 34,
+   "needGeo": 15,
+   "rejected": {
+    "year_conflict": 26,
+    "aspect": 2,
+    "outside_tr": 9,
+    "no_coords": 15,
+    "content": 2,
+    "small": 7,
+    "dup_key": 5
+   }
+  },
+  {
+   "q": "deepcat:\"2012 in Turkey\"",
+   "kept": 24,
+   "needGeo": 23,
+   "rejected": {
+    "no_coords": 23,
+    "dup_key": 2,
+    "outside_tr": 6,
+    "year_conflict": 41,
+    "small": 4
+   }
+  },
+  {
+   "q": "deepcat:\"2013 in Turkey\"",
+   "kept": 37,
+   "needGeo": 21,
+   "rejected": {
+    "outside_tr": 8,
+    "dup_key": 20,
+    "no_coords": 21,
+    "license": 1,
+    "year_conflict": 9,
+    "aspect": 1,
+    "small": 3
+   }
+  },
+  {
+   "q": "deepcat:\"2014 in Turkey\"",
+   "kept": 54,
+   "needGeo": 18,
+   "rejected": {
+    "dup_key": 5,
+    "no_coords": 18,
+    "outside_tr": 4,
+    "content": 1,
+    "aspect": 3,
+    "year_conflict": 15
+   }
+  },
+  {
+   "q": "deepcat:\"2015 in Turkey\"",
+   "kept": 54,
+   "needGeo": 24,
+   "rejected": {
+    "dup_key": 6,
+    "no_coords": 24,
+    "outside_tr": 10,
+    "small": 3,
+    "license": 1,
+    "content": 2
+   }
+  },
+  {
+   "q": "deepcat:\"2016 in Turkey\"",
+   "kept": 82,
+   "needGeo": 7,
+   "rejected": {
+    "outside_tr": 3,
+    "no_coords": 7,
+    "dup_key": 2,
+    "year_conflict": 3,
+    "aspect": 3
+   }
+  },
+  {
+   "q": "deepcat:\"2017 in Turkey\"",
+   "kept": 66,
+   "needGeo": 11,
+   "rejected": {
+    "dup_key": 9,
+    "no_coords": 11,
+    "outside_tr": 5,
+    "aspect": 1,
+    "year_conflict": 8
+   }
+  },
+  {
+   "q": "deepcat:\"2018 in Turkey\"",
+   "kept": 15,
+   "needGeo": 24,
+   "rejected": {
+    "year_conflict": 22,
+    "dup_key": 26,
+    "no_coords": 24,
+    "outside_tr": 12,
+    "small": 1
+   }
+  },
+  {
+   "q": "deepcat:\"2019 in Turkey\"",
+   "kept": 14,
+   "needGeo": 14,
+   "rejected": {
+    "year_conflict": 24,
+    "aspect": 1,
+    "no_coords": 14,
+    "dup_key": 8,
+    "outside_tr": 26,
+    "content": 1,
+    "license": 12
+   }
+  },
+  {
+   "q": "deepcat:\"2020 in Turkey\"",
+   "kept": 12,
+   "needGeo": 10,
+   "rejected": {
+    "dup_key": 55,
+    "no_coords": 10,
+    "outside_tr": 16,
+    "year_conflict": 3,
+    "content": 2,
+    "license": 2
+   }
+  },
+  {
+   "q": "deepcat:\"2021 in Turkey\"",
+   "kept": 25,
+   "needGeo": 25,
+   "rejected": {
+    "no_coords": 25,
+    "dup_key": 11,
+    "outside_tr": 16,
+    "aspect": 3,
+    "license": 10,
+    "content": 3,
+    "small": 2,
+    "year_conflict": 5
+   }
+  },
+  {
+   "q": "deepcat:\"2022 in Turkey\"",
+   "kept": 23,
+   "needGeo": 37,
+   "rejected": {
+    "no_coords": 37,
+    "aspect": 2,
+    "dup_key": 19,
+    "outside_tr": 7,
+    "year_conflict": 7,
+    "content": 4,
+    "small": 1
+   }
+  },
+  {
+   "q": "deepcat:\"2023 in Turkey\"",
+   "kept": 36,
+   "needGeo": 25,
+   "rejected": {
+    "dup_key": 16,
+    "small": 4,
+    "aspect": 2,
+    "no_coords": 25,
+    "content": 7,
+    "outside_tr": 7,
+    "year_conflict": 3
+   }
+  },
+  {
+   "q": "deepcat:\"2024 in Turkey\"",
+   "kept": 7,
+   "needGeo": 66,
+   "rejected": {
+    "dup_key": 16,
+    "no_coords": 66,
+    "year_conflict": 1,
+    "outside_tr": 6,
+    "aspect": 4
+   }
+  },
+  {
+   "q": "deepcat:\"2025 in Turkey\"",
+   "kept": 26,
+   "needGeo": 11,
+   "rejected": {
+    "outside_tr": 33,
+    "dup_key": 20,
+    "no_coords": 11,
+    "year_conflict": 6,
+    "aspect": 2,
+    "content": 1,
+    "small": 1
+   }
+  }
+ ]
+}
