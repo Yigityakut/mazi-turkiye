@@ -63,7 +63,7 @@ export function StoryBlock({ answer, onReport }: { answer: Answer; onReport?: ()
       ) : null}
       <Attribution answer={answer} />
       {onReport ? (
-        <Pressable accessibilityRole="button" accessibilityLabel="Bu bilgi yanlış mı? Bildir" onPress={onReport} hitSlop={8} style={{ alignSelf: "flex-start", paddingVertical: 6 }}>
+        <Pressable accessibilityRole="button" accessibilityLabel="Bu bilgi yanlış mı? Bildir" onPress={onReport} hitSlop={8} style={{ alignSelf: "flex-start", minHeight: 44, justifyContent: "center" }}>
           <T v="small" color={c.inkMuted} style={{ textDecorationLine: "underline" }}>Bu bilgi yanlış mı?</T>
         </Pressable>
       ) : null}
@@ -73,25 +73,39 @@ export function StoryBlock({ answer, onReport }: { answer: Answer; onReport?: ()
 
 const open = (url: string) => { Linking.openURL(url).catch(() => {}); };
 
+/**
+ * Atıf: eser sahibi + kaynak + lisans. Linkler satır içi metin değil, en az 44 pt yüksekliğinde ayrı dokunma alanları
+ * (Plan 5.2, QA D18); 12 pt satır içi linklere parmakla isabet etmek zordu.
+ */
 export function Attribution({ answer }: { answer: Pick<Answer, "author" | "source_name" | "source_url" | "license_code" | "license_url"> }) {
   const c = usePalette();
   return (
-    <T v="caption" muted>
-      Fotoğraf: {answer.author} ·{" "}
-      <T v="caption" color={c.inkMuted} style={{ textDecorationLine: "underline" }} accessibilityRole="link" onPress={() => open(answer.source_url)}>
-        {answer.source_name}
-      </T>
-      {" · "}
-      {answer.license_url ? (
-        <T v="caption" color={c.inkMuted} style={{ textDecorationLine: "underline" }} accessibilityRole="link" onPress={() => open(answer.license_url!)}>
-          {answer.license_code}
-        </T>
-      ) : answer.license_code}
-    </T>
+    <View>
+      <T v="caption" muted>Fotoğraf: {answer.author}</T>
+      <View style={styles.links}>
+        <LinkChip label={answer.source_name} a11y={`Kaynak: ${answer.source_name}`} onPress={() => open(answer.source_url)} color={c.inkMuted} />
+        {answer.license_url ? (
+          <LinkChip label={answer.license_code} a11y={`Lisans: ${answer.license_code}`} onPress={() => open(answer.license_url!)} color={c.inkMuted} />
+        ) : (
+          <View style={styles.link}><T v="caption" muted>{answer.license_code}</T></View>
+        )}
+      </View>
+    </View>
+  );
+}
+
+function LinkChip({ label, a11y, onPress, color }: { label: string; a11y: string; onPress: () => void; color: string }) {
+  return (
+    <Pressable accessibilityRole="link" accessibilityLabel={a11y} onPress={onPress}
+      style={({ pressed }) => [styles.link, { opacity: pressed ? 0.6 : 1 }]}>
+      <T v="caption" color={color} style={{ textDecorationLine: "underline" }} numberOfLines={1}>{label}</T>
+    </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
   row: { flexDirection: "row", alignItems: "flex-start", gap: space.md },
   stats: { flexDirection: "row", gap: space.lg },
+  links: { flexDirection: "row", flexWrap: "wrap", columnGap: space.lg },
+  link: { minHeight: 44, justifyContent: "center", maxWidth: "100%" },
 });

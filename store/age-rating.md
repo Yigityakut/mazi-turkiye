@@ -15,7 +15,7 @@
 | Sexual Content or Nudity | None |
 | Contests | None |
 | Unrestricted Web Access | No |
-| User-Generated Content | No (takma ad var ama içerik paylaşımı yok; kaba takma adlar filtrelenir) |
+| User-Generated Content | No (takma ad var ama içerik paylaşımı yok; kaba/hakaret içeren takma adlar hem uygulamada hem sunucuda Türkçe/İngilizce kelime listesiyle reddedilir; kötüye kullanım destek e-postasıyla bildirilir) |
 | Messaging / Chat | No |
 | Loot boxes | No |
 **Beklenen sonuç:** 4+

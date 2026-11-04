@@ -53,7 +53,7 @@ export default function Settings() {
 
   const saveNick = async () => {
     const n = nick.trim();
-    // İstemci tarafı küfür/hakaret süzgeci (sunucu şu an sadece uzunluk ve karakter kümesine bakıyor, QA O7)
+    // Küfür/hakaret süzgeci: önce istemcide (anında geri bildirim), aynısı sunucuda da var (update_profile → bad_nickname_word, QA O7)
     if (n && isOffensiveNickname(n)) { setErr(ERRORS.bad_nickname_word); setSavedNick(false); return; }
     try { await api.updateProfile({ nickname: n || null }); setSavedNick(true); setErr(null); refresh(); }
     catch (e) { setErr(errorText(e)); }
@@ -61,7 +61,7 @@ export default function Settings() {
   const pickHour = async (h: number | null) => {
     setHour(h);
     await prefs.setReminderOverride(h);
-    if (me) scheduleDailyReminder(!!me.today_result, me.streak.current).catch(() => {});
+    if (me) scheduleDailyReminder(!!me.today_result, me.streak.current, me.next_rollover).catch(() => {});
   };
   const setVisible = async (v: boolean) => {
     try { await api.updateProfile({ show_on_leaderboard: v }); setErr(null); refresh(); }

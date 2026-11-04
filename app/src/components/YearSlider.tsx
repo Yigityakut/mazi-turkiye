@@ -2,7 +2,7 @@ import * as Haptics from "expo-haptics";
 import { useRef, useState } from "react";
 import { Platform, Pressable, StyleSheet, View, type LayoutChangeEvent } from "react-native";
 import { GestureDetector, usePanGesture, useTapGesture, useSimultaneousGestures } from "react-native-gesture-handler";
-import { font, radius, usePalette } from "../lib/theme";
+import { font, GAME_FONT_SCALE, radius, usePalette } from "../lib/theme";
 import { T } from "./ui";
 
 type Props = { value: number; min: number; max: number; onChange: (y: number) => void; disabled?: boolean };
@@ -49,6 +49,7 @@ export function YearSlider({ value, min, max, onChange, disabled }: Props) {
         <StepButton label="−" onPress={() => step(-1)} disabled={disabled || value <= min} a11y="Bir yıl geri" />
         <T
           v="number"
+          maxFontSizeMultiplier={GAME_FONT_SCALE}
           style={{ fontSize: 40, lineHeight: 46, minWidth: 120, textAlign: "center" }}
           accessibilityRole="adjustable"
           accessibilityLabel={`Tahmin edilen yıl ${value}`}
@@ -72,7 +73,7 @@ export function YearSlider({ value, min, max, onChange, disabled }: Props) {
       </GestureDetector>
       <View style={styles.labels} pointerEvents="none">
         {w > 0 && labels.map((d) => (
-          <T key={d} v="caption" faint style={[styles.label, { left: ((d - min) / (max - min)) * w - 18 }]}>{d}</T>
+          <T key={d} v="caption" faint maxFontSizeMultiplier={GAME_FONT_SCALE} style={[styles.label, { left: ((d - min) / (max - min)) * w - 18 }]}>{d}</T>
         ))}
       </View>
     </View>
@@ -86,7 +87,7 @@ function StepButton({ label, onPress, disabled, a11y }: { label: string; onPress
       accessibilityRole="button" accessibilityLabel={a11y} disabled={disabled} onPress={onPress} hitSlop={8}
       style={({ pressed }) => [styles.step, { borderColor: c.line, backgroundColor: c.surface, opacity: disabled ? 0.35 : pressed ? 0.7 : 1 }]}
     >
-      <T style={{ fontFamily: font.semibold, fontSize: 22, lineHeight: 24 }}>{label}</T>
+      <T maxFontSizeMultiplier={GAME_FONT_SCALE} style={{ fontFamily: font.semibold, fontSize: 22, lineHeight: 24 }}>{label}</T>
     </Pressable>
   );
 }

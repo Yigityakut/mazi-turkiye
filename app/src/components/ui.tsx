@@ -35,9 +35,9 @@ export function T({ v = "body", muted, faint, color, center, style, children, ..
   );
 }
 
-export function Button({ title, onPress, kind = "primary", icon, loading, disabled, style, small, accessibilityLabel }:
+export function Button({ title, onPress, kind = "primary", icon, loading, disabled, style, small, accessibilityLabel, maxFontSizeMultiplier }:
   { title: string; onPress?: () => void; kind?: "primary" | "secondary" | "ghost" | "danger"; icon?: ReactNode; loading?: boolean;
-    disabled?: boolean; style?: StyleProp<ViewStyle>; small?: boolean; accessibilityLabel?: string }) {
+    disabled?: boolean; style?: StyleProp<ViewStyle>; small?: boolean; accessibilityLabel?: string; maxFontSizeMultiplier?: number }) {
   const c = usePalette();
   const bg = kind === "primary" ? c.accent : kind === "secondary" ? c.surface : kind === "danger" ? "transparent" : "transparent";
   const fg = kind === "primary" ? c.accentInk : kind === "danger" ? c.bad : c.ink;
@@ -60,7 +60,7 @@ export function Button({ title, onPress, kind = "primary", icon, loading, disabl
     >
       {loading ? <ActivityIndicator color={fg} /> : <>
         {icon}
-        <Text style={{ color: fg, fontFamily: font.semibold, fontSize: small ? 15 : 17 }}>{title}</Text>
+        <Text maxFontSizeMultiplier={maxFontSizeMultiplier} style={{ color: fg, fontFamily: font.semibold, fontSize: small ? 15 : 17 }}>{title}</Text>
       </>}
     </Pressable>
   );

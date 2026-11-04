@@ -1,9 +1,9 @@
 /**
  * Takma ad denetimi (App Store 1.2 / Play UGC, QA O7). Takma adlar sıralamada ve meydan okumalarda herkese görünür.
  *
- * Bu, İSTEMCİ tarafı ilk süzgeçtir: kaba kelime ve hakaretleri kaydetmeden önce yakalar. Sunucudaki `update_profile`
- * şu an yalnızca uzunluk ve karakter kümesini denetliyor; aynı listenin sunucuya da eklenmesi (`bad_nickname_word`
- * hatası) ve "takma adı bildir" akışı açık iş olarak `store/qa-report.md` → O7'de duruyor.
+ * Bu, İSTEMCİ tarafı ilk süzgeçtir: kaba kelime ve hakaretleri kaydetmeden önce yakalar. Aynı liste ve normalleştirme
+ * sunucuda da var (`supabase/migrations/20261104000800_nickname_filter.sql` → `private.is_offensive_nickname`,
+ * `update_profile` → `bad_nickname_word`). Liste değişirse İKİ yer birlikte güncellenmeli.
  *
  * Normalleştirme: küçük harf, Türkçe harfler ASCII'ye (ı→i, ş→s…), sık kullanılan rakam/işaret ikameleri (0→o, 1→i,
  * 3→e, 4→a, 5→s, 7→t, @→a, $→s). Uzatılmış harfler ("fuuuck") kısaltılır. Kısa veya başka kelimelerin içinde geçebilen

@@ -8,17 +8,23 @@ import { errorText, num } from "../../lib/format";
 import { font, space, usePalette } from "../../lib/theme";
 import type { Challenge } from "../../lib/types";
 
+const SOURCES = new Set(["link", "manual", "deferred"]);
+
 export default function ChallengeScreen() {
   const c = usePalette();
-  const { code } = useLocalSearchParams<{ code: string }>();
+  const { code, source } = useLocalSearchParams<{ code: string; source?: string }>();
   const [ch, setCh] = useState<Challenge | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const load = useCallback(() => {
     setErr(null); // QA O1
     api.challenge(code)
-      .then((x) => { setCh(x); if (!x.is_mine) track("challenge_opened", { source: "link" }); })
+      .then((x) => {
+        setCh(x);
+        // Kaynak rotadan: /m/<KOD> → link, kod ekranı → manual, karşılama → deferred (QA D12); kendi meydan okuman sayılmaz
+        if (!x.is_mine) track("challenge_opened", { source: SOURCES.has(String(source)) ? String(source) : "link" });
+      })
       .catch((e) => setErr(errorText(e)));
-  }, [code]);
+  }, [code, source]);
   useEffect(load, [load]);
   if (err) {
     return (

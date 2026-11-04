@@ -3,6 +3,11 @@
 // Apple ile giriş yapmış kullanıcıda istemci, silmeden hemen önce Apple'dan taze bir `authorization_code` alıp gönderir;
 // burada refresh token'a çevrilip Apple'ın /auth/revoke uç noktasıyla iptal edilir (Apple'ın token iptali şartı).
 // Gerekli gizli değerler: APPLE_TEAM_ID, APPLE_KEY_ID, APPLE_PRIVATE_KEY (p8 içeriği), APPLE_CLIENT_ID (bundle ID).
+// Kullanıcı silindikten sonra üçüncü taraf kayıtları da silinir (QA D7, gizlilik politikası):
+//   RevenueCat abonesi  → REVENUECAT_SECRET_KEY (DELETE /v1/subscribers/{id})
+//   PostHog kişisi + olayları → POSTHOG_PERSONAL_API_KEY (person:write), POSTHOG_PROJECT_ID, isteğe bağlı POSTHOG_API_HOST
+//     (varsayılan AB: https://eu.posthog.com; POST /api/projects/{id}/persons/bulk_delete/)
+// Değer yoksa ilgili adım atlanır ("…_not_configured"); silme yine tamamlanır.
 import { admin, json } from "../_shared/util.ts";
 
 const b64url = (b: ArrayBuffer | Uint8Array) =>
@@ -42,6 +47,30 @@ async function revokeApple(code: string) {
   return r.ok ? "revoked" : `apple_revoke_failed_${r.status}`;
 }
 
+async function deleteRevenueCat(uid: string) {
+  const key = Deno.env.get("REVENUECAT_SECRET_KEY");
+  if (!key) return "revenuecat_not_configured";
+  const r = await fetch(`https://api.revenuecat.com/v1/subscribers/${encodeURIComponent(uid)}`, {
+    method: "DELETE", headers: { Authorization: `Bearer ${key}` },
+  });
+  // 404: kullanıcı RevenueCat'te hiç oluşmamış (ör. iOS/Android dışı); silinmiş sayılır
+  return r.ok || r.status === 404 ? "deleted" : `revenuecat_failed_${r.status}`;
+}
+
+async function deletePostHog(uid: string) {
+  const key = Deno.env.get("POSTHOG_PERSONAL_API_KEY"), project = Deno.env.get("POSTHOG_PROJECT_ID");
+  if (!key || !project) return "posthog_not_configured";
+  const host = (Deno.env.get("POSTHOG_API_HOST") ?? "https://eu.posthog.com").replace(/\/+$/, "");
+  const r = await fetch(`${host}/api/projects/${encodeURIComponent(project)}/persons/bulk_delete/`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ distinct_ids: [uid], delete_events: true }),
+  });
+  return r.ok ? "queued" : `posthog_failed_${r.status}`;
+}
+
+const safe = (p: Promise<string>, tag: string) => p.catch((e) => `${tag}_error_${String(e).slice(0, 60)}`);
+
 Deno.serve(async (req) => {
   if (req.method !== "POST") return json({ error: "method" }, 405);
   const jwt = (req.headers.get("Authorization") ?? "").replace(/^Bearer\s+/i, "");
@@ -55,5 +84,10 @@ Deno.serve(async (req) => {
   }
   const del = await sb.auth.admin.deleteUser(data.user.id);
   if (del.error) return json({ error: del.error.message }, 500);
-  return json({ deleted: true, apple });
+  // Supabase silmesi başarılı olduktan sonra: başarısız silmede kullanıcının satın alımı/olayları kaybolmasın
+  const [revenuecat, posthog] = await Promise.all([
+    safe(deleteRevenueCat(data.user.id), "revenuecat"),
+    safe(deletePostHog(data.user.id), "posthog"),
+  ]);
+  return json({ deleted: true, apple, revenuecat, posthog });
 });

@@ -659,6 +659,31 @@ await test("update_profile validation", async () => {
   assert.equal(pr.is_pro, false); assert.equal(pr.is_admin, false); assert.equal(pr.elo, 1200);
 });
 
+await test("nickname filter: offensive nicknames are rejected server-side (mirrors app/src/lib/nickname.ts)", async () => {
+  const nick = () => val(`select nickname from public.profiles where id = $1`, [U.alice.id]);
+  await rpc(db, U.alice.who, "update_profile", { p: { nickname: "Ayşe" } });
+  const blocked = ["Orospu", "s1kt1r", "FUUUCK", "amk", "Ali amk", "Amk 34", "Yarrrrak", "Hitler", "SİKTİR", "0r0spu çocuğu",
+    "Bitch_42", "kys", "N4zi", "mk.ali", "Şerefsiz"];
+  for (const bad of blocked) {
+    await rejects(rpc(db, U.alice.who, "update_profile", { p: { nickname: bad } }), /bad_nickname_word/);
+  }
+  assert.equal(await nick(), "Ayşe", "a rejected nickname must not be stored");
+  const ok = ["Işık", "Nigar", "Amina", "fukara", "Gülşen", "Çağrı Öz_34", "Ayşe K.", "Sıkı Fan", "Gotham", "Kamil",
+    "Pıçak Usta", "Ocak", "Cumhur", "Sexton", "Am1ra", "Mert 06", "Deniz.K"];
+  for (const name of ok) {
+    await rpc(db, U.alice.who, "update_profile", { p: { nickname: name } });
+    assert.equal(await nick(), name);
+  }
+  // character-set errors still win over the word filter; blank still clears
+  await rejects(rpc(db, U.alice.who, "update_profile", { p: { nickname: "fuck!" } }), /bad_nickname/);
+  await rpc(db, U.alice.who, "update_profile", { p: { nickname: "" } });
+  assert.equal(await nick(), null);
+  assert.equal(await val(`select private.is_offensive_nickname(null)`), false);
+  assert.equal(await val(`select private.is_offensive_nickname('1234')`), false);
+  // not callable through the API
+  await rejects(as(db, U.alice.who, (tx) => tx.query(`select private.is_offensive_nickname('x')`)), /permission denied/);
+});
+
 // ---------------------------------------------------------------------------
 section("Photo reports");
 // ---------------------------------------------------------------------------
@@ -1011,6 +1036,24 @@ await test("duel_tick survives a failing queue entry (empty duel pool)", async (
   await rejects(rpc(db, U.nobody.who, "duel_queue_status"), /duel_pool_empty/);
   await q(`update public.photos set status = 'onayli' where pool = 'duel'`);
   await q(`update public.photos set status = 'yayinda' where id = any($1::uuid[])`, [yesterdayIds]);
+});
+
+await test("duel_matched is sent server-side with the opponent type (track-event), never through the client", async () => {
+  const evs = (await q(`select body from net.http_request_log where url like '%/track-event' order by id`)).map((r) => r.body.events).flat();
+  assert.ok(evs.length > 0, "no track-event requests were queued");
+  assert.ok(evs.every((e) => e.event === "duel_matched" && typeof e.distinct_id === "string"), JSON.stringify(evs.slice(0, 3)));
+  const kinds = new Set(evs.map((e) => e.properties.opponent_type));
+  assert.ok(kinds.has("bot") && kinds.has("player") && kinds.has("admin"), [...kinds].join(","));
+  // the admin's own side of an admin match is not counted
+  assert.ok(!evs.some((e) => e.distinct_id === U.admin.id), "admin's own side of an admin match must not be tracked");
+  const hdr = (await one(`select headers from net.http_request_log where url like '%/track-event' limit 1`)).headers;
+  assert.ok(hdr["x-internal-secret"], "internal secret header missing");
+  // inserting a finished duel row (backfill/tests) does not emit an event
+  const before = await val(`select count(*)::int from net.http_request_log where url like '%/track-event'`);
+  await q(`insert into public.duels(player_a, opponent_kind, state, round_started_at, round_deadline) values ($1, 'bot', 'finished', now(), now())`, [U.nobody.id]);
+  assert.equal(await val(`select count(*)::int from net.http_request_log where url like '%/track-event'`), before);
+  // the trigger function is not callable through the API
+  await rejects(as(db, U.alice.who, (tx) => tx.query(`select private.track_events('[]'::jsonb)`)), /permission denied/);
 });
 
 // ---------------------------------------------------------------------------

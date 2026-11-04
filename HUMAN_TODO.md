@@ -19,7 +19,7 @@ Dashboard → `timeguessr` projesi:
 - Authentication → Providers → **Apple**: Açık (Services ID ve anahtar Apple hesabı açılınca, madde 5)
 - Authentication → Providers → **Google**: Açık (Web client ID + secret, madde 7)
 - Authentication → **Manual linking**: Açık
-- Edge Functions → Secrets: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_ADMIN_CHAT_ID`, `REVENUECAT_WEBHOOK_AUTH` (rastgele uzun bir değer). İç çağrı anahtarı veritabanında otomatik üretildi; bir şey yapman gerekmiyor.
+- Edge Functions → Secrets: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_ADMIN_CHAT_ID`, `REVENUECAT_WEBHOOK_AUTH` (rastgele uzun bir değer); RevenueCat ve PostHog açılınca `REVENUECAT_SECRET_KEY` (madde 8), `POSTHOG_KEY`, `POSTHOG_PERSONAL_API_KEY`, `POSTHOG_PROJECT_ID` (madde 11). İç çağrı anahtarı veritabanında otomatik üretildi; bir şey yapman gerekmiyor.
 
 ### 3. [ ] Google Play geliştirici hesabı (25 $, kimlik doğrulama birkaç gün sürebilir)
 https://play.google.com/console/signup — **Öneri: Bireysel hesap.** Şirket hesabı 12 testçi kuralından muaf ama D-U-N-S numarası gerektirir (2–4 hafta).
@@ -55,6 +55,7 @@ Web client (Supabase'e), iOS client (bundle ID), Android client (paket adı + Pl
 
 ### 8. [ ] RevenueCat
 https://app.revenuecat.com → proje "Mazi Türkiye" → App Store ve Play uygulamalarını bağla → Entitlement `pro`, ürün `pro_lifetime` (detay: `store/iap.md`) → public SDK anahtarlarını `EXPO_PUBLIC_REVENUECAT_IOS_KEY` / `_ANDROID_KEY` olarak gir → Webhook URL'si ve Authorization başlığı (`store/iap.md`).
+- RevenueCat → Project settings → API keys → **Secret API key (v1)** → Supabase Edge Functions → Secrets: `REVENUECAT_SECRET_KEY`. Satın alma/geri yüklemeden hemen sonra Pro'yu sunucuda açan `sync-pro` fonksiyonu ve hesap silmede RevenueCat abonesini silen `delete-account` bunu kullanır (yoksa Pro sadece webhook'la açılır, silmede RevenueCat adımı atlanır).
 
 ### 9. [ ] Alan adı + proje e-postası
 - `maziturkiye.com` müsait mi kontrol et ve al (ajan konteynerden kontrol edemedi). Alınamazsa: `mazituerkiye.com`, `maziturkiye.app`, `mazi.com.tr` (.com.tr belge ister).
@@ -67,7 +68,11 @@ Bota bir mesaj at, sonra `https://api.telegram.org/bot<TOKEN>/getUpdates` adresi
 Admin hesabın: uygulamaya Apple ile giriş yap, Ayarlar'ın altındaki kimliği ajana ver (ajan `is_admin = true` yapar).
 
 ### 11. [ ] PostHog
-EU bölgesinde proje aç (KVKK için) → Project API key'i `EXPO_PUBLIC_POSTHOG_KEY`'e. Mevcut projen US ise gizlilik metnindeki bölge satırını güncelle.
+EU bölgesinde proje aç (KVKK için) → Project API key'i `EXPO_PUBLIC_POSTHOG_KEY`'e.
+Supabase Edge Functions → Secrets (girilmezse ilgili adım sessizce atlanır):
+- `POSTHOG_KEY` = aynı Project API key (phc_…): `duel_matched` olayı rakip türüyle sunucudan gider (`track-event`).
+- `POSTHOG_PERSONAL_API_KEY` (PostHog → Settings → Personal API keys, kapsam **person:write**) ve `POSTHOG_PROJECT_ID` (proje ayarlarındaki sayı): hesap silinince PostHog kişisi ve olayları silinir (`delete-account`).
+- Proje US bölgesindeyse ayrıca `POSTHOG_HOST=https://us.i.posthog.com` ve `POSTHOG_API_HOST=https://us.posthog.com`. Mevcut projen US ise gizlilik metnindeki bölge satırını güncelle.
 
 ### 12. [ ] Sosyal medya hesapları
 Kullanıcı adları, biyografi, profil görseli hazır: `marketing/social/profiles.md`. Instagram, TikTok, X, YouTube'da `@maziturkiye` (yoksa `@mazi.turkiye`, `@maziturkiyeapp`). Telefon/e-posta doğrulaması sende.

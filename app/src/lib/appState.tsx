@@ -11,8 +11,11 @@ import type { Me } from "./types";
 type Ctx = { me: Me | null; error: string | null; refresh: () => Promise<Me | null>; setPro: () => void };
 const AppCtx = createContext<Ctx>({ me: null, error: null, refresh: async () => null, setPro: () => {} });
 
-/** Satın almadan sonra sunucudaki `is_pro` (RevenueCat webhook'u) gelene kadar yenileme aralıkları. */
-const CONFIRM_DELAYS = [2000, 5000, 10000, 20000, 40000, 90000];
+/**
+ * Satın alma / geri yüklemeden sonra sunucudaki `is_pro` gelene kadar deneme aralıkları. Her denemede önce `sync-pro`
+ * (sunucu RevenueCat'e doğrudan sorar, QA Y1), sonra `get_me`. Webhook yedek olarak kalır.
+ */
+const CONFIRM_DELAYS = [300, 2000, 5000, 10000, 20000, 40000, 90000];
 
 const withTimeout = <T,>(p: Promise<T>, ms: number, fallback: T) =>
   Promise.race([p, new Promise<T>((r) => setTimeout(() => r(fallback), ms))]);
@@ -24,6 +27,11 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   /** Mağaza (RevenueCat) yetkisinin bu cihazda doğrulandığı kullanıcı kimliği. */
   const localPro = useRef<string | null>(null);
   const confirmTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  /** Onay döngüsü sürüyor mu (aynı anda ikinci döngü başlamasın). */
+  const confirming = useRef(false);
+  const confirmProRef = useRef<(attempt?: number) => void>(() => {});
+  /** Yenilemede kendiliğinden başlatılan doğrulama kullanıcı başına bir kez (sunucu reddederse her odakta dönmesin). */
+  const autoSynced = useRef<string | null>(null);
 
   const apply = (m: Me | null) => { meRef.current = m; setMe(m); };
 
@@ -47,7 +55,12 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       setError(null);
       // İnternetsiz ilk açılıştan sonra da RevenueCat/PostHog kimliği bağlansın (QA O9)
       if (!DEMO) void syncIdentity(m.id);
-      scheduleDailyReminder(!!m.today_result, m.streak.current).catch(() => {});
+      scheduleDailyReminder(!!m.today_result, m.streak.current, m.next_rollover).catch(() => {});
+      // Mağaza Pro diyor ama sunucu henüz bilmiyor (ör. webhook kayboldu, başka cihazda geri yüklendi): sunucuya doğrulat
+      if (!DEMO && m.is_pro && !server.is_pro && !confirming.current && autoSynced.current !== m.id) {
+        autoSynced.current = m.id;
+        confirmProRef.current(0);
+      }
       return { server, m };
     } catch (e) {
       setError(String(e));
@@ -57,15 +70,19 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
 
   const refresh = useCallback(async () => (await load())?.m ?? null, [load]);
 
-  /** Sunucu `is_pro`'yu onaylayana kadar artan aralıklarla yeniler; bu sırada yerel Pro açık kalır. */
+  /** Sunucu `is_pro`'yu onaylayana kadar artan aralıklarla `sync-pro` + yenileme; bu sırada yerel Pro açık kalır. */
   const confirmPro = useCallback((attempt = 0) => {
     if (confirmTimer.current) clearTimeout(confirmTimer.current);
-    if (attempt >= CONFIRM_DELAYS.length) return;
+    if (attempt >= CONFIRM_DELAYS.length) { confirming.current = false; return; }
+    confirming.current = true;
     confirmTimer.current = setTimeout(async () => {
+      await api.syncPro().catch(() => false); // ağ hatası veya sunucu hazır değil: sonraki denemede tekrar
       const r = await load();
-      if (!r?.server.is_pro) confirmPro(attempt + 1);
+      if (r?.server.is_pro) confirming.current = false;
+      else confirmPro(attempt + 1);
     }, CONFIRM_DELAYS[attempt]);
   }, [load]);
+  confirmProRef.current = confirmPro;
 
   const setPro = useCallback(() => {
     const m = meRef.current;
@@ -83,6 +100,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
         // Hesap silindi veya oturum düştü: eski kullanıcının verisi ekranda kalmasın, yeni anonim oturum açılsın
         localPro.current = null;
         if (confirmTimer.current) clearTimeout(confirmTimer.current);
+        confirming.current = false;
         apply(null);
         void refresh();
       });

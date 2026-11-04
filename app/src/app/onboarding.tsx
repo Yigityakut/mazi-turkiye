@@ -26,8 +26,8 @@ export default function Onboarding() {
     await prefs.setOnboarded();
     track("onboarding_completed", { with_code: !!withCode });
     if (withCode) {
-      track("challenge_opened", { source: "deferred" });
-      router.replace(`/challenge/${withCode}`);
+      // challenge_opened meydan okuma ekranında, kod geçerliyse gönderilir (QA D12)
+      router.replace({ pathname: "/challenge/[code]", params: { code: withCode, source: "deferred" } });
     } else {
       router.replace("/play");
     }

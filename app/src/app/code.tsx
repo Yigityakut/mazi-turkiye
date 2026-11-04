@@ -18,7 +18,7 @@ export default function EnterCode() {
         style={[styles.input, { color: c.ink, borderColor: c.line, backgroundColor: c.surface, fontFamily: font.display }]}
       />
       <View style={{ flex: 1 }} />
-      <Button title="Aç" disabled={code.length !== 6} onPress={() => router.replace(`/challenge/${code}`)} />
+      <Button title="Aç" disabled={code.length !== 6} onPress={() => router.replace({ pathname: "/challenge/[code]", params: { code, source: "manual" } })} />
     </Screen>
   );
 }

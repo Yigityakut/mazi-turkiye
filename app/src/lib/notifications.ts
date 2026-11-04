@@ -28,21 +28,50 @@ export async function reminderTime(): Promise<{ hour: number; minute: number }> 
 }
 
 /**
- * Bugünü bitirdiyse bugünkü bildirimi atlar: tek seferlik (tarihli) bildirim yarın için kurulur.
- * Bitirmediyse bugün için (saat geçmediyse) kurulur. Uygulama her açıldığında ve gün bitince yeniden hesaplanır.
+ * Hatırlatıcının zamanı (QA D9). Oyun günü 04:00'te (Türkiye saati) döner; sınır sunucudaki `me.next_rollover`'dan
+ * alınır, böylece 00:00–04:00 arası ve yurt dışındaki cihaz saati de doğru çalışır. Saat-dakika cihazın yerel saatidir
+ * (oyuncunun alışkanlığı yerel saatle kaydediliyor).
+ * - Bugünkü oyun bitmediyse: şimdiden sonra ve gün dönüşünden ÖNCEki ilk uygun an (yoksa bir sonraki günün ilk anı).
+ * - Bittiyse: gün dönüşünden SONRAki ilk uygun an (yeni günün fotoğrafları için).
+ * `nextRollover` yoksa (eski sürüm sunucu yanıtı) cihaz saatine göre eski kural.
  */
-export async function scheduleDailyReminder(playedToday: boolean, streak: number) {
+export function reminderAt(
+  time: { hour: number; minute: number }, playedToday: boolean, nextRollover?: string | null, now = new Date(),
+): Date {
+  const rollover = nextRollover ? Date.parse(nextRollover) : NaN;
+  if (Number.isFinite(rollover)) {
+    const candidates: Date[] = [];
+    for (let d = -1; d <= 2; d++) {
+      const c = new Date(now);
+      c.setDate(c.getDate() + d);
+      c.setHours(time.hour, time.minute, 0, 0);
+      if (c.getTime() > now.getTime()) candidates.push(c);
+    }
+    if (!playedToday) {
+      const today = candidates.find((c) => c.getTime() < rollover);
+      if (today) return today;
+    }
+    const next = candidates.find((c) => c.getTime() >= rollover);
+    if (next) return next;
+  }
+  const at = new Date(now);
+  at.setHours(time.hour, time.minute, 0, 0);
+  if (playedToday || at <= now) at.setDate(at.getDate() + 1);
+  // 04:00 gün dönüşünden sonra olmalı
+  if (at.getHours() < 4) at.setHours(9, 0, 0, 0);
+  return at;
+}
+
+/**
+ * Bugünü bitirdiyse bugünkü bildirimi atlar: tek seferlik (tarihli) bildirim yeni oyun günü için kurulur.
+ * Bitirmediyse bugünkü oyun günü bitmeden kurulur. Uygulama her açıldığında ve gün bitince yeniden hesaplanır.
+ */
+export async function scheduleDailyReminder(playedToday: boolean, streak: number, nextRollover?: string | null) {
   if (Platform.OS === "web") return;
   const perm = await Notifications.getPermissionsAsync();
   if (!perm.granted) return;
   await Notifications.cancelScheduledNotificationAsync(DAILY_ID).catch(() => {});
-  const { hour, minute } = await reminderTime();
-  const now = new Date();
-  const at = new Date(now);
-  at.setHours(hour, minute, 0, 0);
-  if (playedToday || at <= now) at.setDate(at.getDate() + 1);
-  // 04:00 gün dönüşünden sonra olmalı
-  if (at.getHours() < 4) at.setHours(9, 0, 0, 0);
+  const at = reminderAt(await reminderTime(), playedToday, nextRollover);
   await Notifications.scheduleNotificationAsync({
     identifier: DAILY_ID,
     content: {

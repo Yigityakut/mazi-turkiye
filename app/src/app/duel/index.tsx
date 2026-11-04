@@ -1,6 +1,6 @@
 import { router, Stack } from "expo-router";
 import { useEffect, useRef, useState } from "react";
-import { ActivityIndicator, View } from "react-native";
+import { ActivityIndicator, AppState, View } from "react-native";
 import { Button, Screen, T } from "../../components/ui";
 import { track } from "../../lib/analytics";
 import { api } from "../../lib/api";
@@ -10,7 +10,12 @@ import { goBack } from "../../lib/nav";
 import { supabase } from "../../lib/supabase";
 import { font, space, usePalette } from "../../lib/theme";
 
-/** Eşleşme: 0. sn arama → 60. sn admin'e Telegram → 120. sn bot (sunucu yönetir). */
+/**
+ * Eşleşme: 0. sn arama → 60. sn admin'e Telegram → 120. sn bot (sunucu yönetir).
+ * `duel_matched` olayı sunucudan gönderilir (rakip türüyle; bot bilgisi istemciye açılmaz, QA D11).
+ * Uygulama arka plana geçince sıra iptal edilir; dönünce "Aramaya devam et" (QA D17): arka plandaki oyuncu eşleşirse
+ * rakibi 45 sn'lik turlarda boşa bekletirdi.
+ */
 export default function DuelSearch() {
   const c = usePalette();
   const { me } = useApp();
@@ -19,23 +24,30 @@ export default function DuelSearch() {
   const [limit, setLimit] = useState(false);
   const [attempt, setAttempt] = useState(0);
   const [weak, setWeak] = useState(false); // yoklama art arda başarısız: bağlantı zayıf
-  const started = useRef(Date.now());
+  const [paused, setPaused] = useState(false); // arka plana geçildi: sıra iptal edildi
   const done = useRef(false);
 
   const go = (id: string) => {
     if (done.current) return;
     done.current = true;
-    track("duel_matched", { wait_s: Math.round((Date.now() - started.current) / 1000) });
     router.replace(`/duel/${id}`);
   };
 
+  // Arka plana geçince aramayı durdur (efektin temizliği sırayı iptal eder). "inactive" (bildirim merkezi vb.) sayılmaz.
   useEffect(() => {
+    const sub = AppState.addEventListener("change", (st) => {
+      if (st === "background" && !done.current) setPaused(true);
+    });
+    return () => sub.remove();
+  }, []);
+
+  useEffect(() => {
+    if (paused) return;
     let poll: ReturnType<typeof setInterval> | undefined;
     let channel: ReturnType<typeof supabase.channel> | undefined;
     let fails = 0;
     let stopped = false;
     done.current = false;
-    started.current = Date.now();
     track("duel_search_started");
     (async () => {
       try {
@@ -77,13 +89,20 @@ export default function DuelSearch() {
       if (!done.current) api.duelCancel().catch(() => {});
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [attempt]);
+  }, [attempt, paused]);
 
   const mm = Math.floor(waited / 60), ss = String(waited % 60).padStart(2, "0");
   return (
     <Screen style={{ padding: space.xl, justifyContent: "center", gap: space.xl }}>
       <Stack.Screen options={{ headerShown: true, title: "Canlı 1v1" }} />
-      {err ? (
+      {paused && !err ? (
+        <View style={{ gap: space.lg }}>
+          <T v="h2" center>Arama durduruldu</T>
+          <T muted center>Uygulamadan çıkınca rakip aramasını durdurduk; rakibin seni boşuna beklemesin.</T>
+          <Button title="Aramaya devam et" onPress={() => { setWaited(0); setPaused(false); }} />
+          <Button title="Ana sayfa" kind="secondary" onPress={() => router.replace("/")} />
+        </View>
+      ) : err ? (
         <View style={{ gap: space.lg }}>
           <T v="h2" center>{err}</T>
           {limit ? <Button title="Pro ile sınırsız oyna" onPress={() => router.replace({ pathname: "/pro", params: { from: "duel" } })} /> : (

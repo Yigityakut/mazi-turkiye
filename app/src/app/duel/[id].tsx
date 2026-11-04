@@ -1,10 +1,11 @@
 import { router, useLocalSearchParams } from "expo-router";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ScrollView, StyleSheet, useWindowDimensions, View } from "react-native";
+import { Alert, BackHandler, Pressable, ScrollView, StyleSheet, useWindowDimensions, View } from "react-native";
 import Animated, { FadeIn, useAnimatedStyle, useSharedValue, withTiming, Easing } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { PhotoCard } from "../../components/Photo";
 import { Attribution } from "../../components/Reveal";
+import { ProvincePicker } from "../../components/ProvincePicker";
 import { TurkeyMap, type MapPin } from "../../components/TurkeyMap";
 import { Button, Card, ErrorBanner, ErrorState, Loading, Screen, T, success } from "../../components/ui";
 import { YearSlider } from "../../components/YearSlider";
@@ -13,7 +14,7 @@ import { api } from "../../lib/api";
 import { useApp } from "../../lib/appState";
 import { errorText, isNetworkText, km, num } from "../../lib/format";
 import type { LatLng } from "../../lib/geo";
-import { font, radius, space, usePalette } from "../../lib/theme";
+import { font, GAME_FONT_SCALE, radius, space, usePalette } from "../../lib/theme";
 import type { DuelState } from "../../lib/types";
 
 export default function Duel() {
@@ -72,6 +73,25 @@ export default function Duel() {
     }
   }, [s, refresh]);
 
+  // Maçtan onaylı çıkış (QA D18): ✕ düğmesi ve Android geri tuşu. Maç sunucuda sürer; kalan turlar 0 puan sayılır.
+  const live = !!s && s.phase !== "finished";
+  const liveRef = useRef(live);
+  liveRef.current = live;
+  const confirmExit = useCallback(() => {
+    Alert.alert("Maçtan çıkılsın mı?", "Maç devam eder; kalan turlarda tahmin yapmazsan puan alamazsın ve büyük ihtimalle kaybedersin.", [
+      { text: "Maça dön", style: "cancel" },
+      { text: "Çık", style: "destructive", onPress: () => router.replace("/") },
+    ]);
+  }, []);
+  useEffect(() => {
+    const sub = BackHandler.addEventListener("hardwareBackPress", () => {
+      if (!liveRef.current) return false; // maç bitti veya yüklenmedi: normal geri
+      confirmExit();
+      return true;
+    });
+    return () => sub.remove();
+  }, [confirmExit]);
+
   const now = Date.now() + offset.current;
   const send = async () => {
     if (!s || !pin || sending) return;
@@ -93,17 +113,20 @@ export default function Duel() {
 
   const bar = (
     <View style={[styles.bar, { paddingTop: insets.top + 6, borderColor: c.line }]}>
+      <Pressable accessibilityRole="button" accessibilityLabel="Maçtan çık" hitSlop={6} onPress={confirmExit} style={styles.exit}>
+        <T style={{ fontSize: 20 }} maxFontSizeMultiplier={GAME_FONT_SCALE}>✕</T>
+      </Pressable>
       <View style={{ flex: 1 }}>
-        <T v="label" muted>Sen</T>
-        <T v="h2">{num(s.score_me)}</T>
+        <T v="label" muted maxFontSizeMultiplier={GAME_FONT_SCALE}>Sen</T>
+        <T v="h2" maxFontSizeMultiplier={GAME_FONT_SCALE}>{num(s.score_me)}</T>
       </View>
       <View style={{ alignItems: "center" }}>
-        <T v="label" muted>Tur {Math.min(s.round, 5)}/5</T>
+        <T v="label" muted maxFontSizeMultiplier={GAME_FONT_SCALE}>Tur {Math.min(s.round, 5)}/5</T>
         {s.phase === "guessing" ? <Countdown deadline={Date.parse(s.round_deadline)} start={Date.parse(s.round_started_at)} now={now} /> : null}
       </View>
       <View style={{ flex: 1, alignItems: "flex-end" }}>
-        <T v="label" muted numberOfLines={1}>{s.opponent.name}{s.opponent.guessed && s.phase === "guessing" ? " ✓" : ""}</T>
-        <T v="h2">{num(s.score_opp)}</T>
+        <T v="label" muted numberOfLines={1} maxFontSizeMultiplier={GAME_FONT_SCALE}>{s.opponent.name}{s.opponent.guessed && s.phase === "guessing" ? " ✓" : ""}</T>
+        <T v="h2" maxFontSizeMultiplier={GAME_FONT_SCALE}>{num(s.score_opp)}</T>
       </View>
     </View>
   );
@@ -197,11 +220,12 @@ export default function Duel() {
       </View>
       <View style={{ paddingHorizontal: space.lg, paddingBottom: insets.bottom + space.md, gap: space.sm }}>
         {waiting ? (
-          <Card style={{ alignItems: "center" }}><T style={{ fontFamily: font.semibold }}>Tahminin alındı. {s.opponent.guessed ? "Sonuçlar geliyor…" : "Rakip düşünüyor…"}</T></Card>
+          <Card style={{ alignItems: "center" }}><T style={{ fontFamily: font.semibold }} maxFontSizeMultiplier={GAME_FONT_SCALE}>Tahminin alındı. {s.opponent.guessed ? "Sonuçlar geliyor…" : "Rakip düşünüyor…"}</T></Card>
         ) : (
           <>
+            <ProvincePicker key={s.round} onPick={setPin} />
             <YearSlider value={year} min={1880} max={new Date().getFullYear()} onChange={setYear} />
-            <Button title={pin ? "Tahmin et" : "Haritada yer seç"} disabled={!pin} loading={sending} onPress={send} />
+            <Button title={pin ? "Tahmin et" : "Haritada yer seç"} disabled={!pin} loading={sending} onPress={send} maxFontSizeMultiplier={GAME_FONT_SCALE} />
           </>
         )}
       </View>
@@ -228,7 +252,7 @@ function Countdown({ deadline, start, now }: { deadline: number; start: number; 
   const st = useAnimatedStyle(() => ({ width: `${w.value * 100}%` }));
   return (
     <View style={{ alignItems: "center", gap: 4 }}>
-      <T style={{ fontFamily: font.semibold, fontVariant: ["tabular-nums"] }} color={left < 10000 ? c.bad : c.ink}>{Math.ceil(left / 1000)} sn</T>
+      <T style={{ fontFamily: font.semibold, fontVariant: ["tabular-nums"] }} color={left < 10000 ? c.bad : c.ink} maxFontSizeMultiplier={GAME_FONT_SCALE}>{Math.ceil(left / 1000)} sn</T>
       <View style={{ width: 90, height: 4, borderRadius: 2, backgroundColor: c.surfaceAlt, overflow: "hidden" }}>
         <Animated.View style={[{ height: 4, backgroundColor: left < 10000 ? c.bad : c.accent }, st]} />
       </View>
@@ -237,5 +261,6 @@ function Countdown({ deadline, start, now }: { deadline: number; start: number; 
 }
 
 const styles = StyleSheet.create({
+  exit: { width: 44, height: 44, alignItems: "center", justifyContent: "center", marginLeft: -space.sm, marginRight: space.xs },
   bar: { flexDirection: "row", alignItems: "center", paddingHorizontal: space.lg, paddingBottom: space.sm, borderBottomWidth: StyleSheet.hairlineWidth },
 });

@@ -4,7 +4,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const K = {
   onboarded: "mazi.onboarded",
   startTimes: "mazi.startTimes",          // son oyun başlangıç saatleri (dakika cinsinden) → hatırlatıcı saati
-  pendingChallenge: "mazi.pendingChallenge",
   notifAsked: "mazi.notifAsked",
   reviewAsked: "mazi.reviewAsked",
   reminderOverride: "mazi.reminderHour",
@@ -27,8 +26,6 @@ async function set(k: string, v: unknown) {
 export const prefs = {
   onboarded: () => get(K.onboarded, false),
   setOnboarded: () => set(K.onboarded, true),
-  pendingChallenge: () => get<string | null>(K.pendingChallenge, null),
-  setPendingChallenge: (c: string | null) => set(K.pendingChallenge, c),
   notifAsked: () => get(K.notifAsked, false),
   setNotifAsked: () => set(K.notifAsked, true),
   reviewAsked: () => get(K.reviewAsked, false),

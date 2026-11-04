@@ -64,4 +64,10 @@ export const font = {
 };
 
 export const space = { xs: 4, sm: 8, md: 12, lg: 16, xl: 24, xxl: 32 };
+
+/**
+ * Oyun panelinde (yıl kaydırıcısı, ipucu çipleri, "Tahmin et", 1v1 skor çubuğu) en büyük yazı ölçeği. Çok büyük
+ * erişilebilirlik boyutlarında panel ekrana sığmayıp düğme görünmez oluyordu (QA D18). Diğer ekranlar sınırsız ölçeklenir.
+ */
+export const GAME_FONT_SCALE = 1.3;
 export const radius = { sm: 8, md: 14, lg: 22, pill: 999 };

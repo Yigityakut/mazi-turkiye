@@ -5,6 +5,7 @@ import Animated, { FadeIn, FadeInUp } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { PhotoCard, PhotoZoom } from "../components/Photo";
 import { RevealSummary, StoryBlock } from "../components/Reveal";
+import { ProvincePicker, useScreenReader } from "../components/ProvincePicker";
 import { TurkeyMap, type MapPin } from "../components/TurkeyMap";
 import { Button, ErrorState, Loading, Screen, T, tap } from "../components/ui";
 import { YearSlider } from "../components/YearSlider";
@@ -16,7 +17,7 @@ import { errorText } from "../lib/format";
 import { goBack } from "../lib/nav";
 import type { LatLng } from "../lib/geo";
 import { prefs } from "../lib/prefs";
-import { font, radius, space, usePalette } from "../lib/theme";
+import { font, GAME_FONT_SCALE, radius, space, usePalette } from "../lib/theme";
 import type { Day, GuessResult } from "../lib/types";
 
 type Revealed = Pick<GuessResult, "distance_km" | "year_diff" | "score_location" | "score_year" | "hint_location" | "hint_year" | "answer"> & {
@@ -152,13 +153,15 @@ export default function Play() {
     return pin ? [{ id: "g", at: pin, kind: "guess" }] : [];
   }, [pin, revealed]);
 
+  const reader = useScreenReader(); // ekran okuyucu: harita yerine "İl seç" (QA O12)
+
   if (err && !day) return <ErrorState message={err} onRetry={load} />;
   if (!day || !photo) return <Loading label="Fotoğraflar hazırlanıyor" />;
 
   const header = (
     <View style={[styles.top, { paddingTop: insets.top + 4 }]}>
       <Pressable accessibilityRole="button" accessibilityLabel="Oyundan çık" hitSlop={10} onPress={goBack} style={styles.topBtn}>
-        <T style={{ fontSize: 22 }}>✕</T>
+        <T style={{ fontSize: 22 }} maxFontSizeMultiplier={GAME_FONT_SCALE}>✕</T>
       </Pressable>
       <View style={styles.progress} accessible accessibilityLabel={`${slot}. fotoğraf, toplam 5`}>
         {day.photos.map((p) => (
@@ -167,7 +170,7 @@ export default function Play() {
           }]} />
         ))}
       </View>
-      <T v="label" muted style={{ minWidth: 44, textAlign: "right" }}>{slot}/5</T>
+      <T v="label" muted style={{ minWidth: 44, textAlign: "right" }} maxFontSizeMultiplier={GAME_FONT_SCALE}>{slot}/5</T>
     </View>
   );
 
@@ -208,7 +211,9 @@ export default function Play() {
       </Animated.View>
       <View style={{ flex: 1, marginTop: space.md, marginHorizontal: space.md, borderRadius: radius.lg, overflow: "hidden", borderWidth: StyleSheet.hairlineWidth, borderColor: c.line }}>
         <TurkeyMap pins={pins} onPick={setPin} highlightRegion={regionHint ? regionHint.replace(" Bölgesi", "") : null}
-          accessibilityLabel={pin ? "Türkiye haritası. İğne bırakıldı; yerini değiştirmek için başka bir yere dokun." : "Türkiye haritası. Tahminini bırakmak için haritaya dokun."} />
+          accessibilityLabel={reader
+            ? "Türkiye haritası. İğne bırakmak için aşağıdaki İl seç düğmesini kullan."
+            : pin ? "Türkiye haritası. İğne bırakıldı; yerini değiştirmek için başka bir yere dokun." : "Türkiye haritası. Tahminini bırakmak için haritaya dokun."} />
         {!pin ? (
           <View pointerEvents="none" style={[styles.mapHint, { backgroundColor: c.overlay }]}>
             <T v="small" color="#fff" style={{ fontFamily: font.semibold }}>Haritaya dokunup iğneni bırak</T>
@@ -220,9 +225,10 @@ export default function Play() {
           <HintChip label={yearHint ?? "Dönem ipucu"} active={!!yearHint} onPress={() => { if (!yearHint) askHint("year"); }} pro={!me?.is_pro} />
           <HintChip label={regionHint ?? "Bölge ipucu"} active={!!regionHint} onPress={() => { if (!regionHint) askHint("location"); }} pro={!me?.is_pro} />
         </View>
+        <ProvincePicker key={slot} onPick={setPin} />
         <YearSlider value={year} min={day.min_year} max={day.max_year} onChange={setYear} />
-        {err ? <T v="small" color={c.bad} center accessibilityRole="alert">{err}</T> : null}
-        <Button title={pin ? "Tahmin et" : "Önce haritada yer seç"} onPress={guess} disabled={!pin} loading={sending} />
+        {err ? <T v="small" color={c.bad} center accessibilityRole="alert" maxFontSizeMultiplier={GAME_FONT_SCALE}>{err}</T> : null}
+        <Button title={pin ? "Tahmin et" : "Önce haritada yer seç"} onPress={guess} disabled={!pin} loading={sending} maxFontSizeMultiplier={GAME_FONT_SCALE} />
       </View>
     </Screen>
   );
@@ -243,7 +249,7 @@ function HintChip({ label, active, onPress, pro }: { label: string; active: bool
     <Pressable accessibilityRole="button" onPress={onPress} hitSlop={{ top: 4, bottom: 4, left: 4, right: 4 }}
       accessibilityLabel={active ? `İpucu: ${label}` : `${label}${pro ? ", Pro özelliği" : ""}`} accessibilityState={{ disabled: active }}
       style={({ pressed }) => [styles.chip, { borderColor: active ? c.accent : c.line, backgroundColor: active ? c.accentSoft : c.surface, opacity: pressed ? 0.8 : 1 }]}>
-      <T v="small" style={{ fontFamily: font.semibold }} color={active ? c.accentOnSoft : c.inkMuted}>
+      <T v="small" style={{ fontFamily: font.semibold }} color={active ? c.accentOnSoft : c.inkMuted} maxFontSizeMultiplier={GAME_FONT_SCALE}>
         {active ? `💡 ${label}` : `💡 ${label}${pro ? " · Pro" : ""}`}
       </T>
     </Pressable>

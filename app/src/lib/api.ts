@@ -38,6 +38,20 @@ export const api = {
   createMergeTicket: () => rpc<string>("create_merge_ticket"),
   redeemMergeTicket: (ticket: string) => rpc<{ moved: number }>("redeem_merge_ticket", { p_ticket: ticket }),
   /**
+   * Pro yetkisini sunucuda RevenueCat'ten doğrulatır (supabase/functions/sync-pro, QA Y1). Webhook gecikse de
+   * `profiles.is_pro` hemen yazılır. Sonuç: sunucunun gördüğü `is_pro`; hata fırlatabilir (çağıran yeniden dener).
+   */
+  async syncPro(): Promise<boolean> {
+    if (DEMO) return true;
+    const s = await ensureSession();
+    const { data, error } = await supabase.functions.invoke<{ is_pro?: boolean }>("sync-pro", {
+      headers: { Authorization: `Bearer ${s.access_token}` },
+      body: {},
+    });
+    if (error) throw new Error(error.message);
+    return !!data?.is_pro;
+  },
+  /**
    * Hesabı siler. Apple ile bağlı hesapta `appleAuthorizationCode` verilirse fonksiyon Apple token'ını da iptal eder
    * (supabase/functions/delete-account, gövde: `{ apple_authorization_code }`).
    */

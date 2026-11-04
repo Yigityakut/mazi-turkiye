@@ -26,13 +26,6 @@ export default function Home() {
   useEffect(() => { const t = setInterval(() => setNow(Date.now()), 1000); return () => clearInterval(t); }, []);
   useFocusEffect(useCallback(() => { refresh(); }, [refresh]));
 
-  // Ertelenmiş meydan okuma: ilk açılışta girilen kod
-  useEffect(() => {
-    prefs.pendingChallenge().then((code) => {
-      if (code) { prefs.setPendingChallenge(null); router.push(`/challenge/${code}`); }
-    });
-  }, []);
-
   // Gün dönüşünde yenile; internet yoksa her saniye değil, en çok 15 sn'de bir dene (QA D5)
   useEffect(() => {
     if (!me || now <= Date.parse(me.next_rollover) + 2000 || now - lastRollover.current < 15000) return;
