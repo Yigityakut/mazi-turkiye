@@ -11,6 +11,7 @@ import { YearSlider } from "../components/YearSlider";
 import { track } from "../lib/analytics";
 import { api } from "../lib/api";
 import { useApp } from "../lib/appState";
+import { DEMO, demoGuess } from "../lib/demo";
 import { errorText } from "../lib/format";
 import type { LatLng } from "../lib/geo";
 import { prefs } from "../lib/prefs";
@@ -38,6 +39,7 @@ export default function Play() {
   const [reopen, setReopen] = useState(false);
   const [reporting, setReporting] = useState(false);
   const startedAt = useRef(Date.now());
+  const demoReveal = useRef(false);
 
   const load = useCallback(async () => {
     setErr(null);
@@ -54,6 +56,9 @@ export default function Play() {
       setYear(Math.round((d.min_year + d.max_year) / 2));
       if (d.mode === "daily" && next.slot === 1) prefs.recordStart();
       startedAt.current = Date.now();
+      // Demo (?demo_state=guess|reveal): iğne ve yıl hazır gelir; reveal'da tahmin kendiliğinden gönderilir
+      const dg = DEMO ? demoGuess(next.slot) : null;
+      if (dg) { setPin(dg.pin); setYear(dg.year); demoReveal.current = dg.reveal; }
     } catch (e) {
       setErr(errorText(e));
     }
@@ -100,6 +105,11 @@ export default function Play() {
       setSending(false);
     }
   };
+
+  useEffect(() => {
+    if (DEMO && demoReveal.current && day && pin) { demoReveal.current = false; guess(); }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [day, pin]);
 
   const next = () => {
     if (!day || !revealed) return;

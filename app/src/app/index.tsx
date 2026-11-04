@@ -6,6 +6,7 @@ import { Button, Card, ErrorState, Loading, Pill, Screen, T } from "../component
 import { api } from "../lib/api";
 import { useApp } from "../lib/appState";
 import { APP_NAME } from "../lib/config";
+import { DEMO } from "../lib/demo";
 import { countdown, errorText, num } from "../lib/format";
 import { prefs } from "../lib/prefs";
 import { shareChallenge } from "../lib/share";
@@ -15,12 +16,12 @@ export default function Home() {
   const c = usePalette();
   const insets = useSafeAreaInsets();
   const { me, error, refresh } = useApp();
-  const [onboarded, setOnboarded] = useState<boolean | null>(null);
+  const [onboarded, setOnboarded] = useState<boolean | null>(DEMO ? true : null); // demo: karşılama atlanır
   const [now, setNow] = useState(Date.now());
   const [refreshing, setRefreshing] = useState(false);
   const [sharing, setSharing] = useState(false);
 
-  useEffect(() => { prefs.onboarded().then(setOnboarded); }, []);
+  useEffect(() => { if (!DEMO) prefs.onboarded().then(setOnboarded); }, []);
   useEffect(() => { const t = setInterval(() => setNow(Date.now()), 1000); return () => clearInterval(t); }, []);
   useFocusEffect(useCallback(() => { refresh(); }, [refresh]));
 

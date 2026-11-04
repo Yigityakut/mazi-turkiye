@@ -1,7 +1,9 @@
+import { DEMO, demoRpc } from "./demo";
 import { ensureSession, supabase } from "./supabase";
 import type { Challenge, Day, DuelState, GuessResult, Leaderboard, Me, Source, Stats } from "./types";
 
 async function rpc<T>(fn: string, args?: Record<string, unknown>): Promise<T> {
+  if (DEMO) return demoRpc<T>(fn, args); // mağaza ekran görüntüleri (EXPO_PUBLIC_DEMO=1); üretimde hiç girilmez
   await ensureSession();
   const { data, error } = await supabase.rpc(fn, args);
   if (error) throw new Error(error.message);

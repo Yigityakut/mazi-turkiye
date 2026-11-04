@@ -3,6 +3,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createClient } from "@supabase/supabase-js";
 import { AppState, Platform } from "react-native";
 import { SUPABASE_KEY, SUPABASE_URL } from "./config";
+import { DEMO } from "./demo";
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, {
   auth: {
@@ -31,6 +32,7 @@ export async function ensureSession() {
 
 export function imageUrl(path: string | null | undefined, width = 1200) {
   if (!path) return undefined;
+  if (DEMO) return `/demo/${path}`; // demo derlemesi: app/public/demo/ (web)
   // Supabase görsel dönüştürme: destekleyen istemcilere otomatik WebP
   return `${SUPABASE_URL}/storage/v1/render/image/public/photos/${path}?width=${width}&quality=80&resize=contain`;
 }

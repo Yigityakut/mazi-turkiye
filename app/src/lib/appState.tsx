@@ -2,6 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState, t
 import { api } from "./api";
 import { identify, track } from "./analytics";
 import { scheduleDailyReminder } from "./notifications";
+import { DEMO } from "./demo";
 import { configurePurchases } from "./purchases";
 import { ensureSession } from "./supabase";
 import type { Me } from "./types";
@@ -28,11 +29,14 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     (async () => {
-      try {
-        const s = await ensureSession();
-        identify(s.user.id);
-        configurePurchases(s.user.id);
-      } catch {}
+      // Demo derlemesinde oturum açılmaz (anonim giriş yok, ağ yok)
+      if (!DEMO) {
+        try {
+          const s = await ensureSession();
+          identify(s.user.id);
+          configurePurchases(s.user.id);
+        } catch {}
+      }
       track("app_opened");
       refresh();
     })();

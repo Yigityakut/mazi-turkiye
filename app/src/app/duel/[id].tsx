@@ -11,6 +11,7 @@ import { YearSlider } from "../../components/YearSlider";
 import { track } from "../../lib/analytics";
 import { api } from "../../lib/api";
 import { useApp } from "../../lib/appState";
+import { DEMO } from "../../lib/demo";
 import { errorText, km, num } from "../../lib/format";
 import type { LatLng } from "../../lib/geo";
 import { supabase } from "../../lib/supabase";
@@ -47,10 +48,11 @@ export default function Duel() {
     fetchState();
     const poll = setInterval(fetchState, 1200);
     const tick = setInterval(() => force((x) => x + 1), 250);
-    const ch = supabase.channel(`duel-${id}`)
+    // Demo derlemesinde (?phase=countdown|guessing|reveal|finished) gerçek zamanlı kanal açılmaz
+    const ch = DEMO ? null : supabase.channel(`duel-${id}`)
       .on("postgres_changes", { event: "UPDATE", schema: "public", table: "duels", filter: `id=eq.${id}` }, () => fetchState())
       .subscribe();
-    return () => { clearInterval(poll); clearInterval(tick); supabase.removeChannel(ch); };
+    return () => { clearInterval(poll); clearInterval(tick); if (ch) supabase.removeChannel(ch); };
   }, [id, fetchState]);
 
   // Yeni tura geçince tahmini sıfırla
