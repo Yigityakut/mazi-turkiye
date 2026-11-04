@@ -1,29 +1,64 @@
-# Durum
+# Durum — devir notu
 
-_Son güncelleme: 2026-11-04 (oturum 1 — Faz 1: mağazaya yüklemeye hazırlık)_
+_Son güncelleme: 2026-11-04 (bulut oturumu 1 sona erdi; yerel oturum buradan devam eder)_
 
-## Biten
-- **İsim:** Mazi Türkiye (DECISIONS.md). İkon, adaptive ikon, splash, bildirim ikonu: `store/brand/`, `app/assets/`.
-- **Uygulama (Expo SDK 58, `app/`):** tüm Plan 5.3 ekranları — karşılama (3 adım + meydan okuma kodu), ana ekran (seri, bugünün kartı, geri sayım, 1v1, meydan okuma), oyun (fotoğraf + gömülü SVG Türkiye haritası + yıl kaydırıcısı + Pro ipuçları), açılım (çizgi animasyonu, yıl sayacı, puan sayacı, hikaye, atıf, "Bu bilgi yanlış mı?", fotoğrafı tekrar aç), gün özeti (paylaşım, meydan okuma, sıralama, bildirim izni, puan isteme), 1v1 arama/maç/sonuç, sıralama, arşiv, istatistik, Pro, ayarlar (hesap silme, Apple/Google giriş, hatırlatıcı saati), kaynaklar. `tsc` temiz, web export çalışıyor.
-- **Backend (`supabase/`):** 7 migration (şema, puanlama, gün dönüşü, seri, meydan okuma, sıralama, 1v1 + bot + admin bildirimi, program, hat, bekleme listesi, temizlik), 7 edge function (notify-admin, delete-account, revenuecat-webhook, push-notify, weekly-report, pipeline-harvest, pipeline-ingest). Sadece `core` migration'ı canlıda.
-- **Fotoğraf hattı:** `pipeline/harvest.mjs` + GitHub Actions (`pipeline.yml`), lisans/yıl/konum/içerik filtreleri, Türkiye sınır testi, yıl başına kota, inceleme panoları.
-- **Web (`web/`):** landing (bekleme listesi), gizlilik (TR+EN), KVKK, koşullar (bot maddesi dahil), kaynaklar (canlı liste), destek/SSS, hesap silme, meydan okuma sayfası (`/m/KOD`), admin linki (`/d/token`), `.well-known` dosyaları, `vercel.json`.
-- **Mağaza (`store/`):** TR/EN metinler (karakter sınırları kontrol edildi), anahtar kelimeler, inceleme notu, App Privacy + Data safety cevapları, yaş anketi, IAP tanımı.
-- **Pazarlama (`marketing/`):** profiller, testçi kiti, basın bülteni, Reddit, mikro hesap mesajı, SALT izin e-postası, HyperFrames "Bil bakalım" video şablonu (render test edildi).
+> **Yeni oturum için başlangıç sırası:** bu dosya → `HUMAN_TODO.md` → `DECISIONS.md` → aşağıdaki "Sıradaki adımlar".
+> Plan: `Plan.md`. Tüm metinler Türkçe. Dal: `claude/dreamy-hawking-i1vot8`.
 
-## Yarım / sürüyor
-- Fotoğraf adayları GitHub Actions'ta toplanıyor → panolar incelenecek → ~200 fotoğraf seçilip hikayeleri yazılacak → Supabase'e yüklenecek.
-- Alt ajanlar: mağaza ekran görüntüsü hattı (demo modu + render + CI), pazarlama takvimi/görselleri/basın kiti, SQL migration testleri (PGlite), yayın belgeleri + QA raporu.
-- Migration'lar canlıya uygulanmadı (Supabase onay sorusu yanıtsız kaldı) → HUMAN_TODO #1.
+## ✅ Biten
 
-## Sıradaki 5 adım
-1. SQL testleri yeşil olunca kalan migration'ları uygula; edge function'ları deploy et.
-2. Fotoğraf panolarını incele, 200 fotoğraf seç (dağılım: Plan 3.2), hikayeleri yaz, `pipeline-ingest` ile yükle, 14 günü programla.
-3. Seçilen 6 fotoğrafla ekran görüntüsü CI'ını çalıştır; mağaza görsellerini son haline getir.
-4. İlk 3 "bil bakalım" videosunu render et (bonus havuzdan).
-5. İnsan kapıları açıldıkça: EAS projesi, TestFlight build, Play kapalı test.
+| Alan | Ne var | Nerede |
+| --- | --- | --- |
+| İsim ve marka | **Mazi Türkiye**; ikon, adaptive ikon, splash, bildirim ikonu, OG ve kapak görselleri | `store/brand/`, `app/assets/`, `marketing/social/`, `web/assets/og.png` |
+| Uygulama | Expo SDK 58; Plan 5.3'teki tüm ekranlar; gömülü SVG Türkiye haritası; demo modu (`EXPO_PUBLIC_DEMO=1`, ekran görüntüleri için). `npx tsc --noEmit` temiz, web export çalışıyor | `app/` (kurulum: `app/README.md`) |
+| Backend (**canlı**) | Supabase `timeguessr` (Frankfurt): migration'lar 0100–0650 uygulandı; 7 edge function deploy edildi; pg_cron işleri kurulu; iç çağrı zinciri test edildi (DB → pg_net → function) | `supabase/` |
+| SQL testleri | PGlite ile 60/60 senaryo testi | `cd supabase/tests && npm install && npm test` |
+| Fotoğraf hattı | GitHub Actions'ta aday toplama (`pipeline/jobs/*.json` push'lanınca çalışır), inceleme panoları, onay/aktarım betikleri | `pipeline/`, `.github/workflows/pipeline.yml`, `pipeline/REVIEW_GUIDE.md` |
+| Fotoğraflar (**canlı**) | 104 fotoğraf onaylandı; 84'ü Storage'a yüklendi (40 günlük, 36 1v1, 8 bonus); 5 gün programlandı (14–18 Kasım) | `pipeline/selection/pool-a.json`, `pool-bc.json` |
+| Web | Landing (bekleme listesi), gizlilik TR/EN, KVKK, koşullar, kaynaklar, destek/SSS, hesap silme, meydan okuma `/m/KOD`, admin `/d/token`, basın kiti, `.well-known`, `vercel.json` | `web/` |
+| Mağaza | TR/EN metinler (sınırlar kontrol edildi), anahtar kelimeler, inceleme notu, App Privacy ve Data safety cevapları, yaş anketi, IAP, uygulama içi etkinlikler, adım adım yayın kontrol listesi, QA raporu | `store/` |
+| Ekran görüntüleri | Hattı hazır: demo modu, render betiği, CI. Şu anki PNG'ler **TASLAK** (yer tutucu fotoğraflı) | `store/screenshots/`, `.github/workflows/screenshots.yml` |
+| Pazarlama | İçerik takvimi, açıklama şablonları, e-postalar, profiller, testçi kiti, basın bülteni, Reddit, mikro hesap mesajı, SALT izin e-postası, HyperFrames "Bil bakalım" şablonu (render test edildi) | `marketing/` |
+
+## ⏳ Yarım kalanlar (bulut oturumu kapanırken durduruldu)
+
+1. **20 onaylı fotoğraf henüz Storage'a inmedi** (`photo_candidates.status = 'approved'`). Supabase SQL Editor'de şunu çalıştır:
+   `select private.call_function('pipeline-ingest', '{"limit":60}'::jsonb, 30000);`
+   Ya da bekle: her gece 03:30'da (TSİ) kendiliğinden çalışır.
+2. **2. tur fotoğraf incelemesi yarıda kaldı.** Panolar hazır ama seçim dosyası yazılmadı:
+   - `pipeline/review/pool-a2`, `pool-a2-needgeo`, `pool-b2`, `pool-b2-needgeo` (1880–1999)
+   - `pipeline/review/pool-c2` (2000+, il bazlı; eksik bölgeler için önemli)
+3. **3. tur hasat bitti, hiç incelenmedi:** `pipeline/review/pool-a3*`, `pool-b3*` (on yıl kategorileri, düzeltilmiş yıl ve il kuralları).
+4. **Uygulama QA düzeltmeleri kısmen yapıldı.** Durum işaretleri `store/qa-report.md`'de (✅ düzeltildi / 🟡 kısmen / ⏳ bekliyor). En önemli açıklar: Pro'nun sunucuyla eşitlenmesi (`sync-pro` edge function önerisi, Y1) ve 🟡/⏳ ile işaretli maddeler. Durdurulmadan önce `tsc` temizdi.
+5. **Aylık temizlik migration'ı** (`supabase/migrations/20261104000700_cleanup.sql`) canlıya uygulanmadı. Silme ifadesi içerdiği için Supabase onay istiyor. SQL Editor'de elle çalıştır.
+6. **Gerçek ekran görüntüleri:** `store/screenshots/fixtures.json`'a 6 gerçek fotoğrafın `commons_url`'ünü ve metadatasını yaz, sonra push et; CI render alıp commit'ler. Yerelde: `store/screenshots/README` ve `render.mjs` başındaki talimatlar.
+
+## Sıradaki adımlar (öncelik sırasıyla)
+
+1. Yukarıdaki 1. ve 2. maddeler: kalan ingest + 2. ve 3. tur inceleme.
+   Hedef ≥200 fotoğraf, Plan 3.2 dağılımı. Şu an eksikler: 1920–1979; Karadeniz, Doğu ve Güneydoğu Anadolu.
+   - Yöntem: `node pipeline/show.mjs <set> <id>…` ile meta veriyi oku, `pipeline/selection/<set>.json`'a yaz, `node pipeline/approve.mjs` ile doğrula.
+   - Supabase'e aktar: `node pipeline/export-approved.mjs pipeline/selection/<set>.json --out <dir>` ile üretilen SQL'i çalıştır, sonra 1. maddedeki ingest çağrısını yap.
+   - Yerelde Supabase'e doğrudan erişebilirsin: Supabase CLI veya Dashboard SQL Editor.
+2. Kalan QA düzeltmeleri (`store/qa-report.md`, ⏳ ve 🟡 maddeler).
+3. Gerçek fotoğraflarla mağaza ekran görüntüleri; ilk 3 "bil bakalım" videosu (bonus havuzundan, `marketing/templates/make-video.mjs`).
+4. İnsan kapıları açıldıkça (`HUMAN_TODO.md`):
+   - `eas init` ve ortam değişkenleri.
+   - iOS ve Android build: `npx eas-cli build -p all --profile production`.
+   - TestFlight; Play kapalı test (**en geç 17 Kasım**, 12 testçi).
+5. Vercel'e `web/` deploy; alan adı; Apple Team ID ve Play SHA-256 değerlerini `web/.well-known/` dosyalarına yaz.
 
 ## Engeller
-- Konteyner ağı: commons.wikimedia.org, upload.wikimedia.org, *.supabase.co, expo.dev, apps.apple.com, play.google.com erişilemiyor (GitHub Actions ile aşılıyor).
-- Supabase MCP `apply_migration` onay sorusu → kullanıcı onayı.
-- Hesaplar (Apple, Google Play, Expo, RevenueCat, PostHog, Telegram, alan adı) → HUMAN_TODO.
+
+- Bulut konteynerinde ağ kısıtlıydı: Wikimedia, Supabase API ve mağaza siteleri erişilemiyordu. Bu yüzden bazı işler GitHub Actions ve Supabase MCP üzerinden yapıldı. Yerelde bu kısıt yok; `pipeline/harvest.mjs` doğrudan çalıştırılabilir: `node pipeline/harvest.mjs pipeline/jobs/<iş>.json`, önce `npm install --prefix pipeline`.
+- Hesaplar (Apple, Google Play, Expo, RevenueCat, PostHog, Telegram, alan adı, sosyal medya) → `HUMAN_TODO.md`.
+
+## Faydalı komutlar
+
+```bash
+cd app && npm install && npx expo start                  # uygulama
+cd app && npx tsc --noEmit                               # tip kontrolü
+cd supabase/tests && npm install && npm test             # SQL testleri (60 senaryo)
+python3 store/check_lengths.py                           # mağaza metni karakter sınırları
+node marketing/templates/make-video.mjs <spec.json>      # video projesi üret, sonra: npx hyperframes@0.9.10 render
+```
