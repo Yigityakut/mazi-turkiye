@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { FlatList, Pressable, StyleSheet, View } from "react-native";
 import { ErrorState, Loading, Screen, T } from "../components/ui";
 import { api } from "../lib/api";
@@ -17,13 +17,21 @@ export default function LeaderboardScreen() {
   const [tab, setTab] = useState<(typeof TABS)[number]["key"]>("today");
   const [data, setData] = useState<Leaderboard | null>(null);
   const [err, setErr] = useState<string | null>(null);
-  const load = () => { setData(null); api.leaderboard(tab).then(setData).catch((e) => setErr(errorText(e))); };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(load, [tab]);
+  const req = useRef(0);
+  // Hata önce temizlenir: "Tekrar dene" ve sekme değişimi gerçekten yeniden yükler (QA O1). Eski sekmenin geç gelen cevabı yok sayılır.
+  const load = useCallback(() => {
+    const id = ++req.current;
+    setErr(null);
+    setData(null);
+    api.leaderboard(tab)
+      .then((d) => { if (id === req.current) setData(d); })
+      .catch((e) => { if (id === req.current) setErr(errorText(e)); });
+  }, [tab]);
+  useEffect(load, [load]);
 
   return (
     <Screen>
-      <View style={[styles.tabs, { backgroundColor: c.surfaceAlt }]}>
+      <View style={[styles.tabs, { backgroundColor: c.surfaceAlt }]} accessibilityRole="tablist">
         {TABS.map((t) => (
           <Pressable key={t.key} accessibilityRole="tab" accessibilityState={{ selected: tab === t.key }} onPress={() => setTab(t.key)}
             style={[styles.tab, tab === t.key && { backgroundColor: c.surface }]}>
@@ -45,8 +53,9 @@ export default function LeaderboardScreen() {
           )}
           ListEmptyComponent={<T muted center style={{ marginTop: space.xl }}>Henüz kimse yok.</T>}
           renderItem={({ item }) => (
-            <View style={[styles.row, { backgroundColor: item.is_me ? c.accentSoft : c.surface, borderColor: c.line }]}>
-              <T style={{ width: 36, fontFamily: font.semibold }} color={item.rank <= 3 ? c.accent : c.inkMuted}>{item.rank}</T>
+            <View style={[styles.row, { backgroundColor: item.is_me ? c.accentSoft : c.surface, borderColor: c.line }]} accessible
+              accessibilityLabel={`${item.rank}. sıra, ${item.name}${item.is_me ? " (sen)" : ""}, ${num(item.total)} puan${item.used_hint ? ", ipucu kullandı" : ""}`}>
+              <T style={{ width: 36, fontFamily: font.semibold }} color={item.rank <= 3 ? (item.is_me ? c.accentOnSoft : c.accent) : c.inkMuted}>{item.rank}</T>
               <T style={{ flex: 1, fontFamily: item.is_me ? font.semibold : font.body }} numberOfLines={1}>
                 {item.name}{item.used_hint ? " 💡" : ""}
               </T>
@@ -62,6 +71,6 @@ export default function LeaderboardScreen() {
 
 const styles = StyleSheet.create({
   tabs: { flexDirection: "row", margin: space.lg, marginBottom: 0, borderRadius: radius.pill, padding: 4 },
-  tab: { flex: 1, minHeight: 40, alignItems: "center", justifyContent: "center", borderRadius: radius.pill },
+  tab: { flex: 1, minHeight: 44, alignItems: "center", justifyContent: "center", borderRadius: radius.pill },
   row: { flexDirection: "row", alignItems: "center", padding: space.md, borderRadius: radius.md, borderWidth: StyleSheet.hairlineWidth, minHeight: 52 },
 });

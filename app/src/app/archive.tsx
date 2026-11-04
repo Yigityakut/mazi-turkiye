@@ -1,16 +1,16 @@
 import { router } from "expo-router";
 import { useEffect, useMemo, useState } from "react";
 import { FlatList, Pressable, StyleSheet, View } from "react-native";
-import { Button, Loading, Screen, T } from "../components/ui";
+import { Button, ErrorState, Loading, Screen, T } from "../components/ui";
 import { api } from "../lib/api";
 import { useApp } from "../lib/appState";
-import { num } from "../lib/format";
+import { errorText, num } from "../lib/format";
 import { font, radius, space, usePalette } from "../lib/theme";
 
 /** Geçmiş günlerin takvimi (Pro). Oynanan günlerde skor görünür. */
 export default function Archive() {
   const c = usePalette();
-  const { me } = useApp();
+  const { me, error, refresh } = useApp();
   const [played, setPlayed] = useState<Record<string, number> | null>(null);
   useEffect(() => {
     api.stats().then((s) => setPlayed(Object.fromEntries(s.recent.map((r) => [r.day, r.total])))).catch(() => setPlayed({}));
@@ -28,6 +28,8 @@ export default function Archive() {
     return out;
   }, [me]);
 
+  // İnternetsiz açılışta `me` hiç gelmeyebilir: sonsuz yükleme yerine hata + tekrar dene (QA D17)
+  if (!me && error) return <ErrorState message={errorText(error)} onRetry={refresh} />;
   if (!me || played == null) return <Loading />;
   if (!me.is_pro) {
     return (
@@ -50,12 +52,13 @@ export default function Archive() {
         renderItem={({ item }) => {
           const score = played[item.day];
           return (
-            <Pressable accessibilityRole="button" accessibilityLabel={`Gün ${item.number}`}
+            <Pressable accessibilityRole="button"
+              accessibilityLabel={`Gün ${item.number}, ${item.day.slice(8, 10)}.${item.day.slice(5, 7)}, ${score != null ? `${num(score)} puan` : "oynanmadı"}`}
               onPress={() => router.push(score != null ? { pathname: "/summary", params: { day: item.day } } : { pathname: "/play", params: { day: item.day } })}
               style={({ pressed }) => [styles.cell, { backgroundColor: score != null ? c.accentSoft : c.surface, borderColor: c.line, opacity: pressed ? 0.8 : 1 }]}>
               <T v="label" muted>#{item.number}</T>
               <T style={{ fontFamily: font.semibold }}>{item.day.slice(8, 10)}.{item.day.slice(5, 7)}</T>
-              <T v="small" color={score != null ? c.accent : c.inkFaint}>{score != null ? num(score) : "Oyna"}</T>
+              <T v="small" color={score != null ? c.accentOnSoft : c.inkMuted}>{score != null ? num(score) : "Oyna"}</T>
             </Pressable>
           );
         }}

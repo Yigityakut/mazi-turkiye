@@ -13,6 +13,7 @@ import { api } from "../lib/api";
 import { useApp } from "../lib/appState";
 import { DEMO, demoGuess } from "../lib/demo";
 import { errorText } from "../lib/format";
+import { goBack } from "../lib/nav";
 import type { LatLng } from "../lib/geo";
 import { prefs } from "../lib/prefs";
 import { font, radius, space, usePalette } from "../lib/theme";
@@ -127,12 +128,18 @@ export default function Play() {
 
   const askHint = async (kind: "year" | "location") => {
     if (!day) return;
-    if (!me?.is_pro) { track("paywall_viewed", { from: "hint" }); router.push({ pathname: "/pro", params: { from: "hint" } }); return; }
+    // paywall_viewed sadece Pro ekranında gönderilir (QA D10)
+    if (!me?.is_pro) { router.push({ pathname: "/pro", params: { from: "hint" } }); return; }
     try {
       const h = await api.hint(day.day, slot, kind);
       track("hint_used", { kind });
+      setErr(null);
       setHints((x) => ({ ...x, [`${slot}:${kind}`]: h.text }));
-    } catch (e) { setErr(errorText(e)); }
+    } catch (e) {
+      // Mağazada Pro aktif ama sunucu (webhook) henüz onaylamadı
+      if (String(e).includes("pro_required")) { setErr("Pro'n etkinleştiriliyor. Birkaç dakika sonra tekrar dene."); refresh(); }
+      else setErr(errorText(e));
+    }
   };
 
   const pins = useMemo<MapPin[]>(() => {
@@ -150,10 +157,10 @@ export default function Play() {
 
   const header = (
     <View style={[styles.top, { paddingTop: insets.top + 4 }]}>
-      <Pressable accessibilityRole="button" accessibilityLabel="Kapat" hitSlop={10} onPress={() => router.back()} style={styles.topBtn}>
+      <Pressable accessibilityRole="button" accessibilityLabel="Oyundan çık" hitSlop={10} onPress={goBack} style={styles.topBtn}>
         <T style={{ fontSize: 22 }}>✕</T>
       </Pressable>
-      <View style={styles.progress}>
+      <View style={styles.progress} accessible accessibilityLabel={`${slot}. fotoğraf, toplam 5`}>
         {day.photos.map((p) => (
           <View key={p.slot} style={[styles.progDot, {
             backgroundColor: p.play ? c.accent : p.slot === slot ? c.ink : c.surfaceAlt, borderColor: c.line,
@@ -177,7 +184,7 @@ export default function Play() {
             answer={revealed.answer} guessYear={revealed.guessYear} distanceKm={revealed.distance_km} yearDiffV={revealed.year_diff}
             scoreLocation={revealed.score_location} scoreYear={revealed.score_year} hintLoc={revealed.hint_location} hintYear={revealed.hint_year}
           />
-          <Pressable accessibilityRole="button" onPress={() => setReopen(true)} style={[styles.reopen, { borderColor: c.line, backgroundColor: c.surface }]}>
+          <Pressable accessibilityRole="button" accessibilityLabel="Fotoğrafı tekrar aç" onPress={() => setReopen(true)} style={[styles.reopen, { borderColor: c.line, backgroundColor: c.surface }]}>
             <PhotoThumb path={revealed.answer.image_path} />
             <T style={{ fontFamily: font.semibold, flex: 1 }}>Fotoğrafı tekrar aç</T>
             <T muted>›</T>
@@ -200,7 +207,8 @@ export default function Play() {
         <PhotoCard src={{ image_path: photo.image_path }} style={{ flex: 1 }} />
       </Animated.View>
       <View style={{ flex: 1, marginTop: space.md, marginHorizontal: space.md, borderRadius: radius.lg, overflow: "hidden", borderWidth: StyleSheet.hairlineWidth, borderColor: c.line }}>
-        <TurkeyMap pins={pins} onPick={setPin} highlightRegion={regionHint ? regionHint.replace(" Bölgesi", "") : null} />
+        <TurkeyMap pins={pins} onPick={setPin} highlightRegion={regionHint ? regionHint.replace(" Bölgesi", "") : null}
+          accessibilityLabel={pin ? "Türkiye haritası. İğne bırakıldı; yerini değiştirmek için başka bir yere dokun." : "Türkiye haritası. Tahminini bırakmak için haritaya dokun."} />
         {!pin ? (
           <View pointerEvents="none" style={[styles.mapHint, { backgroundColor: c.overlay }]}>
             <T v="small" color="#fff" style={{ fontFamily: font.semibold }}>Haritaya dokunup iğneni bırak</T>
@@ -209,11 +217,11 @@ export default function Play() {
       </View>
       <View style={[styles.panel, { paddingBottom: insets.bottom + space.md }]}>
         <View style={styles.hintRow}>
-          <HintChip label={yearHint ?? "Dönem ipucu"} active={!!yearHint} onPress={() => !yearHint && askHint("year")} pro={!me?.is_pro} />
-          <HintChip label={regionHint ?? "Bölge ipucu"} active={!!regionHint} onPress={() => !regionHint && askHint("location")} pro={!me?.is_pro} />
+          <HintChip label={yearHint ?? "Dönem ipucu"} active={!!yearHint} onPress={() => { if (!yearHint) askHint("year"); }} pro={!me?.is_pro} />
+          <HintChip label={regionHint ?? "Bölge ipucu"} active={!!regionHint} onPress={() => { if (!regionHint) askHint("location"); }} pro={!me?.is_pro} />
         </View>
         <YearSlider value={year} min={day.min_year} max={day.max_year} onChange={setYear} />
-        {err ? <T v="small" color={c.bad} center>{err}</T> : null}
+        {err ? <T v="small" color={c.bad} center accessibilityRole="alert">{err}</T> : null}
         <Button title={pin ? "Tahmin et" : "Önce haritada yer seç"} onPress={guess} disabled={!pin} loading={sending} />
       </View>
     </Screen>
@@ -222,8 +230,9 @@ export default function Play() {
 
 function PhotoThumb({ path }: { path: string }) {
   return (
-    <View style={{ width: 48, height: 48, borderRadius: 10, overflow: "hidden" }}>
-      <PhotoCard src={{ image_path: path }} style={{ flex: 1 }} label="Fotoğraf" />
+    <View style={{ width: 48, height: 48, borderRadius: 10, overflow: "hidden" }} importantForAccessibility="no-hide-descendants" accessibilityElementsHidden>
+      {/* Küçük önizleme: "Büyüt" rozeti 48 pt'ye sığmıyor (kesik görünüyordu); dokunma üstteki satıra ait */}
+      <PhotoCard src={{ image_path: path }} style={{ flex: 1 }} label="Fotoğraf" badge={false} interactive={false} />
     </View>
   );
 }
@@ -231,9 +240,10 @@ function PhotoThumb({ path }: { path: string }) {
 function HintChip({ label, active, onPress, pro }: { label: string; active: boolean; onPress: () => void; pro: boolean }) {
   const c = usePalette();
   return (
-    <Pressable accessibilityRole="button" onPress={onPress} hitSlop={4}
+    <Pressable accessibilityRole="button" onPress={onPress} hitSlop={{ top: 4, bottom: 4, left: 4, right: 4 }}
+      accessibilityLabel={active ? `İpucu: ${label}` : `${label}${pro ? ", Pro özelliği" : ""}`} accessibilityState={{ disabled: active }}
       style={({ pressed }) => [styles.chip, { borderColor: active ? c.accent : c.line, backgroundColor: active ? c.accentSoft : c.surface, opacity: pressed ? 0.8 : 1 }]}>
-      <T v="small" style={{ fontFamily: font.semibold }} color={active ? c.accent : c.inkMuted}>
+      <T v="small" style={{ fontFamily: font.semibold }} color={active ? c.accentOnSoft : c.inkMuted}>
         {active ? `💡 ${label}` : `💡 ${label}${pro ? " · Pro" : ""}`}
       </T>
     </Pressable>
@@ -251,25 +261,34 @@ function ReportSheet({ visible, onClose, photoId }: { visible: boolean; onClose:
   const c = usePalette();
   const insets = useSafeAreaInsets();
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState<string | null>(null);
+  const [failed, setFailed] = useState(false);
+  // "Teşekkürler" sadece bildirim gerçekten gittiyse (QA D1)
   const send = async (reason: string) => {
-    try { await api.report(photoId, reason); track("photo_reported", { reason }); } catch {}
-    setSent(true);
+    if (sending) return;
+    setSending(reason);
+    setFailed(false);
+    try { await api.report(photoId, reason); track("photo_reported", { reason }); setSent(true); }
+    catch { setFailed(true); }
+    finally { setSending(null); }
   };
+  const close = () => { setSent(false); setFailed(false); onClose(); };
   return (
-    <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
-      <Pressable style={{ flex: 1, backgroundColor: c.overlay }} onPress={onClose} accessibilityLabel="Kapat" />
+    <Modal visible={visible} transparent animationType="slide" onRequestClose={close}>
+      <Pressable style={{ flex: 1, backgroundColor: c.overlay }} onPress={close} accessibilityLabel="Kapat" accessibilityRole="button" />
       <View style={{ backgroundColor: c.surface, padding: space.xl, paddingBottom: insets.bottom + space.xl, gap: space.md, borderTopLeftRadius: radius.lg, borderTopRightRadius: radius.lg }}>
         {sent ? (
           <>
             <T v="h2">Teşekkürler</T>
             <T muted>Bildirimin bize ulaştı. Fotoğrafı kaynağıyla tekrar kontrol edeceğiz.</T>
-            <Button title="Tamam" onPress={() => { setSent(false); onClose(); }} />
+            <Button title="Tamam" onPress={close} />
           </>
         ) : (
           <>
             <T v="h2">Bu bilgi yanlış mı?</T>
-            {REASONS.map((r) => <Button key={r.key} title={r.label} kind="secondary" onPress={() => send(r.key)} />)}
-            <Button title="Vazgeç" kind="ghost" onPress={onClose} />
+            {REASONS.map((r) => <Button key={r.key} title={r.label} kind="secondary" loading={sending === r.key} disabled={!!sending && sending !== r.key} onPress={() => send(r.key)} />)}
+            {failed ? <T v="small" color={c.bad} center accessibilityRole="alert">Gönderilemedi. İnternet bağlantını kontrol edip tekrar dene.</T> : null}
+            <Button title="Vazgeç" kind="ghost" onPress={close} />
           </>
         )}
       </View>

@@ -65,12 +65,12 @@ returns table(push_token text, streak int) language plpgsql stable security defi
 begin
   perform private.require_service();
   return query
-    select p.push_token, (public.streak_of(p.id)->>'current')::int
+    select p.push_token, (private.streak_of(p.id)->>'current')::int
       from public.profiles p
      where p.push_token is not null
        and not exists (select 1 from public.day_results r where r.user_id = p.id and r.day = public.game_day())
        and exists (select 1 from public.day_results r where r.user_id = p.id and r.day = public.game_day() - 1)
-       and (public.streak_of(p.id)->>'current')::int >= 2;
+       and (private.streak_of(p.id)->>'current')::int >= 2;
 end $$;
 
 create or replace function public.weekly_kpis()

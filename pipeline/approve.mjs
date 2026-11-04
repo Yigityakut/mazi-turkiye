@@ -52,6 +52,11 @@ for (const it of sel.items) {
     `${q(it.pool)}::public.photo_pool`, "now()"].join(", ")})`);
 }
 if (errors.length) { console.error(errors.join("\n")); if (!process.argv.includes("--force")) process.exit(1); }
+const compact = process.argv.includes("--compact");
+if (compact) {
+  // Sadece ingest'in kullandığı alanlar (açıklama ve kategoriler hariç) — SQL'i küçük tutar
+  for (let i = 0; i < rows.length; i++) rows[i] = rows[i].replace(/, ('(?:[^']|'')*'|null), (array\[[^\]]*\]::text\[\]|null), ('(?:[^']|'')*'|null), 'approved'/, ", null, null, $3, 'approved'");
+}
 console.log(`insert into public.photo_candidates (source_key, source_name, page_url, image_url, hash_url, width, height, year, year_source,
   lat, lng, coord_kind, province, region, license_code, license_url, author, credit, title, description, categories, query, status,
   location_name, title_tr, story_tr, difficulty, pool, reviewed_at) values

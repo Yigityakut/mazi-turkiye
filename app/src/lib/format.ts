@@ -41,13 +41,20 @@ export const ERRORS: Record<string, string> = {
   duel_pool_empty: "1v1 fotoğrafları hazırlanıyor. Biraz sonra tekrar dene.",
   round_closed: "Bu turun süresi doldu.",
   finish_day_first: "Önce günün 5 fotoğrafını bitir.",
+  bad_nickname_word: "Bu takma ad kullanılamıyor. Başka bir ad dener misin?",
   bad_nickname: "Takma ad 2–20 karakter olmalı; harf, rakam, boşluk, nokta, tire.",
+  rate_limit: "Şu an çok yoğunuz. Birkaç dakika sonra tekrar dener misin?",
   network: "İnternet bağlantısı yok gibi görünüyor. Bağlantını kontrol edip tekrar dene.",
 };
 
 export function errorText(e: unknown): string {
   const msg = e instanceof Error ? e.message : typeof e === "object" && e && "message" in e ? String((e as { message: unknown }).message) : String(e);
   for (const k of Object.keys(ERRORS)) if (msg.includes(k)) return ERRORS[k];
-  if (/network|fetch|Failed to fetch|timeout/i.test(msg)) return ERRORS.network;
+  const status = typeof e === "object" && e && "status" in e ? (e as { status?: unknown }).status : undefined;
+  if (status === 429 || /rate.?limit|too many requests|\b429\b/i.test(msg)) return ERRORS.rate_limit;
+  if (/network|fetch|Failed to send|timeout|timed out|offline/i.test(msg)) return ERRORS.network;
   return "Bir şeyler ters gitti. Tekrar dener misin?";
 }
+
+/** Hata metni bağlantı sorunu mu (ErrorState başlığı ve 1v1 şeridi için). */
+export const isNetworkText = (text: string) => text === ERRORS.network;

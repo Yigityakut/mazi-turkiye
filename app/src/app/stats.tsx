@@ -1,5 +1,5 @@
 import { router } from "expo-router";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 import { Button, Card, ErrorState, Loading, Screen, T } from "../components/ui";
 import { api } from "../lib/api";
@@ -15,8 +15,11 @@ export default function StatsScreen() {
   const c = usePalette();
   const [s, setS] = useState<Stats | null>(null);
   const [err, setErr] = useState<string | null>(null);
-  const load = () => api.stats().then(setS).catch((e) => setErr(errorText(e)));
-  useEffect(() => { load(); }, []);
+  const load = useCallback(() => {
+    setErr(null); // "Tekrar dene" hatayı temizlemeden yüklerse ekran hata durumunda kalıyordu (QA O1)
+    api.stats().then(setS).catch((e) => setErr(errorText(e)));
+  }, []);
+  useEffect(load, [load]);
   if (err) return <ErrorState message={err} onRetry={load} />;
   if (!s) return <Loading />;
   const maxRecent = Math.max(...s.recent.map((r) => r.total), 1);
@@ -32,7 +35,8 @@ export default function StatsScreen() {
         {s.recent.length > 0 && (
           <Card style={{ gap: space.md }}>
             <T v="label" muted>Son {s.recent.length} gün</T>
-            <View style={styles.chart} accessibilityLabel="Son günlerin skor grafiği">
+            <View style={styles.chart} accessible accessibilityRole="image"
+              accessibilityLabel={`Son ${s.recent.length} günün skorları: ${s.recent.map((r) => num(r.total)).join(", ")}`}>
               {s.recent.map((r) => (
                 <View key={r.day} style={{ flex: 1, justifyContent: "flex-end" }}>
                   <View style={{ height: `${(r.total / maxRecent) * 100}%`, backgroundColor: c.accent, borderRadius: 3, minHeight: 3 }} />
@@ -96,5 +100,6 @@ function Bar({ label, value, max, note }: { label: string; value: number; max: n
 const styles = StyleSheet.create({
   grid: { flexDirection: "row", flexWrap: "wrap", gap: space.md },
   tile: { flexBasis: "47%", flexGrow: 1, padding: space.lg, borderRadius: radius.md, borderWidth: StyleSheet.hairlineWidth, gap: 2 },
-  chart: { height: 90, flexDirection: "row", gap: 3, alignItems: "flex-end" },
+  // Sütunlar dikeyde gerilir (alignItems: stretch); çubuk her sütunun içinde alta yaslı. "flex-end" sütun yüksekliğini 0 yapıp çubukları düzleştiriyordu.
+  chart: { height: 90, flexDirection: "row", gap: 3 },
 });

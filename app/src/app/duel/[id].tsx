@@ -6,15 +6,13 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { PhotoCard } from "../../components/Photo";
 import { Attribution } from "../../components/Reveal";
 import { TurkeyMap, type MapPin } from "../../components/TurkeyMap";
-import { Button, Card, ErrorState, Loading, Screen, T, success } from "../../components/ui";
+import { Button, Card, ErrorBanner, ErrorState, Loading, Screen, T, success } from "../../components/ui";
 import { YearSlider } from "../../components/YearSlider";
 import { track } from "../../lib/analytics";
 import { api } from "../../lib/api";
 import { useApp } from "../../lib/appState";
-import { DEMO } from "../../lib/demo";
-import { errorText, km, num } from "../../lib/format";
+import { errorText, isNetworkText, km, num } from "../../lib/format";
 import type { LatLng } from "../../lib/geo";
-import { supabase } from "../../lib/supabase";
 import { font, radius, space, usePalette } from "../../lib/theme";
 import type { DuelState } from "../../lib/types";
 
@@ -25,7 +23,8 @@ export default function Duel() {
   const { me, refresh } = useApp();
   const { id } = useLocalSearchParams<{ id: string }>();
   const [s, setS] = useState<DuelState | null>(null);
-  const [err, setErr] = useState<string | null>(null);
+  const [err, setErr] = useState<string | null>(null);         // durum yoklaması (bağlantı)
+  const [sendErr, setSendErr] = useState<string | null>(null); // tahmin gönderme (ör. tur kapandı); yeni turda silinir
   const [pin, setPin] = useState<LatLng | null>(null);
   const [year, setYear] = useState(1965);
   const [sending, setSending] = useState(false);
@@ -34,7 +33,10 @@ export default function Duel() {
   const finishedTracked = useRef(false);
   const [, force] = useState(0);
 
+  const inFlight = useRef(false);
   const fetchState = useCallback(async () => {
+    if (inFlight.current) return; // yavaş bağlantıda istekler üst üste binmesin
+    inFlight.current = true;
     try {
       const t0 = Date.now();
       const st = await api.duelState(id);
@@ -42,23 +44,23 @@ export default function Duel() {
       setS(st);
       setErr(null);
     } catch (e) { setErr(errorText(e)); }
+    finally { inFlight.current = false; }
   }, [id]);
 
+  // Maç durumu sadece `duel_state` yoklamasıyla gelir (1,2 sn). `duels` tablosu gizlilik için istemcilere kapalı ve
+  // Realtime yayınında değil; postgres_changes aboneliği hiç olay getirmiyordu.
   useEffect(() => {
     fetchState();
     const poll = setInterval(fetchState, 1200);
     const tick = setInterval(() => force((x) => x + 1), 250);
-    // Demo derlemesinde (?phase=countdown|guessing|reveal|finished) gerçek zamanlı kanal açılmaz
-    const ch = DEMO ? null : supabase.channel(`duel-${id}`)
-      .on("postgres_changes", { event: "UPDATE", schema: "public", table: "duels", filter: `id=eq.${id}` }, () => fetchState())
-      .subscribe();
-    return () => { clearInterval(poll); clearInterval(tick); if (ch) supabase.removeChannel(ch); };
-  }, [id, fetchState]);
+    return () => { clearInterval(poll); clearInterval(tick); };
+  }, [fetchState]);
 
   // Yeni tura geçince tahmini sıfırla
   useEffect(() => {
     if (s && s.round !== lastRound.current && s.phase === "guessing") {
       lastRound.current = s.round;
+      setSendErr(null);
       setPin(null);
       setYear(1965);
     }
@@ -74,10 +76,19 @@ export default function Duel() {
   const send = async () => {
     if (!s || !pin || sending) return;
     setSending(true);
-    try { setS(await api.duelGuess(id, s.round, pin.lat, pin.lng, year)); } catch (e) { setErr(errorText(e)); } finally { setSending(false); }
+    setSendErr(null);
+    try { setS(await api.duelGuess(id, s.round, pin.lat, pin.lng, year)); }
+    catch (e) { setSendErr(errorText(e)); fetchState(); }
+    finally { setSending(false); }
   };
 
-  if (err && !s) return <ErrorState message={err} onRetry={fetchState} />;
+  if (err && !s) {
+    return (
+      <ErrorState message={err} onRetry={fetchState}>
+        <Button title="Ana sayfa" kind="ghost" onPress={() => router.replace("/")} />
+      </ErrorState>
+    );
+  }
   if (!s) return <Loading label="Maç hazırlanıyor" />;
 
   const bar = (
@@ -96,6 +107,9 @@ export default function Duel() {
       </View>
     </View>
   );
+  // Maç sürerken oluşan hata (bağlantı koptu, tur kapandı): yoklama başarılı olunca kendiliğinden kalkar (QA O2)
+  const shown = err ?? sendErr;
+  const banner = shown ? <ErrorBanner message={isNetworkText(shown) ? "Bağlantı koptu, yeniden bağlanılıyor…" : shown} /> : null;
 
   if (s.phase === "countdown") {
     const left = Math.max(Math.ceil((Date.parse(s.round_started_at) - now) / 1000), 0);
@@ -131,7 +145,7 @@ export default function Duel() {
             ))}
           </Card>
           <Button title="Yeni maç" onPress={() => {
-            if (!me?.is_pro && outOf <= 0) { track("paywall_viewed", { from: "duel_3rd" }); router.replace({ pathname: "/pro", params: { from: "duel" } }); }
+            if (!me?.is_pro && outOf <= 0) router.replace({ pathname: "/pro", params: { from: "duel" } }); // paywall_viewed Pro ekranında
             else router.replace("/duel");
           }} />
           <Button title="Ana sayfa" kind="secondary" onPress={() => router.replace("/")} />
@@ -150,6 +164,7 @@ export default function Duel() {
     return (
       <Screen>
         {bar}
+        {banner}
         <View style={{ height: height * 0.45 }}>
           <TurkeyMap pins={pins} lines={lines} focus={pins.map((p) => p.at)} interactive={false} />
         </View>
@@ -171,6 +186,7 @@ export default function Duel() {
   return (
     <Screen>
       {bar}
+      {banner}
       {s.photo ? (
         <Animated.View key={s.round} entering={FadeIn} style={{ height: height * 0.3, marginHorizontal: space.md, marginTop: space.sm, borderRadius: radius.lg, overflow: "hidden" }}>
           <PhotoCard src={{ image_path: s.photo.image_path }} style={{ flex: 1 }} />

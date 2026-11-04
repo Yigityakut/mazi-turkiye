@@ -1,7 +1,7 @@
 import { Image } from "expo-image";
 import { router, useLocalSearchParams } from "expo-router";
 import * as StoreReview from "expo-store-review";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Platform, ScrollView, StyleSheet, View } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -27,34 +27,39 @@ export default function Summary() {
   const [ch, setCh] = useState<Challenge | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [shareErr, setShareErr] = useState<string | null>(null);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const d = await api.day(dayParam ?? null, challenge || null);
-        setDay(d);
-        if (d.is_today) {
-          const lb = await api.leaderboard("today");
-          if (lb.me) setRank({ rank: lb.me.rank, players: lb.players });
+  // Zorunlu olan sadece günün verisi; sıralama, meydan okuma ve istatistik hatası tüm ekranı hataya düşürmez (QA D3)
+  const load = useCallback(async () => {
+    setErr(null);
+    let d: Day;
+    try {
+      d = await api.day(dayParam ?? null, challenge || null);
+      setDay(d);
+    } catch (e) { setErr(errorText(e)); return; }
+    if (d.is_today) {
+      api.leaderboard("today").then((lb) => { if (lb.me) setRank({ rank: lb.me.rank, players: lb.players }); }).catch(() => {});
+    }
+    if (challenge) api.challenge(challenge).then(setCh).catch(() => {});
+    try {
+      const m = await refresh();
+      // Bildirim izni: ilk bitirilen turun sonunda; başka cihazdan gelen veya ilk turu meydan okumayla bitiren de sorulur (QA O10).
+      // askPermissionAfterFirstRound sadece bir kez sorar.
+      if (m && m.days_completed >= 1) setTimeout(() => { void askPermissionAfterFirstRound(); }, 1800);
+      // Puan isteme: 3. gün tamamlandı ve skor kendi ortalamasının üzerinde (puan kapısı yok)
+      if (m && m.days_completed >= 3 && d.result && Platform.OS !== "web" && !(await prefs.reviewAsked())) {
+        const st = await api.stats();
+        if (d.result.total > st.avg_total && (await StoreReview.hasAction())) {
+          await prefs.setReviewAsked();
+          setTimeout(() => StoreReview.requestReview().catch(() => {}), 2500);
         }
-        if (challenge) setCh(await api.challenge(challenge));
-        const m = await refresh();
-        // Bildirim izni: ilk turun sonunda
-        if (m && m.days_completed === 1) setTimeout(() => askPermissionAfterFirstRound(), 1800);
-        // Puan isteme: 3. gün tamamlandı ve skor kendi ortalamasının üzerinde (puan kapısı yok)
-        if (m && m.days_completed >= 3 && d.result && Platform.OS !== "web" && !(await prefs.reviewAsked())) {
-          const st = await api.stats();
-          if (d.result.total > st.avg_total && (await StoreReview.hasAction())) {
-            await prefs.setReviewAsked();
-            setTimeout(() => StoreReview.requestReview().catch(() => {}), 2500);
-          }
-        }
-      } catch (e) { setErr(errorText(e)); }
-    })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dayParam, challenge]);
+      }
+    } catch {}
+  }, [dayParam, challenge, refresh]);
 
-  if (err) return <ErrorState message={err} onRetry={() => router.replace({ pathname: "/summary", params: { day: dayParam ?? "" } })} />;
+  useEffect(() => { void load(); }, [load]);
+
+  if (err && !day) return <ErrorState message={err} onRetry={load} />;
   if (!day) return <Loading />;
   const plays = day.photos.map((p) => p.play).filter(Boolean) as NonNullable<Day["photos"][number]["play"]>[];
   const total = day.result?.total ?? plays.reduce((s, p) => s + p.score_location + p.score_year, 0);
@@ -64,7 +69,7 @@ export default function Summary() {
     try {
       const r = await api.createChallenge(day.day);
       await shareChallenge(r.url, r.total, r.number);
-    } catch (e) { setErr(errorText(e)); } finally { setBusy(false); }
+    } catch (e) { setShareErr(errorText(e)); } finally { setBusy(false); }
   };
 
   return (
@@ -100,7 +105,7 @@ export default function Summary() {
           {day.photos.map((p, i) => p.play && (
             <Animated.View key={p.slot} entering={FadeInDown.delay(300 + i * 120)}>
               <View style={[styles.row, { backgroundColor: c.surface, borderColor: c.line }]}>
-                <Image source={{ uri: imageUrl(p.image_path, 200) }} style={styles.thumb} contentFit="cover" />
+                <Image source={{ uri: imageUrl(p.image_path, 200) }} style={[styles.thumb, { backgroundColor: c.surfaceAlt }]} contentFit="cover" accessible={false} />
                 <View style={{ flex: 1 }}>
                   <T style={{ fontFamily: font.semibold }} numberOfLines={1}>{p.play.answer.location_name}</T>
                   <T v="small" muted>{p.play.answer.year} · {km(p.play.distance_km)} · {p.play.year_diff === 0 ? "yıl tam" : `${p.play.year_diff} yıl`}</T>
@@ -111,8 +116,9 @@ export default function Summary() {
           ))}
         </View>
 
-        <Button title="Sonucu paylaş" onPress={() => shareResult(shareText(day.number, plays, !!day.result?.used_hint))} />
-        <Button title="Arkadaşına meydan oku" kind="secondary" loading={busy} onPress={sendChallenge} />
+        <Button title="Sonucu paylaş" onPress={() => { shareResult(shareText(day.number, plays, !!day.result?.used_hint)).catch(() => {}); }} />
+        <Button title="Arkadaşına meydan oku" kind="secondary" loading={busy} onPress={() => { setShareErr(null); void sendChallenge(); }} />
+        {shareErr ? <T v="small" color={c.bad} center accessibilityRole="alert">{shareErr}</T> : null}
         {!me?.is_pro ? (
           <T v="small" muted center>Geçmiş günleri oynamak ve ipuçları için Pro'ya göz at.</T>
         ) : null}

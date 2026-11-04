@@ -63,7 +63,7 @@ export function StoryBlock({ answer, onReport }: { answer: Answer; onReport?: ()
       ) : null}
       <Attribution answer={answer} />
       {onReport ? (
-        <Pressable accessibilityRole="button" onPress={onReport} hitSlop={8} style={{ alignSelf: "flex-start", paddingVertical: 6 }}>
+        <Pressable accessibilityRole="button" accessibilityLabel="Bu bilgi yanlış mı? Bildir" onPress={onReport} hitSlop={8} style={{ alignSelf: "flex-start", paddingVertical: 6 }}>
           <T v="small" color={c.inkMuted} style={{ textDecorationLine: "underline" }}>Bu bilgi yanlış mı?</T>
         </Pressable>
       ) : null}
@@ -71,17 +71,19 @@ export function StoryBlock({ answer, onReport }: { answer: Answer; onReport?: ()
   );
 }
 
+const open = (url: string) => { Linking.openURL(url).catch(() => {}); };
+
 export function Attribution({ answer }: { answer: Pick<Answer, "author" | "source_name" | "source_url" | "license_code" | "license_url"> }) {
   const c = usePalette();
   return (
     <T v="caption" muted>
       Fotoğraf: {answer.author} ·{" "}
-      <T v="caption" color={c.inkMuted} style={{ textDecorationLine: "underline" }} onPress={() => Linking.openURL(answer.source_url)}>
+      <T v="caption" color={c.inkMuted} style={{ textDecorationLine: "underline" }} accessibilityRole="link" onPress={() => open(answer.source_url)}>
         {answer.source_name}
       </T>
       {" · "}
       {answer.license_url ? (
-        <T v="caption" color={c.inkMuted} style={{ textDecorationLine: "underline" }} onPress={() => Linking.openURL(answer.license_url!)}>
+        <T v="caption" color={c.inkMuted} style={{ textDecorationLine: "underline" }} accessibilityRole="link" onPress={() => open(answer.license_url!)}>
           {answer.license_code}
         </T>
       ) : answer.license_code}

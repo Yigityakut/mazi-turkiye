@@ -1,11 +1,11 @@
-import * as WebBrowser from "expo-web-browser";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { FlatList, View } from "react-native";
 import { Attribution } from "../components/Reveal";
 import { ErrorState, Loading, Screen, T } from "../components/ui";
 import { api } from "../lib/api";
 import { LINKS } from "../lib/config";
 import { errorText } from "../lib/format";
+import { openLink } from "../lib/nav";
 import { space, usePalette } from "../lib/theme";
 import type { Source } from "../lib/types";
 
@@ -14,8 +14,11 @@ export default function Sources() {
   const c = usePalette();
   const [rows, setRows] = useState<Source[] | null>(null);
   const [err, setErr] = useState<string | null>(null);
-  const load = () => api.sources().then(setRows).catch((e) => setErr(errorText(e)));
-  useEffect(() => { load(); }, []);
+  const load = useCallback(() => {
+    setErr(null); // QA O1
+    api.sources().then(setRows).catch((e) => setErr(errorText(e)));
+  }, []);
+  useEffect(load, [load]);
   if (err) return <ErrorState message={err} onRetry={load} />;
   if (!rows) return <Loading />;
   return (
@@ -27,7 +30,7 @@ export default function Sources() {
         ListHeaderComponent={
           <View style={{ gap: space.sm, marginBottom: space.md }}>
             <T muted>Fotoğraflar kamu malı veya ticari kullanıma izin veren açık lisanslı (CC0, CC BY, CC BY-SA) arşivlerden alınır. Bugünün fotoğrafları gün bitince burada listelenir.</T>
-            <T v="small" color={c.accent} onPress={() => WebBrowser.openBrowserAsync(LINKS.sources)} style={{ textDecorationLine: "underline" }}>Tam liste web'de</T>
+            <T v="small" color={c.accent} accessibilityRole="link" onPress={() => openLink(LINKS.sources)} style={{ textDecorationLine: "underline" }}>Tam liste web'de</T>
           </View>
         }
         ListEmptyComponent={<T muted center>Liste ilk günden sonra dolmaya başlar.</T>}

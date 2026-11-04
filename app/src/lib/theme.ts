@@ -6,11 +6,12 @@ const light = {
   surfaceAlt: "#EDE3D1",
   ink: "#1E1913",
   inkMuted: "#6A5D4C",
-  inkFaint: "#9C8E79",
+  inkFaint: "#756751",     // AA: bg 4,60:1 · surface 5,15:1 (QA O11)
   line: "#DCCFB8",
   accent: "#B8432A",      // kiremit
   accentInk: "#FFF8EE",
   accentSoft: "#F1D6C9",
+  accentOnSoft: "#963520", // accentSoft zemindeki metin: 5,38:1 (accent 3,92:1 kalıyordu)
   good: "#2F6B4F",
   warn: "#B07A12",
   bad: "#A33A2A",
@@ -30,11 +31,12 @@ const dark: Palette = {
   surfaceAlt: "#29231B",
   ink: "#F1E8D8",
   inkMuted: "#B2A48E",
-  inkFaint: "#7D705E",
+  inkFaint: "#988B76",     // AA: bg 5,64:1 · surfaceAlt 4,66:1
   line: "#3A3228",
   accent: "#E0694A",
   accentInk: "#1A120C",
   accentSoft: "#4A2A20",
+  accentOnSoft: "#F0907A", // 5,46:1
   good: "#6DBB94",
   warn: "#E2B04A",
   bad: "#E07A66",

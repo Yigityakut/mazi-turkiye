@@ -1,6 +1,6 @@
 import { Redirect, router, useFocusEffect } from "expo-router";
-import { useCallback, useEffect, useState } from "react";
-import { Pressable, RefreshControl, ScrollView, StyleSheet, View } from "react-native";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Alert, Pressable, RefreshControl, ScrollView, StyleSheet, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Button, Card, ErrorState, Loading, Pill, Screen, T } from "../components/ui";
 import { api } from "../lib/api";
@@ -20,6 +20,7 @@ export default function Home() {
   const [now, setNow] = useState(Date.now());
   const [refreshing, setRefreshing] = useState(false);
   const [sharing, setSharing] = useState(false);
+  const lastRollover = useRef(0);
 
   useEffect(() => { if (!DEMO) prefs.onboarded().then(setOnboarded); }, []);
   useEffect(() => { const t = setInterval(() => setNow(Date.now()), 1000); return () => clearInterval(t); }, []);
@@ -32,9 +33,11 @@ export default function Home() {
     });
   }, []);
 
-  // Gün dönüşünde yenile
+  // Gün dönüşünde yenile; internet yoksa her saniye değil, en çok 15 sn'de bir dene (QA D5)
   useEffect(() => {
-    if (me && now > Date.parse(me.next_rollover) + 2000) refresh();
+    if (!me || now <= Date.parse(me.next_rollover) + 2000 || now - lastRollover.current < 15000) return;
+    lastRollover.current = now;
+    refresh();
   }, [now, me, refresh]);
 
   if (onboarded === false) return <Redirect href="/onboarding" />;
@@ -50,7 +53,9 @@ export default function Home() {
     try {
       const ch = await api.createChallenge();
       await shareChallenge(ch.url, ch.total, ch.number);
-    } catch {} finally { setSharing(false); }
+    } catch (e) {
+      Alert.alert("Meydan okuma", errorText(e)); // sessizce yutuluyordu (QA D4)
+    } finally { setSharing(false); }
   };
 
   return (
@@ -132,7 +137,7 @@ export default function Home() {
 function LinkRow({ label, onPress }: { label: string; onPress: () => void }) {
   const c = usePalette();
   return (
-    <Pressable accessibilityRole="button" onPress={onPress}
+    <Pressable accessibilityRole="button" accessibilityLabel={label} onPress={onPress}
       style={({ pressed }) => [styles.link, { borderColor: c.line, backgroundColor: pressed ? c.surfaceAlt : "transparent" }]}>
       <T style={{ fontFamily: font.medium }}>{label}</T>
       <T muted>›</T>

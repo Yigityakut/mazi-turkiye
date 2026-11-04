@@ -8,6 +8,14 @@ const env = process.env;
 const DOMAIN = env.EXPO_PUBLIC_DOMAIN ?? "maziturkiye.com";
 const googleIosScheme = env.GOOGLE_IOS_URL_SCHEME; // com.googleusercontent.apps.xxxx
 
+// EAS build'inde proje kimliği yoksa OTA adresi ve Expo push token'ı sessizce boş kalır (QA Y4): build günlüğünde görünür uyarı.
+if (env.EAS_BUILD_PROFILE && !env.EAS_PROJECT_ID) {
+  console.warn(
+    `[app.config] EAS_PROJECT_ID tanımlı değil (profil: ${env.EAS_BUILD_PROFILE}). updates.url ve extra.eas.projectId boş kalır: ` +
+      "OTA güncellemesi gönderilemez, Expo push token'ı alınamaz. Bkz. app/README.md → EAS_PROJECT_ID.",
+  );
+}
+
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
   name: "Mazi Türkiye",
@@ -43,6 +51,8 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     package: "com.maziturkiye.app",
     versionCode: 1,
     adaptiveIcon: { foregroundImage: "./assets/adaptive-icon.png", backgroundColor: "#B8432A" },
+    // Android'de Expo push (FCM V1) için; EAS'te dosya türünde ortam değişkeni (QA O6). Yoksa sadece yerel hatırlatıcı çalışır.
+    ...(env.GOOGLE_SERVICES_JSON ? { googleServicesFile: env.GOOGLE_SERVICES_JSON } : {}),
     blockedPermissions: ["android.permission.RECORD_AUDIO", "android.permission.READ_MEDIA_IMAGES", "android.permission.ACCESS_FINE_LOCATION"],
     intentFilters: [
       {
@@ -56,7 +66,8 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       },
     ],
   },
-  web: { bundler: "metro", output: "single", favicon: "./assets/favicon.png" },
+  // lang: tek sayfalık web derlemesinde <html lang="tr"> (büyük harf etiketlerde i → İ doğru çevrilsin)
+  web: { bundler: "metro", output: "single", favicon: "./assets/favicon.png", lang: "tr" },
   plugins: [
     "expo-router",
     "expo-font",
@@ -82,5 +93,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     revenuecatAndroidKey: env.EXPO_PUBLIC_REVENUECAT_ANDROID_KEY,
     googleWebClientId: env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID,
     googleIosClientId: env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID,
+    // iOS'ta Google düğmesi sadece URL şeması build'e eklendiyse görünür (aksi halde Google SDK çöker, QA O4)
+    googleIosUrlScheme: !!googleIosScheme,
   },
 });

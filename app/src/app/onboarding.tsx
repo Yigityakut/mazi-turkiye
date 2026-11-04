@@ -34,9 +34,11 @@ export default function Onboarding() {
   };
 
   const paste = async () => {
-    const t = (await Clipboard.getStringAsync()).toUpperCase();
-    const m = t.match(CODE);
-    if (m) setCode(m[1]);
+    try {
+      const t = (await Clipboard.getStringAsync()).toUpperCase();
+      const m = t.match(CODE);
+      if (m) setCode(m[1]);
+    } catch {} // pano izni reddedildi veya boş
   };
 
   return (
@@ -51,7 +53,7 @@ export default function Onboarding() {
                 Fotoğrafın nerede ve hangi yıl çekildiğini tahmin et. 1880'lerden bugüne, Edirne'den Hakkâri'ye.
               </T>
             </View>
-            <View style={[styles.mapBox, { borderColor: c.line }]}>
+            <View style={[styles.mapBox, { borderColor: c.line }]} accessible accessibilityRole="image" accessibilityLabel="Türkiye haritası üzerinde örnek tahmin iğneleri">
               <TurkeyMap interactive={false} compact pins={[
                 { id: "1", at: { lat: 41.0256, lng: 28.9744 }, kind: "answer" },
                 { id: "2", at: { lat: 38.4192, lng: 27.1287 }, kind: "guess" },
@@ -104,7 +106,7 @@ function Rule({ n, title, body }: { n: string; title: string; body: string }) {
   const c = usePalette();
   return (
     <View style={{ flexDirection: "row", gap: space.md }}>
-      <View style={[styles.num, { backgroundColor: c.accentSoft }]}><T v="h2" color={c.accent}>{n}</T></View>
+      <View style={[styles.num, { backgroundColor: c.accentSoft }]} importantForAccessibility="no-hide-descendants" accessibilityElementsHidden><T v="h2" color={c.accentOnSoft}>{n}</T></View>
       <View style={{ flex: 1, gap: 2 }}>
         <T style={{ fontFamily: font.semibold, fontSize: 17 }}>{title}</T>
         <T muted>{body}</T>

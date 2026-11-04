@@ -56,23 +56,60 @@ export async function scheduleDailyReminder(playedToday: boolean, streak: number
 
 /** İzin ilk turun sonunda istenir (açılışta değil). */
 export async function askPermissionAfterFirstRound(): Promise<boolean> {
-  if (Platform.OS === "web" || (await prefs.notifAsked())) return false;
-  await prefs.setNotifAsked();
-  const { granted } = await Notifications.requestPermissionsAsync();
-  if (granted) await registerPushToken();
-  return granted;
+  try {
+    if (Platform.OS === "web" || (await prefs.notifAsked())) return false;
+    await prefs.setNotifAsked();
+    const { granted } = await Notifications.requestPermissionsAsync();
+    if (granted) await registerPushToken();
+    return granted;
+  } catch {
+    return false;
+  }
 }
 
-export async function registerPushToken() {
-  if (Platform.OS === "web" || !Device.isDevice) return;
+/**
+ * Expo push token'ı için EAS proje kimliği. `EAS_PROJECT_ID` build sırasında tanımlı değilse (app.config.ts)
+ * `extra.eas.projectId` boş kalır; o zaman EAS build'in yazdığı `easConfig`'e bakılır. İkisi de yoksa sunucu
+ * bildirimleri kapalı kalır, yerel hatırlatıcı çalışmaya devam eder (bkz. app/README.md → EAS_PROJECT_ID).
+ */
+function easProjectId(): string | undefined {
+  const fromExtra = (Constants.expoConfig?.extra?.eas as { projectId?: string } | undefined)?.projectId;
+  return fromExtra || Constants.easConfig?.projectId || undefined;
+}
+
+let registered: string | null = null;
+
+/** Push token'ını o anki kullanıcının profiline yazar. Hata uygulamayı etkilemez; sonraki açılışta yeniden denenir. */
+export async function registerPushToken(): Promise<boolean> {
+  if (Platform.OS === "web" || !Device.isDevice) return false;
+  const projectId = easProjectId();
+  if (!projectId) {
+    if (__DEV__) console.warn("[push] EAS proje kimliği yok (EAS_PROJECT_ID); sunucu bildirimleri kapalı.");
+    return false;
+  }
   try {
     if (Platform.OS === "android") {
       await Notifications.setNotificationChannelAsync("default", {
         name: "Hatırlatıcılar", importance: Notifications.AndroidImportance.DEFAULT,
       });
     }
-    const projectId = Constants.expoConfig?.extra?.eas?.projectId as string | undefined;
-    const token = await Notifications.getExpoPushTokenAsync(projectId ? { projectId } : undefined);
+    const token = await Notifications.getExpoPushTokenAsync({ projectId });
     await api.updateProfile({ push_token: token.data });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * İzin daha önce verildiyse token'ı bu kullanıcı için yeniden kaydeder: kimlik değişince (giriş, hesap silme),
+ * izin sonradan Ayarlar'dan verilince veya token yenilenince sunucudaki token eskimesin (QA O10).
+ */
+export async function syncPushToken(uid: string) {
+  if (Platform.OS === "web" || registered === uid) return;
+  try {
+    const perm = await Notifications.getPermissionsAsync();
+    if (!perm.granted) return;
+    if (await registerPushToken()) registered = uid;
   } catch {}
 }

@@ -27,11 +27,13 @@ type Props = {
   highlightRegion?: string | null;
   interactive?: boolean;
   compact?: boolean;
+  /** Ekran okuyucu için açıklama (varsayılan: haritanın türüne göre). */
+  accessibilityLabel?: string;
 };
 
 const MAX_ZOOM = 16;
 
-function TurkeyMapInner({ pins = [], lines = [], onPick, focus, highlightRegion, interactive = true, compact }: Props) {
+function TurkeyMapInner({ pins = [], lines = [], onPick, focus, highlightRegion, interactive = true, compact, accessibilityLabel }: Props) {
   const c = usePalette();
   const [size, setSize] = useState({ w: 0, h: 0 });
   const k = useSharedValue(1);
@@ -167,7 +169,8 @@ function TurkeyMapInner({ pins = [], lines = [], onPick, focus, highlightRegion,
   return (
     <View style={[styles.wrap, { backgroundColor: c.water }]} onLayout={onLayout}>
       <GestureDetector gesture={gesture}>
-        <View style={StyleSheet.absoluteFill} collapsable={false}>
+        <View style={StyleSheet.absoluteFill} collapsable={false} accessible accessibilityRole="image"
+          accessibilityLabel={accessibilityLabel ?? (onPick ? "Türkiye haritası. Tahminini bırakmak için haritaya dokun." : `Türkiye haritası${pins.length ? `, ${pins.length} işaret` : ""}`)}>
           {size.w > 0 && (
             <Svg width={size.w} height={size.h}>
               <AnimatedG animatedProps={groupProps}>

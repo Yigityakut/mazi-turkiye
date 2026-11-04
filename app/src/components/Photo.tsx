@@ -1,7 +1,7 @@
 import { Image } from "expo-image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Modal, Pressable, StyleSheet, View } from "react-native";
-import { GestureDetector, usePanGesture, usePinchGesture, useSimultaneousGestures, useTapGesture } from "react-native-gesture-handler";
+import { GestureDetector, GestureHandlerRootView, usePanGesture, usePinchGesture, useSimultaneousGestures, useTapGesture } from "react-native-gesture-handler";
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { imageUrl } from "../lib/supabase";
@@ -11,10 +11,37 @@ import { T } from "./ui";
 type Src = { image_path?: string | null; uri?: string; local?: number };
 const source = (s: Src, w: number) => (s.local ? s.local : { uri: s.uri ?? imageUrl(s.image_path, w) });
 
-/** Oyundaki fotoğraf: dokununca tam ekran açılır ve yakınlaştırılır. */
-export function PhotoCard({ src, style, onOpen, label }: { src: Src; style?: object; onOpen?: () => void; label?: string }) {
+/**
+ * Oyundaki fotoğraf: dokununca tam ekran açılır ve yakınlaştırılır.
+ * `badge={false}`: "Büyüt" rozeti gösterilmez (küçük önizlemeler). `interactive={false}`: dokunma üst bileşene bırakılır.
+ * Fotoğraf yüklenemezse (internet yok) siyah kutu yerine mesaj ve "Tekrar dene" gösterilir.
+ */
+export function PhotoCard({ src, style, onOpen, label, badge = true, interactive = true }:
+  { src: Src; style?: object; onOpen?: () => void; label?: string; badge?: boolean; interactive?: boolean }) {
   const c = usePalette();
   const [open, setOpen] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const [attempt, setAttempt] = useState(0);
+  const key = `${src.image_path ?? src.uri ?? src.local}`;
+  useEffect(() => { setFailed(false); setAttempt(0); }, [key]);
+
+  const image = (
+    <Image key={`${key}:${attempt}`} source={source(src, 1200)} style={StyleSheet.absoluteFill} contentFit="cover" transition={250}
+      cachePolicy="memory-disk" onError={() => setFailed(true)} />
+  );
+  if (!interactive) {
+    return <View style={[{ backgroundColor: "#0d0b09", overflow: "hidden" }, style]}>{image}</View>;
+  }
+  if (failed) {
+    return (
+      <Pressable accessibilityRole="button" accessibilityLabel="Fotoğraf yüklenemedi. Tekrar denemek için dokun."
+        onPress={() => { setFailed(false); setAttempt((a) => a + 1); }}
+        style={[{ backgroundColor: "#0d0b09", overflow: "hidden", alignItems: "center", justifyContent: "center", gap: 6, padding: 12 }, style]}>
+        <T v="small" color="#fff" center style={{ fontFamily: font.semibold }}>Fotoğraf yüklenemedi</T>
+        <T v="caption" color="#fff" center style={{ textDecorationLine: "underline" }}>Tekrar dene</T>
+      </Pressable>
+    );
+  }
   return (
     <>
       <Pressable
@@ -23,10 +50,12 @@ export function PhotoCard({ src, style, onOpen, label }: { src: Src; style?: obj
         onPress={() => { setOpen(true); onOpen?.(); }}
         style={[{ backgroundColor: "#0d0b09", overflow: "hidden" }, style]}
       >
-        <Image source={source(src, 1200)} style={StyleSheet.absoluteFill} contentFit="cover" transition={250} cachePolicy="memory-disk" />
-        <View style={[styles.zoomHint, { backgroundColor: c.overlay }]}>
-          <T v="caption" color="#fff" style={{ fontFamily: font.semibold }}>⤢ Büyüt</T>
-        </View>
+        {image}
+        {badge ? (
+          <View style={[styles.zoomHint, { backgroundColor: c.overlay }]}>
+            <T v="caption" color="#fff" style={{ fontFamily: font.semibold }}>⤢ Büyüt</T>
+          </View>
+        ) : null}
       </Pressable>
       <PhotoZoom src={src} visible={open} onClose={() => setOpen(false)} />
     </>
@@ -56,9 +85,11 @@ export function PhotoZoom({ src, visible, onClose }: { src: Src; visible: boolea
   const st = useAnimatedStyle(() => ({ transform: [{ translateX: tx.value }, { translateY: ty.value }, { scale: s.value }] }));
   return (
     <Modal visible={visible} animationType="fade" onRequestClose={() => { reset(); onClose(); }} statusBarTranslucent>
-      <View style={{ flex: 1, backgroundColor: "#000" }}>
+      {/* Android'de Modal kök görünümün dışında açılır: hareketler için ayrı kök gerekir (QA O5) */}
+      <GestureHandlerRootView style={{ flex: 1, backgroundColor: "#000" }}>
         <GestureDetector gesture={g}>
-          <Animated.View style={[{ flex: 1 }, st]} collapsable={false}>
+          <Animated.View style={[{ flex: 1 }, st]} collapsable={false} accessible accessibilityRole="image"
+            accessibilityLabel="Fotoğraf, tam ekran. İki parmakla yakınlaştır, çift dokunarak büyüt.">
             <Image source={source(src, 2000)} style={{ flex: 1 }} contentFit="contain" />
           </Animated.View>
         </GestureDetector>
@@ -68,7 +99,7 @@ export function PhotoZoom({ src, visible, onClose }: { src: Src; visible: boolea
         >
           <T color="#fff" style={{ fontFamily: font.semibold, fontSize: 16 }}>Kapat</T>
         </Pressable>
-      </View>
+      </GestureHandlerRootView>
     </Modal>
   );
 }

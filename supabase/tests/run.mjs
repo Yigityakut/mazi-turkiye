@@ -287,7 +287,6 @@ const FN_POLICY = {
   // service only
   schedule_days: "service", streak_danger_targets: "service", weekly_kpis: "service",
   // internal helper: must not be callable through the API
-  streak_of: "internal",
 };
 
 await test("public function inventory: every function is classified and safe for anon", async () => {
@@ -311,7 +310,7 @@ await test("public function inventory: every function is classified and safe for
   }
   // the only function taking a user id must be internal
   const uidFns = fns.filter((f) => /\b(uid|p_uid|user_id|p_user\w*|p_player\w*)\s+uuid\b/.test(f.args)).map((f) => f.proname);
-  assert.deepEqual(uidFns, ["streak_of"]);
+  assert.deepEqual(uidFns, []); // streak_of artık private şemada
 });
 
 await test("duel_cancel as anon is a no-op; verify_internal_secret is false for non-service callers", async () => {
@@ -437,7 +436,7 @@ await test("finishing 5 photos writes day_results and starts a streak", async ()
   const res = await one(`select * from public.day_results where user_id = $1 and day = $2`, [U.alice.id, TODAY]);
   assert.ok(res, "no day_results row");
   assert.equal(res.total, total); assert.equal(res.on_time, true); assert.equal(res.mode, "daily"); assert.equal(res.used_hint, false);
-  assert.equal((await val(`select public.streak_of($1)`, [U.alice.id])).current, 1);
+  assert.equal((await val(`select private.streak_of($1)`, [U.alice.id])).current, 1);
   const me = await rpc(db, U.alice.who, "get_me");
   assert.equal(me.streak.current, 1); assert.equal(me.streak.played_today, true);
   assert.equal(me.today_result.total, total); assert.equal(me.today_played, 5); assert.equal(me.days_completed, 1);

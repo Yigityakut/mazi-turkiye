@@ -1,6 +1,7 @@
 import * as Haptics from "expo-haptics";
 import type { ReactNode } from "react";
 import { ActivityIndicator, Platform, Pressable, StyleSheet, Text, View, type PressableProps, type StyleProp, type TextProps, type TextStyle, type ViewStyle } from "react-native";
+import { isNetworkText } from "../lib/format";
 import { font, radius, space, usePalette } from "../lib/theme";
 
 export const tap = (style: Haptics.ImpactFeedbackStyle = Haptics.ImpactFeedbackStyle.Light) => {
@@ -87,7 +88,7 @@ export function Pill({ children, tone = "neutral" }: { children: ReactNode; tone
   const bg = tone === "accent" ? c.accentSoft : tone === "good" ? c.surfaceAlt : c.surfaceAlt;
   return (
     <View style={{ backgroundColor: bg, borderRadius: radius.pill, paddingHorizontal: 10, paddingVertical: 4, alignSelf: "flex-start" }}>
-      <T v="caption" style={{ fontFamily: font.semibold }} color={tone === "accent" ? c.accent : c.inkMuted}>{children}</T>
+      <T v="caption" style={{ fontFamily: font.semibold }} color={tone === "accent" ? c.accentOnSoft : c.inkMuted}>{children}</T>
     </View>
   );
 }
@@ -112,13 +113,31 @@ export function Loading({ label }: { label?: string }) {
   );
 }
 
-export function ErrorState({ message, onRetry }: { message: string; onRetry?: () => void }) {
+/**
+ * Tam ekran hata durumu. Başlık hatanın türüne göre: ağ hatasında "Bağlantı kurulamadı", diğerlerinde "Bir sorun oluştu".
+ * `onRetry` verilen her ekranda "Tekrar dene" çalışır (ekran yükleme fonksiyonu hatayı önce temizler).
+ */
+export function ErrorState({ message, onRetry, title, children }:
+  { message: string; onRetry?: () => void; title?: string; children?: ReactNode }) {
   const c = usePalette();
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center", padding: space.xl, gap: space.lg, backgroundColor: c.bg }}>
-      <T v="h2" center>Bağlantı kurulamadı</T>
+    <View accessibilityRole="alert" style={{ flex: 1, alignItems: "center", justifyContent: "center", padding: space.xl, gap: space.lg, backgroundColor: c.bg }}>
+      <T v="h2" center>{title ?? (isNetworkText(message) ? "Bağlantı kurulamadı" : "Bir sorun oluştu")}</T>
       <T muted center>{message}</T>
       {onRetry ? <Button title="Tekrar dene" onPress={onRetry} kind="secondary" /> : null}
+      {children}
+    </View>
+  );
+}
+
+/** Ekranın üstünde ince hata şeridi (içerik görünürken oluşan hatalar için, ör. 1v1 maçında bağlantı kopması). */
+export function ErrorBanner({ message }: { message: string }) {
+  const c = usePalette();
+  return (
+    <View accessibilityRole="alert" accessibilityLiveRegion="polite"
+      style={{ marginHorizontal: space.md, marginTop: space.sm, paddingHorizontal: space.md, paddingVertical: space.sm,
+        borderRadius: radius.md, backgroundColor: c.surface, borderWidth: StyleSheet.hairlineWidth, borderColor: c.bad }}>
+      <T v="small" color={c.bad} center style={{ fontFamily: font.semibold }}>{message}</T>
     </View>
   );
 }

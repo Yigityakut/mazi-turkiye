@@ -6,6 +6,7 @@ import { track } from "../../lib/analytics";
 import { api } from "../../lib/api";
 import { useApp } from "../../lib/appState";
 import { errorText } from "../../lib/format";
+import { goBack } from "../../lib/nav";
 import { supabase } from "../../lib/supabase";
 import { font, space, usePalette } from "../../lib/theme";
 
@@ -16,6 +17,8 @@ export default function DuelSearch() {
   const [waited, setWaited] = useState(0);
   const [err, setErr] = useState<string | null>(null);
   const [limit, setLimit] = useState(false);
+  const [attempt, setAttempt] = useState(0);
+  const [weak, setWeak] = useState(false); // yoklama art arda başarısız: bağlantı zayıf
   const started = useRef(Date.now());
   const done = useRef(false);
 
@@ -29,11 +32,21 @@ export default function DuelSearch() {
   useEffect(() => {
     let poll: ReturnType<typeof setInterval> | undefined;
     let channel: ReturnType<typeof supabase.channel> | undefined;
+    let fails = 0;
+    let stopped = false;
+    done.current = false;
+    started.current = Date.now();
     track("duel_search_started");
     (async () => {
       try {
         const r = await api.duelFind();
+        if (stopped) {
+          // Ekrandan çıkıldı ama sıra satırı iptalden sonra yazılmış olabilir
+          if (r.status === "waiting") api.duelCancel().catch(() => {});
+          return;
+        }
         if (r.status === "matched" && r.duel_id) return go(r.duel_id);
+        // Eşleşme bildirimi: kendi sıra satırı (duel_queue) Realtime ile; yedek olarak 2 sn'de bir yoklama
         if (me) {
           channel = supabase.channel(`queue-${me.id}`)
             .on("postgres_changes", { event: "UPDATE", schema: "public", table: "duel_queue", filter: `user_id=eq.${me.id}` },
@@ -43,22 +56,28 @@ export default function DuelSearch() {
         poll = setInterval(async () => {
           try {
             const s = await api.duelQueueStatus();
+            fails = 0;
+            setWeak(false);
             setWaited(s.waited);
             if (s.duel_id && s.status === "matched") go(s.duel_id);
-          } catch {}
+          } catch {
+            if (++fails >= 3) setWeak(true);
+          }
         }, 2000);
       } catch (e) {
+        if (stopped) return;
         if (String(e).includes("duel_limit")) setLimit(true);
         setErr(errorText(e));
       }
     })();
     return () => {
+      stopped = true;
       if (poll) clearInterval(poll);
       if (channel) supabase.removeChannel(channel);
       if (!done.current) api.duelCancel().catch(() => {});
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [attempt]);
 
   const mm = Math.floor(waited / 60), ss = String(waited % 60).padStart(2, "0");
   return (
@@ -67,7 +86,9 @@ export default function DuelSearch() {
       {err ? (
         <View style={{ gap: space.lg }}>
           <T v="h2" center>{err}</T>
-          {limit ? <Button title="Pro ile sınırsız oyna" onPress={() => { track("paywall_viewed", { from: "duel_limit" }); router.replace({ pathname: "/pro", params: { from: "duel" } }); }} /> : null}
+          {limit ? <Button title="Pro ile sınırsız oyna" onPress={() => router.replace({ pathname: "/pro", params: { from: "duel" } })} /> : (
+            <Button title="Tekrar dene" onPress={() => { setErr(null); setWaited(0); setAttempt((a) => a + 1); }} />
+          )}
           <Button title="Ana sayfa" kind="secondary" onPress={() => router.replace("/")} />
         </View>
       ) : (
@@ -76,12 +97,13 @@ export default function DuelSearch() {
             <ActivityIndicator size="large" color={c.accent} />
             <T v="title" center>Rakip aranıyor</T>
             <T muted center>Tahmini bekleme: 1–2 dk</T>
-            <T style={{ fontFamily: font.semibold, fontVariant: ["tabular-nums"] }}>{mm}:{ss}</T>
+            <T style={{ fontFamily: font.semibold, fontVariant: ["tabular-nums"] }} accessibilityLabel={`Bekleme süresi ${mm} dakika ${Number(ss)} saniye`}>{mm}:{ss}</T>
+            {weak ? <T v="small" color={c.bad} center accessibilityRole="alert">Bağlantı zayıf. Aramaya devam ediliyor…</T> : null}
           </View>
           <T v="small" faint center>
             Aynı 5 fotoğraf, ikiniz aynı anda. Her fotoğraf için 45 saniye. Rakip bulunamazsa yapay zekâ rakip atanabilir.
           </T>
-          <Button title="Vazgeç" kind="secondary" onPress={() => router.back()} />
+          <Button title="Vazgeç" kind="secondary" onPress={goBack} />
         </>
       )}
     </Screen>

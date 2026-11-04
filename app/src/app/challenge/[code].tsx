@@ -1,5 +1,5 @@
 import { router, Stack, useLocalSearchParams } from "expo-router";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { View } from "react-native";
 import { Button, Card, ErrorState, Loading, Screen, T } from "../../components/ui";
 import { track } from "../../lib/analytics";
@@ -13,10 +13,20 @@ export default function ChallengeScreen() {
   const { code } = useLocalSearchParams<{ code: string }>();
   const [ch, setCh] = useState<Challenge | null>(null);
   const [err, setErr] = useState<string | null>(null);
-  const load = () => api.challenge(code).then((x) => { setCh(x); track("challenge_opened", { source: "link" }); }).catch((e) => setErr(errorText(e)));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => { load(); }, [code]);
-  if (err) return <ErrorState message={err} onRetry={load} />;
+  const load = useCallback(() => {
+    setErr(null); // QA O1
+    api.challenge(code)
+      .then((x) => { setCh(x); if (!x.is_mine) track("challenge_opened", { source: "link" }); })
+      .catch((e) => setErr(errorText(e)));
+  }, [code]);
+  useEffect(load, [load]);
+  if (err) {
+    return (
+      <ErrorState message={err} onRetry={load}>
+        <Button title="Ana sayfa" kind="ghost" onPress={() => router.replace("/")} />
+      </ErrorState>
+    );
+  }
   if (!ch) return <Loading />;
   const played = ch.my_total != null;
   return (

@@ -37,10 +37,24 @@ export const api = {
     rpc<DuelState>("duel_guess", { p_duel: id, p_round: round, p_lat: lat, p_lng: lng, p_year: year }),
   createMergeTicket: () => rpc<string>("create_merge_ticket"),
   redeemMergeTicket: (ticket: string) => rpc<{ moved: number }>("redeem_merge_ticket", { p_ticket: ticket }),
-  async deleteAccount() {
+  /**
+   * Hesabı siler. Apple ile bağlı hesapta `appleAuthorizationCode` verilirse fonksiyon Apple token'ını da iptal eder
+   * (supabase/functions/delete-account, gövde: `{ apple_authorization_code }`).
+   */
+  async deleteAccount(appleAuthorizationCode?: string | null) {
+    if (DEMO) return;
     const s = await ensureSession();
-    const { error } = await supabase.functions.invoke("delete-account", { headers: { Authorization: `Bearer ${s.access_token}` } });
-    if (error) throw error;
-    await supabase.auth.signOut();
+    const { error } = await supabase.functions.invoke("delete-account", {
+      headers: { Authorization: `Bearer ${s.access_token}` },
+      body: appleAuthorizationCode ? { apple_authorization_code: appleAuthorizationCode } : {},
+    });
+    if (error) {
+      // Fonksiyonun döndürdüğü `{ error }` metnini kullan (ör. auth_required); yoksa istemci hatası
+      const ctx = (error as { context?: unknown }).context;
+      const body = ctx instanceof Response ? await ctx.json().catch(() => null) : null;
+      throw new Error(typeof body?.error === "string" ? body.error : error.message);
+    }
+    // Kullanıcı sunucuda artık yok: sadece yerel oturumu sil (SIGNED_OUT → identity.ts yeni anonim oturumu bağlar)
+    await supabase.auth.signOut({ scope: "local" });
   },
 };

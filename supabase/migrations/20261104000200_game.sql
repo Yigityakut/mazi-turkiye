@@ -195,7 +195,7 @@ begin
 end $$;
 
 -- ---------- Seri ----------
-create or replace function public.streak_of(uid uuid)
+create or replace function private.streak_of(uid uuid)
 returns jsonb language plpgsql stable security definer set search_path = public as $$
 declare
   today date := public.game_day();
@@ -235,7 +235,6 @@ begin
 end $$;
 -- Herhangi bir kullanıcı id'si alır: API rollerine kapalı. get_me / get_stats / streak_danger_targets
 -- (security definer, sahibi postgres) içinden çağrılır. Supabase public'teki fonksiyonları anon'a da açar.
-revoke execute on function public.streak_of(uuid) from public, anon, authenticated;
 
 -- ---------- Profil ----------
 create or replace function public.get_me()
@@ -253,7 +252,7 @@ begin
   return jsonb_build_object(
     'id', uid, 'nickname', pr.nickname, 'is_pro', pr.is_pro, 'is_admin', pr.is_admin, 'elo', pr.elo,
     'show_on_leaderboard', pr.show_on_leaderboard, 'reminder_hour', pr.reminder_hour,
-    'streak', public.streak_of(uid),
+    'streak', private.streak_of(uid),
     'today', today, 'today_number', public.day_number(today), 'next_rollover', public.next_rollover(),
     'today_result', (select jsonb_build_object('total', total) from public.day_results where user_id = uid and day = today),
     'today_played', (select count(*) from public.plays where user_id = uid and day = today),
@@ -324,7 +323,7 @@ begin
   select coalesce(jsonb_agg(jsonb_build_object('day', day, 'number', public.day_number(day), 'total', total) order by day), '[]')
     into recent from (select day, total from public.day_results where user_id = uid order by day desc limit 30) s;
 
-  return base || jsonb_build_object('streak', public.streak_of(uid), 'recent', recent, 'full', pro,
+  return base || jsonb_build_object('streak', private.streak_of(uid), 'recent', recent, 'full', pro,
     'by_era', case when pro then by_era else '[]'::jsonb end,
     'by_region', case when pro then by_region else '[]'::jsonb end);
 end $$;
