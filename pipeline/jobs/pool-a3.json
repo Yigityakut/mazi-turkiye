@@ -1,0 +1,987 @@
+{
+ "name": "pool-a3",
+ "keepNoCoords": true,
+ "sheetsNeedGeo": true,
+ "queries": [
+  {
+   "q": "deepcat:\"Turkey in the 1880s\"",
+   "pages": 2,
+   "cap": 6,
+   "minYear": 1880,
+   "maxYear": 1889
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1880s\"",
+   "pages": 2,
+   "cap": 6,
+   "minYear": 1880,
+   "maxYear": 1889
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1880s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1880,
+   "maxYear": 1889
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1880s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1880,
+   "maxYear": 1889
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1880s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1880,
+   "maxYear": 1889
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1880s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1880,
+   "maxYear": 1889
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1880s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1880,
+   "maxYear": 1889
+  },
+  {
+   "q": "deepcat:\"Konya in the 1880s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1880,
+   "maxYear": 1889
+  },
+  {
+   "q": "deepcat:\"Adana in the 1880s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1880,
+   "maxYear": 1889
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1880s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1880,
+   "maxYear": 1889
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1880s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1880,
+   "maxYear": 1889
+  },
+  {
+   "q": "deepcat:\"Diyarbak\u0131r in the 1880s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1880,
+   "maxYear": 1889
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1880s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1880,
+   "maxYear": 1889
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1880s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1880,
+   "maxYear": 1889
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1880s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1880,
+   "maxYear": 1889
+  },
+  {
+   "q": "deepcat:\"Eski\u015fehir in the 1880s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1880,
+   "maxYear": 1889
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1880s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1880,
+   "maxYear": 1889
+  },
+  {
+   "q": "deepcat:\"\u00c7anakkale in the 1880s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1880,
+   "maxYear": 1889
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1880s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1880,
+   "maxYear": 1889
+  },
+  {
+   "q": "deepcat:\"Van in the 1880s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1880,
+   "maxYear": 1889
+  },
+  {
+   "q": "deepcat:\"Turkey in the 1890s\"",
+   "pages": 2,
+   "cap": 6,
+   "minYear": 1890,
+   "maxYear": 1899
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1890s\"",
+   "pages": 2,
+   "cap": 6,
+   "minYear": 1890,
+   "maxYear": 1899
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1890s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1890,
+   "maxYear": 1899
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1890s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1890,
+   "maxYear": 1899
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1890s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1890,
+   "maxYear": 1899
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1890s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1890,
+   "maxYear": 1899
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1890s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1890,
+   "maxYear": 1899
+  },
+  {
+   "q": "deepcat:\"Konya in the 1890s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1890,
+   "maxYear": 1899
+  },
+  {
+   "q": "deepcat:\"Adana in the 1890s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1890,
+   "maxYear": 1899
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1890s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1890,
+   "maxYear": 1899
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1890s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1890,
+   "maxYear": 1899
+  },
+  {
+   "q": "deepcat:\"Diyarbak\u0131r in the 1890s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1890,
+   "maxYear": 1899
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1890s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1890,
+   "maxYear": 1899
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1890s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1890,
+   "maxYear": 1899
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1890s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1890,
+   "maxYear": 1899
+  },
+  {
+   "q": "deepcat:\"Eski\u015fehir in the 1890s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1890,
+   "maxYear": 1899
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1890s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1890,
+   "maxYear": 1899
+  },
+  {
+   "q": "deepcat:\"\u00c7anakkale in the 1890s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1890,
+   "maxYear": 1899
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1890s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1890,
+   "maxYear": 1899
+  },
+  {
+   "q": "deepcat:\"Van in the 1890s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1890,
+   "maxYear": 1899
+  },
+  {
+   "q": "deepcat:\"Turkey in the 1900s\"",
+   "pages": 2,
+   "cap": 6,
+   "minYear": 1900,
+   "maxYear": 1909
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1900s\"",
+   "pages": 2,
+   "cap": 6,
+   "minYear": 1900,
+   "maxYear": 1909
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1900s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1900,
+   "maxYear": 1909
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1900s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1900,
+   "maxYear": 1909
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1900s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1900,
+   "maxYear": 1909
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1900s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1900,
+   "maxYear": 1909
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1900s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1900,
+   "maxYear": 1909
+  },
+  {
+   "q": "deepcat:\"Konya in the 1900s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1900,
+   "maxYear": 1909
+  },
+  {
+   "q": "deepcat:\"Adana in the 1900s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1900,
+   "maxYear": 1909
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1900s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1900,
+   "maxYear": 1909
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1900s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1900,
+   "maxYear": 1909
+  },
+  {
+   "q": "deepcat:\"Diyarbak\u0131r in the 1900s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1900,
+   "maxYear": 1909
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1900s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1900,
+   "maxYear": 1909
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1900s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1900,
+   "maxYear": 1909
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1900s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1900,
+   "maxYear": 1909
+  },
+  {
+   "q": "deepcat:\"Eski\u015fehir in the 1900s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1900,
+   "maxYear": 1909
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1900s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1900,
+   "maxYear": 1909
+  },
+  {
+   "q": "deepcat:\"\u00c7anakkale in the 1900s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1900,
+   "maxYear": 1909
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1900s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1900,
+   "maxYear": 1909
+  },
+  {
+   "q": "deepcat:\"Van in the 1900s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1900,
+   "maxYear": 1909
+  },
+  {
+   "q": "deepcat:\"Turkey in the 1910s\"",
+   "pages": 2,
+   "cap": 6,
+   "minYear": 1910,
+   "maxYear": 1919
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1910s\"",
+   "pages": 2,
+   "cap": 6,
+   "minYear": 1910,
+   "maxYear": 1919
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1910s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1910,
+   "maxYear": 1919
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1910s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1910,
+   "maxYear": 1919
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1910s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1910,
+   "maxYear": 1919
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1910s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1910,
+   "maxYear": 1919
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1910s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1910,
+   "maxYear": 1919
+  },
+  {
+   "q": "deepcat:\"Konya in the 1910s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1910,
+   "maxYear": 1919
+  },
+  {
+   "q": "deepcat:\"Adana in the 1910s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1910,
+   "maxYear": 1919
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1910s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1910,
+   "maxYear": 1919
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1910s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1910,
+   "maxYear": 1919
+  },
+  {
+   "q": "deepcat:\"Diyarbak\u0131r in the 1910s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1910,
+   "maxYear": 1919
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1910s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1910,
+   "maxYear": 1919
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1910s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1910,
+   "maxYear": 1919
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1910s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1910,
+   "maxYear": 1919
+  },
+  {
+   "q": "deepcat:\"Eski\u015fehir in the 1910s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1910,
+   "maxYear": 1919
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1910s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1910,
+   "maxYear": 1919
+  },
+  {
+   "q": "deepcat:\"\u00c7anakkale in the 1910s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1910,
+   "maxYear": 1919
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1910s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1910,
+   "maxYear": 1919
+  },
+  {
+   "q": "deepcat:\"Van in the 1910s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1910,
+   "maxYear": 1919
+  },
+  {
+   "q": "deepcat:\"Turkey in the 1920s\"",
+   "pages": 2,
+   "cap": 6,
+   "minYear": 1920,
+   "maxYear": 1929
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1920s\"",
+   "pages": 2,
+   "cap": 6,
+   "minYear": 1920,
+   "maxYear": 1929
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1920s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1920,
+   "maxYear": 1929
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1920s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1920,
+   "maxYear": 1929
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1920s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1920,
+   "maxYear": 1929
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1920s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1920,
+   "maxYear": 1929
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1920s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1920,
+   "maxYear": 1929
+  },
+  {
+   "q": "deepcat:\"Konya in the 1920s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1920,
+   "maxYear": 1929
+  },
+  {
+   "q": "deepcat:\"Adana in the 1920s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1920,
+   "maxYear": 1929
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1920s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1920,
+   "maxYear": 1929
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1920s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1920,
+   "maxYear": 1929
+  },
+  {
+   "q": "deepcat:\"Diyarbak\u0131r in the 1920s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1920,
+   "maxYear": 1929
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1920s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1920,
+   "maxYear": 1929
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1920s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1920,
+   "maxYear": 1929
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1920s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1920,
+   "maxYear": 1929
+  },
+  {
+   "q": "deepcat:\"Eski\u015fehir in the 1920s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1920,
+   "maxYear": 1929
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1920s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1920,
+   "maxYear": 1929
+  },
+  {
+   "q": "deepcat:\"\u00c7anakkale in the 1920s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1920,
+   "maxYear": 1929
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1920s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1920,
+   "maxYear": 1929
+  },
+  {
+   "q": "deepcat:\"Van in the 1920s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1920,
+   "maxYear": 1929
+  },
+  {
+   "q": "deepcat:\"Turkey in the 1930s\"",
+   "pages": 2,
+   "cap": 6,
+   "minYear": 1930,
+   "maxYear": 1939
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1930s\"",
+   "pages": 2,
+   "cap": 6,
+   "minYear": 1930,
+   "maxYear": 1939
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1930s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1930,
+   "maxYear": 1939
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1930s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1930,
+   "maxYear": 1939
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1930s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1930,
+   "maxYear": 1939
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1930s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1930,
+   "maxYear": 1939
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1930s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1930,
+   "maxYear": 1939
+  },
+  {
+   "q": "deepcat:\"Konya in the 1930s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1930,
+   "maxYear": 1939
+  },
+  {
+   "q": "deepcat:\"Adana in the 1930s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1930,
+   "maxYear": 1939
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1930s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1930,
+   "maxYear": 1939
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1930s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1930,
+   "maxYear": 1939
+  },
+  {
+   "q": "deepcat:\"Diyarbak\u0131r in the 1930s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1930,
+   "maxYear": 1939
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1930s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1930,
+   "maxYear": 1939
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1930s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1930,
+   "maxYear": 1939
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1930s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1930,
+   "maxYear": 1939
+  },
+  {
+   "q": "deepcat:\"Eski\u015fehir in the 1930s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1930,
+   "maxYear": 1939
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1930s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1930,
+   "maxYear": 1939
+  },
+  {
+   "q": "deepcat:\"\u00c7anakkale in the 1930s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1930,
+   "maxYear": 1939
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1930s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1930,
+   "maxYear": 1939
+  },
+  {
+   "q": "deepcat:\"Van in the 1930s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1930,
+   "maxYear": 1939
+  },
+  {
+   "q": "deepcat:\"Turkey in the 1940s\"",
+   "pages": 2,
+   "cap": 6,
+   "minYear": 1940,
+   "maxYear": 1949
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1940s\"",
+   "pages": 2,
+   "cap": 6,
+   "minYear": 1940,
+   "maxYear": 1949
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1940s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1940,
+   "maxYear": 1949
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1940s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1940,
+   "maxYear": 1949
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1940s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1940,
+   "maxYear": 1949
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1940s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1940,
+   "maxYear": 1949
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1940s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1940,
+   "maxYear": 1949
+  },
+  {
+   "q": "deepcat:\"Konya in the 1940s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1940,
+   "maxYear": 1949
+  },
+  {
+   "q": "deepcat:\"Adana in the 1940s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1940,
+   "maxYear": 1949
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1940s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1940,
+   "maxYear": 1949
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1940s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1940,
+   "maxYear": 1949
+  },
+  {
+   "q": "deepcat:\"Diyarbak\u0131r in the 1940s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1940,
+   "maxYear": 1949
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1940s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1940,
+   "maxYear": 1949
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1940s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1940,
+   "maxYear": 1949
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1940s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1940,
+   "maxYear": 1949
+  },
+  {
+   "q": "deepcat:\"Eski\u015fehir in the 1940s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1940,
+   "maxYear": 1949
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1940s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1940,
+   "maxYear": 1949
+  },
+  {
+   "q": "deepcat:\"\u00c7anakkale in the 1940s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1940,
+   "maxYear": 1949
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1940s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1940,
+   "maxYear": 1949
+  },
+  {
+   "q": "deepcat:\"Van in the 1940s\"",
+   "pages": 2,
+   "cap": 4,
+   "minYear": 1940,
+   "maxYear": 1949
+  }
+ ]
+}

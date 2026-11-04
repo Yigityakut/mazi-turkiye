@@ -1,0 +1,707 @@
+{
+ "name": "pool-b3",
+ "keepNoCoords": true,
+ "sheetsNeedGeo": true,
+ "queries": [
+  {
+   "q": "deepcat:\"Turkey in the 1950s\"",
+   "pages": 2,
+   "cap": 8,
+   "minYear": 1950,
+   "maxYear": 1959
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1950s\"",
+   "pages": 2,
+   "cap": 8,
+   "minYear": 1950,
+   "maxYear": 1959
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1950s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1950,
+   "maxYear": 1959
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1950s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1950,
+   "maxYear": 1959
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1950s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1950,
+   "maxYear": 1959
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1950s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1950,
+   "maxYear": 1959
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1950s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1950,
+   "maxYear": 1959
+  },
+  {
+   "q": "deepcat:\"Konya in the 1950s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1950,
+   "maxYear": 1959
+  },
+  {
+   "q": "deepcat:\"Adana in the 1950s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1950,
+   "maxYear": 1959
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1950s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1950,
+   "maxYear": 1959
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1950s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1950,
+   "maxYear": 1959
+  },
+  {
+   "q": "deepcat:\"Diyarbak\u0131r in the 1950s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1950,
+   "maxYear": 1959
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1950s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1950,
+   "maxYear": 1959
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1950s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1950,
+   "maxYear": 1959
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1950s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1950,
+   "maxYear": 1959
+  },
+  {
+   "q": "deepcat:\"Eski\u015fehir in the 1950s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1950,
+   "maxYear": 1959
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1950s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1950,
+   "maxYear": 1959
+  },
+  {
+   "q": "deepcat:\"\u00c7anakkale in the 1950s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1950,
+   "maxYear": 1959
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1950s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1950,
+   "maxYear": 1959
+  },
+  {
+   "q": "deepcat:\"Van in the 1950s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1950,
+   "maxYear": 1959
+  },
+  {
+   "q": "deepcat:\"Turkey in the 1960s\"",
+   "pages": 2,
+   "cap": 8,
+   "minYear": 1960,
+   "maxYear": 1969
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1960s\"",
+   "pages": 2,
+   "cap": 8,
+   "minYear": 1960,
+   "maxYear": 1969
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1960s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1960,
+   "maxYear": 1969
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1960s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1960,
+   "maxYear": 1969
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1960s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1960,
+   "maxYear": 1969
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1960s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1960,
+   "maxYear": 1969
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1960s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1960,
+   "maxYear": 1969
+  },
+  {
+   "q": "deepcat:\"Konya in the 1960s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1960,
+   "maxYear": 1969
+  },
+  {
+   "q": "deepcat:\"Adana in the 1960s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1960,
+   "maxYear": 1969
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1960s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1960,
+   "maxYear": 1969
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1960s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1960,
+   "maxYear": 1969
+  },
+  {
+   "q": "deepcat:\"Diyarbak\u0131r in the 1960s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1960,
+   "maxYear": 1969
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1960s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1960,
+   "maxYear": 1969
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1960s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1960,
+   "maxYear": 1969
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1960s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1960,
+   "maxYear": 1969
+  },
+  {
+   "q": "deepcat:\"Eski\u015fehir in the 1960s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1960,
+   "maxYear": 1969
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1960s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1960,
+   "maxYear": 1969
+  },
+  {
+   "q": "deepcat:\"\u00c7anakkale in the 1960s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1960,
+   "maxYear": 1969
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1960s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1960,
+   "maxYear": 1969
+  },
+  {
+   "q": "deepcat:\"Van in the 1960s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1960,
+   "maxYear": 1969
+  },
+  {
+   "q": "deepcat:\"Turkey in the 1970s\"",
+   "pages": 2,
+   "cap": 8,
+   "minYear": 1970,
+   "maxYear": 1979
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1970s\"",
+   "pages": 2,
+   "cap": 8,
+   "minYear": 1970,
+   "maxYear": 1979
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1970s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1970,
+   "maxYear": 1979
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1970s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1970,
+   "maxYear": 1979
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1970s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1970,
+   "maxYear": 1979
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1970s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1970,
+   "maxYear": 1979
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1970s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1970,
+   "maxYear": 1979
+  },
+  {
+   "q": "deepcat:\"Konya in the 1970s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1970,
+   "maxYear": 1979
+  },
+  {
+   "q": "deepcat:\"Adana in the 1970s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1970,
+   "maxYear": 1979
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1970s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1970,
+   "maxYear": 1979
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1970s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1970,
+   "maxYear": 1979
+  },
+  {
+   "q": "deepcat:\"Diyarbak\u0131r in the 1970s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1970,
+   "maxYear": 1979
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1970s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1970,
+   "maxYear": 1979
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1970s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1970,
+   "maxYear": 1979
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1970s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1970,
+   "maxYear": 1979
+  },
+  {
+   "q": "deepcat:\"Eski\u015fehir in the 1970s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1970,
+   "maxYear": 1979
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1970s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1970,
+   "maxYear": 1979
+  },
+  {
+   "q": "deepcat:\"\u00c7anakkale in the 1970s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1970,
+   "maxYear": 1979
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1970s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1970,
+   "maxYear": 1979
+  },
+  {
+   "q": "deepcat:\"Van in the 1970s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1970,
+   "maxYear": 1979
+  },
+  {
+   "q": "deepcat:\"Turkey in the 1980s\"",
+   "pages": 2,
+   "cap": 8,
+   "minYear": 1980,
+   "maxYear": 1989
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1980s\"",
+   "pages": 2,
+   "cap": 8,
+   "minYear": 1980,
+   "maxYear": 1989
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1980s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1980,
+   "maxYear": 1989
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1980s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1980,
+   "maxYear": 1989
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1980s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1980,
+   "maxYear": 1989
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1980s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1980,
+   "maxYear": 1989
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1980s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1980,
+   "maxYear": 1989
+  },
+  {
+   "q": "deepcat:\"Konya in the 1980s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1980,
+   "maxYear": 1989
+  },
+  {
+   "q": "deepcat:\"Adana in the 1980s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1980,
+   "maxYear": 1989
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1980s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1980,
+   "maxYear": 1989
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1980s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1980,
+   "maxYear": 1989
+  },
+  {
+   "q": "deepcat:\"Diyarbak\u0131r in the 1980s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1980,
+   "maxYear": 1989
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1980s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1980,
+   "maxYear": 1989
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1980s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1980,
+   "maxYear": 1989
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1980s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1980,
+   "maxYear": 1989
+  },
+  {
+   "q": "deepcat:\"Eski\u015fehir in the 1980s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1980,
+   "maxYear": 1989
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1980s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1980,
+   "maxYear": 1989
+  },
+  {
+   "q": "deepcat:\"\u00c7anakkale in the 1980s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1980,
+   "maxYear": 1989
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1980s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1980,
+   "maxYear": 1989
+  },
+  {
+   "q": "deepcat:\"Van in the 1980s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1980,
+   "maxYear": 1989
+  },
+  {
+   "q": "deepcat:\"Turkey in the 1990s\"",
+   "pages": 2,
+   "cap": 8,
+   "minYear": 1990,
+   "maxYear": 1999
+  },
+  {
+   "q": "deepcat:\"Istanbul in the 1990s\"",
+   "pages": 2,
+   "cap": 8,
+   "minYear": 1990,
+   "maxYear": 1999
+  },
+  {
+   "q": "deepcat:\"Ankara in the 1990s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1990,
+   "maxYear": 1999
+  },
+  {
+   "q": "deepcat:\"Izmir in the 1990s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1990,
+   "maxYear": 1999
+  },
+  {
+   "q": "deepcat:\"Bursa in the 1990s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1990,
+   "maxYear": 1999
+  },
+  {
+   "q": "deepcat:\"Antalya in the 1990s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1990,
+   "maxYear": 1999
+  },
+  {
+   "q": "deepcat:\"Trabzon in the 1990s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1990,
+   "maxYear": 1999
+  },
+  {
+   "q": "deepcat:\"Konya in the 1990s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1990,
+   "maxYear": 1999
+  },
+  {
+   "q": "deepcat:\"Adana in the 1990s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1990,
+   "maxYear": 1999
+  },
+  {
+   "q": "deepcat:\"Edirne in the 1990s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1990,
+   "maxYear": 1999
+  },
+  {
+   "q": "deepcat:\"Erzurum in the 1990s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1990,
+   "maxYear": 1999
+  },
+  {
+   "q": "deepcat:\"Diyarbak\u0131r in the 1990s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1990,
+   "maxYear": 1999
+  },
+  {
+   "q": "deepcat:\"Gaziantep in the 1990s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1990,
+   "maxYear": 1999
+  },
+  {
+   "q": "deepcat:\"Kayseri in the 1990s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1990,
+   "maxYear": 1999
+  },
+  {
+   "q": "deepcat:\"Samsun in the 1990s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1990,
+   "maxYear": 1999
+  },
+  {
+   "q": "deepcat:\"Eski\u015fehir in the 1990s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1990,
+   "maxYear": 1999
+  },
+  {
+   "q": "deepcat:\"Mersin in the 1990s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1990,
+   "maxYear": 1999
+  },
+  {
+   "q": "deepcat:\"\u00c7anakkale in the 1990s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1990,
+   "maxYear": 1999
+  },
+  {
+   "q": "deepcat:\"Sivas in the 1990s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1990,
+   "maxYear": 1999
+  },
+  {
+   "q": "deepcat:\"Van in the 1990s\"",
+   "pages": 2,
+   "cap": 5,
+   "minYear": 1990,
+   "maxYear": 1999
+  }
+ ]
+}

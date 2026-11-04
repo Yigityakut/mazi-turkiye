@@ -28,11 +28,35 @@ const hav = (a, b, c, d) => {
   const x = Math.sin(((c - a) * r) / 2) ** 2 + Math.cos(a * r) * Math.cos(c * r) * Math.sin(((d - b) * r) / 2) ** 2;
   return 2 * 6371 * Math.asin(Math.sqrt(x));
 };
+// İl poligonları (Natural Earth, basitleştirilmiş) ile konumlama. Poligon dışındaysa (Boğaz kıyısı, küçük ada)
+// en yakın il sınırına 4 km'den yakınsa kabul edilir.
+const PROV = JSON.parse(fs.readFileSync(path.join(ROOT, "pipeline/geo/provinces.geojson"), "utf8")).features.map((f) => ({
+  name: f.properties.name, region: f.properties.region,
+  rings: (f.geometry.type === "MultiPolygon" ? f.geometry.coordinates : [f.geometry.coordinates]).map((p) => p[0]),
+}));
+function segDistKm(lat, lng, [x1, y1], [x2, y2]) {
+  const k = Math.cos((lat * Math.PI) / 180);
+  const px = lng * k, py = lat, ax = x1 * k, ay = y1, bx = x2 * k, by = y2;
+  const dx = bx - ax, dy = by - ay;
+  const t = Math.max(0, Math.min(1, ((px - ax) * dx + (py - ay) * dy) / (dx * dx + dy * dy || 1)));
+  return Math.hypot(px - (ax + t * dx), py - (ay + t * dy)) * 111.2;
+}
+// Basitleştirilmiş poligonda kaybolan küçük Türk adaları (Yunan adaları kıyıya 2 km'ye kadar yaklaştığı için genel tampon büyütülmez)
+const ISLANDS = [
+  { box: [40.84, 29.02, 40.92, 29.14], province: "İstanbul", region: "Marmara" },   // Adalar
+  { box: [39.28, 26.6, 39.36, 26.72], province: "Balıkesir", region: "Marmara" },   // Cunda
+  { box: [40.57, 27.45, 40.67, 27.68], province: "Balıkesir", region: "Marmara" },  // Marmara Adası
+  { box: [40.45, 27.66, 40.5, 27.74], province: "Balıkesir", region: "Marmara" },   // Avşa
+];
 export function locate(lat, lng) {
-  if (!geo.outline.some((r) => inRing(lng, lat, r))) return null;
-  let best = geo.provinces[0], bd = Infinity;
-  for (const p of geo.provinces) { const d = hav(lat, lng, p.lat, p.lng); if (d < bd) { bd = d; best = p; } }
-  return { province: best.name, region: best.region };
+  for (const i of ISLANDS) if (lat >= i.box[0] && lng >= i.box[1] && lat <= i.box[2] && lng <= i.box[3]) return { province: i.province, region: i.region };
+  for (const p of PROV) if (p.rings.some((r) => inRing(lng, lat, r))) return { province: p.name, region: p.region };
+  let best = null, bd = Infinity;
+  for (const p of PROV) for (const r of p.rings) for (let i = 1; i < r.length; i++) {
+    const d = segDistKm(lat, lng, r[i - 1], r[i]);
+    if (d < bd) { bd = d; best = p; }
+  }
+  return bd <= 4 ? { province: best.name, region: best.region, coastal: true } : null;
 }
 
 export function license(meta) {
@@ -60,7 +84,7 @@ export function exactYear(raw) {
   return +m[1];
 }
 
-const BLOCK = /\b(war|battle|corpse|dead|death|funeral|execution|massacre|terror|bomb|coup|riot|protest|soldiers?|army|military|police|savaş|ölü|cenaze|darbe|patlama|asker|polis|portrait|portre|selfie|nude|weapon|tank|earthquake|deprem|fire damage|yangın|accident|kaza|prison|cezaevi|refugee|mülteci|demonstration|miting)\b/i;
+const BLOCK = /\b(wars?|battles?|corpses?|dead|deaths?|funerals?|executions?|executed|hanged|gallows|massacres?|genocide|terror\w*|bomb\w*|explosions?|coup|riots?|protests?|soldiers?|troops?|army|armies|military|artillery|siege|occupation|deportation|tribunal|wounded|casualt\w+|police|gendarm\w*|savaş\w*|ölü\w*|cenaze\w*|darbe\w*|patlama\w*|asker\w*|polis\w*|portraits?|portre\w*|selfie|nude|weapons?|tanks?|earthquakes?|deprem\w*|fire damage|yangın\w*|accidents?|kaza\w*|prisons?|cezaev\w*|refugees?|mülteci\w*|demonstrations?|miting\w*|miniat[uü]rk|miniature|maquette|model of|engraving|lithograph|drawing|painting|map of|plan of|gravür|harita)\b/i;
 const OK_MIME = /jpeg|png|tiff/;
 
 async function commons(params, tries = 4) {
@@ -104,8 +128,9 @@ async function harvestQuery(q, seen, keepNoCoords) {
       // Sadece "1965 in Istanbul" / "1965 in Turkey" biçimli yer-yıl kategorileri (ör. "Buildings completed in 1890" sayılmaz)
       const catYears = [...new Set(cats.map((c) => c.match(/^(18[5-9]\d|19\d\d|20[0-2]\d) in (?:the )?[A-ZÇĞİÖŞÜ][\wçğıöşüÇĞİÖŞÜ.'-]*(?: [A-ZÇĞİÖŞÜ][\wçğıöşüÇĞİÖŞÜ.'-]*){0,3}$/)?.[1]).filter(Boolean).map(Number))];
       if (y && q.year && Math.abs(y - q.year) > 1) { rej("year_conflict"); continue; }
-      if (!y && q.year) { y = q.year; ysrc = "category"; }
-      if (!y && catYears.length === 1) { y = catYears[0]; ysrc = "category"; }
+      // Arama sorgusunun yılı tek başına kanıt değildir: dosyanın kendi "YYYY in <yer>" kategorisi olmalı
+      if (!y && catYears.length === 1 && (!q.year || catYears[0] === q.year)) { y = catYears[0]; ysrc = "category"; }
+      if (/\b(published|reproduc|from the book|printed in|scan of|scanned from|yayımlan|kitab[ıi]ndan)\b/i.test(desc) && ysrc !== "DateTimeOriginal") { rej("publication_year"); continue; }
       if (!y) { rej("no_year"); continue; }
       if ((q.minYear && y < q.minYear) || (q.maxYear && y > q.maxYear)) { rej("year_range"); continue; }
       if (catYears.some((cy) => Math.abs(cy - y) > 1)) { rej("year_conflict"); continue; }
