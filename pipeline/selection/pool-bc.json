@@ -1,0 +1,794 @@
+{
+  "set": "pool-bc",
+  "reviewed_sheets": [
+    "pool-b/sheet-01",
+    "pool-b-needgeo/sheet-01",
+    "pool-b-needgeo/sheet-02",
+    "pool-b-needgeo/sheet-03",
+    "pool-b-needgeo/sheet-04",
+    "pool-b-needgeo/sheet-05",
+    "pool-b-needgeo/sheet-06",
+    "pool-b-needgeo/sheet-07",
+    "pool-b-needgeo/sheet-08",
+    "pool-c/sheet-01",
+    "pool-c/sheet-02",
+    "pool-c/sheet-03",
+    "pool-c/sheet-04",
+    "pool-c/sheet-05",
+    "pool-c/sheet-06",
+    "pool-c/sheet-07",
+    "pool-c-needgeo/sheet-01"
+  ],
+  "items": [
+    {
+      "key": "1-1@pool-b",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Ulu Cami çevresi, Bursa",
+      "title_tr": "Bursa'da ahşap evler ve kubbeler",
+      "story_tr": "İtalyan fotoğrafçı Paolo Monti 1962'de Bursa'da bir dizi siyah-beyaz kare çekti. Bu fotoğrafta geleneksel bir evin ardında kubbeli ve minareli bir cami yükseliyor; arşiv kaydı kareyi Bursa'nın tarihi yapıları ve Ulu Cami ile ilişkilendiriyor."
+    },
+    {
+      "key": "1-2@pool-b",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Pergamon Akropolisi, İzmir",
+      "title_tr": "Pergamon Akropolisi'nde sütun başlıkları",
+      "story_tr": "Paolo Monti'nin 1962'de Bergama'da çektiği seriden bir kare. Antik Pergamon'un akropolisinde yerde duran sütun başlıkları ve yıkıntılar görülüyor. Negatifler bugün Milano'daki Paolo Monti arşivinde korunuyor."
+    },
+    {
+      "key": "1-3@pool-b",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Kızıl Avlu (Bergama), İzmir",
+      "title_tr": "Kızıl Avlu'nun yuvarlak kulesi",
+      "story_tr": "Paolo Monti 1962'de Bergama'daki Kızıl Avlu'yu, Serapis Tapınağı olarak da bilinen Roma yapısını fotoğrafladı. Baskıların arkasına 'Pergamo – Basilica Rossa' notu düşülmüş. Karede yapının kalın tuğla duvarları ve yuvarlak kulelerinden biri öne çıkıyor."
+    },
+    {
+      "key": "1-4@pool-b",
+      "pool": "duel",
+      "difficulty": "kolay",
+      "location_name": "İstanbul Limanı ve Tarihi Yarımada, İstanbul",
+      "title_tr": "1962'de İstanbul limanı",
+      "story_tr": "Paolo Monti 1962'de İstanbul'da renkli diya filmiyle (Ektachrome) de çekim yaptı. Limandaki gemi ve teknelerin ardında tarihi yarımadanın kubbeleri seçiliyor. Solmuş film renkleri kareye pembe bir ton veriyor."
+    },
+    {
+      "key": "1-5@pool-b",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Eyüpsultan Mezarlığı, İstanbul",
+      "title_tr": "Eyüp'te Osmanlı mezar taşları",
+      "story_tr": "Paolo Monti'nin 1962'de Eyüp'te çektiği renkli bir diya. Haliç kıyısındaki yamaçta sarıklı ve kavuklu Osmanlı mezar taşları, ardında ise su ve karşı kıyı görülüyor."
+    },
+    {
+      "key": "1-6@pool-b",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Efes Antik Kenti, İzmir",
+      "title_tr": "Efes'te deve ve eşek",
+      "story_tr": "1962'de Selçuk'ta, antik Efes'in Liman Hamamları yakınında çekilmiş bir kare. Paolo Monti kalıntıların arasında eşeğe binmiş bir adamı ve bağlı bir deveyi görüntülemiş."
+    },
+    {
+      "key": "1-8@pool-b",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Efes Antik Tiyatrosu, İzmir",
+      "title_tr": "Efes'in büyük tiyatrosu",
+      "story_tr": "1995'te Selçuk yakınındaki antik Efes'in tiyatrosu. Yamaca yaslanan dev oturma basamakları ve sahne alanında dolaşan ziyaretçiler görülüyor."
+    },
+    {
+      "key": "2-2@pool-b-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Fethiye Camii (Pammakaristos), İstanbul",
+      "title_tr": "Fethiye Camii, 1957",
+      "story_tr": "Bizans döneminde Pammakaristos Kilisesi olarak yapılan Fethiye Camii, 1957'de Bizans Enstitüsü ekibince belgelendi. Bu kare yapıyı kuzeydoğudan, sonradan eklenen Türk apsisiyle birlikte gösteriyor.",
+      "lat": 41.0295,
+      "lng": 28.946
+    },
+    {
+      "key": "2-7@pool-b-needgeo",
+      "pool": "duel",
+      "difficulty": "kolay",
+      "location_name": "Nusretiye Camii (Tophane), İstanbul",
+      "title_tr": "Tophane'de Nusretiye Camii",
+      "story_tr": "Macar fotoğraf arşivi Fortepan'dan 1960 tarihli bir kare: Tophane semti ve Nusretiye Camii. Ön planda rıhtımda bir gemi, arkada yamaca tırmanan yapılar görülüyor.",
+      "lat": 41.0268,
+      "lng": 28.9818
+    },
+    {
+      "key": "3-4@pool-b-needgeo",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Eminönü İskelesi, İstanbul",
+      "title_tr": "Eminönü'nde Boğaz vapurları",
+      "story_tr": "Fortepan arşivindeki 1965 tarihli bu fotoğraf Eminönü'ndeki Boğaz vapuru iskelesini gösteriyor. Ortada Yeni Cami (Valide Sultan Camii), sağda Galata Köprüsü var. İskeledeki vapurlar arasında Fenerbahçe ve Paşabahçe de seçiliyor.",
+      "lat": 41.0177,
+      "lng": 28.9735
+    },
+    {
+      "key": "3-7@pool-b-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Göreme, Nevşehir",
+      "title_tr": "Göreme'de kamp yeri, 1966",
+      "story_tr": "Wilford Peloquin'in 1966 Türkiye gezisinde çektiği numaralı fotoğraflardan biri: Göreme'deki kamp yeri. Karede eski model bir otobüs, birkaç kişi ve arkada yumuşak hatlı tepeler görülüyor.",
+      "lat": 38.6431,
+      "lng": 34.8289
+    },
+    {
+      "key": "3-9@pool-b-needgeo",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Şehir merkezi, Antalya",
+      "title_tr": "Antalya'da otobüs başında kalabalık",
+      "story_tr": "Wilford Peloquin'in 1966 gezisinden 'Antalia' notuyla saklanan bir kare. Balkonlu eski evlerin önünde bir otobüsün çevresine toplanmış kalabalık görülüyor.",
+      "lat": 36.886,
+      "lng": 30.705
+    },
+    {
+      "key": "4-1@pool-b-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Yılankale, Adana",
+      "title_tr": "Çukurova'da pamuk tarlaları ve Yılankale",
+      "story_tr": "Volker Höhfeld'in 1972'de çektiği bu karede Çukurova'nın uçsuz bucaksız pamuk tarlaları görülüyor. Tarlaların ardında Kilikya Ermeni Krallığı döneminden kalma Yılankale, arka planda ise Uyuz Dağı'nın sırtları yükseliyor.",
+      "lat": 37.019,
+      "lng": 35.744
+    },
+    {
+      "key": "4-2@pool-b-needgeo",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Sardes yakınları, Manisa",
+      "title_tr": "Gediz Grabeni'nde aşınmış tepeler",
+      "story_tr": "10 Mayıs 1974'te Sardes yakınında çekilen bu fotoğraf, Bozdağlar'ın kuzey eteklerinde erozyonla parçalanmış tortul tepeleri gösteriyor. Ön planda Gediz ovasının yeşil tarlaları uzanıyor.",
+      "lat": 38.488,
+      "lng": 28.04
+    },
+    {
+      "key": "4-3@pool-b-needgeo",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Eski Rum ve Ermeni mahallesi (Bergama), İzmir",
+      "title_tr": "Bergama'da eski bir sokak",
+      "story_tr": "Bergama'da Selinos (Bergama Çayı) kıyısında bir zamanlar Rumların ve Ermenilerin yaşadığı mahalleden 1974 tarihli bir sokak görüntüsü. Fotoğrafçının notuna göre bu evlerin bir kısmı Roma dönemi kalıntılarının üzerinde yükseliyor.",
+      "lat": 39.123,
+      "lng": 27.181
+    },
+    {
+      "key": "4-4@pool-b-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Kızıl Avlu ve eski şehir (Bergama), İzmir",
+      "title_tr": "Kızıl Avlu'nun çevresindeki eski Bergama",
+      "story_tr": "Mayıs 1974'te yukarıdan bakış: Bergama'nın kiremit çatılı eski şehri ve ortasında Serapis Tapınağı olarak da bilinen Kızıl Avlu. Arka planda ovadaki tarlalar görülüyor.",
+      "lat": 39.1213,
+      "lng": 27.1838
+    },
+    {
+      "key": "4-5@pool-b-needgeo",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Selinos Köprüsü (Bergama), İzmir",
+      "title_tr": "Bergama Çayı üzerinde taş köprü",
+      "story_tr": "Bergama'da Ulu Cami'nin yakınında, Selinos (Bergama Çayı) üzerindeki kemerli taş köprü. Fotoğraf 6 Mayıs 1974'te çekilmiş; köprünün ardında dere kenarına dizilmiş evler görülüyor.",
+      "lat": 39.1205,
+      "lng": 27.179
+    },
+    {
+      "key": "4-13@pool-b-needgeo",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Ağrı Dağı, Iğdır",
+      "title_tr": "Karlı zirvesiyle Ağrı Dağı",
+      "story_tr": "Gerd Eichmann'ın 1976'daki Türkiye gezisinden: ovanın ardında yükselen Ağrı Dağı. Türkiye'nin en yüksek dağının karla kaplı zirvesi, düz ve kurak ovaya hâkim.",
+      "lat": 39.7019,
+      "lng": 44.2983
+    },
+    {
+      "key": "4-15@pool-b-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Side kıyısı, Antalya",
+      "title_tr": "Side'de çardak yazlıklar",
+      "story_tr": "Eylül 1980'de Side yakınındaki kıyıda basit yazlık çardaklar. Fotoğrafçının notuna göre bu yapılar 1980'ler boyunca turizm amaçlı düzenlemelerle yıkıldı ve yerlerini otellere bıraktı.",
+      "lat": 36.7675,
+      "lng": 31.389
+    },
+    {
+      "key": "5-1@pool-b-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Apollon Tapınağı (Didim), Aydın",
+      "title_tr": "Didim'de Apollon Tapınağı",
+      "story_tr": "1981'de çekilmiş bu karede Didim'deki Apollon Tapınağı'nın ayakta kalan dev sütunları görülüyor. Fotoğraf tapınağın kuzeybatı yönünden çekilmiş.",
+      "lat": 37.385,
+      "lng": 27.256
+    },
+    {
+      "key": "5-6@pool-b-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Kaş Limanı, Antalya",
+      "title_tr": "Kaş limanında balıkçı teknesi",
+      "story_tr": "1983'te Kaş limanında, bir bankın ve palmiye yapraklarının ardında demirli küçük bir balıkçı teknesi. Kare, Türkiye'nin güney kıyısındaki bu liman kasabasının o yıllardaki sakin görüntüsünü taşıyor.",
+      "lat": 36.199,
+      "lng": 29.638
+    },
+    {
+      "key": "5-9@pool-b-needgeo",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Yalıkavak Limanı, Muğla",
+      "title_tr": "Yalıkavak'ta rengârenk tekneler",
+      "story_tr": "1984'te Yalıkavak limanında yan yana bağlanmış üç renkli balıkçı teknesinin pruvaları. Bodrum yarımadasındaki bu liman bugün bir yat limanına dönüşmüş durumda.",
+      "lat": 37.106,
+      "lng": 27.293
+    },
+    {
+      "key": "5-13@pool-b-needgeo",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Pamukova Ovası, Sakarya",
+      "title_tr": "Pamuk Ovası ve Sakarya Nehri",
+      "story_tr": "28 Mart 1984'te Geyve yakınından batıya, Pamuk Ovası'na bakış. Ovanın ortasından Sakarya Nehri geçiyor, arka planda Samanlı Dağları yükseliyor.",
+      "lat": 40.505,
+      "lng": 30.23
+    },
+    {
+      "key": "6-7@pool-b-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Anavarza Antik Kenti, Adana",
+      "title_tr": "Anavarza'nın kent kapısı",
+      "story_tr": "Eylül 1988'de Anavarza harabelerinde kent kapısından akropol kayalığına bakış. Çukurova'daki bu kayalık, bir dönem Kilikya Ermeni Krallığı'nın başkentiydi.",
+      "lat": 37.255,
+      "lng": 35.902
+    },
+    {
+      "key": "6-9@pool-b-needgeo",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Gölcük Yaylası (Ödemiş), İzmir",
+      "title_tr": "Gölcük Yaylası'nda bir yazlık",
+      "story_tr": "Bozdağlar'daki Gölcük Yaylası'nda, Gölcük Gölü kıyısında yapılmış gösterişli bir yazlık villa. Fotoğraf 15 Mayıs 1988'de çekilmiş; önde çiçek açmış bir ağaç var.",
+      "lat": 38.318,
+      "lng": 28.025
+    },
+    {
+      "key": "6-13@pool-b-needgeo",
+      "pool": "duel",
+      "difficulty": "kolay",
+      "location_name": "Sultanahmet Meydanı, İstanbul",
+      "title_tr": "Sultanahmet'te bahar",
+      "story_tr": "Mayıs 1989'da İstanbul'da çekilmiş bir kare. Sultanahmet'teki parkın çiçek tarhları ve ziyaretçilerin ardında Ayasofya'nın kubbesi ve minareleri yükseliyor.",
+      "lat": 41.008,
+      "lng": 28.979
+    },
+    {
+      "key": "6-14@pool-b-needgeo",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Fırat Nehri (Birecik), Şanlıurfa",
+      "title_tr": "Birecik'te Fırat",
+      "story_tr": "Mayıs 1989'da 'sussexbirder' takma adlı bir gezginin Türkiye fotoğraflarından: Birecik'te geniş yatağında akan Fırat Nehri. Kıyıda kumluk alanlar, uzakta düz bir ova görülüyor.",
+      "lat": 37.027,
+      "lng": 37.98
+    },
+    {
+      "key": "6-15@pool-b-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Demirkazık Dağı (Aladağlar), Niğde",
+      "title_tr": "Demirkazık'ın karlı zirveleri",
+      "story_tr": "Mayıs 1989'da çekilen bu karede sarp kayalık bir boğazın ardında Aladağlar'ın karlı doruğu Demirkazık görülüyor. Niğde'nin Çamardı ilçesindeki bu dağlar dağcılıkla bilinir.",
+      "lat": 37.84,
+      "lng": 35.12
+    },
+    {
+      "key": "6-16@pool-b-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Lagina Hekate Kutsal Alanı (Yatağan), Muğla",
+      "title_tr": "Lagina'da propylon ve inek",
+      "story_tr": "1991'de, kazı ve restorasyon çalışmalarından önce Lagina'daki Hekate kutsal alanının anıtsal giriş kapısı (propylon). Kapının önünde otlayan bir inek, alanın o yıllardaki kırsal görünümünü yansıtıyor.",
+      "lat": 37.38,
+      "lng": 28.04
+    },
+    {
+      "key": "6-20@pool-b-needgeo",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Boğazkale yakınları, Çorum",
+      "title_tr": "Hattuşa çevresinde Bozok Yaylası",
+      "story_tr": "1 Ağustos 1991'de Hitit başkenti Hattuşa'nın (Boğazkale) yakınında, Bozok Yaylası'nın düzlüklerinden bir görünüm. Sararmış tarlalar ve yeşil vadiler yan yana uzanıyor.",
+      "lat": 40.02,
+      "lng": 34.615
+    },
+    {
+      "key": "7-1@pool-b-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Midas Şehri (Yazılıkaya), Eskişehir",
+      "title_tr": "Yazılıkaya'nın tüf platosu",
+      "story_tr": "Eylül 1991'de Midas Şehri çevresinde, Yazılıkaya Yaylası'nın volkanik tüf kayalıkları. Fotoğrafçı bu kayalıkların Kapadokya'daki tüf platolarına şaşırtıcı biçimde benzediğini not etmiş.",
+      "lat": 39.17,
+      "lng": 30.73
+    },
+    {
+      "key": "7-4@pool-b-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Sokullu Mehmet Paşa Külliyesi (Payas), Hatay",
+      "title_tr": "Payas'ta külliye ve çelik fabrikası",
+      "story_tr": "Nisan 1992'de Payas'taki Sokullu Mehmet Paşa Külliyesi. Arka planda Amanos Dağları'nın eteğinde, Türkiye'nin en eski ve büyük çelik fabrikalarından İSDEMİR'in bacaları duman savuruyor.",
+      "lat": 36.757,
+      "lng": 36.216
+    },
+    {
+      "key": "7-6@pool-b-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Eski Halfeti, Şanlıurfa",
+      "title_tr": "Baraj öncesi Fırat vadisi",
+      "story_tr": "14 Nisan 1992'de Eski Halfeti'den kuzeye, Fırat vadisine bakış. Bu fotoğraf, Birecik Barajı'nın gölü vadiyi sular altında bırakmadan önce çekildi.",
+      "lat": 37.245,
+      "lng": 37.87
+    },
+    {
+      "key": "7-7@pool-b-needgeo",
+      "pool": "duel",
+      "difficulty": "kolay",
+      "location_name": "İstiklal Caddesi, İstanbul",
+      "title_tr": "Nostaljik tramvay, 1992",
+      "story_tr": "1992'de İstanbul'da kırmızı nostaljik tramvay. İsviçreli mimar ve fotoğrafçı Hans-Peter Bärtschi'nin arşivinden gelen bu kare, bugün T2 hattı olarak bilinen İstiklal Caddesi tramvayını gösteriyor.",
+      "lat": 41.0335,
+      "lng": 28.978
+    },
+    {
+      "key": "7-8@pool-b-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Ankara Kalesi, Ankara",
+      "title_tr": "Ankara Kalesi surları",
+      "story_tr": "1993'te Ankara Kalesi'nin Orta Çağ'dan kalma sur duvarları. Surların dibinde tenteli pazar tezgâhları kurulmuş.",
+      "lat": 39.941,
+      "lng": 32.864
+    },
+    {
+      "key": "7-12@pool-b-needgeo",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Kütahya çarşısı, Kütahya",
+      "title_tr": "Kütahya'da pazar kalabalığı",
+      "story_tr": "Kütahya'nın çarşı bölgesinde şemsiyeli tezgâhlar ve kalabalık. Fotoğrafçı kareyi 1995'te çektiği diyalar arasında saklamış, ancak bazılarının 1996 ya da 1997'den olabileceğini not etmiş.",
+      "lat": 39.419,
+      "lng": 29.986,
+      "year": 1996
+    },
+    {
+      "key": "7-20@pool-b-needgeo",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Tarihi Yarımada silueti, İstanbul",
+      "title_tr": "Sudan camiler silueti",
+      "story_tr": "Gerd Eichmann'ın 1997'de İstanbul'da çektiği 'Camiler' başlıklı kare. Sudan bakıldığında tepelerde kubbeler ve minareler, kıyıda ise yapılar ve tekneler sıralanıyor.",
+      "lat": 41.016,
+      "lng": 28.97
+    },
+    {
+      "key": "8-2@pool-b-needgeo",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Uluborlu eski şehir, Isparta",
+      "title_tr": "Uluborlu'da yıkık eski şehir",
+      "story_tr": "15 Mayıs 1997'de Uluborlu'nun yıkık eski şehrinin kuzey yamacı. Şehir Çayı üzerindeki Cirimbolu Su Kemeri'nin yukarısında ev kalıntıları ve harap durumdaki Baltabey Hamamı seçiliyor.",
+      "lat": 38.082,
+      "lng": 30.452
+    },
+    {
+      "key": "8-3@pool-b-needgeo",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Kovada Gölü güneyi, Isparta",
+      "title_tr": "Yaylaya giden sürü",
+      "story_tr": "18 Mayıs 1997'de Kovada Gölü'nün güneyinde, Kocaçay Deresi vadisinde yaylaya giden karışık bir keçi ve koyun sürüsü. Sürü, sarp kayalıkların dibindeki yoldan ilerliyor.",
+      "lat": 37.59,
+      "lng": 30.88
+    },
+    {
+      "key": "8-8@pool-b-needgeo",
+      "pool": "duel",
+      "difficulty": "kolay",
+      "location_name": "İstanbul Üniversitesi bahçesi, İstanbul",
+      "title_tr": "Üniversite bahçesinden Süleymaniye",
+      "story_tr": "Nisan 1998'de İstanbul Üniversitesi'nin bahçesinden Süleymaniye Camii'ne bakış. Çimenlerin üzerinde dolaşan ve dinlenen insanlar görülüyor.",
+      "lat": 41.013,
+      "lng": 28.965
+    },
+    {
+      "key": "8-9@pool-b-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Güzelyurt, Aksaray",
+      "title_tr": "Güzelyurt'tan Hasan Dağı",
+      "story_tr": "Nisan 1999'da Güzelyurt'tan bakış: Yüksek Kilise ve Melendiz Çayı vadisinin ardında 3268 metrelik Hasan Dağı'nın karlı volkan konisi yükseliyor. Hasan Dağı, Erciyes'ten sonra İç Anadolu'nun en yüksek volkanik dağıdır.",
+      "lat": 38.276,
+      "lng": 34.372
+    },
+    {
+      "key": "8-10@pool-b-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Yaprakhisar (Ihlara Vadisi), Aksaray",
+      "title_tr": "Ihlara Vadisi'nin kuzey ucu",
+      "story_tr": "2 Nisan 1999'da Ihlara Vadisi'nin kuzey ucunda, Selime'nin karşısındaki Yaprakhisar. Köy, volkanik tüf platosunun dik yamacının hemen altında kurulmuş.",
+      "lat": 38.315,
+      "lng": 34.275
+    },
+    {
+      "key": "8-11@pool-b-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "İskenderun Limanı, Hatay",
+      "title_tr": "İskenderun'da terk edilmiş gemi",
+      "story_tr": "1999'da İskenderun limanında terk edilmiş, paslanmış yük gemisi Bestami Gülay. 1950 yapımı geminin ardında dağlar yükseliyor.",
+      "lat": 36.592,
+      "lng": 36.18
+    },
+    {
+      "key": "1-5@pool-c",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Zeyrek, İstanbul",
+      "title_tr": "Zeyrek'te derme çatma bir ev",
+      "story_tr": "2002'de İstanbul'un Zeyrek semtinde, üst katları tahtayla eklenmiş derme çatma bir yapı. Fotoğrafçı, deprem beklenen bir şehirde bu tür yapıların sakinlerini riske attığını vurgulamış."
+    },
+    {
+      "key": "1-12@pool-c",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Ulu Cami ve Heykel, Bursa",
+      "title_tr": "Ulu Cami ve Orhan Gazi Meydanı",
+      "story_tr": "2004'te Bursa'da Ulu Cami'nin doğu cephesi ve önündeki Orhan Gazi Meydanı. Meydanda fıskiyeler, yürüyen insanlar ve bir anıt görülüyor."
+    },
+    {
+      "key": "1-17@pool-c",
+      "pool": "bonus",
+      "difficulty": "kolay",
+      "location_name": "Aspendos Antik Tiyatrosu, Antalya",
+      "title_tr": "Aspendos Tiyatrosu",
+      "story_tr": "2005'te Aspendos'taki Roma tiyatrosu. Akustiğiyle ünlü yapı, en iyi korunmuş Roma tiyatrolarından biri sayılıyor; sahnede bir etkinlik için kurulmuş düzen görülüyor.",
+      "lat": 36.939,
+      "lng": 31.172
+    },
+    {
+      "key": "1-18@pool-c",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Cumalıkızık, Bursa",
+      "title_tr": "Cumalıkızık'ta Osmanlı evi",
+      "story_tr": "2005'te Bursa yakınındaki Cumalıkızık köyünde renkli cepheli bir Osmanlı evi. Fotoğrafçının notuna göre 600 yılı aşkın geçmişi olan köy, çevredeki köylerde cami olmadığından Cuma namazı için buraya gelinmesiyle adını almış.",
+      "lat": 40.1745,
+      "lng": 29.1705
+    },
+    {
+      "key": "1-19@pool-c",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Ortahisar, Nevşehir",
+      "title_tr": "Ortahisar ve kale kayası",
+      "story_tr": "Mart 2006'da Kapadokya'daki Ortahisar kasabası ve ona adını veren kale kayası. Volkanik tüften oyulmuş yapılar kayanın eteklerine yayılıyor."
+    },
+    {
+      "key": "2-7@pool-c",
+      "pool": "duel",
+      "difficulty": "kolay",
+      "location_name": "Ayasofya, İstanbul",
+      "title_tr": "Ayasofya'da hat levhaları",
+      "story_tr": "2006'da Ayasofya'nın kuzeybatı üst galerisinden aşağıya bakış. Dev hat levhaları ve restorasyon için kurulmuş iskeleler aynı karede."
+    },
+    {
+      "key": "2-9@pool-c",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Güllük Körfezi, Muğla",
+      "title_tr": "Ege'de balık çiftlikleri",
+      "story_tr": "2007'de Muğla kıyısında sakin bir koyda yüzer balık çiftliği kafesleri. Ege kıyılarında bu tür kafesler sıkça görülüyor."
+    },
+    {
+      "key": "2-10@pool-c",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Eğirdir Gölü, Isparta",
+      "title_tr": "Eğirdir Gölü kıyısı",
+      "story_tr": "2007'de Eğirdir Gölü kıyısında kara bulutlar. Isparta'daki göl, Türkiye'nin büyük tatlı su göllerinden biri."
+    },
+    {
+      "key": "2-15@pool-c",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Cindi (Bulancak), Giresun",
+      "title_tr": "Bulancak'ta yeşil yamaçlar",
+      "story_tr": "2008'de Giresun'un Bulancak ilçesinde, Cindi civarında yeşil yamaçlara dağılmış evler. Karadeniz'in bu kesimi fındık bahçeleriyle bilinir."
+    },
+    {
+      "key": "2-20@pool-c",
+      "pool": "bonus",
+      "difficulty": "kolay",
+      "location_name": "Pamukkale travertenleri, Denizli",
+      "title_tr": "Pamukkale'nin beyaz yamaçları",
+      "story_tr": "2008'de Pamukkale'nin bembeyaz traverten teraslarından ovaya bakış. Kireçli sıcak suların oluşturduğu bu teraslar, Hierapolis antik kentiyle birlikte UNESCO Dünya Mirası listesinde."
+    },
+    {
+      "key": "3-1@pool-c",
+      "pool": "duel",
+      "difficulty": "kolay",
+      "location_name": "Kocatepe Camii, Ankara",
+      "title_tr": "Kocatepe Camii",
+      "story_tr": "2009'da Ankara'nın siluetine hâkim Kocatepe Camii, dört minaresi ve kademeli kubbeleriyle. Başkentin en büyük camisi, çevresindeki apartmanların arasından yükseliyor."
+    },
+    {
+      "key": "3-2@pool-c",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Karakuş Tümülüsü, Adıyaman",
+      "title_tr": "Karakuş Tümülüsü'nde sütun",
+      "story_tr": "2009'da Adıyaman'daki Karakuş Tümülüsü. Kommagene döneminden kalan Dor sütunlarından biri, tepesindeki kabartmayla bir ziyaretçinin yanında yükseliyor."
+    },
+    {
+      "key": "3-3@pool-c",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Giresun Dağları (Dereli), Giresun",
+      "title_tr": "Giresun Dağları'nda karlı sırtlar",
+      "story_tr": "2010'da Giresun'un Dereli ilçesindeki Hisarköy civarından Giresun Dağları. Yer yer karla kaplı sırtlar ve derin vadiler uzanıyor."
+    },
+    {
+      "key": "3-7@pool-c",
+      "pool": "bonus",
+      "difficulty": "kolay",
+      "location_name": "Sultanahmet Camii avlusu, İstanbul",
+      "title_tr": "Mavi saatte Sultanahmet",
+      "story_tr": "Haziran 2010'da alacakaranlıkta Sultanahmet Camii'nin avlusu. Panorama tekniğiyle çekildiği için kare, kare biçimli avlunun kenarlarını hafifçe bükülmüş gösteriyor."
+    },
+    {
+      "key": "3-8@pool-c",
+      "pool": "bonus",
+      "difficulty": "kolay",
+      "location_name": "Çavuşin ve Göreme çevresi, Nevşehir",
+      "title_tr": "Balondan Kapadokya",
+      "story_tr": "2010'da bir sıcak hava balonundan Kapadokya: önde Güllüdere ve Kızılçukur vadilerinin kayalıkları, gerisinde Çavuşin köyü ve uzakta Avanos. Kare, bölgedeki balon uçuşlarından birinde çekilmiş."
+    },
+    {
+      "key": "3-13@pool-c",
+      "pool": "bonus",
+      "difficulty": "orta",
+      "location_name": "Artemis Tapınağı (Selçuk), İzmir",
+      "title_tr": "Selçuk'ta üç çağ",
+      "story_tr": "Ekim 2011'de Selçuk'ta çekilen bu kare üç ayrı dönemi bir araya getiriyor. Önde antik dünyanın yedi harikasından Artemis Tapınağı'nın ayakta kalan sütunu, ortada 1375'te yapılan İsa Bey Camii, en arkada Ayasuluk Kalesi görülüyor."
+    },
+    {
+      "key": "3-15@pool-c",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Gazibeyli (Keskin), Kırıkkale",
+      "title_tr": "Gazibeyli köyüne giden yol",
+      "story_tr": "2011'de Kırıkkale'nin Keskin ilçesine bağlı Gazibeyli köyü. Yeşil tepelerin arasında kıvrılan toprak yol köye uzanıyor."
+    },
+    {
+      "key": "3-17@pool-c",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Anıtkabir, Ankara",
+      "title_tr": "Anıtkabir",
+      "story_tr": "2011'de Atatürk'ün anıt mezarı Anıtkabir, Tören Meydanı'ndan görünüşüyle. Merdivenlerde ve meydanda ziyaretçiler dolaşıyor."
+    },
+    {
+      "key": "4-1@pool-c",
+      "pool": "bonus",
+      "difficulty": "orta",
+      "location_name": "Termessos Antik Kenti, Antalya",
+      "title_tr": "Termessos tiyatrosu",
+      "story_tr": "2012'de Toroslar'ın yükseklerindeki Termessos antik kentinin tiyatrosu. Oturma basamakları sarp kayalık dağın eteğine yaslanıyor."
+    },
+    {
+      "key": "4-3@pool-c",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Hüyüklü (Afşin), Kahramanmaraş",
+      "title_tr": "Afşin'de bir köy",
+      "story_tr": "2012'de Kahramanmaraş'ın Afşin ilçesindeki Hüyüklü. Yeşil ekinlerin ardında minareli köy evleri ve çıplak tepeler uzanıyor."
+    },
+    {
+      "key": "4-11@pool-c",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Etnografya Müzesi, Ankara",
+      "title_tr": "Ankara Etnografya Müzesi",
+      "story_tr": "2014'te Ankara Etnografya Müzesi'nin kubbeli, beyaz cephesi. Merdivenli girişi ve kemerli revakıyla yapı Cumhuriyet'in erken dönem mimarisini yansıtıyor."
+    },
+    {
+      "key": "4-12@pool-c",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Hacı Bayram Camii, Ankara",
+      "title_tr": "Hacı Bayram Camii ve türbesi",
+      "story_tr": "2014'te Ankara'nın Ulus semtindeki Hacı Bayram Camii ve tuğla minaresi. Meydan, caminin yanındaki Hacı Bayram Türbesi'ni ziyaret edenlerle hareketli."
+    },
+    {
+      "key": "4-16@pool-c",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Mevlid-i Halil Camii, Şanlıurfa",
+      "title_tr": "Mevlid-i Halil Camii avlusu",
+      "story_tr": "2014'te Şanlıurfa'daki Mevlid-i Halil Camii'nin ana avlusu. Kubbeli şadırvan, revaklar ve minare taş işçiliğiyle avluyu çevreliyor."
+    },
+    {
+      "key": "5-14@pool-c",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Safranbolu, Karabük",
+      "title_tr": "Safranbolu'da eski bir ev",
+      "story_tr": "Ocak 2018'de Safranbolu'da geleneksel bir evin cephesi. Ahşap pencereler, geniş saçak ve cephenin önüne yığılmış ürünler dikkat çekiyor."
+    },
+    {
+      "key": "6-2@pool-c",
+      "pool": "bonus",
+      "difficulty": "kolay",
+      "location_name": "İstanbul Boğazı, İstanbul",
+      "title_tr": "Boğaz'da Ada Vapuru",
+      "story_tr": "Aralık 2019'da İstanbul Boğazı'nda dalgaları yaran Ada Vapuru. Arkada pusun içinde Boğaz köprülerinden biri seçiliyor."
+    },
+    {
+      "key": "6-4@pool-c",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Köyceğiz Gölü, Muğla",
+      "title_tr": "Köyceğiz Gölü kıyısında kasaba",
+      "story_tr": "2019'da Köyceğiz Gölü ve kıyısındaki Köyceğiz kasabası. Durgun suyun ardında ağaçlarla çevrili kıyı ve iskeledeki tekneler uzanıyor."
+    },
+    {
+      "key": "6-5@pool-c",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Fatih, İstanbul",
+      "title_tr": "Fatih'te eski bir yapı",
+      "story_tr": "Aralık 2019'da İstanbul'un Fatih ilçesinde, süslemeli cephesi yıpranmış eski bir bina. Cumbası ve demir korkuluklu balkonlarıyla geçmişin izlerini taşıyor."
+    },
+    {
+      "key": "6-10@pool-c",
+      "pool": "bonus",
+      "difficulty": "zor",
+      "location_name": "Tuzla Gölü (Karataş), Adana",
+      "title_tr": "Karataş'ta kumullar ve lagün",
+      "story_tr": "2020'de Adana'nın Karataş ilçesindeki Tuzla Yaban Hayatı Geliştirme Sahası. Kumullar, sazlıklar ve durgun lagün suyu aynı karede."
+    },
+    {
+      "key": "6-12@pool-c",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "STAR Rafinerisi (Aliağa), İzmir",
+      "title_tr": "Aliağa'da rafineri",
+      "story_tr": "2020'de İzmir'in Aliağa ilçesindeki STAR Rafinerisi'nin denizden görünüşü. Tesislerin arkasındaki tepelerde rüzgâr türbinleri yükseliyor."
+    },
+    {
+      "key": "6-13@pool-c",
+      "pool": "bonus",
+      "difficulty": "zor",
+      "location_name": "Burdur Gölü kuzey kıyısı, Isparta",
+      "title_tr": "Kuruyan Burdur Gölü",
+      "story_tr": "2021'de havadan Burdur Gölü. Fotoğrafçının notuna göre göl son yıllarda hızla kuruyarak yarı yarıya küçüldü; sular çekildikçe gölü besleyen kaynaklar görünür hâle geldi."
+    },
+    {
+      "key": "6-19@pool-c",
+      "pool": "bonus",
+      "difficulty": "kolay",
+      "location_name": "Sultanahmet, İstanbul",
+      "title_tr": "Havadan tarihi yarımada",
+      "story_tr": "Haziran 2022'de havadan İstanbul'un tarihi yarımadası. Sultanahmet Camii ve Ayasofya yan yana, arkada Boğaz ve karşı kıyı görülüyor."
+    },
+    {
+      "key": "7-2@pool-c",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Filyos Çayı (Bolkuş), Karabük",
+      "title_tr": "Filyos vadisinde tren",
+      "story_tr": "2022'de Zonguldak–Karabük seferini yapan bir TCDD treni, Bolkuş ile Karabük arasında Filyos Çayı üzerindeki taş kemerli köprüden geçiyor. Demiryolu, sarp kayalıkların arasındaki dar vadiyi izliyor."
+    },
+    {
+      "key": "7-3@pool-c",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Keban Baraj Gölü kıyısı, Elazığ",
+      "title_tr": "Keban Gölü kıyısında yük treni",
+      "story_tr": "2022'de Tatvan'a giden bir yük treni, Elazığ'da Konak ile Murat arasında Keban Baraj Gölü'nün kıyısında ilerliyor. Fotoğrafçıya göre tren büyük olasılıkla İran'a ihraç yükü taşıyor."
+    },
+    {
+      "key": "7-4@pool-c",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Uluova yakınları, Elazığ",
+      "title_tr": "Güney Kurtalan Ekspresi",
+      "story_tr": "2022 sonbaharında Kurtalan'dan Ankara'ya giden Güney Kurtalan Ekspresi, Elazığ'da Uluova yakınında bir virajı dönüyor. Yanında küçük bir caminin minaresi yükseliyor."
+    },
+    {
+      "key": "7-7@pool-c",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Seyhan Nehri, Adana",
+      "title_tr": "Seyhan kıyısında Adana",
+      "story_tr": "Ekim 2023'te bir otelin çatı restoranından Seyhan Nehri ve Sheraton Adana oteli. Nehir boyunca uzanan şehir ve yeşil kıyılar görülüyor."
+    },
+    {
+      "key": "7-16@pool-c",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Aziz Panteleimon Kilisesi (Gölyazı), Bursa",
+      "title_tr": "Gölyazı'da Aziz Panteleimon Kilisesi",
+      "story_tr": "2025'te Uluabat Gölü kıyısındaki Gölyazı'da Aziz Panteleimon Kilisesi. Fotoğraf Wiki Loves Monuments Türkiye kapsamında yüklenmiş."
+    },
+    {
+      "key": "1-1@pool-c-needgeo",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Boğaziçi Köprüsü, İstanbul",
+      "title_tr": "2000 yılında Boğaz Köprüsü",
+      "story_tr": "2000 yılında yamaçtan İstanbul Boğazı'na ve Boğaziçi Köprüsü'ne bakış. Önde yeşillikler ve çiçekler, arkada Boğaz'ın iki yakası uzanıyor.",
+      "lat": 41.045,
+      "lng": 29.034
+    },
+    {
+      "key": "1-4@pool-c-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Konak Pier önü, İzmir",
+      "title_tr": "Konak'ta yaya köprüsü",
+      "story_tr": "2004'te İzmir'de Konak Pier'in önünden başlayıp Cumhuriyet Bulvarı'nı aşan zarif yaya köprüsü. Kıvrımlı rampada yürüyen insanlar görülüyor.",
+      "lat": 38.425,
+      "lng": 27.1335
+    },
+    {
+      "key": "1-6@pool-c-needgeo",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Ulus Hali, Ankara",
+      "title_tr": "Ulus Hali'nde bir vitrin",
+      "story_tr": "2003'te Ankara'daki Ulus Hali'nin içinde bir vitrin: askıda etler, tepsilerde ürünler ve el yazısı fiyat etiketleri. Fotoğrafçı halde satılanları bir dizi karede belgelemiş.",
+      "lat": 39.94,
+      "lng": 32.858
+    },
+    {
+      "key": "1-9@pool-c-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Hükümet Meydanı (Ulus), Ankara",
+      "title_tr": "Julianus Sütunu",
+      "story_tr": "2004'te Ankara'nın Ulus'taki Hükümet Meydanı'nda yükselen Julianus Sütunu. Sütun, Roma İmparatoru Julianus'un 362'deki kent ziyareti anısına dikilmiş; tepesinde bir leylek yuvası var.",
+      "lat": 39.9426,
+      "lng": 32.8556
+    },
+    {
+      "key": "1-11@pool-c-needgeo",
+      "pool": "bonus",
+      "difficulty": "kolay",
+      "location_name": "Yerebatan Sarnıcı, İstanbul",
+      "title_tr": "Yerebatan Sarnıcı",
+      "story_tr": "Eylül 2024'te Yerebatan Sarnıcı'nın ışıklandırılmış sütunları. 6. yüzyılda İmparator Justinianus döneminde yapılan sarnıç, Büyük Saray'a ve çevredeki yapılara su sağlıyordu.",
+      "lat": 41.0084,
+      "lng": 28.9779
+    },
+    {
+      "key": "1-13@pool-c-needgeo",
+      "pool": "bonus",
+      "difficulty": "kolay",
+      "location_name": "Dolmabahçe Sarayı, İstanbul",
+      "title_tr": "Dolmabahçe Sarayı kapısı",
+      "story_tr": "Eylül 2024'te Dolmabahçe Sarayı'nın süslemeli beyaz kapılarından biri. Taş ve demir işçiliğiyle bezeli kanatlar ardına kadar açık duruyor.",
+      "lat": 41.0392,
+      "lng": 29.0005
+    }
+  ],
+  "rejected_notes": "~232 kare elendi. Başlıca nedenler: müze içi tek obje/mozaik/fresk yakın çekimleri (Kariye mozaikleri, Ayasofya mozaikleri, kapitel ve lahitler), gazete/harita/gravür/çizim (Ulus ve Yeni Sabah gazeteleri, Goya, Rijksmuseum baskıları), yanlış yıl (kategoriden gelen hatalı yıl: Uludağ, Ovacık, Demirkazık 1995, Hattuşa 1988'de 2000'lerdeki sur rekonstrüksiyonu, Bodrum uçağı 1997/2013, Kapuzbaşı 1995 dijital 4MP), Panoramio 2000 varsayılan tarihi, Türkiye dışı (İsrail, Kıbrıs, Erbil, Viyana, Washington), siyasi/askerî/protesto/deprem yardımı sahneleri, özel kişi ve çocuk portreleri, sporcular/basketbol, kelebek ve bitki makroları, Miniatürk maketleri, tarih damgalı kareler, karanlık/bulanık/soluk kareler, konumu 5 km içinde belirlenemeyen needgeo kareleri (Toros Dağları, 'Cappadocia', 'nr Adana', Yassıbel, Akkaya Yaylası, Kızgölcük/Değirmenözü yaylaları, Şavşat yaylası, Nallıhan Kuş Cenneti) ve neredeyse aynı kareler (Kapuzbaşı ×3, Didim ×2, Lagina ×2, Karakuş ×2)."
+}

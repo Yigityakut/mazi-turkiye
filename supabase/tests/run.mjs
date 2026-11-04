@@ -35,6 +35,8 @@ async function rejects(promise, re) {
 console.log(`Migrations: ${migrationFiles().join(", ")}`);
 const db = await createDb();
 await applyMigrations(db, { log: (m) => console.log(`  ${m}`) });
+// Testler bugünden itibaren programlar; üretimdeki schedule_start (TestFlight başlangıcı) testte devre dışı.
+await db.exec(`update public.app_config set value = '"2000-01-01"' where key = 'schedule_start'`);
 
 const q = async (sql, params) => (await db.query(sql, params)).rows;
 const one = async (sql, params) => (await q(sql, params))[0];
@@ -133,7 +135,7 @@ await test("cron jobs registered with valid schedules", async () => {
 await test("storage bucket + realtime publication + province seed", async () => {
   assert.equal(await val(`select count(*)::int from storage.buckets where id = 'photos' and public`), 1);
   const pub = (await q(`select tablename from pg_publication_tables where pubname = 'supabase_realtime' order by 1`)).map((r) => r.tablename);
-  assert.deepEqual(pub, ["duel_queue", "duels"]);
+  assert.deepEqual(pub, ["duel_queue"]); // duels satırı istemciye açılmaz
   assert.equal(await val(`select count(*)::int from private.provinces`), 81);
   assert.equal(await val(`select count(*)::int from private.secrets where key in ('internal_secret', 'functions_url')`), 2);
 });
@@ -169,12 +171,11 @@ const yesterdayIds = [];
 for (let i = 0; i < 5; i++) {
   yesterdayIds.push(await mkPhoto({ region: REGIONS[i], year: ERA_YEARS[i] + 2, difficulty: DIFFS[i % 3], status: "yayinda", k: i + 5 }));
 }
-await test("past day with 5 photos can be stored (photos.scheduled_date shared by 5 photos)", async () => {
+await test("past day with 5 photos can be stored (schedule lives in day_photos)", async () => {
   await q(`insert into public.days(day, number) select d::date, public.day_number(d::date)
              from generate_series($1::date - 6, $1::date - 1, interval '1 day') d`, [TODAY]);
   for (let i = 0; i < 5; i++) {
     await q(`insert into public.day_photos(day, slot, photo_id) values ($1, $2, $3)`, [YESTERDAY, i + 1, yesterdayIds[i]]);
-    await q(`update public.photos set scheduled_date = $1 where id = $2`, [YESTERDAY, yesterdayIds[i]]);
   }
 });
 
@@ -198,7 +199,7 @@ await test("each scheduled day: 5 approved daily photos, ≥1 kolay, ≥1 zor, d
     const ps = await dayPhotos(d);
     assert.equal(ps.length, 5, `${d}: ${ps.length} photos`);
     assert.ok(ps.every((p) => p.pool === "daily" && p.status === "yayinda" && p.image_path), `${d}: pool/status`);
-    assert.ok(ps.every((p) => p.scheduled_date && p.scheduled_date.toISOString().slice(0, 10) === d), `${d}: scheduled_date`);
+    assert.ok(ps.every((p) => p.scheduled_date == null), `${d}: scheduled_date must stay null (core unique constraint)`);
     assert.ok(ps.some((p) => p.difficulty === "kolay"), `${d}: no kolay`);
     assert.ok(ps.some((p) => p.difficulty === "zor"), `${d}: no zor`);
     assert.equal(new Set(ps.map((p) => p.region)).size, 5, `${d}: regions ${ps.map((p) => p.region)}`);
@@ -207,15 +208,16 @@ await test("each scheduled day: 5 approved daily photos, ≥1 kolay, ≥1 zor, d
     const rank = { kolay: 0, orta: 1, zor: 2 };
     for (let s = 1; s < 5; s++) assert.ok(rank[ps[s - 1].difficulty] <= rank[ps[s].difficulty], `${d}: slot order`);
   }
-  assert.equal((await photo(candidatePhoto)).scheduled_date, null, "aday photo was scheduled");
-  assert.equal((await photo(noImagePhoto)).scheduled_date, null, "photo without image was scheduled");
+  for (const id of [candidatePhoto, noImagePhoto]) {
+    assert.equal(await val(`select count(*)::int from public.day_photos where photo_id = $1`, [id]), 0, "ineligible photo was scheduled");
+  }
 });
 
 await test("schedule_days as postgres (pg_cron) keeps filling until the pool runs out, then is idempotent", async () => {
   const more = await val(`select public.schedule_days(14)`);
   assert.equal(more, 3); // 45 photos = 9 days
   assert.equal(await val(`select public.schedule_days(14)`), 0);
-  assert.equal(await val(`select count(*)::int from public.photos where pool = 'daily' and status = 'onayli' and scheduled_date is null`), 1);
+  assert.equal(await val(`select count(*)::int from public.photos p where pool = 'daily' and status = 'onayli' and not exists (select 1 from public.day_photos x where x.photo_id = p.id)`), 1);
 });
 
 await test("private.daily_ops runs (schedule + low-stock notify)", async () => {
@@ -1081,6 +1083,7 @@ await test("relaxes era before region and keeps ≥1 kolay + ≥1 zor", async ()
   for (let run = 0; run < 4; run++) {
     const db2 = await createDb();
     await applyMigrations(db2);
+    await db2.exec(`update public.app_config set value = '"2000-01-01"' where key = 'schedule_start'`);
     const regions = REGIONS.slice(0, 5);
     for (const [ri, region] of regions.entries()) {
       for (const difficulty of DIFFS) {

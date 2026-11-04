@@ -77,9 +77,9 @@ alter table public.duel_rounds enable row level security;
 alter table public.duel_guesses enable row level security;
 alter table public.duel_seen enable row level security;
 -- Realtime için: katılımcılar kendi maç satırını ve kuyruk satırını görebilir (cevap bilgisi bu tablolarda yok)
-create policy "duel participants" on public.duels for select to authenticated using (auth.uid() in (player_a, player_b));
+-- duels satırı istemciye açılmaz (rakibin admin/bot olduğu ve bot ayarları sızmasın); istemci duel_state RPC'sini yoklar.
 create policy "own queue" on public.duel_queue for select to authenticated using (user_id = auth.uid());
-alter publication supabase_realtime add table public.duels, public.duel_queue;
+alter publication supabase_realtime add table public.duel_queue;
 
 -- ---------- Admin bildirimi (Telegram, edge function üzerinden) ----------
 create or replace function private.notify_admin(msg text, link text default null)
@@ -112,7 +112,10 @@ begin
   select array_agg(id) into ids from (
     select p.id from public.photos p
      where p.status in ('onayli', 'yayinda')
-       and (p.pool = 'duel' or exists (select 1 from public.day_photos dp where dp.photo_id = p.id and dp.day < public.game_day()))
+       and (p.pool = 'duel'
+            -- Geçmiş günlük fotoğraflar sadece 1v1 havuzu yetersizse (cevapları Kaynaklar sayfasında herkese açık)
+            or ((select count(*) from public.photos x where x.pool = 'duel' and x.status in ('onayli', 'yayinda')) < 40
+                and exists (select 1 from public.day_photos dp where dp.photo_id = p.id and dp.day < public.game_day())))
      order by
        (exists (select 1 from public.duel_seen s where s.photo_id = p.id and s.user_id in (a, b))) ,  -- görülmeyenler önce
        (select max(seen_at) from public.duel_seen s where s.photo_id = p.id and s.user_id in (a, b)) nulls first,
@@ -500,7 +503,9 @@ begin
   -- Sadece servis rolü (edge function) veya sunucu içi çağrı (pg_cron: JWT yok). İzin listesi: bilinmeyen roller de reddedilir.
   if auth.role() is not null and auth.role() <> 'service_role' then raise exception 'forbidden'; end if;
   select coalesce(max(day), public.game_day() - 1) into last_day from public.days;
-  d := greatest(last_day + 1, public.game_day());
+  -- Lansman öncesi fotoğraf harcanmasın: program en erken schedule_start'tan (TestFlight testi) başlar.
+  d := greatest(last_day + 1, public.game_day(),
+                coalesce((select (value #>> '{}')::date from public.app_config where key = 'schedule_start'), public.game_day()));
   while d <= public.game_day() + least(coalesce(p_horizon, 14), 60) loop
     -- Açgözlü seçim, her adımda öncelik sırası:
     --   1) henüz olmayan zorunlu zorluk (en az bir kolay ve en az bir zor),
@@ -514,7 +519,8 @@ begin
       for k in 1..5 loop
         select p.id, p.region, public.era_of(p.year) as era, p.difficulty::text as difficulty into cand
           from public.photos p
-         where p.pool = 'daily' and p.status = 'onayli' and p.scheduled_date is null
+         where p.pool = 'daily' and p.status = 'onayli'
+           and not exists (select 1 from public.day_photos x where x.photo_id = p.id)
            and p.image_path is not null and p.id <> all(picked)
          order by
            (p.difficulty in ('kolay', 'zor') and not (p.difficulty::text = any(diffs))) desc,
@@ -543,7 +549,7 @@ begin
     loop
       slot := slot + 1;
       insert into public.day_photos(day, slot, photo_id) values (d, slot, cand.id);
-      update public.photos set status = 'yayinda', scheduled_date = d where id = cand.id;
+      update public.photos set status = 'yayinda' where id = cand.id;  -- gün bilgisi day_photos'ta (scheduled_date core'da unique; kullanılmaz)
     end loop;
     created := created + 1;
     d := d + 1;
@@ -557,7 +563,7 @@ declare ahead int; left_photos int;
 begin
   perform public.schedule_days(14);
   select count(*) into ahead from public.days where day > public.game_day();
-  select count(*) into left_photos from public.photos where pool = 'daily' and status = 'onayli' and scheduled_date is null;
+  select count(*) into left_photos from public.photos where pool = 'daily' and status = 'onayli';
   if ahead < 7 then
     perform private.notify_admin('📅 Program azaldı: ' || ahead || ' gün ileri planlı, ' || left_photos || ' onaylı fotoğraf kaldı.');
   end if;

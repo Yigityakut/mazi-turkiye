@@ -89,5 +89,5 @@ begin
     'pro_total', (select count(*) from public.profiles where is_pro),
     'pro_7d', (select count(*) from public.profiles where is_pro and pro_since > now() - interval '7 days'),
     'days_ahead', (select count(*) from public.days where day > t),
-    'photos_left', (select count(*) from public.photos where pool = 'daily' and status = 'onayli' and scheduled_date is null));
+    'photos_left', (select count(*) from public.photos where pool = 'daily' and status = 'onayli'));
 end $$;
