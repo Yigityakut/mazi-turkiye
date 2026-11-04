@@ -9,7 +9,7 @@ Bağlantılı dosyalar: `store/listing.tr.md` (metinler) · `store/iap.md` (ür�
 | Tarih (2026) | Olay |
 | --- | --- |
 | 4–14 Kasım | QA raporundaki Kritik/Yüksek bulguların düzeltilmesi, TestFlight ve Play internal test |
-| **17 Kasım (salı)** | **Kritik yol:** Google Play kapalı testi 12+ testçiyle başlar. iOS 1.0 App Review'a gönderilir (17–18 Kasım) |
+| **17 Kasım (salı)** | Google Play: 12 testçi kuralı yok (hesap 2019), iç testten doğrudan üretime geçilebilir. iOS 1.0 App Review'a gönderilir (17–18 Kasım) |
 | 23 Kasım (pazartesi) | iOS onaylanmış ve "Pending Developer Release" durumunda olmalı |
 | **24 Kasım (salı)** | **iOS lansmanı** |
 | 1 Aralık (salı) | 14 günlük kapalı test biter → üretim erişimi başvurusu (Google incelemesi genelde ≤7 gün) |

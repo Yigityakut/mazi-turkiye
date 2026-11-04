@@ -1,7 +1,7 @@
 # Senin yapman gerekenler (insan kapıları)
 
 Ajan bunları hazırladı; kimlik, ödeme, telefon onayı veya hukuki onay gerektirdiği için senin elinden geçmesi gerekiyor.
-Sıra önemlidir: **kritik yol, 17 Kasım'a kadar 12 Android testçisi** (yoksa Android yayını gün gün kayar).
+Sıra önemlidir. Play hesabı 2019'da açıldı: 12 testçi × 14 gün kuralı uygulanmaz (2026-11-04). Kritik yol artık Apple hesabı + EAS build.
 
 Durum işaretleri: `[ ]` bekliyor · `[x]` tamam. Bitirdiğin maddeyi işaretleyip commit'lemen yeterli; sonraki ajan buradan okur.
 
@@ -21,11 +21,11 @@ Dashboard → `timeguessr` projesi:
 - Authentication → **Manual linking**: Açık
 - Edge Functions → Secrets: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_ADMIN_CHAT_ID`, `REVENUECAT_WEBHOOK_AUTH` (rastgele uzun bir değer); RevenueCat ve PostHog açılınca `REVENUECAT_SECRET_KEY` (madde 8), `POSTHOG_KEY`, `POSTHOG_PERSONAL_API_KEY`, `POSTHOG_PROJECT_ID` (madde 11). İç çağrı anahtarı veritabanında otomatik üretildi; bir şey yapman gerekmiyor.
 
-### 3. [ ] Google Play geliştirici hesabı (25 $, kimlik doğrulama birkaç gün sürebilir)
+### 3. [x] Google Play geliştirici hesabı (mevcut, 2019)
 https://play.google.com/console/signup — **Öneri: Bireysel hesap.** Şirket hesabı 12 testçi kuralından muaf ama D-U-N-S numarası gerektirir (2–4 hafta).
 Eski (Kasım 2023 öncesi açılmış) bir hesabın varsa onu kullan; 12 testçi kuralı uygulanmaz.
 
-### 4. [ ] 12 kapalı testçi (en geç 17 Kasım)
+### 4. [x] 12 kapalı testçi — gerekmiyor (hesap Kasım 2023 öncesi)
 Davet metni ve talimat hazır: `marketing/testers.md`. Arkadaş, aile, Türk geliştirici toplulukları (ör. Teknoseyir, r/KGBTR'de değil — kurallar). Her testçinin **Gmail adresini** topla ve `marketing/testers.md`'deki listeye ekle (adresleri repoya yazmak istemezsen sadece sayıyı yaz).
 Testçilerin **14 gün boyunca** testte kalması gerekir: uygulamayı kaldırmasınlar.
 

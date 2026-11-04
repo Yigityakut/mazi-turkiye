@@ -39,7 +39,7 @@ _Son güncelleme: 2026-11-04 (yerel oturum 1)_
 ## Sıradaki adımlar (öncelik sırasıyla)
 
 1. Yukarıdaki 1. madde: migration ve function'ları canlıya al.
-2. İnsan kapıları (`HUMAN_TODO.md`): Play hesabı ve **17 Kasım'a kadar 12 testçi**, Apple, `eas init`, ortam değişkenleri.
+2. İnsan kapıları (`HUMAN_TODO.md`): Apple (Play hesabı mevcut, 12 testçi kuralı yok), `eas init`, ortam değişkenleri.
 3. Build: `npx eas-cli build -p all --profile production`; TestFlight ve Play kapalı test; cihazda QA (`store/release-checklist.md`).
 4. Vercel'e `web/` deploy; alan adı; Apple Team ID ve Play SHA-256'yı `web/.well-known/` dosyalarına yaz; AASA'yı `curl` ile doğrula.
 5. Play açıklamasına feature graphic fotoğraf künyesi.
