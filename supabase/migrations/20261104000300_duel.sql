@@ -491,7 +491,9 @@ declare
   created int := 0;
   picked uuid[];
   regions text[]; eras text[]; diffs text[];
+  best uuid[]; best_score int; score int;
   cand record;
+  attempt int;
   k int;
   slot int;
 begin
@@ -500,28 +502,38 @@ begin
   select coalesce(max(day), public.game_day() - 1) into last_day from public.days;
   d := greatest(last_day + 1, public.game_day());
   while d <= public.game_day() + least(coalesce(p_horizon, 14), 60) loop
-    picked := '{}'; regions := '{}'; eras := '{}'; diffs := '{}';
     -- Açgözlü seçim, her adımda öncelik sırası:
     --   1) henüz olmayan zorunlu zorluk (en az bir kolay ve en az bir zor),
     --   2) henüz olmayan bölge, 3) henüz olmayan dönem, 4) rastgele.
-    -- Havuz yetmezse kurallar kendiliğinden gevşer. (Eski 3 geçişli döngüde 2. geçiş hiç gevşemiyordu ve
-    -- kolay/zor şartı 2. geçişte tamamen düşüyordu.)
-    for k in 1..5 loop
-      select p.id, p.region, public.era_of(p.year) as era, p.difficulty::text as difficulty into cand
-        from public.photos p
-       where p.pool = 'daily' and p.status = 'onayli' and p.scheduled_date is null
-         and p.image_path is not null and p.id <> all(picked)
-       order by
-         (p.difficulty in ('kolay', 'zor') and not (p.difficulty::text = any(diffs))) desc,
-         (p.region = any(regions)),
-         (public.era_of(p.year) = any(eras)),
-         random()
-       limit 1;
-      exit when not found;
-      picked := picked || cand.id; regions := regions || cand.region; eras := eras || cand.era;
-      diffs := diffs || cand.difficulty;
+    -- Havuz yetmezse kurallar kendiliğinden gevşer. Rastgele eşitlik bozma yüzünden tek deneme köşeye
+    -- sıkışabildiği için birkaç deneme yapılır, en iyisi alınır (kolay+zor > farklı bölge > farklı dönem).
+    -- (Eski 3 geçişli döngüde 2. geçiş hiç gevşemiyordu ve kolay/zor şartı 2. geçişte tamamen düşüyordu.)
+    best := null; best_score := -1;
+    for attempt in 1..25 loop
+      picked := '{}'; regions := '{}'; eras := '{}'; diffs := '{}';
+      for k in 1..5 loop
+        select p.id, p.region, public.era_of(p.year) as era, p.difficulty::text as difficulty into cand
+          from public.photos p
+         where p.pool = 'daily' and p.status = 'onayli' and p.scheduled_date is null
+           and p.image_path is not null and p.id <> all(picked)
+         order by
+           (p.difficulty in ('kolay', 'zor') and not (p.difficulty::text = any(diffs))) desc,
+           (p.region = any(regions)),
+           (public.era_of(p.year) = any(eras)),
+           random()
+         limit 1;
+        exit when not found;
+        picked := picked || cand.id; regions := regions || cand.region; eras := eras || cand.era;
+        diffs := diffs || cand.difficulty;
+      end loop;
+      exit when coalesce(array_length(picked, 1), 0) < 5;   -- havuz bitti (her denemede aynı)
+      score := case when 'kolay' = any(diffs) then 1000 else 0 end + case when 'zor' = any(diffs) then 1000 else 0 end
+             + 10 * (select count(distinct x) from unnest(regions) x) + (select count(distinct x) from unnest(eras) x);
+      if score > best_score then best := picked; best_score := score; end if;
+      exit when best_score = 2055;                          -- kolay + zor, 5 bölge, 5 dönem
     end loop;
-    exit when coalesce(array_length(picked, 1), 0) < 5;   -- havuz bitti
+    exit when best is null;                                 -- havuz bitti
+    picked := best;
 
     insert into public.days(day, number) values (d, public.day_number(d));
     slot := 0;

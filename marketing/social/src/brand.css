@@ -1,0 +1,35 @@
+/* Mazi Türkiye marka görselleri: ortak yazı tipleri ve renkler.
+   Yazı tipleri yerel TTF (SIL OFL); sayfalar file:// üzerinden açıldığı için göreli yollar file:// olarak çözülür. */
+@font-face { font-family: "Fraunces"; font-weight: 900; src: url("../../../app/node_modules/@expo-google-fonts/fraunces/900Black/Fraunces_900Black.ttf"); }
+@font-face { font-family: "Fraunces"; font-weight: 700; src: url("../../../app/node_modules/@expo-google-fonts/fraunces/700Bold/Fraunces_700Bold.ttf"); }
+@font-face { font-family: "Fraunces"; font-weight: 600; font-style: italic; src: url("../../../app/node_modules/@expo-google-fonts/fraunces/600SemiBold_Italic/Fraunces_600SemiBold_Italic.ttf"); }
+@font-face { font-family: "Inter"; font-weight: 400; src: url("../../../app/node_modules/@expo-google-fonts/inter/400Regular/Inter_400Regular.ttf"); }
+@font-face { font-family: "Inter"; font-weight: 600; src: url("../../../app/node_modules/@expo-google-fonts/inter/600SemiBold/Inter_600SemiBold.ttf"); }
+@font-face { font-family: "Inter"; font-weight: 700; src: url("../../../app/node_modules/@expo-google-fonts/inter/700Bold/Inter_700Bold.ttf"); }
+
+:root {
+  --paper: #F2EADB;
+  --surface: #FBF7EF;
+  --alt: #EDE3D1;
+  --ink: #1E1913;
+  --muted: #6A5D4C;
+  --faint: #9C8E79;
+  --line: #DCCFB8;
+  --land-stroke: #C9B596;
+  --accent: #B8432A;
+  --accent-deep: #A63A24;
+  --accent-ink: #FFF8EE;
+  --water: #CFD9D4;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { overflow: hidden; background: var(--paper); color: var(--ink); }
+body { font-family: "Inter", sans-serif; -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision; }
+.serif { font-family: "Fraunces", serif; }
+.abs { position: absolute; }
+
+/* İnce kâğıt dokusu (PNG boyutunu büyütür; og.png'de kullanılmaz) */
+.grain::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; mix-blend-mode: multiply; opacity: .5;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 .35  0 0 0 0 .27  0 0 0 0 .18  0 0 0 .09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}

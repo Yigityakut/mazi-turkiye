@@ -1,0 +1,210 @@
+{
+  "set": "pool-a",
+  "reviewed_sheets": [
+    "pool-a/sheet-01",
+    "pool-a-needgeo/sheet-01",
+    "pool-a-needgeo/sheet-02",
+    "pool-a-needgeo/sheet-03",
+    "pool-a-needgeo/sheet-04",
+    "pool-a-needgeo/sheet-05",
+    "pool-a-needgeo/sheet-06",
+    "pool-a-needgeo/sheet-07",
+    "pool-a-needgeo/sheet-08",
+    "pool-a-needgeo/sheet-09",
+    "pool-a-needgeo/sheet-10",
+    "pool-a-needgeo/sheet-11"
+  ],
+  "items": [
+    {
+      "key": "1-2@pool-a-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Tarabya sahili, İstanbul",
+      "title_tr": "Tarabya'da sahil yolu",
+      "story_tr": "Ünlü İstanbul fotoğrafçısı Pascal Sébah'ın bu karesi, Fransa Millî Kütüphanesi'ndeki 'Algérie, Constantinople' başlıklı bir albümde yer alıyor. Boğaziçi'nde Tarabya'nın sahil yolu boyunca sıralanan yalılar ve kıyı boyunca uzanan tepeler görülüyor.",
+      "lat": 41.138,
+      "lng": 29.055
+    },
+    {
+      "key": "2-5@pool-a-needgeo",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Suşehri (Enderes), Sivas",
+      "title_tr": "Enderes yakınlarında kadınlar ve çocuklar",
+      "story_tr": "Bisikletle dünya turuna çıkan Amerikalı William Sachtleben, 1891'de Anadolu'yu geçerken Sivas vilayetindeki Enderes'ten de geçti. Bugün Suşehri adını taşıyan kasabanın yakınlarında kadınlar ve çocuklar objektife bakıyor.",
+      "lat": 40.164,
+      "lng": 38.087
+    },
+    {
+      "key": "2-7@pool-a-needgeo",
+      "pool": "daily",
+      "difficulty": "zor",
+      "location_name": "Suşehri (Enderes), Sivas",
+      "title_tr": "Enderes'te bir grup adam",
+      "story_tr": "William Sachtleben'in 1891'deki Anadolu yolculuğundan bir kare: Sivas vilayetine bağlı Enderes'te, bugünkü Suşehri'nde bir grup adam. Badanalı duvarlar, başlıklar ve yerel giysiler kasabanın gündelik hayatından bir an yakalıyor.",
+      "lat": 40.164,
+      "lng": 38.087
+    },
+    {
+      "key": "2-11@pool-a-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Kadifekale (Pagos Dağı) eteği, İzmir",
+      "title_tr": "İzmir'in yukarı mahalleleri ve Pagos Dağı",
+      "story_tr": "Fotoğrafçı André Salles'ın bu cam negatifi, İzmir'in yukarı mahallelerini ve Kadifekale'nin üzerinde yükseldiği Pagos Dağı'nı Saint Joseph Koleji'nin terasından gösteriyor. Ön plandaki düz damlar ve yamaca tırmanan evler, 1893 İzmir'inin dokusunu yansıtıyor.",
+      "lat": 38.417,
+      "lng": 27.143
+    },
+    {
+      "key": "4-1@pool-a-needgeo",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Süleymanlı (Zeytun), Kahramanmaraş",
+      "title_tr": "Dağ yamacında Zeytun",
+      "story_tr": "İngiliz gezgin ve diplomat Mark Sykes, Aralık 1902'de Zeytun kasabasının bu panoramasını çekti. Sarp yamaçlara kurulmuş evleriyle kasaba, bugün Kahramanmaraş'ın Onikişubat ilçesindeki Süleymanlı'dır.",
+      "lat": 37.8833,
+      "lng": 36.8333
+    },
+    {
+      "key": "4-6@pool-a-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Saat Kulesi, Amasya",
+      "title_tr": "Amasya Saat Kulesi",
+      "story_tr": "Bu fotoğraf, 1903 yılına ait Sivas Vilayeti Salnamesi'nde yayımlandı; Amasya o dönemde Sivas vilayetine bağlıydı. Karede saat kulesi, önündeki uzun verandalı yapı ve sağda ahşap bir korkuluk seçiliyor.",
+      "lat": 40.653,
+      "lng": 35.833
+    },
+    {
+      "key": "4-18@pool-a-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Cunda Adası (Ayvalık), Balıkesir",
+      "title_tr": "Cunda'nın panoraması",
+      "story_tr": "Jean D. Contaxis imzalı, elle renklendirilmiş bu kartpostal, Ayvalık'ın karşısındaki Cunda Adası'ndaki kasabayı karşı kıyıdan gösteriyor. Kartın üzerindeki 'Mosconissi' yazısı, adanın Rumca adı Moshonisi'den geliyor.",
+      "lat": 39.309,
+      "lng": 26.675
+    },
+    {
+      "key": "5-14@pool-a-needgeo",
+      "pool": "duel",
+      "difficulty": "orta",
+      "location_name": "Kırklareli yolu, Edirne",
+      "title_tr": "Kırklareli yolundan Edirne",
+      "story_tr": "Gustave Cirilli'ye ait bu kare, Edirne'ye Kırkkilise (bugünkü Kırklareli) yolundan bakıyor. Alçak damlı evlerin ardında, ufukta Selimiye Camii'nin kubbesi ve minareleri seçiliyor.",
+      "lat": 41.679,
+      "lng": 26.57
+    },
+    {
+      "key": "5-16@pool-a-needgeo",
+      "pool": "bonus",
+      "difficulty": "kolay",
+      "location_name": "Rumeli Hisarı, İstanbul",
+      "title_tr": "Rumeli Hisarı'nın eteğinde",
+      "story_tr": "Albert Kahn'ın 'Gezegenin Arşivleri' için Auguste Léon'un 1913 baharında çektiği bu otokrom, Rumeli Hisarı'nın kulesini ve eteğindeki ahşap evleri gösteriyor. Otokrom, dönemin renkli cam plak tekniğiydi; gördüğünüz renkler sonradan boyanmadı.",
+      "lat": 41.0927,
+      "lng": 29.0307
+    },
+    {
+      "key": "5-18@pool-a-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Şehir panoraması, Bursa",
+      "title_tr": "Bursa'ya yukarıdan bakış",
+      "story_tr": "Auguste Léon'un 1913'te Albert Kahn arşivi için çektiği bu otokromun özgün başlığı 'Brousse, evler ve cami'. Yeşillikler arasından yükselen kiremit damlı evlerin ve camilerin ardında ova ve dağlar uzanıyor.",
+      "lat": 40.188,
+      "lng": 29.06
+    },
+    {
+      "key": "6-14@pool-a-needgeo",
+      "pool": "duel",
+      "difficulty": "zor",
+      "location_name": "Truva Antik Kenti, Çanakkale",
+      "title_tr": "Truva kazı alanı",
+      "story_tr": "Avusturya-Macaristan'ın 1914–1918 dönemine ait resmî fotoğraf albümlerinden bu kare, 1917'de Truva'daki kazı alanını gösteriyor. Otlarla kaplı kazı çukurlarının ardında düz bir ova uzanıyor; Truva'daki kazılar 1870'lerde Heinrich Schliemann'la başlamıştı.",
+      "lat": 39.9575,
+      "lng": 26.239
+    },
+    {
+      "key": "6-15@pool-a-needgeo",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Ayasofya şadırvanı, İstanbul",
+      "title_tr": "Ayasofya'nın şadırvanı",
+      "story_tr": "Fransız fotoğrafçı Léon Busy, Albert Kahn'ın arşivi için 1918'de İstanbul'da çalışırken Ayasofya'nın avlusundaki şadırvanı renkli otokrom plağa kaydetti. Geniş saçaklı, kubbeli şadırvan caminin yüksek duvarlarının önünde duruyor.",
+      "lat": 41.0087,
+      "lng": 28.9797
+    },
+    {
+      "key": "6-16@pool-a-needgeo",
+      "pool": "bonus",
+      "difficulty": "orta",
+      "location_name": "Eyüp Sultan Mezarlığı, İstanbul",
+      "title_tr": "Eyüp'te süslü mezar taşları",
+      "story_tr": "Léon Busy'nin 1918 tarihli otokromu, Eyüp Sultan Camii çevresindeki mezarlıktan süslü Osmanlı mezar taşlarını gösteriyor. Arkadaki barok yapı, III. Selim'in annesi için yaptırılan Mihrişah Valide Sultan Türbesi.",
+      "lat": 41.0478,
+      "lng": 28.934
+    },
+    {
+      "key": "7-9@pool-a-needgeo",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Selimiye Camii, Edirne",
+      "title_tr": "Selimiye Camii'nin avlusu",
+      "story_tr": "Fransız Meurisse ajansının 1920 tarihli basın fotoğrafı, Edirne'deki Selimiye Camii'nin iç avlusundan ana kapıyı gösteriyor. Mimar Sinan'ın 'ustalık eserim' dediği caminin alacalı taş kemerleri ve madalyonları hemen göze çarpıyor.",
+      "lat": 41.6779,
+      "lng": 26.5594
+    },
+    {
+      "key": "8-1@pool-a-needgeo",
+      "pool": "duel",
+      "difficulty": "kolay",
+      "location_name": "Dolmabahçe Sarayı, İstanbul",
+      "title_tr": "Dolmabahçe'den Boğaz'a bakış",
+      "story_tr": "Hollanda'daki Spaarnestad arşivinden 1925 tarihli bu kare, Dolmabahçe Sarayı'nın içinden Boğaz'a bakıyor. Sarayın süslü demir kapısının ardında direkleri yükselen bir yelkenli ve uzakta gemiler görülüyor.",
+      "lat": 41.0391,
+      "lng": 29.0004
+    },
+    {
+      "key": "8-14@pool-a-needgeo",
+      "pool": "duel",
+      "difficulty": "kolay",
+      "location_name": "İkinci TBMM Binası (Ulus), Ankara",
+      "title_tr": "Bayraklarla süslü Meclis binası",
+      "story_tr": "Seyhun Binzet Koleksiyonu'ndaki bu fotoğraf, 1929'da Ankara Ulus'taki ikinci Türkiye Büyük Millet Meclisi binasını bayraklarla süslü bir günde gösteriyor. Meclis 1924'ten 1960'a kadar bu binada toplandı; yapı bugün Cumhuriyet Müzesi olarak kullanılıyor.",
+      "lat": 39.9405,
+      "lng": 32.8555
+    },
+    {
+      "key": "9-20@pool-a-needgeo",
+      "pool": "daily",
+      "difficulty": "kolay",
+      "location_name": "Zafer Anıtı (Ulus), Ankara",
+      "title_tr": "Ulus'taki Zafer Anıtı",
+      "story_tr": "Kudüs'teki Amerikan Kolonisi fotoğrafçılarının Matson koleksiyonundan bu kare, 1935'te Ankara Ulus'taki Zafer Anıtı'nın atlı heykelini yakından gösteriyor. Avusturyalı heykeltıraş Heinrich Krippel'in yaptığı anıt 1927'de açılmıştı.",
+      "lat": 39.9418,
+      "lng": 32.8545
+    },
+    {
+      "key": "10-2@pool-a-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Galata (Beyoğlu), İstanbul",
+      "title_tr": "Galata'da tramvaylı cadde",
+      "story_tr": "İsviçreli jeolog Leo Wehrli'nin 1935 tarihli diyapozitifinin arşiv başlığı 'Galata'da merdivenli sokak'. Tramvay raylarının kıvrıldığı caddede yayalar, tabelalar ve yokuşa tırmanan sokak, dönemin Galata'sının canlılığını yansıtıyor.",
+      "lat": 41.024,
+      "lng": 28.9745
+    },
+    {
+      "key": "11-8@pool-a-needgeo",
+      "pool": "daily",
+      "difficulty": "orta",
+      "location_name": "Saraçhane (Fatih), İstanbul",
+      "title_tr": "İbrahim Paşa Hamamı'nın yıkımı",
+      "story_tr": "1494'te yapılan İbrahim Paşa Hamamı, koruma altında olmasına rağmen Atatürk Bulvarı'nın genişletilmesi sırasında 1941'de yıkılmaya başlandı. Saraçhane'de çekilen bu karede kazma sallayan işçiler görülüyor; hamam 1956'ya gelindiğinde tamamen ortadan kalkmıştı.",
+      "lat": 41.0145,
+      "lng": 28.954
+    }
+  ],
+  "rejected_notes": "pool-a (koordinatlı) 3 adayın üçü de modern fotoğraf; yıl deepcat sorgusundan atanmış (Caystrus heykeli, 1988 Tankut Öktem heykeli, Sarıyer balıkçıları) → ele. pool-a-needgeo 220 karede ret nedenleri: gravür/çizim/resim/litografi/kitap illüstrasyonu (~31), harita/plan/Goad sigorta paftaları (~17), gazete/reklam/belge/el yazması/pul/kartpostal arkası (~41), müze objesi (halı, lahit, borazan, ~6), bireysel veya grup portreleri ve ünlü kişiler (Atatürk, İnönü, Herzl, Piłsudski vb., ~33), askerî/siyasi/şiddet/terör (Kayzer ziyaretleri, birlikler, kuşatma topçusu, idam, Pera Palas bombası, Yavuz zırhlısı, ~13), yanlış yıl atanmış modern fotoğraflar (~14), Türkiye dışı (Sèvres, Amsterdam, Atina, Tiflis, Chioggia, İsrail kibbutzu, Suriye, ~12), çekim yılı belirsiz ticari baskılar/kitap reprodüksiyonları (Hallwyl albümündeki Sébah & Joaillier ve Berggren baskıları, 1909/1913/1917 kitap fotoğrafları, Bain ve Matson 'Constantinople' kareleri, '1931 veya öncesi' hamallar, ~17), konumu ≤5 km belirlenemeyenler (Kapadokya, Zegani, Jilu, Bana, 'yeri bilinmiyor' 1925 kadınlar, Erzurum/Erzincan çelişkisi, ~7), cevabı yazan altyazı/stereo kartlar (Polycarp mezarı 'Smyrna 1895', Pera mezarlığı, Wehrli kavun satıcıları, Salvany stereo, ~7), tekrarlar. İstanbul payını %35 civarında tutmak için yedekte bırakılanlar: 3-5 Sveti Stefan 1898, 7-4 Kınalıada abdest 1920, 9-15 Rumeli Hisarı havadan 1934, 5-17 Tarabya Fransız sefareti çeşmesi 1913, 1-1 Büyükdere 1880. Abdülhamid II koleksiyonundan hiçbir kare bu setlerde yok."
+}

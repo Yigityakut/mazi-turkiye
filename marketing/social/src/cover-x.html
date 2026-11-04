@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Mazi Türkiye · X kapak 1500×500</title>
+<link rel="stylesheet" href="brand.css">
+<style>
+  /* X profil fotoğrafı sol altı örter (≈ x 0–420, y 320–500): orası boş bırakılır. Mobilde üst/alt ~40 px kırpılabilir. */
+  html, body { width: 1500px; height: 500px; }
+  #root { position: relative; width: 1500px; height: 500px; background: var(--paper); overflow: hidden; }
+  .kicker { left: 84px; top: 70px; font: 600 16px/1 "Inter", sans-serif; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); }
+  h1 { left: 80px; top: 98px; font: 900 90px/.96 "Fraunces", serif; letter-spacing: -2.4px; }
+  h1 em { font-style: normal; color: var(--accent); }
+  .sub { left: 84px; top: 300px; font: 400 23px/1.4 "Inter", sans-serif; color: var(--muted); }
+  .sub b { font-weight: 600; color: var(--ink); }
+  #map { left: 600px; top: 46px; width: 860px; height: 400px; overflow: visible; }
+</style>
+</head>
+<body>
+<div id="root" class="grain">
+  <div class="kicker abs">1880'lerden bugüne · Günlük tarih oyunu</div>
+  <h1 class="abs">Nerede?<br>Hangi <em>yıl?</em></h1>
+  <p class="sub abs">Her sabah 04:00'te <b>5 yeni fotoğraf.</b></p>
+  <svg id="map" class="abs"></svg>
+</div>
+<script src="map-data.js"></script>
+<script src="map.js"></script>
+<script>
+  const W = TRMap.width, H = TRMap.height, map = document.getElementById("map");
+  map.setAttribute("viewBox", `-10 -40 ${W + 20} ${H + 50}`);
+  const [nx, ny] = TRMap.xy(38.64, 34.83);
+  const marks = [["1", TRMap.city("Edirne")], ["2", TRMap.city("İzmir")], ["4", TRMap.city("Trabzon")], ["5", TRMap.city("Van")]];
+  // Hafif gölge + kara
+  map.innerHTML =
+    `<defs><filter id="sh" x="-5%" y="-5%" width="110%" height="120%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#5A3C1E" flood-opacity=".14"/></filter></defs>` +
+    `<g filter="url(#sh)">${TRMap.svg({ land: "#FBF7EF", stroke: "#DCCFB8", strokeWidth: 1.4, coast: "#C9B596", coastWidth: 4.5, water: "#F2EADB" })}</g>` +
+    marks.map(([n, [x, y]]) => `<g transform="translate(${x} ${y})"><circle r="21" fill="#1E1913" stroke="#FBF7EF" stroke-width="4"/><text y="8" text-anchor="middle" font-family="Inter" font-weight="700" font-size="23" fill="#FBF7EF">${n}</text></g>`).join("") +
+    `<ellipse cx="${nx}" cy="${ny + 3}" rx="26" ry="8" fill="rgba(30,25,19,.18)"/>` +
+    TRMap.pin(nx, ny, 44, "#B8432A", "#FBF7EF", true);
+</script>
+</body>
+</html>

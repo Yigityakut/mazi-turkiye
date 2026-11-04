@@ -221,12 +221,13 @@ function stats(): Stats {
 
 function leaderboard(scope: string): Leaderboard {
   // Ekran görüntülerinde toplam oyuncu sayısı gösterilmez (uydurma kullanıcı sayısı yok): "bugün" ve "hafta"da `me` boş.
+  const mine = [1, 2, 3, 4, 5].reduce((s, i) => { const p = playFor(i); return s + p.score_location + p.score_year; }, 0);
   const rows = [
-    { name: FRIEND, total: 4120 }, { name: ME_NAME, total: 3889, is_me: true }, { name: "Mert", total: 3640 },
+    { name: FRIEND, total: 4120 }, { name: ME_NAME, total: mine, is_me: true }, { name: "Mert", total: 3640 },
     { name: "Gökçe", total: 3512, used_hint: true }, { name: "İlker", total: 3305 }, { name: "Şule", total: 2980 },
   ].map((r, i) => ({ rank: i + 1, name: r.name, total: r.total, used_hint: !!r.used_hint, is_me: !!r.is_me }));
   return scope === "friends"
-    ? { scope, rows, me: { rank: 2, total: 3889 }, players: rows.length }
+    ? { scope, rows, me: { rank: 2, total: mine }, players: rows.length }
     : { scope, rows: rows.map((r) => ({ ...r, is_me: false })), me: null, players: 0 };
 }
 

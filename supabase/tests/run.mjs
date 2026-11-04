@@ -1077,6 +1077,38 @@ await test("private.cleanup deletes anonymous accounts idle for 24 months (casca
 });
 
 // ---------------------------------------------------------------------------
+section("schedule_days with a constrained pool (fresh database)");
+// ---------------------------------------------------------------------------
+// 5 regions x (kolay, orta, zor), all from the same era: distinct eras are impossible, distinct regions are not.
+// The rules must relax era first, keep regions distinct and still include a kolay and a zor every day.
+await test("relaxes era before region and keeps ≥1 kolay + ≥1 zor", async () => {
+  for (let run = 0; run < 4; run++) {
+    const db2 = await createDb();
+    await applyMigrations(db2);
+    const regions = REGIONS.slice(0, 5);
+    for (const [ri, region] of regions.entries()) {
+      for (const difficulty of DIFFS) {
+        const pv = provinces.find((p) => p.region === region);
+        const id = randomUUID();
+        await db2.query(`insert into public.photos(id, image_path, year, lat, lng, location_name, region, difficulty,
+                           source_name, source_url, author, license_code, pool, status)
+                         values ($1, $7, $2, $3, $4, 'x', $5, $6, 's', 'u', 'a', 'l', 'daily', 'onayli')`,
+          [id, 1960 + ri, pv.lat, pv.lng, region, difficulty, `${id}.jpg`]);
+      }
+    }
+    assert.equal((await db2.query(`select public.schedule_days(2) n`)).rows[0].n, 3);
+    const days = (await db2.query(`select dp.day::text d, array_agg(p.region) regions, array_agg(p.difficulty::text) diffs
+                                     from public.day_photos dp join public.photos p on p.id = dp.photo_id
+                                    group by dp.day order by dp.day`)).rows;
+    for (const [i, d] of days.entries()) {
+      assert.equal(new Set(d.regions).size, 5, `run ${run} ${d.d}: regions ${d.regions}`);
+      if (i < 2) assert.ok(d.diffs.includes("kolay") && d.diffs.includes("zor"), `run ${run} ${d.d}: ${d.diffs}`);
+    }
+    await db2.close();
+  }
+});
+
+// ---------------------------------------------------------------------------
 const failed = results.filter((r) => !r.ok);
 console.log(`\n${results.length - failed.length}/${results.length} passed`);
 if (failed.length) {

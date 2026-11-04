@@ -229,7 +229,9 @@ function screenInner(platform, k, shotSrc) {
   const home = platform === "ios"
     ? `<div style="position:absolute;bottom:${8 * k}px;left:50%;width:${140 * k}px;height:${5 * k}px;margin-left:${-70 * k}px;border-radius:${3 * k}px;background:${homeColor}"></div>`
     : `<div style="position:absolute;bottom:${9 * k}px;left:50%;width:${108 * k}px;height:${4 * k}px;margin-left:${-54 * k}px;border-radius:${2 * k}px;background:${homeColor}"></div>`;
-  return `<img class="shot" src="${shotSrc}">${statusBar(platform, k, T.statusInk)}${cutout}${home}`;
+  // Alt kenarda kesilen içerik (kaydırılabilir listeler) ana ekran çizgisinin altında yumuşakça kaybolsun
+  const fade = `<div style="position:absolute;left:0;right:0;bottom:0;height:${(platform === "ios" ? 26 : 22) * k}px;background:linear-gradient(to bottom, ${T.appBg}00, ${T.appBg} 75%)"></div>`;
+  return `<img class="shot" src="${shotSrc}">${fade}${statusBar(platform, k, T.statusInk)}${cutout}${home}`;
 }
 
 function frameCss() {
@@ -352,9 +354,8 @@ function featureHtml(fixtures, draft) {
     h1 { font: 900 72px/0.98 Fraunces; color: #F7EEDD; letter-spacing: -1.2px; }
     .tag { font: italic 600 30px/1.2 Fraunces; color: #F7EEDD; opacity: .92; margin-top: 16px; }
     .meta { font: 600 15px/1 Inter; letter-spacing: .16em; color: #F7EEDD; opacity: .62; margin-top: 22px; text-transform: uppercase; }
-    .print { position: absolute; background: #FBF7EF; padding: 9px 9px 30px; box-shadow: 0 16px 30px rgba(60,16,6,.38), 0 2px 6px rgba(60,16,6,.25); }
-    .print img { display: block; width: 100%; height: 100%; object-fit: cover; filter: sepia(.25) contrast(1.02); }
-    .print span { position: absolute; left: 0; right: 0; bottom: 7px; text-align: center; font: italic 600 15px/1 Fraunces; color: #6A5D4C; }
+    .print { position: absolute; background: #FBF7EF; padding: 8px 8px 22px; box-shadow: 0 16px 30px rgba(60,16,6,.38), 0 2px 6px rgba(60,16,6,.25); }
+    .print img { display: block; width: 100%; height: 100%; object-fit: cover; filter: sepia(.2) contrast(1.02); }
     .chip { position: absolute; font: 900 22px/1 Fraunces; color: #A63A24; background: #F7EEDD; border-radius: 10px; padding: 7px 10px 6px; box-shadow: 0 6px 14px rgba(60,16,6,.3); }
     .draft { position: absolute; right: 16px; bottom: 12px; font: 600 12px/1 Inter; letter-spacing: .06em; color: #F7EEDD; background: rgba(0,0,0,.25); border-radius: 99px; padding: 6px 10px; }
   </style></head><body>
@@ -367,8 +368,8 @@ function featureHtml(fixtures, draft) {
       ${pin(A[0], A[1], 74)}
     </svg>
     <div class="chip" style="left:${A[0] + 24}px;top:${A[1] - 66}px">${f.year}</div>
-    <div class="print" style="left:${mapX + 330}px;top:34px;width:206px;height:178px;transform:rotate(5deg)">
-      <img src="/__build/demo/${f.file}"><span>${esc(f.province ?? "")}, ${f.year}</span>
+    <div class="print" style="left:${mapX + 350}px;top:16px;width:194px;height:150px;transform:rotate(4deg)">
+      <img src="/__build/demo/${f.file}">
     </div>
     <div class="brand">
       <img class="icon" src="/__brand/icon-1024.png">
@@ -443,7 +444,7 @@ try {
     const dev = DEVICES.ios;
     const raw = join(work, "raw", "ios-pro.png");
     await capture(browser, base, dev, "/pro?from=review", raw, { platform: "ios", viewport: { width: 440, height: 956 - 66 }, insets: { top: 0, bottom: 34 } });
-    await renderHtml(browser, base, work, "iap", iapHtml("/__work/raw/ios-pro.png", draft), dev.canvas, join(OUT, "iap-review.png"));
+    await renderHtml(browser, base, work, "iap", iapHtml("/__work/raw/ios-pro.png", false), dev.canvas, join(OUT, "iap-review.png"));
     console.log("✓ store/screenshots/out/iap-review.png");
     await renderHtml(browser, base, work, "feature", featureHtml(fixtures, draft), { w: 1024, h: 500 }, join(OUT, "feature-graphic.png"));
     console.log("✓ store/screenshots/out/feature-graphic.png");
