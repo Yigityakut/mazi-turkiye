@@ -8,26 +8,22 @@ const env = process.env;
 const DOMAIN = env.EXPO_PUBLIC_DOMAIN ?? "maziturkiye.com";
 const googleIosScheme = env.GOOGLE_IOS_URL_SCHEME; // com.googleusercontent.apps.xxxx
 
-// EAS build'inde proje kimliği yoksa OTA adresi ve Expo push token'ı sessizce boş kalır (QA Y4): build günlüğünde görünür uyarı.
-if (env.EAS_BUILD_PROFILE && !env.EAS_PROJECT_ID) {
-  console.warn(
-    `[app.config] EAS_PROJECT_ID tanımlı değil (profil: ${env.EAS_BUILD_PROFILE}). updates.url ve extra.eas.projectId boş kalır: ` +
-      "OTA güncellemesi gönderilemez, Expo push token'ı alınamaz. Bkz. app/README.md → EAS_PROJECT_ID.",
-  );
-}
+// EAS projesi (gizli değil): expo.dev/@rubygamestudios/mazi-turkiye. Ortam değişkeniyle ezilebilir.
+const EAS_PROJECT_ID = env.EAS_PROJECT_ID ?? "3ad08474-a1e2-4d9b-af75-908376964a7a";
+const EXPO_OWNER = env.EXPO_OWNER ?? "rubygamestudios";
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
   name: "Mazi Türkiye",
   slug: "mazi-turkiye",
-  owner: env.EXPO_OWNER,
+  owner: EXPO_OWNER,
   version: "1.0.0",
   orientation: "portrait",
   icon: "./assets/icon.png",
   scheme: "maziturkiye",
   userInterfaceStyle: "automatic",
   runtimeVersion: { policy: "appVersion" },
-  updates: env.EAS_PROJECT_ID ? { url: `https://u.expo.dev/${env.EAS_PROJECT_ID}` } : undefined,
+  updates: { url: `https://u.expo.dev/${EAS_PROJECT_ID}` },
   ios: {
     bundleIdentifier: "com.maziturkiye.app",
     buildNumber: "1",
@@ -82,7 +78,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   ],
   experiments: { typedRoutes: true },
   extra: {
-    eas: env.EAS_PROJECT_ID ? { projectId: env.EAS_PROJECT_ID } : undefined,
+    eas: { projectId: EAS_PROJECT_ID },
     supabaseUrl: env.EXPO_PUBLIC_SUPABASE_URL,
     supabaseKey: env.EXPO_PUBLIC_SUPABASE_KEY,
     webUrl: `https://${DOMAIN}`,

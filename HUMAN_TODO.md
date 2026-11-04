@@ -7,6 +7,16 @@ Durum işaretleri: `[ ]` bekliyor · `[x]` tamam. Bitirdiğin maddeyi işaretley
 
 ---
 
+## ⚡ Tek seferlik erişim (2026-11-04) — bundan sonra ajan bunlarla her şeyi kendisi yapar
+
+1. Supabase access token (supabase.com/dashboard/account/tokens) → `~/.config/mazi/env` içinde `SUPABASE_ACCESS_TOKEN`.
+2. PostHog personal API key (All access) → aynı dosyada `POSTHOG_PERSONAL_API_KEY`.
+3. App Store Connect API anahtarı (Admin): `.p8` dosyası `~/.config/mazi/` altına, Key ID ve Issuer ID aynı env dosyasına (`ASC_KEY_ID`, `ASC_ISSUER_ID`).
+4. `.claude/settings.local.json` izin kuralları (Supabase MCP, supabase/eas CLI, api.supabase.com ve PostHog curl).
+5. Chrome'da açık oturum: App Store Connect, Play Console, Google Cloud, Vercel, RevenueCat, PostHog.
+
+Bu yapıldıktan sonra aşağıdaki Supabase, Expo, PostHog, RevenueCat, Play maddeleri ajanındır; kullanıcıya tekrar sorulmaz.
+
 ## 🔴 Bugün (en çok gecikme yaratanlar)
 
 ### 1. [ ] Supabase: tek bir SQL dosyasını çalıştır (1 dk)
@@ -41,7 +51,7 @@ https://developer.apple.com/programs/enroll/ — Bireysel kayıt (Apple ID + iki
 - Sign in with Apple için: Certificates, Identifiers & Profiles → Services ID + Key oluştur → Supabase Apple provider'a gir.
 - Aynı Sign in with Apple anahtarını (p8) hesap silmede Apple token iptali için Supabase Edge Functions → Secrets'a da gir: `APPLE_TEAM_ID`, `APPLE_KEY_ID`, `APPLE_PRIVATE_KEY` (p8 dosyasının içeriği), `APPLE_CLIENT_ID` = `com.maziturkiye.app`.
 
-### 6. [ ] Expo hesabı ve EAS
+### 6. [x] Expo hesabı ve EAS (ajan yaptı: @rubygamestudios/mazi-turkiye, projectId app.config.ts'de)
 https://expo.dev → hesap (ücretsiz plan yeter). Terminalde (veya ajana erişim ver):
 ```bash
 cd app && npx eas-cli@latest init
@@ -62,7 +72,7 @@ https://app.revenuecat.com → proje "Mazi Türkiye" → App Store ve Play uygul
 - `destek@maziturkiye.com` adresi (ör. Zoho Mail ücretsiz, Cloudflare Email Routing ile Gmail'e yönlendirme veya Google Workspace).
 - Vercel'e `web/` klasörünü bağla (Root Directory: `web`, framework: Other) → alan adını ekle.
 
-### 10. [ ] Telegram bot
+### 10. [x] Telegram bot — İPTAL (kullanıcı kararı; kod token yoksa sessizce atlıyor)
 @BotFather → `/newbot` → Ad: **Mazi Türkiye Admin** · Kullanıcı adı önerisi: `maziturkiye_admin_bot` → token'ı Supabase secret `TELEGRAM_BOT_TOKEN`'a.
 Bota bir mesaj at, sonra `https://api.telegram.org/bot<TOKEN>/getUpdates` adresinden `chat.id`'yi alıp `TELEGRAM_ADMIN_CHAT_ID`'ye yaz.
 Admin hesabın: uygulamaya Apple ile giriş yap, Ayarlar'ın altındaki kimliği ajana ver (ajan `is_admin = true` yapar).
