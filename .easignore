@@ -1,0 +1,29 @@
+# EAS Build arşivi (repo kökünden alınır). .easignore varken .gitignore okunmaz: ikisinin birleşimi.
+node_modules/
+.expo/
+dist/
+web-build/
+*.log
+.env
+.env.*
+!.env.example
+.claude/
+.kotlin/
+*.jks
+*.p8
+*.p12
+*.key
+*.pem
+*.mobileprovision
+.DS_Store
+*.tsbuildinfo
+/app/ios
+/app/android
+app/expo-env.d.ts
+# Uygulama build'i için gereksiz klasörler
+/pipeline/
+/store/
+/marketing/
+/web/
+/supabase/
+/app/public/demo/
