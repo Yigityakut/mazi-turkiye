@@ -1,6 +1,6 @@
 // Sunucu tarafı analitik olayları (QA D11). Sadece veritabanı (pg_net, private.track_events) gizli başlıkla çağırır.
 // `duel_matched` olayı rakip türüyle (player/admin/bot) buradan gider; bot/admin bilgisi istemciye hiç açılmaz.
-// Gerekli değer: POSTHOG_KEY (proje API anahtarı, phc_…; istemcideki EXPO_PUBLIC_POSTHOG_KEY ile aynı).
+// POSTHOG_KEY: proje token'ı (phc_…, public; varsayılanı aşağıda, EU proje 338708).
 // İsteğe bağlı: POSTHOG_HOST (varsayılan AB: https://eu.i.posthog.com). Değer yoksa olay sessizce atlanır.
 import { isInternal, json } from "../_shared/util.ts";
 
@@ -12,8 +12,8 @@ type Ev = { distinct_id?: unknown; event?: unknown; properties?: unknown };
 
 Deno.serve(async (req) => {
   if (!(await isInternal(req))) return json({ error: "forbidden" }, 403);
-  const key = Deno.env.get("POSTHOG_KEY");
-  if (!key) return json({ skipped: "posthog_not_configured" });
+  // Proje token'ı gizli değil (istemci paketine de gömülü, PostHog: "safe to use in public apps"); env ile ezilebilir.
+  const key = Deno.env.get("POSTHOG_KEY") ?? "phc_DhZMuZvYeLG5HjQHdJyFLWHsoFNP3qKiZs3FByF6Xx8n";
   const host = (Deno.env.get("POSTHOG_HOST") ?? "https://eu.i.posthog.com").replace(/\/+$/, "");
   const body = await req.json().catch(() => ({}));
   const now = new Date().toISOString();

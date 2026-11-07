@@ -20,14 +20,15 @@ _Son güncelleme: 2026-11-04 (yerel oturum 1)_
 | Ekran görüntüleri | Hattı hazır: demo modu, render betiği, CI. Şu anki PNG'ler **TASLAK** (yer tutucu fotoğraflı) | `store/screenshots/`, `.github/workflows/screenshots.yml` |
 | Pazarlama | İçerik takvimi, açıklama şablonları, e-postalar, profiller, testçi kiti, basın bülteni, Reddit, mikro hesap mesajı, SALT izin e-postası, HyperFrames "Bil bakalım" şablonu (render test edildi) | `marketing/` |
 
-## ⏳ Yarım kalanlar / canlıya alınmayı bekleyenler
+## ⏳ Yarım kalanlar (2026-11-07)
 
-1. **Canlıya yüklenmemiş backend değişiklikleri.** Ajanın Supabase MCP'si okuma ve `execute_sql` yapabiliyor; `apply_migration` ve deploy, Claude Code izin denetimi tarafından engellendi ("Production Deploy"). İki yol: kullanıcı ayarlara izin kuralı ekler, ya da elle uygular. Sırayla:
-   - Migration: `20261104000700_cleanup.sql`, `20261104000800_nickname_filter.sql`, `20261104000900_duel_events.sql` (SQL Editor'de yapıştır → Run).
-   - Edge function: `sync-pro` (yeni), `track-event` (yeni), `delete-account` (güncellendi): `supabase functions deploy <ad>` veya MCP `deploy_edge_function`.
-   - Yeni secret'lar: `REVENUECAT_SECRET_KEY`, `POSTHOG_KEY`, `POSTHOG_PERSONAL_API_KEY`, `POSTHOG_PROJECT_ID` (HUMAN_TODO 2, 8, 11).
-2. **Fotoğraf hedefi ertelendi (kullanıcı kararı).** Canlıda 104 foto; pool-c2'den 35 foto `photo_candidates`'e `approved` olarak yazıldı, gece 03:30 ingest'inde Storage'a iner. 2. ve 3. tur seçimleri (`pipeline/selection/pool-a2.json`, `pool-b2.json`, `pool-a3.json`, `pool-b3.json`, toplam 72) repoda hazır, Supabase'e aktarılmadı. Aktarmak için: `node pipeline/export-approved.mjs <dosyalar> --out <dir>` → SQL'i `execute_sql` ile çalıştır. Toplu denetim: `node pipeline/check-selection.mjs pipeline/selection/*.json` (211 benzersiz).
-3. **QA kodu tamam, cihazda denenmedi:** ekran okuyucu "İl seç" listesi, düellodan çıkış onayı + Android geri tuşu, arka planda kuyruğun iptali. Edge function'lar Deno olmadan sadece sözdizimi denetiminden geçti.
+1. **Canlı backend tamam:** migration 0700–0900 ve `sync-pro`, `track-event`, `delete-account` deploy edildi; anonim giriş ve manual linking açıldı (canlıda doğrulandı).
+2. **EAS:** `@rubygamestudios/mazi-turkiye`; production/preview/development env'leri girildi (Supabase URL/key, domain, destek e-postası, PostHog). Android production build #1 kuyrukta (versionCode 2). iOS build Apple kimlik bilgisi olmadığı için durdu.
+3. **PostHog:** EU proje 338708 (boş projeydi, kullanıldı). Token EAS'te; `track-event` varsayılan olarak bu public token'ı kullanır. `POSTHOG_PERSONAL_API_KEY` yok: hesap silmede PostHog kişisi silinmez (secret-store yazımı ajana kapalı).
+4. **Play Console:** "Mazi Türkiye: Tarih Tahmini" formu dolduruldu (Oyun, Ücretsiz, tr-TR); iki beyan kutusu + "Create app" kullanıcının (yasal onay). Sonra ilk AAB elle (Chrome) yüklenecek.
+5. **Fotoğraf:** 104 canlı + 35 onaylı (pool-c2); 72 seçim repoda, aktarılmadı (ertelendi).
+
+**Kullanıcı kapıları (tek seferlik):** Play beyan kutuları; App Store Connect'e Chrome'da giriş; RevenueCat ve Vercel'e Chrome'da giriş; alan adı satın alma onayı (maziturkiye.com müsait).
 
 ## Bu oturumda biten
 
