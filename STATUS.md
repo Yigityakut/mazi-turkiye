@@ -23,9 +23,9 @@ _Son güncelleme: 2026-11-04 (yerel oturum 1)_
 ## ⏳ Yarım kalanlar (2026-11-07)
 
 1. **Canlı backend tamam:** migration 0700–0900 ve `sync-pro`, `track-event`, `delete-account` deploy edildi; anonim giriş ve manual linking açıldı (canlıda doğrulandı).
-2. **EAS:** `@rubygamestudios/mazi-turkiye`; production/preview/development env'leri girildi (Supabase URL/key, domain, destek e-postası, PostHog). Android production build #1 kuyrukta (versionCode 2). iOS build Apple kimlik bilgisi olmadığı için durdu.
+2. **EAS:** `@rubygamestudios/mazi-turkiye`; production/preview/development env'leri girildi (Supabase URL/key, domain, destek e-postası, PostHog). Android production build #1 bitti (versionCode 2, AAB `~/Downloads/mazi-turkiye-2.aab`); Play'e ilk yükleme elle (Chrome aracı 10 MB sınırlı, servis hesabı anahtarı oluşturma izin denetimine takıldı). iOS build Apple kimlik bilgisi olmadığı için durdu.
 3. **PostHog:** EU proje 338708 (boş projeydi, kullanıldı). Token EAS'te; `track-event` varsayılan olarak bu public token'ı kullanır. `POSTHOG_PERSONAL_API_KEY` yok: hesap silmede PostHog kişisi silinmez (secret-store yazımı ajana kapalı).
-4. **Play Console:** "Mazi Türkiye: Tarih Tahmini" formu dolduruldu (Oyun, Ücretsiz, tr-TR); iki beyan kutusu + "Create app" kullanıcının (yasal onay). Sonra ilk AAB elle (Chrome) yüklenecek.
+4. **Play Console:** uygulama oluşturuldu (app id 4974085984465631793), dahili test sürümü sayfası hazır; AAB sürüklenip bırakılacak.
 5. **Fotoğraf:** 104 canlı + 35 onaylı (pool-c2); 72 seçim repoda, aktarılmadı (ertelendi).
 
 **Kullanıcı kapıları (tek seferlik):** Play beyan kutuları; App Store Connect'e Chrome'da giriş; RevenueCat ve Vercel'e Chrome'da giriş; alan adı satın alma onayı (maziturkiye.com müsait).
