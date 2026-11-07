@@ -81,7 +81,8 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     eas: { projectId: EAS_PROJECT_ID },
     supabaseUrl: env.EXPO_PUBLIC_SUPABASE_URL,
     supabaseKey: env.EXPO_PUBLIC_SUPABASE_KEY,
-    webUrl: `https://${DOMAIN}`,
+    // Alan adı yokken web GitHub Pages'te: EXPO_PUBLIC_WEB_URL (yalnız JS, OTA ile değişebilir)
+    webUrl: env.EXPO_PUBLIC_WEB_URL ?? `https://${DOMAIN}`,
     supportEmail: env.EXPO_PUBLIC_SUPPORT_EMAIL,
     posthogKey: env.EXPO_PUBLIC_POSTHOG_KEY,
     posthogHost: env.EXPO_PUBLIC_POSTHOG_HOST,

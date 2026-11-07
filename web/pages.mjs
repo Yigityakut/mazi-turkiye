@@ -19,12 +19,11 @@ const walk = (dir, rel = "") => {
     fs.mkdirSync(path.dirname(d), { recursive: true });
     if (/\.(html|js|css)$/.test(e.name)) {
       let t = fs.readFileSync(s, "utf8");
-      // ="/x , "/x" (JS), url(/x) → BASE altına; protokol-göreli (//) linklere dokunulmaz
       // Tek geçiş: "/x…" ve url(/x…) (x küçük harf); kök link ="/" ayrıca. split("/") gibi JS'e dokunulmaz.
       t = t.replace(/(["'`]|url\()\/(?=[a-z])/g, `$1${BASE}/`)
         .replace(/(=\s*["'])\/(["'])/g, `$1${BASE}/$2`);
-      // /m/KOD yolu: base sonrası segment sayısı değişir
-      t = t.replace('location.pathname.split("/").filter(Boolean)[1]', 'location.pathname.split("/").filter(Boolean).slice(-1)[0]');
+      // /m/KOD ve /d/TOKEN: Pages'te 404.html ?c= ile yönlendirir; sayfa kodu sorgudan okur
+      t = t.replace('location.pathname.split("/").filter(Boolean)[1]', '(new URLSearchParams(location.search).get("c")||"")');
       fs.writeFileSync(d, t);
     } else fs.copyFileSync(s, d);
   }
@@ -32,4 +31,7 @@ const walk = (dir, rel = "") => {
 fs.mkdirSync(OUT, { recursive: true });
 walk(SRC);
 fs.writeFileSync(path.join(OUT, ".nojekyll"), "");
+// Pages'te yeniden yazma yok: /m/KOD ve /d/TOKEN 404.html'e düşer → sorgu parametreli sayfaya yönlendir.
+const p404 = path.join(OUT, "404.html");
+fs.writeFileSync(p404, fs.readFileSync(p404, "utf8").replace("<head>", `<head><script>(function(){var m=location.pathname.match(/\\/(m|d)\\/([A-Za-z0-9_-]+)\\/?$/);if(m)location.replace("${BASE}/"+m[1]+"/?c="+m[2]);})();</script>`));
 console.log("dist-pages hazır, BASE =", BASE);

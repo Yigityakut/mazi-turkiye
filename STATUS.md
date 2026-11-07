@@ -28,9 +28,9 @@ _Son güncelleme: 2026-11-04 (yerel oturum 1)_
 4. **Play Console:** uygulama oluşturuldu (app id 4974085984465631793), dahili test sürümü sayfası hazır; AAB sürüklenip bırakılacak.
 5. **Fotoğraf:** 104 canlı + 35 onaylı (pool-c2); 72 seçim repoda, aktarılmadı (ertelendi).
 
-**Bu oturumda canlıya alınanlar (2026-11-07):** Play dahili test sürümü 1.0.0 (2) yayında; Play `pro_lifetime` (5,99 $, 174 ülke) aktif; RevenueCat projesi a0ea7bc5: Play uygulaması, `pro` yetkisi, `default` teklifi ($rc_lifetime → pro_lifetime), Android SDK anahtarı EAS'te. Web Vercel'de (`maziturkiye.vercel.app`) ama *.vercel.app Türkiye'den erişilemiyor; GitHub Pages çıktısı hazır (`node web/pages.mjs` → `dist-pages/`), public repo oluşturma kullanıcı onayı bekliyor.
+**Bu oturumda canlıya alınanlar (2026-11-07):** Play dahili test sürümü 1.0.0 (2) yayında; Play `pro_lifetime` (5,99 $, 174 ülke) aktif; RevenueCat projesi a0ea7bc5: Play uygulaması, `pro` yetkisi, `default` teklifi ($rc_lifetime → pro_lifetime), Android SDK anahtarı EAS'te. Web Vercel'de (`maziturkiye.vercel.app`) ama *.vercel.app Türkiye'den erişilemiyor; web GitHub Pages'te yayında: https://yigityakut.github.io/maziturkiye/ (repo `Yigityakut/maziturkiye`, güncelleme: `node web/pages.mjs` → `dist-pages/` içeriğini o repoya push). `public_web_url` ve EAS `EXPO_PUBLIC_WEB_URL` bu adres.
 
-**Kullanıcı kapıları:** App Store Connect'e Chrome'da giriş (iOS build + kayıt); web için public GitHub repo onayı; satın alma doğrulaması için RevenueCat secret key → Supabase `REVENUECAT_SECRET_KEY` ve Play servis hesabı JSON → RevenueCat (gizli değer yazımı ajana kapalı). Alan adı alınmayacak (kullanıcı kararı).
+**Kullanıcı kapıları:** App Store Connect'e Chrome'da giriş (iOS build + kayıt); satın alma doğrulaması için RevenueCat secret key → Supabase `REVENUECAT_SECRET_KEY` ve Play servis hesabı JSON → RevenueCat (gizli değer yazımı ajana kapalı). Alan adı alınmayacak (kullanıcı kararı).
 
 ## Bu oturumda biten
 

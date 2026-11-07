@@ -521,7 +521,7 @@ await test("create_challenge requires a finished day; code is stable", async () 
   await rejects(rpc(db, U.bob.who, "create_challenge"), /finish_day_first/);
   const c = await rpc(db, U.alice.who, "create_challenge");
   assert.match(c.code, /^[A-Z2-9]{6}$/);
-  assert.equal(c.url, `https://maziturkiye.com/m/${c.code}`);
+  assert.equal(c.url, `https://yigityakut.github.io/maziturkiye/m/${c.code}`);
   assert.equal(c.day, TODAY);
   CODE = c.code;
   assert.equal((await rpc(db, U.alice.who, "create_challenge")).code, CODE);
@@ -896,7 +896,7 @@ await test("queue: admin Telegram notify at 60 s (once), bot opponent at 120 s",
   assert.ok(qr.admin_notified_at); assert.equal(qr.status, "waiting");
   const call = await one(`select * from net.http_request_log order by id desc limit 1`);
   assert.ok(call.url.endsWith("/notify-admin"));
-  assert.equal(call.body.link, `https://maziturkiye.com/d/${qr.token}`);
+  assert.equal(call.body.link, `https://yigityakut.github.io/maziturkiye/d/${qr.token}`);
   assert.match(call.body.text, /Rakip bekliyor/);
   await q(`select private.duel_tick()`);
   await rpc(db, U.carol.who, "duel_queue_status");
