@@ -29,7 +29,11 @@
   "submit": {
     "production": {
       "ios": {
-        "companyName": "Mazi Türkiye"
+        "ascAppId": "6833869544",
+        "appleTeamId": "8D5577P5QU",
+        "ascApiKeyPath": "/Users/thaledox/.appstoreconnect/private_keys/AuthKey_52FW696LZF.p8",
+        "ascApiKeyIssuerId": "fcbaa887-0faf-438a-9dbd-4cffb2c92d29",
+        "ascApiKeyId": "52FW696LZF"
       },
       "android": {
         "track": "internal",
