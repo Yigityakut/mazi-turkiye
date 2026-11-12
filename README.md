@@ -197,3 +197,7 @@ Rules: The day's real photos are never shared. No "old" images are generated wit
 | Apple Developer | Sign in with Apple, App Store | Services ID + key in the Supabase Apple provider |
 | Telegram Bot API | Admin notification and weekly report | Supabase secrets |
 | Vercel | Website | Vercel account |
+
+## License
+
+Source code and docs: [MIT](LICENSE). Historical photos keep their own licenses (PD / CC0 / CC BY / CC BY-SA, see each photo's attribution). The "Mazi Türkiye" name, logo and icons are not covered by the MIT License.
