@@ -27,3 +27,5 @@ app/expo-env.d.ts
 /web/
 /supabase/
 /app/public/demo/
+/dist-pages/
+.git/
