@@ -19,17 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----------------------------------------------------------------------------
-Exceptions
-
-The MIT License above covers the source code and documentation in this
-repository. It does not cover:
-
-- Historical photographs and their metadata taken from third-party sources
-  (e.g. Wikimedia Commons). Each photo stays under its own license (public
-  domain, CC0, CC BY or CC BY-SA); see the attribution and license recorded
-  with each photo and the in-app "Kaynaklar" page.
-- The "Mazi Türkiye" name, logo, app icons and other brand assets
-  (app/assets, store and marketing graphics). These may not be used to
-  identify another app or service without permission.
