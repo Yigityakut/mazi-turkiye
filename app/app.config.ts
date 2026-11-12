@@ -1,4 +1,17 @@
 import type { ConfigContext, ExpoConfig } from "expo/config";
+import { AndroidConfig, withStringsXml, type ConfigPlugin } from "expo/config-plugins";
+
+// Kod adı ASCII: "ü" EAS'in iOS hedef adı eşleştirmesini bozuyor ("Could not find target 'MaziTrkiye'").
+// Ekranda görünen ad iOS'ta CFBundleDisplayName, Android'de app_name ile "Mazi Türkiye" kalır.
+const DISPLAY_NAME = "Mazi Türkiye";
+const withAndroidDisplayName: ConfigPlugin = (cfg) =>
+  withStringsXml(cfg, (c) => {
+    c.modResults = AndroidConfig.Strings.setStringItem(
+      [AndroidConfig.Resources.buildResourceItem({ name: "app_name", value: DISPLAY_NAME })],
+      c.modResults,
+    );
+    return c;
+  });
 
 /**
  * Gizli olmayan yapılandırma burada; anahtarlar EAS ortam değişkenlerinden gelir (eas.json / expo.dev → Environment variables).
@@ -12,9 +25,9 @@ const googleIosScheme = env.GOOGLE_IOS_URL_SCHEME; // com.googleusercontent.apps
 const EAS_PROJECT_ID = env.EAS_PROJECT_ID ?? "3ad08474-a1e2-4d9b-af75-908376964a7a";
 const EXPO_OWNER = env.EXPO_OWNER ?? "rubygamestudios";
 
-export default ({ config }: ConfigContext): ExpoConfig => ({
+const base = ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
-  name: "Mazi Türkiye",
+  name: "Mazi Turkiye",
   slug: "mazi-turkiye",
   owner: EXPO_OWNER,
   version: "1.0.0",
@@ -32,7 +45,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     associatedDomains: [`applinks:${DOMAIN}`],
     infoPlist: {
       ITSAppUsesNonExemptEncryption: false,
-      CFBundleDisplayName: "Mazi Türkiye",
+      CFBundleDisplayName: DISPLAY_NAME,
       CFBundleDevelopmentRegion: "tr",
       CFBundleLocalizations: ["tr"],
     },
@@ -94,3 +107,5 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     googleIosUrlScheme: !!googleIosScheme,
   },
 });
+
+export default (ctx: ConfigContext): ExpoConfig => withAndroidDisplayName(base(ctx));
