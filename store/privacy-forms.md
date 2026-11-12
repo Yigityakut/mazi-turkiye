@@ -1,58 +1,58 @@
-# Mağaza veri formları (gizlilik politikasıyla tutarlı)
+# Store data forms (consistent with the privacy policy)
 
 ## Apple · App Privacy ("Nutrition label")
 
-**Data Used to Track You:** Yok. (Reklam yok, üçüncü taraf izleme yok → ATT penceresi gerekmez.)
+**Data Used to Track You:** None. (No ads, no third-party tracking → no ATT prompt needed.)
 
-**Data Linked to You** (kullanıcı kimliğine bağlı tutulanlar):
+**Data Linked to You** (data kept linked to the user's identity):
 
-| Kategori | Tür | Amaç |
+| Category | Type | Purpose |
 | --- | --- | --- |
-| Contact Info | Email Address (sadece Apple/Google girişi seçilirse) | App Functionality |
-| User Content | Other User Content (takma ad, fotoğraf bildirimi notu) | App Functionality |
+| Contact Info | Email Address (only if Apple/Google sign-in is chosen) | App Functionality |
+| User Content | Other User Content (nickname, photo report note) | App Functionality |
 | Identifiers | User ID | App Functionality, Analytics |
 | Usage Data | Product Interaction | Analytics, App Functionality |
 | Purchases | Purchase History | App Functionality |
 | Diagnostics | Crash Data, Performance Data | App Functionality, Analytics |
-| Other Data | Gameplay content (tahminler, skorlar) | App Functionality |
+| Other Data | Gameplay content (guesses, scores) | App Functionality |
 
-**Data Not Linked to You:** Yok.
-Location: **Not collected** (haritadaki iğne oyun tahminidir, cihaz konumu değildir).
+**Data Not Linked to You:** None.
+Location: **Not collected** (the pin on the map is a game guess, not the device location).
 
 ## Google Play · Data safety
 
-| Soru | Cevap |
+| Question | Answer |
 | --- | --- |
-| Uygulama zorunlu veri türlerinden herhangi birini topluyor veya paylaşıyor mu? | Evet |
-| Toplanan tüm veriler aktarım sırasında şifreleniyor mu? | Evet (TLS) |
-| Kullanıcılar veri silinmesini isteyebilir mi? | Evet — uygulama içi + https://maziturkiye.com/hesap-silme/ |
-| Bağımsız güvenlik incelemesi | Hayır |
-| Aile politikası | Hedef kitle çocuk değil; Families programına katılım yok |
+| Does the app collect or share any of the required user data types? | Yes |
+| Is all collected data encrypted in transit? | Yes (TLS) |
+| Can users request that data be deleted? | Yes — in-app + https://maziturkiye.com/hesap-silme/ |
+| Independent security review | No |
+| Families policy | Target audience is not children; no participation in the Families program |
 
-**Toplanan veriler** (hiçbiri "paylaşılan" değil; hizmet sağlayıcılara aktarım "paylaşma" sayılmaz):
+**Collected data** (none of it is "shared"; transfer to service providers does not count as "sharing"):
 
-| Veri türü | Zorunlu/İsteğe bağlı | Amaç |
+| Data type | Required/Optional | Purpose |
 | --- | --- | --- |
-| Kişisel bilgi → E-posta adresi | İsteğe bağlı (Google ile giriş) | Hesap yönetimi |
-| Kişisel bilgi → Kullanıcı kimlikleri | Zorunlu | Uygulama işlevi, Analiz, Hesap yönetimi |
-| Finansal bilgi → Satın alma geçmişi | İsteğe bağlı (Pro) | Uygulama işlevi |
-| Uygulama etkinliği → Uygulama etkileşimleri | Zorunlu | Analiz, Uygulama işlevi |
-| Uygulama etkinliği → Diğer kullanıcı içeriği (takma ad, bildirim notu) | İsteğe bağlı | Uygulama işlevi |
-| Uygulama bilgileri ve performans → Kilitlenme günlükleri, Teşhis | Zorunlu | Analiz |
-| Cihaz veya diğer kimlikler → (Push token) | İsteğe bağlı | Uygulama işlevi |
+| Personal info → Email address | Optional (Sign in with Google) | Account management |
+| Personal info → User IDs | Required | App functionality, Analytics, Account management |
+| Financial info → Purchase history | Optional (Pro) | App functionality |
+| App activity → App interactions | Required | Analytics, App functionality |
+| App activity → Other user-generated content (nickname, report note) | Optional | App functionality |
+| App info and performance → Crash logs, Diagnostics | Required | Analytics |
+| Device or other IDs → (Push token) | Optional | App functionality |
 
-Konum, kişiler, fotoğraflar, ses, takvim, SMS, sağlık: **toplanmıyor**.
+Location, contacts, photos, audio, calendar, SMS, health: **not collected**.
 
-## Diğer Play Console beyanları
+## Other Play Console declarations
 
-| Form | Cevap |
+| Form | Answer |
 | --- | --- |
-| Uygulama erişimi | Tüm işlevler özel erişim olmadan kullanılabilir (giriş gerekmez) |
-| Reklamlar | Uygulamada reklam yok |
-| Hedef kitle | 13–15, 16–17, 18+ (çocuklara yönelik değil) |
-| Haber uygulaması | Hayır |
-| Devlet uygulaması | Hayır |
-| Finansal özellikler | Yok |
-| Sağlık | Yok |
-| Hesap silme | Uygulama içi + web URL'si |
-| Reklam kimliği (Advertising ID) | Kullanılmıyor (`com.google.android.gms.permission.AD_ID` izni yok) |
+| App access | All functionality is available without special access (no sign-in required) |
+| Ads | The app contains no ads |
+| Target audience | 13–15, 16–17, 18+ (not directed at children) |
+| News app | No |
+| Government app | No |
+| Financial features | None |
+| Health | None |
+| Account deletion | In-app + web URL |
+| Advertising ID | Not used (no `com.google.android.gms.permission.AD_ID` permission) |

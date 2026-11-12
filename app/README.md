@@ -1,81 +1,81 @@
-# Mazi Türkiye · Expo uygulaması
+# Mazi Türkiye · Expo app
 
-Expo SDK 58 · Expo Router · React Native 0.88 · TypeScript. iOS (sadece iPhone), Android ve web önizleme.
-Build, mağazaya gönderim ve OTA güncelleme EAS ile yapılır; Mac veya Android Studio gerekmez.
+Expo SDK 58 · Expo Router · React Native 0.88 · TypeScript. iOS (iPhone only), Android and web preview.
+Builds, store submission and OTA updates are done with EAS; no Mac or Android Studio is needed.
 
-> Expo her SDK'da değişiyor. Bir Expo/EAS API'sine dokunmadan önce `https://docs.expo.dev/versions/v58.0.0/` belgelerine bak (bkz. `AGENTS.md`). Paket eklerken her zaman `npx expo install <paket>` kullan.
+> Expo changes with every SDK. Before touching an Expo/EAS API, check the docs at `https://docs.expo.dev/versions/v58.0.0/` (see `AGENTS.md`). When adding packages, always use `npx expo install <paket>`.
 
 ---
 
-## 1. Yerel geliştirme
+## 1. Local development
 
-Gereksinim: Node 22 (EAS de `22.16.0` kullanır, bkz. `eas.json`), npm.
+Requirements: Node 22 (EAS also uses `22.16.0`, see `eas.json`), npm.
 
 ```bash
 cd app
 npm install
-npx expo start            # QR kod: Expo Go veya development build; "w" ile web
-npx expo start --web      # sadece web önizleme
+npx expo start            # QR code: Expo Go or development build; "w" for web
+npx expo start --web      # web preview only
 ```
 
-- **Ortam değişkeni olmadan da açılır:** `src/lib/config.ts` Supabase URL'si ve publishable key için varsayılan değer taşır. Analitik, satın alma ve Google girişi ilgili anahtarlar yoksa sessizce kapalı kalır.
-- **Yerelde EAS'teki değerleri kullanmak için:** `npx eas-cli@latest env:pull --environment development` → `app/.env.local` yazar (`.env.*` git'e girmez). Expo CLI `.env.local`'ı otomatik okur.
-- **Expo Go sınırları:** Harita, oyun, açılım, sıralama Expo Go'da çalışır. Google ile giriş, Apple ile giriş ve gerçek satın alma için **development build** gerekir (RevenueCat Expo Go'da sadece önizleme modunda çalışır):
+- **It also opens without environment variables:** `src/lib/config.ts` carries default values for the Supabase URL and publishable key. Analytics, purchases and Google sign-in stay silently disabled if their keys are missing.
+- **To use the EAS values locally:** `npx eas-cli@latest env:pull --environment development` → writes `app/.env.local` (`.env.*` is not committed to git). Expo CLI reads `.env.local` automatically.
+- **Expo Go limits:** The map, game, reveal and leaderboard work in Expo Go. Google sign-in, Apple sign-in and real purchases need a **development build** (RevenueCat only runs in preview mode in Expo Go):
 
   ```bash
-  npx eas-cli@latest build -p ios --profile development       # simülatör için: eas.json'a "ios": { "simulator": true } eklenebilir
+  npx eas-cli@latest build -p ios --profile development       # for the simulator: "ios": { "simulator": true } can be added to eas.json
   npx eas-cli@latest build -p android --profile development
   npx expo start --dev-client
   ```
 
-- **Demo modu (sadece mağaza ekran görüntüleri):** `EXPO_PUBLIC_DEMO=1 npx expo start --web`. Sunucusuz, sabit verili oyun; ayrıntılar `src/lib/demo.ts` başındaki açıklamada. **Bu değişken hiçbir EAS ortamına (özellikle `production`) eklenmez.**
+- **Demo mode (store screenshots only):** `EXPO_PUBLIC_DEMO=1 npx expo start --web`. A serverless game with fixed data; details in the comment at the top of `src/lib/demo.ts`. **This variable is never added to any EAS environment (especially `production`).**
 
-### Kontroller
+### Checks
 
 ```bash
-npx tsc --noEmit          # veya: npm run typecheck
-npx expo lint             # veya: npm run lint (ilk çalıştırmada ESLint yapılandırmasını kurar ve package.json'a ekler)
-npx expo-doctor           # bağımlılık ve yapılandırma teşhisi (expo.dev ve reactnative.directory'ye ağ erişimi ister)
-npx expo config --type public          # çözümlenmiş app.config çıktısı (ortam değişkenleri doğru okunuyor mu?)
-npx expo export --platform web --output-dir /tmp/mazi-web   # JS paketinin derlendiğini doğrular
+npx tsc --noEmit          # or: npm run typecheck
+npx expo lint             # or: npm run lint (on first run it sets up the ESLint config and adds it to package.json)
+npx expo-doctor           # dependency and config diagnostics (needs network access to expo.dev and reactnative.directory)
+npx expo config --type public          # resolved app.config output (are the environment variables read correctly?)
+npx expo export --platform web --output-dir /tmp/mazi-web   # verifies that the JS bundle compiles
 ```
 
 ---
 
-## 2. Ortam değişkenleri
+## 2. Environment variables
 
-`app.config.ts` aşağıdaki değişkenleri okur ve `extra` alanına koyar; uygulama bunları `src/lib/config.ts` üzerinden kullanır.
+`app.config.ts` reads the variables below and puts them in the `extra` field; the app uses them through `src/lib/config.ts`.
 
-> **`EXPO_PUBLIC_` ile başlayanlar JS paketine gömülür, yani gizli değildir.** Bu yüzden buraya sadece istemcinin zaten bilmesi gereken *public* anahtarlar girer. Supabase `service_role`/secret key, RevenueCat secret key, Google OAuth client secret gibi değerler **asla** buraya yazılmaz.
+> **Variables starting with `EXPO_PUBLIC_` are embedded in the JS bundle, so they are not secret.** Only *public* keys that the client needs to know anyway go here. Values such as the Supabase `service_role`/secret key, the RevenueCat secret key or the Google OAuth client secret are **never** written here.
 
-| Değişken | Ne | Nereden alınır | Zorunlu mu |
+| Variable | What | Where to get it | Required? |
 | --- | --- | --- | --- |
-| `EXPO_PUBLIC_SUPABASE_URL` | Supabase proje adresi (`https://ybhiddgwunzyquzrbzaf.supabase.co`) | Supabase Dashboard → Project Settings → Data API → Project URL | Hayır (varsayılan `config.ts`'de), ama production'da açıkça girilmeli |
-| `EXPO_PUBLIC_SUPABASE_KEY` | Supabase **publishable** key (`sb_publishable_…`) | Supabase Dashboard → Project Settings → API Keys → Publishable key | Hayır (varsayılan var), production'da açıkça girilmeli |
-| `EXPO_PUBLIC_DOMAIN` | Web alan adı, şemasız (`maziturkiye.com`). iOS `associatedDomains`, Android `intentFilters`, paylaşım linkleri ve yasal sayfa linkleri bundan üretilir | Alan adı (HUMAN_TODO madde 9). Alınana kadar `maziturkiye.vercel.app` | Hayır (varsayılan `maziturkiye.com`). **Değişirse yeni native build gerekir**, OTA yetmez |
-| `EXPO_PUBLIC_SUPPORT_EMAIL` | Ayarlar → Destek'in e-posta adresi | Proje e-postası (HUMAN_TODO madde 9) | Hayır (varsayılan `destek@maziturkiye.com`) |
-| `EXPO_PUBLIC_POSTHOG_KEY` | PostHog Project API key (`phc_…`) | PostHog (EU bölgesi) → Project settings → Project API key | Hayır. Yoksa analitik kapalı |
-| `EXPO_PUBLIC_POSTHOG_HOST` | PostHog sunucusu | EU için `https://eu.i.posthog.com` | Hayır (varsayılan EU) |
-| `EXPO_PUBLIC_REVENUECAT_IOS_KEY` | RevenueCat App Store uygulamasının public SDK anahtarı (`appl_…`) | RevenueCat → Project → API keys → App Store app | iOS'ta satın alma için evet |
-| `EXPO_PUBLIC_REVENUECAT_ANDROID_KEY` | RevenueCat Play Store uygulamasının public SDK anahtarı (`goog_…`) | RevenueCat → Project → API keys → Play Store app | Android'de satın alma için evet |
-| `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` | Google OAuth **Web** istemcisinin Client ID'si (`…apps.googleusercontent.com`). ID token'ın hedefi; aynı ID Supabase Google sağlayıcısına da girilir | Google Cloud Console → APIs & Services → Credentials → OAuth client ID (Web application) | Hayır. **Boşsa Google ile giriş düğmesi gizlenir** (iOS'ta ayrıca aşağıdaki iki değişken de gerekir) |
-| `EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID` | Google OAuth **iOS** istemcisinin Client ID'si (bundle ID `com.maziturkiye.app`) | Google Cloud Console → Credentials → OAuth client ID (iOS) | iOS'ta Google girişi için evet |
-| `GOOGLE_IOS_URL_SCHEME` | iOS istemcisinin ters çevrilmiş ID'si: `com.googleusercontent.apps.<…>`. Sadece build sırasında okunur; **tanımlıysa** `@react-native-google-signin/google-signin` config plugin'i eklenir, URL şeması Info.plist'e yazılır ve `extra.googleIosUrlScheme: true` olur | Google Cloud Console → iOS OAuth istemcisi → "iOS URL scheme" | iOS'ta Google girişi için **evet**. iOS'ta düğme sadece Web client ID + iOS client ID + bu değişkenin üçü de varsa görünür (`src/lib/auth.ts` → `googleConfigured`); biri eksikse düğme gizlenir, uygulama çökmez |
-| `GOOGLE_SERVICES_JSON` | Firebase `google-services.json` dosyası (EAS'te **dosya** türünde değişken; değeri build makinesindeki dosya yolu olur). Tanımlıysa `android.googleServicesFile` olarak eklenir | Firebase Console → Android uygulaması `com.maziturkiye.app` → `google-services.json` | Android'de sunucu bildirimi (Expo push, FCM V1) için **evet**. Yoksa Android'de sadece yerel hatırlatıcı çalışır |
-| `EAS_PROJECT_ID` | Expo projesinin UUID'si. `updates.url` (OTA) ve `extra.eas.projectId` (Expo push token) bundan üretilir | `npx eas-cli@latest init` çıktısı veya expo.dev → proje → Overview → Project ID | **Evet.** Yoksa build'de OTA adresi olmaz ve push token kaydı atlanır (uygulama çökmez; `src/lib/notifications.ts` önce `extra.eas.projectId`'ye, sonra EAS build'in yazdığı `Constants.easConfig.projectId`'ye bakar, ikisi de yoksa sadece yerel hatırlatıcı çalışır). EAS build sırasında eksikse `app.config.ts` build günlüğüne uyarı yazar |
-| `EXPO_OWNER` | Projenin sahibi olan Expo hesabı veya organizasyon kullanıcı adı | expo.dev hesabı | Evet (EAS projeyi bu sahiplikle bulur) |
+| `EXPO_PUBLIC_SUPABASE_URL` | Supabase project URL (`https://ybhiddgwunzyquzrbzaf.supabase.co`) | Supabase Dashboard → Project Settings → Data API → Project URL | No (default in `config.ts`), but should be set explicitly in production |
+| `EXPO_PUBLIC_SUPABASE_KEY` | Supabase **publishable** key (`sb_publishable_…`) | Supabase Dashboard → Project Settings → API Keys → Publishable key | No (there is a default), should be set explicitly in production |
+| `EXPO_PUBLIC_DOMAIN` | Web domain, without scheme (`maziturkiye.com`). iOS `associatedDomains`, Android `intentFilters`, share links and legal page links are generated from it | The domain (HUMAN_TODO item 9). Until it is bought, `maziturkiye.vercel.app` | No (default `maziturkiye.com`). **If it changes, a new native build is needed**, OTA is not enough |
+| `EXPO_PUBLIC_SUPPORT_EMAIL` | Email address for Settings → Support | Project email (HUMAN_TODO item 9) | No (default `destek@maziturkiye.com`) |
+| `EXPO_PUBLIC_POSTHOG_KEY` | PostHog Project API key (`phc_…`) | PostHog (EU region) → Project settings → Project API key | No. Without it analytics is off |
+| `EXPO_PUBLIC_POSTHOG_HOST` | PostHog server | For EU, `https://eu.i.posthog.com` | No (default EU) |
+| `EXPO_PUBLIC_REVENUECAT_IOS_KEY` | Public SDK key of the RevenueCat App Store app (`appl_…`) | RevenueCat → Project → API keys → App Store app | Yes, for purchases on iOS |
+| `EXPO_PUBLIC_REVENUECAT_ANDROID_KEY` | Public SDK key of the RevenueCat Play Store app (`goog_…`) | RevenueCat → Project → API keys → Play Store app | Yes, for purchases on Android |
+| `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` | Client ID of the Google OAuth **Web** client (`…apps.googleusercontent.com`). The audience of the ID token; the same ID is also entered in the Supabase Google provider | Google Cloud Console → APIs & Services → Credentials → OAuth client ID (Web application) | No. **If empty, the Google sign-in button is hidden** (on iOS the two variables below are also needed) |
+| `EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID` | Client ID of the Google OAuth **iOS** client (bundle ID `com.maziturkiye.app`) | Google Cloud Console → Credentials → OAuth client ID (iOS) | Yes, for Google sign-in on iOS |
+| `GOOGLE_IOS_URL_SCHEME` | Reversed ID of the iOS client: `com.googleusercontent.apps.<…>`. Read only at build time; **if set**, the `@react-native-google-signin/google-signin` config plugin is added, the URL scheme is written to Info.plist and `extra.googleIosUrlScheme: true` is set | Google Cloud Console → iOS OAuth client → "iOS URL scheme" | **Yes**, for Google sign-in on iOS. On iOS the button only appears if all three are set: Web client ID + iOS client ID + this variable (`src/lib/auth.ts` → `googleConfigured`); if one is missing the button is hidden and the app does not crash |
+| `GOOGLE_SERVICES_JSON` | Firebase `google-services.json` file (a **file**-type variable in EAS; its value becomes the file path on the build machine). If set, it is added as `android.googleServicesFile` | Firebase Console → Android app `com.maziturkiye.app` → `google-services.json` | **Yes**, for server notifications on Android (Expo push, FCM V1). Without it only the local reminder works on Android |
+| `EAS_PROJECT_ID` | UUID of the Expo project. `updates.url` (OTA) and `extra.eas.projectId` (Expo push token) are generated from it | Output of `npx eas-cli@latest init` or expo.dev → project → Overview → Project ID | **Yes.** Without it the build has no OTA URL and push token registration is skipped (the app does not crash; `src/lib/notifications.ts` checks `extra.eas.projectId` first, then `Constants.easConfig.projectId` written by the EAS build, and if neither exists only the local reminder works). If it is missing during an EAS build, `app.config.ts` writes a warning to the build log |
+| `EXPO_OWNER` | Username of the Expo account or organization that owns the project | expo.dev account | Yes (EAS finds the project through this owner) |
 
-Uygulama koduna dışarıdan giren tek diğer değişken `EXPO_PUBLIC_DEMO` (yukarıda, sadece ekran görüntüsü için).
+The only other variable that enters the app code from outside is `EXPO_PUBLIC_DEMO` (above, for screenshots only).
 
-### EAS ortam değişkeni olarak tanımlamak
+### Defining them as EAS environment variables
 
-EAS'te üç ortam var: `development`, `preview`, `production`. `eas.json`'daki her build profili kendi ortamını kullanır (`"environment": "production"` vb.), `eas update` de `--environment` ile aynı değerleri okur.
+EAS has three environments: `development`, `preview`, `production`. Each build profile in `eas.json` uses its own environment (`"environment": "production"` etc.), and `eas update` reads the same values with `--environment`.
 
-Görünürlük seçimi:
-- `EXPO_PUBLIC_*` → `--visibility plaintext` (pakete gömüldükleri için gizlemek anlamsız; `secret` görünürlüğü yerel `eas update` sırasında okunamaz).
-- `EAS_PROJECT_ID`, `EXPO_OWNER`, `GOOGLE_IOS_URL_SCHEME` → `plaintext` veya `sensitive`.
+Choosing visibility:
+- `EXPO_PUBLIC_*` → `--visibility plaintext` (hiding them is pointless because they are embedded in the bundle; `secret` visibility cannot be read during a local `eas update`).
+- `EAS_PROJECT_ID`, `EXPO_OWNER`, `GOOGLE_IOS_URL_SCHEME` → `plaintext` or `sensitive`.
 
-Her ortamda aynı değeri alacak değişkenler (önce `cd app`):
+Variables that take the same value in every environment (first `cd app`):
 
 ```bash
 P=(--environment development --environment preview --environment production --visibility plaintext --scope project --non-interactive)
@@ -93,11 +93,11 @@ npx eas-cli@latest env:create --name GOOGLE_IOS_URL_SCHEME              --value 
 npx eas-cli@latest env:create --name EAS_PROJECT_ID                     --value "<uuid>" "${P[@]}"
 npx eas-cli@latest env:create --name EXPO_OWNER                         --value "<expo-kullanıcı-adı>" "${P[@]}"
 
-# Android push (FCM V1): dosya türünde, sadece build ortamlarında
+# Android push (FCM V1): file type, build environments only
 npx eas-cli@latest env:create --name GOOGLE_SERVICES_JSON --type file --value ./google-services.json --environment production --environment preview --visibility secret --scope project --non-interactive
 ```
 
-Ortama göre farklı değer alacak değişkenler ayrı ayrı girilir. Örnek: development ve preview'daki analitik olaylarının üretim verisini kirletmemesi için PostHog'da ayrı bir "Mazi Türkiye (dev)" projesi:
+Variables that take a different value per environment are entered separately. Example: a separate "Mazi Türkiye (dev)" project in PostHog so that analytics events from development and preview do not pollute production data:
 
 ```bash
 npx eas-cli@latest env:create --name EXPO_PUBLIC_POSTHOG_KEY --value "phc_DEV…"  --environment development --visibility plaintext --non-interactive
@@ -105,156 +105,156 @@ npx eas-cli@latest env:create --name EXPO_PUBLIC_POSTHOG_KEY --value "phc_DEV…
 npx eas-cli@latest env:create --name EXPO_PUBLIC_POSTHOG_KEY --value "phc_PROD…" --environment production  --visibility plaintext --non-interactive
 ```
 
-Kontrol ve değiştirme:
+Checking and changing:
 
 ```bash
 npx eas-cli@latest env:list --environment production
-npx eas-cli@latest env:update --environment production                             # etkileşimli: değişkeni seç, yeni değeri gir
-npx eas-cli@latest env:pull --environment development                               # .env.local'a indirir
+npx eas-cli@latest env:update --environment production                             # interactive: pick the variable, enter the new value
+npx eas-cli@latest env:pull --environment development                               # downloads to .env.local
 ```
 
-Aynı arayüz expo.dev → proje → **Environment variables** sayfasında da var.
+The same interface is also on expo.dev → project → **Environment variables**.
 
-> **Tavuk-yumurta notu (`EAS_PROJECT_ID`, `EXPO_OWNER`):** EAS CLI, sunucudaki ortam değişkenlerini indirebilmek için önce projeyi tanımalıdır; proje kimliğini de `app.config.ts`'den okur. Bu iki değer sadece EAS'te tanımlıysa CLI projeyi bulamaz ve yeni proje açmayı önerebilir. Çözüm: eas komutlarını çalıştırdığın terminalde de tanımla
-> (`export EAS_PROJECT_ID=<uuid> EXPO_OWNER=<kullanıcı>`) veya (önerilen) bu iki değeri gizli olmadıkları için `app.config.ts`'e sabit yaz (bkz. `store/qa-report.md`).
+> **Chicken-and-egg note (`EAS_PROJECT_ID`, `EXPO_OWNER`):** EAS CLI must first recognize the project before it can download the environment variables from the server, and it reads the project ID from `app.config.ts`. If these two values are defined only in EAS, the CLI cannot find the project and may offer to create a new one. Fix: also define them in the terminal where you run eas commands
+> (`export EAS_PROJECT_ID=<uuid> EXPO_OWNER=<kullanıcı>`) or (recommended) hard-code these two values in `app.config.ts`, since they are not secret (see `store/qa-report.md`).
 
 ---
 
 ## 3. EAS Build
 
-İlk kurulum (bir kez; Apple ve Google adımları HUMAN_TODO madde 5–6):
+First-time setup (once; Apple and Google steps are HUMAN_TODO items 5–6):
 
 ```bash
 cd app
 npx eas-cli@latest login
-npx eas-cli@latest init            # dinamik config olduğu için projectId'yi yazdırır → EAS_PROJECT_ID
-npx eas-cli@latest credentials     # iOS: dağıtım sertifikası + provisioning profile (Apple ID + 2FA ister)
-                                   # Android: ilk build'de upload keystore'u EAS üretir ve saklar
+npx eas-cli@latest init            # prints the projectId because the config is dynamic → EAS_PROJECT_ID
+npx eas-cli@latest credentials     # iOS: distribution certificate + provisioning profile (asks for Apple ID + 2FA)
+                                   # Android: EAS generates and stores the upload keystore on the first build
 ```
 
-- iOS App ID'nin yetenekleri (Sign in with Apple, Associated Domains, Push Notifications) EAS build sırasında `app.config.ts`'den eşitlenir.
-- Sürüm numaraları: `eas.json` → `appVersionSource: "remote"` ve production'da `autoIncrement: true`. Yani `buildNumber` / `versionCode` EAS sunucusunda tutulur ve her production build'de artar; `app.config.ts`'deki `buildNumber: "1"` ve `versionCode: 1` dikkate alınmaz. Mağazada görünen sürüm `app.config.ts` → `version` (`1.0.0`); her mağaza sürümünde elle artırılır.
+- The iOS App ID capabilities (Sign in with Apple, Associated Domains, Push Notifications) are synced from `app.config.ts` during the EAS build.
+- Version numbers: `eas.json` → `appVersionSource: "remote"` and `autoIncrement: true` in production. So `buildNumber` / `versionCode` are kept on the EAS server and increase with every production build; `buildNumber: "1"` and `versionCode: 1` in `app.config.ts` are ignored. The version shown in the store is `app.config.ts` → `version` (`1.0.0`); it is bumped by hand for each store release.
 
-Build komutları:
+Build commands:
 
 ```bash
-# Production (mağaza): iOS .ipa, Android .aab
+# Production (store): iOS .ipa, Android .aab
 npx eas-cli@latest build -p ios --profile production
 npx eas-cli@latest build -p android --profile production
 npx eas-cli@latest build -p all --profile production
 
-# Preview (dahili dağıtım: Android .apk, iOS ad hoc; iOS için cihazları önce kaydet: npx eas-cli@latest device:create)
+# Preview (internal distribution: Android .apk, iOS ad hoc; for iOS register devices first: npx eas-cli@latest device:create)
 npx eas-cli@latest build -p android --profile preview
 
 # Development client
 npx eas-cli@latest build -p ios --profile development
 ```
 
-Expo bağlantısı (MCP) üzerinden aynı işler `build_run` ve `build_submit` ile yapılabilir.
+The same tasks can be done through the Expo connection (MCP) with `build_run` and `build_submit`.
 
 ---
 
-## 4. Mağazaya gönderim (EAS Submit)
+## 4. Store submission (EAS Submit)
 
-Önce:
-- `eas.json` → `submit.production.ios.ascAppId` içindeki `SET_AFTER_APP_STORE_CONNECT_RECORD` yerine App Store Connect'teki **Apple ID** (App Information sayfasındaki 10 haneli sayı) yazılır.
-- iOS: App Store Connect API anahtarı (Users and Access → Integrations → App Store Connect API, rol "App Manager"). EAS ilk `submit`'te ister ve saklar.
-- Android: Google Play **service account JSON** anahtarı (Google Cloud'da service account → Play Console → Users and permissions'ta davet, sürüm yayınlama izni). EAS ilk `submit`'te ister.
-- **Android'de ilk AAB Play Console'a elle yüklenir** (Google API'si ilk yüklemeyi kabul etmez). İlk production build'in `.aab` dosyasını EAS'ten indirip Play Console → Test and release → Internal testing → Create release ile yükle; sonrakiler `eas submit` ile gider.
+First:
+- In `eas.json` → `submit.production.ios.ascAppId`, replace `SET_AFTER_APP_STORE_CONNECT_RECORD` with the **Apple ID** from App Store Connect (the 10-digit number on the App Information page).
+- iOS: App Store Connect API key (Users and Access → Integrations → App Store Connect API, role "App Manager"). EAS asks for it on the first `submit` and stores it.
+- Android: Google Play **service account JSON** key (service account in Google Cloud → invited in Play Console → Users and permissions, with permission to publish releases). EAS asks for it on the first `submit`.
+- **On Android the first AAB is uploaded to Play Console by hand** (the Google API does not accept the first upload). Download the `.aab` of the first production build from EAS and upload it via Play Console → Test and release → Internal testing → Create release; later ones go through `eas submit`.
 
 ```bash
-# iOS: en son production build'i App Store Connect'e (TestFlight) yükler
+# iOS: uploads the latest production build to App Store Connect (TestFlight)
 npx eas-cli@latest submit -p ios --profile production --latest
 
-# Android: eas.json'a göre "internal" kanalına taslak (draft) olarak yükler
+# Android: uploads as a draft to the "internal" track, per eas.json
 npx eas-cli@latest submit -p android --profile production --latest
 
-# Build ve gönderim tek komutta
+# Build and submit in one command
 npx eas-cli@latest build -p ios --profile production --auto-submit
 ```
 
-Android kapalı test ve production kanalları Play Console'da, iç testten "promote" edilerek yönetilir (bkz. `store/release-checklist.md`).
+Android closed testing and production tracks are managed in Play Console by promoting from internal testing (see `store/release-checklist.md`).
 
 ---
 
-## 5. OTA güncellemeler (EAS Update)
+## 5. OTA updates (EAS Update)
 
-Sadece JS ve asset değişiklikleri OTA ile gönderilebilir. `runtimeVersion: { policy: "appVersion" }` olduğu için bir güncelleme yalnızca **aynı `version`** (ör. `1.0.0`) ile build edilmiş uygulamalara ulaşır.
+Only JS and asset changes can be shipped via OTA. Because of `runtimeVersion: { policy: "appVersion" }`, an update only reaches apps built with the **same `version`** (e.g. `1.0.0`).
 
 ```bash
 cd app
 npx eas-cli@latest update --channel production --environment production --message "Açılım ekranında yazım düzeltmesi"
-npx eas-cli@latest update --channel preview    --environment preview    --message "…"   # önce preview kanalında dene
+npx eas-cli@latest update --channel preview    --environment preview    --message "…"   # try it on the preview channel first
 npx eas-cli@latest update:list
-npx eas-cli@latest update:rollback                                              # sorunlu güncellemeyi geri al
+npx eas-cli@latest update:rollback                                              # roll back a faulty update
 ```
 
-- `--environment production` vermek önemlidir: `EXPO_PUBLIC_*` değerleri güncellemenin JS paketine o anda gömülür. Unutulursa güncelleme varsayılan değerlerle (analitik/satın alma anahtarı olmadan) yayınlanır.
-- `updates.url` sadece build sırasında `EAS_PROJECT_ID` tanımlıysa yapılandırmaya girer. Build'den önce kontrol: `EAS_PROJECT_ID=<uuid> npx expo config --type public | grep -A2 updates`.
-- **Yeni native build gerektiren değişiklikler:** yeni paket veya config plugin, izinler, `app.config.ts`'deki native alanlar (`associatedDomains`, `intentFilters`, `infoPlist`, ikon, splash), `EXPO_PUBLIC_DOMAIN` veya `GOOGLE_IOS_URL_SCHEME` değişikliği, Expo SDK yükseltmesi. Bunlarda `version` artırılır ve mağazaya yeni build gönderilir.
+- Passing `--environment production` matters: `EXPO_PUBLIC_*` values are embedded into the update's JS bundle at that moment. If you forget it, the update ships with the default values (without the analytics/purchase keys).
+- `updates.url` only enters the config if `EAS_PROJECT_ID` is set at build time. Check before building: `EAS_PROJECT_ID=<uuid> npx expo config --type public | grep -A2 updates`.
+- **Changes that need a new native build:** a new package or config plugin, permissions, native fields in `app.config.ts` (`associatedDomains`, `intentFilters`, `infoPlist`, icon, splash), a change to `EXPO_PUBLIC_DOMAIN` or `GOOGLE_IOS_URL_SCHEME`, an Expo SDK upgrade. For these, `version` is bumped and a new build is sent to the store.
 
 ---
 
-## 6. Evrensel linkler (iOS) ve App Links (Android)
+## 6. Universal links (iOS) and App Links (Android)
 
-Uygulama iki https link türünü açar:
-- `https://<DOMAIN>/m/<KOD>`: arkadaşa meydan okuma (`src/app/m/[code].tsx` → `/challenge/<KOD>`)
-- `https://<DOMAIN>/d/<token>`: admin'in Telegram'dan 1v1'e katılma linki (`src/app/d/[token].tsx`). Telegram butonları sadece https kabul ettiği için evrensel link şarttır.
+The app opens two kinds of https links:
+- `https://<DOMAIN>/m/<KOD>`: challenge a friend (`src/app/m/[code].tsx` → `/challenge/<KOD>`)
+- `https://<DOMAIN>/d/<token>`: the admin's link from Telegram to join a 1v1 (`src/app/d/[token].tsx`). Telegram buttons only accept https, so a universal link is required.
 
-Özel şema `maziturkiye://` de çalışır ama paylaşımda https link kullanılır. App yüklü değilse aynı adres web sayfasını açar; sayfa 6 haneli kodu gösterir ve panoya kopyalar, uygulama ilk açılışta kodu sorar (ertelenmiş derin link, `DECISIONS.md`).
+The custom scheme `maziturkiye://` also works, but https links are used for sharing. If the app is not installed, the same address opens the web page; the page shows the 6-digit code and copies it to the clipboard, and the app asks for the code on first launch (deferred deep link, `DECISIONS.md`).
 
 ### iOS (Associated Domains)
 
-1. `app.config.ts` → `ios.associatedDomains: ["applinks:<DOMAIN>"]` (otomatik, `EXPO_PUBLIC_DOMAIN`'den).
-2. `web/.well-known/apple-app-site-association` içindeki **`APPLE_TEAM_ID`** yer tutucusu, Apple Developer → Membership details → Team ID (10 karakter) ile değiştirilir. Sonuç: `"appIDs": ["ABCDE12345.com.maziturkiye.app"]`.
-3. Dosya `https://<DOMAIN>/.well-known/apple-app-site-association` adresinden **HTTPS, 200, yönlendirmesiz** ve `Content-Type: application/json` ile dönmelidir. Apple'ın CDN'i yönlendirme takip etmez:
+1. `app.config.ts` → `ios.associatedDomains: ["applinks:<DOMAIN>"]` (automatic, from `EXPO_PUBLIC_DOMAIN`).
+2. The **`APPLE_TEAM_ID`** placeholder in `web/.well-known/apple-app-site-association` is replaced with Apple Developer → Membership details → Team ID (10 characters). Result: `"appIDs": ["ABCDE12345.com.maziturkiye.app"]`.
+3. The file must be served at `https://<DOMAIN>/.well-known/apple-app-site-association` over **HTTPS, 200, without redirects** and with `Content-Type: application/json`. Apple's CDN does not follow redirects:
 
    ```bash
-   curl -sI https://maziturkiye.com/.well-known/apple-app-site-association   # 200 + application/json olmalı, 301/308 olmamalı
-   curl -s  https://app-site-association.cdn-apple.com/a/v1/maziturkiye.com # Apple'ın önbelleğe aldığı kopya
+   curl -sI https://maziturkiye.com/.well-known/apple-app-site-association   # should be 200 + application/json, not 301/308
+   curl -s  https://app-site-association.cdn-apple.com/a/v1/maziturkiye.com # the copy cached by Apple
    ```
 
-   `web/vercel.json`'daki `"trailingSlash": true` uzantısız dosyaları `/…/` adresine yönlendirebilir; yayından sonra mutlaka kontrol et (QA raporu).
-4. Apple dosyayı kendi CDN'i üzerinden, uygulama yüklenirken ve sonra periyodik olarak çeker; değişikliğin yansıması saatler sürebilir. Değişiklik sonrası uygulamayı silip yeniden yükle ve TestFlight build'iyle test et.
-5. Notlarda bir linke uzun basınca "Mazi Türkiye'de aç" çıkmalı; Safari'nin adres çubuğuna yazılan link evrensel link tetiklemez.
+   `"trailingSlash": true` in `web/vercel.json` may redirect extensionless files to a `/…/` address; always check after deploying (QA report).
+4. Apple fetches the file through its own CDN when the app is installed and periodically afterwards; a change can take hours to propagate. After a change, delete and reinstall the app and test with a TestFlight build.
+5. Long-pressing a link in Notes should show "Mazi Türkiye'de aç" (Open in Mazi Türkiye); a link typed into Safari's address bar does not trigger a universal link.
 
 ### Android (App Links)
 
-1. `app.config.ts` → `android.intentFilters` (`autoVerify: true`, `https://<DOMAIN>/m/…` ve `/d/…`).
-2. `web/.well-known/assetlinks.json` içindeki **`PLAY_APP_SIGNING_SHA256_FINGERPRINT`**, Play Console → Test and release → Setup → **App integrity** → App signing key certificate → **SHA-256** ile değiştirilir. Play'den yüklenen uygulamayı Google'ın imzası imzalar; EAS'in upload key'i değil.
-3. Play dışından kurulan build'lerde (preview APK) de çalışması için EAS upload/keystore SHA-256'sı da diziye eklenir: `npx eas-cli@latest credentials -p android` → Keystore → SHA256 Fingerprint. Dizide birden fazla parmak izi olabilir.
-4. Doğrulama:
+1. `app.config.ts` → `android.intentFilters` (`autoVerify: true`, `https://<DOMAIN>/m/…` and `/d/…`).
+2. **`PLAY_APP_SIGNING_SHA256_FINGERPRINT`** in `web/.well-known/assetlinks.json` is replaced with Play Console → Test and release → Setup → **App integrity** → App signing key certificate → **SHA-256**. Apps installed from Play are signed with Google's signature, not EAS's upload key.
+3. So that it also works for builds installed outside Play (preview APK), the EAS upload/keystore SHA-256 is also added to the array: `npx eas-cli@latest credentials -p android` → Keystore → SHA256 Fingerprint. The array can hold more than one fingerprint.
+4. Verification:
 
    ```bash
    adb shell pm verify-app-links --re-verify com.maziturkiye.app
-   adb shell pm get-app-links com.maziturkiye.app          # maziturkiye.com: verified olmalı
+   adb shell pm get-app-links com.maziturkiye.app          # maziturkiye.com: should be verified
    ```
 
-   Google'ın aracı: `https://digitalassetlinks.googleapis.com/v1/statements:list?source.web.site=https://maziturkiye.com&relation=delegate_permission/common.handle_all_urls`
-5. Aynı Play imza **SHA-1**'i Google Cloud'daki Android OAuth istemcisine de girilir (Google ile giriş için).
+   Google's tool: `https://digitalassetlinks.googleapis.com/v1/statements:list?source.web.site=https://maziturkiye.com&relation=delegate_permission/common.handle_all_urls`
+5. The same Play signing **SHA-1** is also entered in the Android OAuth client in Google Cloud (for Google sign-in).
 
-> Alan adı değişirse (`maziturkiye.vercel.app` → `maziturkiye.com`): `EXPO_PUBLIC_DOMAIN` güncellenir, **yeni native build** alınır ve `.well-known` dosyaları yeni alan adında yayında olmalıdır.
+> If the domain changes (`maziturkiye.vercel.app` → `maziturkiye.com`): `EXPO_PUBLIC_DOMAIN` is updated, a **new native build** is made, and the `.well-known` files must be live on the new domain.
 
 ---
 
-## 7. Notlar ve sık takılınan yerler
+## 7. Notes and common pitfalls
 
-- **Supabase'de anonim giriş açık olmalı.** Günlük oyun hesapsız oynanır; uygulama ilk RPC'den önce `signInAnonymously()` çağırır (`src/lib/supabase.ts`). Dashboard → Authentication → Sign In / Providers → **Allow anonymous sign-ins** kapalıysa her ekran "Bağlantı kurulamadı" gösterir. Lansmandan önce Authentication → **Rate Limits**'te anonim giriş sınırını yükselt: varsayılan IP başına saatte 30'dur ve Türkiye'deki mobil operatörlerin ortak IP'leri (CGNAT) yüzünden lansman günü yeni kullanıcılar takılabilir. İstenirse CAPTCHA (Cloudflare Turnstile) eklenir.
-  - `ensureSession()` tek uçuşludur: aynı anda gelen çağrılar tek bir anonim oturum açar (eskiden ilk açılışta iki anonim kullanıcı açılabiliyordu). Hız sınırına (HTTP 429) takılırsa 1,5 / 4 / 9 sn bekleyip yeniden dener; yine olmazsa ekranda "Şu an çok yoğunuz…" yazar ve "Tekrar dene" çıkar. İnternet yoksa beklemeden "İnternet bağlantısı yok gibi görünüyor…" der.
-- **Kimlik eşitleme (`src/lib/identity.ts`):** Supabase kullanıcı kimliği her değiştiğinde (ilk anonim oturum, Apple/Google girişi, hesap silme sonrası yeni anonim oturum) `onAuthStateChange` ile PostHog `identify`, RevenueCat `configure`/`Purchases.logIn` ve push token kaydı aynı kimlikle yapılır. Hesap silinince (`SIGNED_OUT`) PostHog `reset` ve RevenueCat `logOut` çağrılır, ekrandaki eski veri temizlenir ve yeni anonim oturum açılır. İnternetsiz ilk açılışta kimlik, ilk başarılı `refresh`'te bağlanır.
-- **Google ile giriş eklentisi sadece `GOOGLE_IOS_URL_SCHEME` tanımlıysa eklenir** (`app.config.ts`). Düğme Android'de `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` ile, iOS'ta ayrıca `EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID` ve `GOOGLE_IOS_URL_SCHEME` de tanımlıysa görünür; biri eksikse düğme gizlenir (eskiden iOS'ta görünüp URL şeması olmadığı için Google SDK uygulamayı çökertebiliyordu). Android için Google Cloud'da paket adı `com.maziturkiye.app` + Play imza SHA-1 (ve EAS keystore SHA-1) ile bir Android OAuth istemcisi gerekir; Android'de `google-services.json` gerekmez. Supabase → Authentication → Providers → Google: Web client ID + secret; "Authorized Client IDs" alanına iOS ve Android client ID'leri de eklenir. iOS'ta nonce hatası alınırsa "Skip nonce checks" açılır.
-- **Apple ile giriş:** `ios.usesAppleSignIn: true`. Supabase → Providers → Apple → **Client IDs** alanına bundle ID `com.maziturkiye.app` eklenmelidir (native girişte token'ın hedefi budur); web için Services ID + key ayrıca girilir. Apple, Google girişi sunan uygulamada Apple ile girişi de zorunlu tutar (Kural 4.8); düğme iOS'ta her zaman görünür ve Apple'ın resmi `AppleAuthenticationButton`'ıdır.
-  - **Hesap silmede Apple token iptali (App Store 5.1.1(v)):** Kullanıcı Apple ile bağlıysa, silme onayından sonra uygulama `AppleAuthentication.signInAsync()` ile taze bir `authorizationCode` alır ve `delete-account` fonksiyonuna gövdede `{ apple_authorization_code }` olarak gönderir; fonksiyon kodu refresh token'a çevirip Apple'da iptal eder. Bunun için Supabase secret'ları `APPLE_TEAM_ID`, `APPLE_KEY_ID`, `APPLE_PRIVATE_KEY` (Sign in with Apple anahtarının .p8 içeriği), isteğe bağlı `APPLE_CLIENT_ID` tanımlı olmalı. Kullanıcı Apple penceresini kapatırsa uygulama onay ister ve hesabı yine siler (Apple bağlantısı iPhone Ayarlar'ından kaldırılabilir).
-- **Anonim → hesaplı geçiş:** Giriş öncesi "birleştirme bileti" alınır, girişten sonra bozdurulur ve skorlar, seri, Pro yeni hesaba taşınır (`src/lib/auth.ts`, `redeem_merge_ticket`).
-- **RevenueCat:** Entitlement `pro`, Offering `default` → `$rc_lifetime` paketi → her iki mağazada `pro_lifetime` (bkz. `store/iap.md`). RevenueCat'te kullanıcı kimliği Supabase kullanıcı kimliğidir (girişte `logIn`, silmede `logOut`; bkz. kimlik eşitleme). Sunucudaki `profiles.is_pro`'yu `revenuecat-webhook` yazar; webhook URL'si ve Authorization başlığı RevenueCat panelinde tanımlı olmalıdır.
-  - **İstemcide Pro = sunucu `is_pro` VEYA mağaza yetkisi:** `appState` her `refresh`'te, sunucu `is_pro: false` derse RevenueCat'e (`hasProLocally`, aynı kullanıcı kimliğiyle) sorar. Satın alma/geri yükleme sonrası Pro hemen açılır ve sunucu onaylayana kadar 2 sn → 90 sn arası artan aralıklarla yenilenir; webhook gecikse de ekran "Pro'yu aç"a geri dönmez. Sunucuda kapılanan özellikler (ipucu, arşiv, sınırsız 1v1) webhook gelince açılır; o arada ipucu "Pro'n etkinleştiriliyor…" der. Kalıcı çözüm için sunucu tarafı `sync-pro` fonksiyonu QA raporunda (Y1) açık iş.
-  - Pro ekranı fiyatı mağazadan gelmeden sabit fiyat göstermez ("Fiyat yükleniyor…"); teklif gelmezse "Tekrar dene" çıkar. `PRO_PRICE_DEMO` sadece demo derlemesinde (ekran görüntüleri) kullanılır.
-- **Bildirimler:** Günlük hatırlatıcı cihazda planlanan yerel bildirimdir (izin ilk turun sonunda istenir). Sunucu bildirimleri (seri tehlikede) Expo Push ile gider ve `EAS_PROJECT_ID` ister. iOS'ta push anahtarı `npx eas-cli@latest credentials` → Push Notifications ile eklenir. Android'de Expo push token'ı için Firebase (FCM V1) yapılandırması gerekir: Firebase projesi → Android uygulaması `com.maziturkiye.app` → `google-services.json` (`android.googleServicesFile`, EAS'e `--type file` ortam değişkeni olarak) ve FCM V1 service account anahtarı EAS credentials'a. `app.config.ts` bunu `GOOGLE_SERVICES_JSON` ortam değişkeni tanımlıysa ekler; Firebase projesi henüz açılmadı (QA raporu O6). Push token, izin verilmişse her kimlik değişiminde ve uygulama açılışında yeniden kaydedilir.
-- **Harita ve fontlar uygulamaya gömülüdür;** internet yokken de açılır. Fotoğraflar Supabase Storage'ın görsel dönüştürme adresinden (WebP) gelir. İnternetsiz her ekranın yükleme yolu "Bağlantı kurulamadı" + "Tekrar dene" gösterir; yüklenemeyen fotoğraf siyah kutu yerine "Fotoğraf yüklenemedi · Tekrar dene" der.
-- **Hata takibi:** PostHog `errorTracking.autocapture` (yakalanmamış hatalar ve reddedilen promise'ler; konsol kayıtları hariç) açıktır. Render hataları `src/app/_layout.tsx` → `ErrorBoundary` ile yakalanır: uygulama kapanmaz, "Beklenmeyen bir hata oldu" ekranı ("Tekrar dene", "Uygulamayı yeniden başlat") çıkar ve hata `captureException` ile gönderilir. Kişisel veri eklenmez. Native çökmeler için isteğe bağlı `@posthog/react-native-plugin` + `autocapture.nativeCrashes` (kurulu değil).
-- **Takma ad süzgeci:** `src/lib/nickname.ts` Türkçe/İngilizce küfür ve hakaret listesini (Türkçe harf ve rakam ikameleri normalleştirilerek) kayıttan önce istemcide denetler. Sunucudaki `update_profile` henüz sadece uzunluk/karakter denetliyor; aynı listenin sunucuya eklenmesi açık iş (QA O7).
-- **Web derlemesi** `<html lang="tr">` ile çıkar (`app.config.ts` → `web.lang`; statik çıktıya geçilirse `src/app/+html.tsx`). Büyük harfli etiketler bu sayede "İ" ile yazılır.
-- **iPad yok:** `supportsTablet: false`. Sadece dikey yön.
-- **Şifreleme beyanı:** `ITSAppUsesNonExemptEncryption: false` (sadece HTTPS). TestFlight'ta ihracat sorusu çıkmaz.
-- **Gizlilik manifesti:** `ios.privacyManifests` (UserDefaults, CA92.1). Üçüncü taraf SDK'lar (PostHog, RevenueCat, Expo modülleri) kendi manifestlerini getirir. İzleme yok, ATT penceresi yok.
-- **Android izinleri:** `RECORD_AUDIO`, `READ_MEDIA_IMAGES`, `ACCESS_FINE_LOCATION` engellenir. Build sonrası birleşik manifestte `com.google.android.gms.permission.AD_ID` olmadığını doğrula (Data safety formu reklam kimliği kullanılmıyor diyor).
+- **Anonymous sign-in must be enabled in Supabase.** The daily game is played without an account; the app calls `signInAnonymously()` before the first RPC (`src/lib/supabase.ts`). If Dashboard → Authentication → Sign In / Providers → **Allow anonymous sign-ins** is off, every screen shows "Bağlantı kurulamadı" (Could not connect). Before launch, raise the anonymous sign-in limit in Authentication → **Rate Limits**: the default is 30 per hour per IP, and because Turkish mobile carriers share IPs (CGNAT), new users may get stuck on launch day. CAPTCHA (Cloudflare Turnstile) can be added if wanted.
+  - `ensureSession()` is single-flight: concurrent calls open a single anonymous session (previously two anonymous users could be created on first launch). If it hits the rate limit (HTTP 429), it waits 1.5 / 4 / 9 s and retries; if it still fails, the screen shows "Şu an çok yoğunuz…" (We are very busy right now…) and a "Tekrar dene" (Try again) button. With no internet it says "İnternet bağlantısı yok gibi görünüyor…" (There seems to be no internet connection…) without waiting.
+- **Identity sync (`src/lib/identity.ts`):** Whenever the Supabase user ID changes (first anonymous session, Apple/Google sign-in, new anonymous session after account deletion), `onAuthStateChange` runs PostHog `identify`, RevenueCat `configure`/`Purchases.logIn` and push token registration with the same ID. When the account is deleted (`SIGNED_OUT`), PostHog `reset` and RevenueCat `logOut` are called, old data on screen is cleared and a new anonymous session is opened. On a first launch without internet, the identity is linked on the first successful `refresh`.
+- **The Google sign-in plugin is only added if `GOOGLE_IOS_URL_SCHEME` is set** (`app.config.ts`). The button appears on Android with `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID`, and on iOS only if `EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID` and `GOOGLE_IOS_URL_SCHEME` are also set; if one is missing the button is hidden (previously it appeared on iOS and the Google SDK could crash the app because the URL scheme was missing). For Android, Google Cloud needs an Android OAuth client with package name `com.maziturkiye.app` + the Play signing SHA-1 (and the EAS keystore SHA-1); `google-services.json` is not needed on Android. Supabase → Authentication → Providers → Google: Web client ID + secret; the iOS and Android client IDs are also added to the "Authorized Client IDs" field. If you get a nonce error on iOS, turn on "Skip nonce checks".
+- **Sign in with Apple:** `ios.usesAppleSignIn: true`. The bundle ID `com.maziturkiye.app` must be added to Supabase → Providers → Apple → **Client IDs** (it is the token audience for native sign-in); for web, the Services ID + key are entered separately. Apple requires Sign in with Apple in an app that offers Google sign-in (Guideline 4.8); the button is always visible on iOS and is Apple's official `AppleAuthenticationButton`.
+  - **Apple token revocation on account deletion (App Store 5.1.1(v)):** If the user is linked with Apple, after the deletion confirmation the app gets a fresh `authorizationCode` with `AppleAuthentication.signInAsync()` and sends it to the `delete-account` function in the body as `{ apple_authorization_code }`; the function exchanges the code for a refresh token and revokes it at Apple. This needs the Supabase secrets `APPLE_TEAM_ID`, `APPLE_KEY_ID`, `APPLE_PRIVATE_KEY` (the .p8 content of the Sign in with Apple key) and optionally `APPLE_CLIENT_ID`. If the user closes the Apple sheet, the app asks for confirmation and still deletes the account (the Apple link can be removed from iPhone Settings).
+- **Anonymous → account migration:** A "merge ticket" is taken before sign-in and redeemed after sign-in, and scores, streak and Pro move to the new account (`src/lib/auth.ts`, `redeem_merge_ticket`).
+- **RevenueCat:** Entitlement `pro`, Offering `default` → `$rc_lifetime` package → `pro_lifetime` in both stores (see `store/iap.md`). The user ID in RevenueCat is the Supabase user ID (`logIn` on sign-in, `logOut` on deletion; see identity sync). `profiles.is_pro` on the server is written by `revenuecat-webhook`; the webhook URL and Authorization header must be set in the RevenueCat dashboard.
+  - **On the client, Pro = server `is_pro` OR store entitlement:** On each `refresh`, if the server says `is_pro: false`, `appState` asks RevenueCat (`hasProLocally`, with the same user ID). After a purchase/restore, Pro unlocks immediately and refreshes at increasing intervals from 2 s to 90 s until the server confirms; even if the webhook is late, the screen does not fall back to "Pro'yu aç" (Unlock Pro). Server-gated features (hints, archive, unlimited 1v1) unlock when the webhook arrives; meanwhile the hint says "Pro'n etkinleştiriliyor…" (Your Pro is being activated…). A server-side `sync-pro` function for a permanent fix is an open item in the QA report (Y1).
+  - The Pro screen does not show a fixed price before the price comes from the store ("Fiyat yükleniyor…" (Loading price…)); if no offering arrives, "Tekrar dene" appears. `PRO_PRICE_DEMO` is only used in the demo build (screenshots).
+- **Notifications:** The daily reminder is a local notification scheduled on the device (permission is asked at the end of the first round). Server notifications (streak in danger) go through Expo Push and need `EAS_PROJECT_ID`. On iOS the push key is added with `npx eas-cli@latest credentials` → Push Notifications. On Android the Expo push token needs a Firebase (FCM V1) setup: Firebase project → Android app `com.maziturkiye.app` → `google-services.json` (`android.googleServicesFile`, as a `--type file` environment variable in EAS) and the FCM V1 service account key in EAS credentials. `app.config.ts` adds this if the `GOOGLE_SERVICES_JSON` environment variable is set; the Firebase project has not been created yet (QA report O6). If permission is granted, the push token is re-registered on every identity change and app launch.
+- **The map and fonts are bundled in the app;** they open without internet too. Photos come from the Supabase Storage image transformation URL (WebP). Without internet, every screen's loading path shows "Bağlantı kurulamadı" + "Tekrar dene"; a photo that fails to load shows "Fotoğraf yüklenemedi · Tekrar dene" (Photo could not be loaded · Try again) instead of a black box.
+- **Error tracking:** PostHog `errorTracking.autocapture` (uncaught errors and rejected promises; console logs excluded) is on. Render errors are caught by `src/app/_layout.tsx` → `ErrorBoundary`: the app does not close, a "Beklenmeyen bir hata oldu" (An unexpected error occurred) screen appears ("Tekrar dene", "Uygulamayı yeniden başlat" (Restart the app)) and the error is sent with `captureException`. No personal data is attached. For native crashes, optional `@posthog/react-native-plugin` + `autocapture.nativeCrashes` (not installed).
+- **Nickname filter:** `src/lib/nickname.ts` checks a Turkish/English profanity and insult list (normalizing Turkish letter and digit substitutions) on the client before saving. The server's `update_profile` currently only checks length/characters; adding the same list on the server is an open item (QA O7).
+- **The web build** ships with `<html lang="tr">` (`app.config.ts` → `web.lang`; `src/app/+html.tsx` if switching to static output). This way uppercase labels are written with "İ".
+- **No iPad:** `supportsTablet: false`. Portrait orientation only.
+- **Encryption declaration:** `ITSAppUsesNonExemptEncryption: false` (HTTPS only). No export compliance question in TestFlight.
+- **Privacy manifest:** `ios.privacyManifests` (UserDefaults, CA92.1). Third-party SDKs (PostHog, RevenueCat, Expo modules) bring their own manifests. No tracking, no ATT prompt.
+- **Android permissions:** `RECORD_AUDIO`, `READ_MEDIA_IMAGES`, `ACCESS_FINE_LOCATION` are blocked. After the build, verify that `com.google.android.gms.permission.AD_ID` is not in the merged manifest (the Data safety form says the advertising ID is not used).

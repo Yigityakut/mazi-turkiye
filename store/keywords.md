@@ -1,34 +1,34 @@
-# Anahtar kelime araştırması (Türkiye mağazası)
+# Keyword research (Türkiye store)
 
-> Yöntem notu: Ajan konteynerinden App Store / Google Play otomatik tamamlama ve Google Trends'e erişilemedi (ağ kısıtı).
-> Aşağıdaki hacim/rekabet değerleri **tahmindir** (1–5 ölçeği); lansmandan önce Chrome ile mağaza otomatik tamamlamasından doğrulanmalı
-> (HUMAN_TODO → "ASO doğrulama"). Lansmandan sonra App Store Connect "Kaynak: App Store araması" ve Play Console "Arama terimleri" verisiyle aylık güncellenir.
+> Method note: App Store / Google Play autocomplete and Google Trends could not be reached from the agent container (network restriction).
+> The volume/competition values below are **estimates** (1–5 scale); they must be verified against store autocomplete with Chrome before launch
+> (HUMAN_TODO → "ASO verification"). After launch they are updated monthly with App Store Connect "Source: App Store search" and Play Console "Search terms" data.
 
-| Kelime | Hacim (1–5) | Rekabet (1–5) | Alaka (1–5) | Nerede |
+| Keyword | Volume (1–5) | Competition (1–5) | Relevance (1–5) | Where |
 | --- | --- | --- | --- | --- |
-| tarih | 4 | 3 | 5 | İsim |
-| tahmin | 3 | 3 | 5 | İsim |
-| türkiye | 5 | 4 | 4 | İsim |
-| eski fotoğraf | 3 | 2 | 5 | Alt başlık |
-| harita | 4 | 3 | 4 | Alt başlık |
-| yıl | 2 | 1 | 4 | Alt başlık |
-| bilgi yarışması | 5 | 5 | 4 | Anahtar |
-| quiz | 4 | 5 | 3 | Anahtar |
-| coğrafya | 3 | 3 | 4 | Anahtar |
-| nostalji | 2 | 2 | 5 | Anahtar |
-| osmanlı | 3 | 3 | 3 | Anahtar |
-| istanbul | 4 | 3 | 3 | Anahtar |
-| günlük | 2 | 2 | 4 | Anahtar (günlük bulmaca) |
-| bulmaca | 4 | 5 | 3 | Anahtar |
-| zeka | 4 | 5 | 2 | Anahtar |
-| geçmiş | 2 | 1 | 4 | Anahtar |
-| nerede | 2 | 1 | 5 | Anahtar |
-| oyun | 5 | 5 | 2 | Anahtar (kombinasyon için) |
-| kartpostal | 1 | 1 | 4 | Yedek |
-| eski istanbul | 2 | 1 | 4 | Yedek (Google uzun açıklamada) |
-| tarih oyunu | 3 | 2 | 5 | Google başlık + uzun açıklama |
-| coğrafya oyunu | 2 | 2 | 4 | Google uzun açıklama |
+| tarih | 4 | 3 | 5 | Name |
+| tahmin | 3 | 3 | 5 | Name |
+| türkiye | 5 | 4 | 4 | Name |
+| eski fotoğraf | 3 | 2 | 5 | Subtitle |
+| harita | 4 | 3 | 4 | Subtitle |
+| yıl | 2 | 1 | 4 | Subtitle |
+| bilgi yarışması | 5 | 5 | 4 | Keywords |
+| quiz | 4 | 5 | 3 | Keywords |
+| coğrafya | 3 | 3 | 4 | Keywords |
+| nostalji | 2 | 2 | 5 | Keywords |
+| osmanlı | 3 | 3 | 3 | Keywords |
+| istanbul | 4 | 3 | 3 | Keywords |
+| günlük | 2 | 2 | 4 | Keywords (günlük bulmaca) |
+| bulmaca | 4 | 5 | 3 | Keywords |
+| zeka | 4 | 5 | 2 | Keywords |
+| geçmiş | 2 | 1 | 4 | Keywords |
+| nerede | 2 | 1 | 5 | Keywords |
+| oyun | 5 | 5 | 2 | Keywords (for combinations) |
+| kartpostal | 1 | 1 | 4 | Backup |
+| eski istanbul | 2 | 1 | 4 | Backup (in the Google long description) |
+| tarih oyunu | 3 | 2 | 5 | Google title + long description |
+| coğrafya oyunu | 2 | 2 | 4 | Google long description |
 
-**Apple kombinasyon mantığı:** Apple isim + alt başlık + anahtar kelime alanındaki kelimeleri birleştirir. "tarih oyunu", "eski fotoğraf tahmin", "türkiye harita quiz", "osmanlı fotoğraf", "coğrafya bilgi yarışması" hepsi bu üç alandan oluşur; tekrar gerekmez.
+**Apple combination logic:** Apple combines the words in the name + subtitle + keyword field. "tarih oyunu", "eski fotoğraf tahmin", "türkiye harita quiz", "osmanlı fotoğraf", "coğrafya bilgi yarışması" are all formed from these three fields; no repetition needed.
 
-**İlk ay deney planı:** 1) 2. haftada "zeka" yerine "kartpostal" dene (zayıf alaka). 2) Alt başlık B: "Nerede, hangi yıl? Günlük oyun".
+**First-month experiment plan:** 1) In week 2, try "kartpostal" instead of "zeka" (weak relevance). 2) Subtitle B: "Nerede, hangi yıl? Günlük oyun".

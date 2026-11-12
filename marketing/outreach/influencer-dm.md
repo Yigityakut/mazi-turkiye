@@ -1,6 +1,8 @@
-# Mikro hesap iş birliği mesajı (kişisel yazılır, toplu gönderilmez)
+# Micro-account collaboration message (written personally, never sent in bulk)
 
-Hedef: Nostalji, eski İstanbul, tarih, coğrafya içerikleri üreten 10 bin–200 bin takipçili 20 hesap. Liste: `marketing/outreach/creators.md` (lansmandan önce elle doldurulur).
+Target: 20 accounts with 10k–200k followers that make nostalgia, old Istanbul, history or geography content. List: `marketing/outreach/creators.md` (filled in by hand before launch).
+
+> English summary: personal DM that compliments a specific post, introduces the game, offers free Pro codes for the creator and their followers with no obligation to post, and optionally a custom themed day.
 
 > Merhaba ‹ad›, ‹hesabın adı›'nda paylaştığın ‹belirli bir gönderi, ör. "1970'lerin Kadıköy vapur iskelesi"› gönderisine bayıldım.
 >
@@ -10,4 +12,4 @@ Hedef: Nostalji, eski İstanbul, tarih, coğrafya içerikleri üreten 10 bin–2
 >
 > Teşekkürler, iyi paylaşımlar! 🙏
 
-Not: Pro kodları App Store "Offer Codes" (tek seferlik ürünler için promosyon kodları) ve Google Play promosyon kodlarıyla üretilir. Reklam işbirliği olursa paylaşımda #işbirliği etiketi istenir (Ticaret Bakanlığı Ticari Reklam Yönetmeliği).
+Note: Pro codes are generated with App Store "Offer Codes" (promo codes for one-time products) and Google Play promo codes. If it becomes a paid ad collaboration, the post must carry the #işbirliği tag (Ministry of Trade Commercial Advertising Regulation).

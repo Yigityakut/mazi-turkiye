@@ -1,264 +1,264 @@
-# Yayın kontrol listesi · Mazi Türkiye 1.0
+# Release checklist · Mazi Türkiye 1.0
 
-Sıra önemlidir: maddeler yukarıdan aşağıya yapılır. `[ ]` bekliyor · `[x]` tamam. 👤 işaretli maddeler **insan kapısıdır** (kimlik, ödeme, sözleşme, telefon onayı); ajan hazırlar, insan tamamlar (`HUMAN_TODO.md`).
+Order matters: items are done from top to bottom. `[ ]` pending · `[x]` done. Items marked 👤 are **human gates** (identity, payment, contracts, phone verification); the agent prepares, a human completes (`HUMAN_TODO.md`).
 
-Bağlantılı dosyalar: `store/listing.tr.md` (metinler) · `store/iap.md` (ürün) · `store/privacy-forms.md` (veri formları) · `store/age-rating.md` (yaş) · `store/review-notes.md` (inceleme notu) · `store/qa-report.md` (açık hatalar) · `app/README.md` (build, ortam değişkenleri, linkler) · `marketing/testers.md` (kapalı test).
+Related files: `store/listing.tr.md` (copy) · `store/iap.md` (product) · `store/privacy-forms.md` (data forms) · `store/age-rating.md` (age) · `store/review-notes.md` (review note) · `store/qa-report.md` (open bugs) · `app/README.md` (build, environment variables, links) · `marketing/testers.md` (closed testing).
 
-## Takvim
+## Timeline
 
-| Tarih (2026) | Olay |
+| Date (2026) | Event |
 | --- | --- |
-| 4–14 Kasım | QA raporundaki Kritik/Yüksek bulguların düzeltilmesi, TestFlight ve Play internal test |
-| **17 Kasım (salı)** | Google Play: 12 testçi kuralı yok (hesap 2019), iç testten doğrudan üretime geçilebilir. iOS 1.0 App Review'a gönderilir (17–18 Kasım) |
-| 23 Kasım (pazartesi) | iOS onaylanmış ve "Pending Developer Release" durumunda olmalı |
-| **24 Kasım (salı)** | **iOS lansmanı** |
-| 1 Aralık (salı) | 14 günlük kapalı test biter → üretim erişimi başvurusu (Google incelemesi genelde ≤7 gün) |
-| **3 Aralık (perşembe)** | **Android lansmanı** (üretim erişimi zamanında onaylanırsa; gecikirse tarih kayar ve `DECISIONS.md`'ye yazılır) |
+| 4–14 November | Fix Critical/High findings from the QA report, TestFlight and Play internal testing |
+| **17 November (Tuesday)** | Google Play: the 12-tester rule does not apply (account from 2019), can go straight from internal testing to production. iOS 1.0 is submitted to App Review (17–18 November) |
+| 23 November (Monday) | iOS must be approved and in "Pending Developer Release" status |
+| **24 November (Tuesday)** | **iOS launch** |
+| 1 December (Tuesday) | 14-day closed test ends → apply for production access (Google review usually ≤7 days) |
+| **3 December (Thursday)** | **Android launch** (if production access is approved in time; if delayed, the date slips and is recorded in `DECISIONS.md`) |
 
 ---
 
-## 0. Ön koşullar (iki mağaza için ortak)
+## 0. Prerequisites (shared by both stores)
 
-- [ ] `store/qa-report.md`'deki **Kritik** ve **Yüksek** bulgular kapatıldı veya `DECISIONS.md`'de gerekçesiyle ertelendi.
-- [ ] 👤 Yasal metinler onaylandı ve yayında: `/gizlilik/`, `/kvkk/`, `/kosullar/`, `/kaynaklar/`, `/destek/`, `/hesap-silme/` (sarı yer tutucular doldu; HUMAN_TODO 13). Koşullarda "Rakip bulunamadığında yapay zekâ rakip atanabilir." maddesi var.
-- [ ] 👤 Alan adı (`maziturkiye.com`) Vercel'e bağlı, HTTPS çalışıyor; `destek@maziturkiye.com` e-posta alıyor (HUMAN_TODO 9).
-- [ ] `web/.well-known/apple-app-site-association` → `APPLE_TEAM_ID` gerçek Team ID ile değişti; `curl -sI https://maziturkiye.com/.well-known/apple-app-site-association` → **200**, `application/json`, yönlendirme yok.
-- [ ] `web/.well-known/assetlinks.json` → Play App Signing SHA-256 (ve EAS upload key SHA-256) girildi (Android adımı B3'ten sonra).
-- [ ] Supabase: tüm migration'lar uygulandı; Edge Function'lar deploy edildi (kökteki `README.md`); secrets girildi (`TELEGRAM_BOT_TOKEN`, `TELEGRAM_ADMIN_CHAT_ID`, `REVENUECAT_WEBHOOK_AUTH`, `INTERNAL_SECRET`).
-- [ ] Supabase Auth: **Allow anonymous sign-ins açık**; Apple ve Google sağlayıcıları açık (Apple Client IDs'te `com.maziturkiye.app`); **Rate Limits → anonim giriş sınırı lansman için yükseltildi** (varsayılan IP başına saatte 30, CGNAT yüzünden yetmez).
-- [ ] Fotoğraf programı: önümüzdeki **14 günün her birinde 5 günlük fotoğraf** programlı; 1v1 havuzunda en az 100 onaylı fotoğraf; `daily-ops` uyarı göndermiyor.
-- [ ] Telegram admin botu çalışıyor (test mesajı geldi); admin hesabı `is_admin = true`.
-- [ ] RevenueCat: proje, entitlement `pro`, offering `default` → `$rc_lifetime` → `pro_lifetime`; webhook URL'si ve Authorization başlığı tanımlı (`store/iap.md`); test satın almasında `profiles.is_pro` true oluyor.
-- [ ] PostHog (EU) projesi açık; production anahtarı EAS'te; Plan 10.1 göstergeleri için pano hazır.
-- [ ] EAS `production` ortam değişkenleri eksiksiz (`npx eas-cli@latest env:list --environment production`, liste: `app/README.md` §2). **`EXPO_PUBLIC_DEMO` hiçbir ortamda tanımlı değil.**
-- [ ] `EAS_PROJECT_ID` ile `npx expo config --type public` çıktısında `updates.url` ve `extra.eas.projectId` dolu (OTA ve push için).
-- [ ] Ekran görüntüleri üretildi (`store/screenshots/render.mjs`, metinler `store/screenshots/captions.md`): `store/screenshots/out/ios-6.9/` (1320×2868, 6 adet) ve `store/screenshots/out/android-phone/` (1080×1920; Play en-boy oranı **en fazla 2:1** ister, iOS görselleri 2,17:1 olduğu için Play'de kullanılamaz). Android seti iOS ile aynı 6 ekrana tamamlandı.
-- [ ] `python3 store/check_lengths.py` hatasız.
+- [ ] **Critical** and **High** findings in `store/qa-report.md` are closed or deferred with a reason in `DECISIONS.md`.
+- [ ] 👤 Legal texts approved and live: `/gizlilik/`, `/kvkk/`, `/kosullar/`, `/kaynaklar/`, `/destek/`, `/hesap-silme/` (yellow placeholders filled; HUMAN_TODO 13). The terms include the clause "Rakip bulunamadığında yapay zekâ rakip atanabilir." (An AI opponent may be assigned when no opponent is found.)
+- [ ] 👤 Domain (`maziturkiye.com`) connected to Vercel, HTTPS works; `destek@maziturkiye.com` receives email (HUMAN_TODO 9).
+- [ ] `web/.well-known/apple-app-site-association` → `APPLE_TEAM_ID` replaced with the real Team ID; `curl -sI https://maziturkiye.com/.well-known/apple-app-site-association` → **200**, `application/json`, no redirect.
+- [ ] `web/.well-known/assetlinks.json` → Play App Signing SHA-256 (and EAS upload key SHA-256) entered (after Android step B3).
+- [ ] Supabase: all migrations applied; Edge Functions deployed (root `README.md`); secrets entered (`TELEGRAM_BOT_TOKEN`, `TELEGRAM_ADMIN_CHAT_ID`, `REVENUECAT_WEBHOOK_AUTH`, `INTERNAL_SECRET`).
+- [ ] Supabase Auth: **Allow anonymous sign-ins on**; Apple and Google providers on (`com.maziturkiye.app` in Apple Client IDs); **Rate Limits → anonymous sign-in limit raised for launch** (default is 30 per hour per IP, not enough because of CGNAT).
+- [ ] Photo schedule: **5 daily photos for each of the next 14 days** scheduled; at least 100 approved photos in the 1v1 pool; `daily-ops` sends no alerts.
+- [ ] Telegram admin bot works (test message received); admin account has `is_admin = true`.
+- [ ] RevenueCat: project, entitlement `pro`, offering `default` → `$rc_lifetime` → `pro_lifetime`; webhook URL and Authorization header set (`store/iap.md`); a test purchase sets `profiles.is_pro` to true.
+- [ ] PostHog (EU) project open; production key in EAS; dashboard ready for the Plan 10.1 metrics.
+- [ ] EAS `production` environment variables complete (`npx eas-cli@latest env:list --environment production`, list: `app/README.md` §2). **`EXPO_PUBLIC_DEMO` is not defined in any environment.**
+- [ ] With `EAS_PROJECT_ID`, the output of `npx expo config --type public` has `updates.url` and `extra.eas.projectId` filled (for OTA and push).
+- [ ] Screenshots generated (`store/screenshots/render.mjs`, captions in `store/screenshots/captions.md`): `store/screenshots/out/ios-6.9/` (1320×2868, 6 images) and `store/screenshots/out/android-phone/` (1080×1920; Play requires an aspect ratio of **at most 2:1**, and the iOS images are 2.17:1 so they cannot be used on Play). The Android set is completed to the same 6 screens as iOS.
+- [ ] `python3 store/check_lengths.py` runs without errors.
 
 ---
 
 ## A. App Store Connect (iOS)
 
-### A1. Hesap ve sözleşmeler
-- [ ] 👤 Apple Developer Program üyeliği aktif (HUMAN_TODO 5).
-- [ ] 👤 App Store Connect → Business → **Paid Apps Agreement: Active**; banka hesabı ve vergi formu (W-8BEN) tamam. Bu olmadan uygulama içi satın alma sandbox'ta bile test edilemez.
-- [ ] Team ID (Membership details) not edildi → AASA dosyası (Bölüm 0).
+### A1. Account and agreements
+- [ ] 👤 Apple Developer Program membership active (HUMAN_TODO 5).
+- [ ] 👤 App Store Connect → Business → **Paid Apps Agreement: Active**; bank account and tax form (W-8BEN) done. Without this, in-app purchases cannot be tested even in sandbox.
+- [ ] Team ID (Membership details) noted → AASA file (Section 0).
 
-### A2. Kimlikler ve anahtarlar
-- [ ] App ID `com.maziturkiye.app` (ilk EAS build oluşturur) yetenekleri: **Sign in with Apple**, **Associated Domains**, **Push Notifications**, In-App Purchase.
-- [ ] 👤 Sign in with Apple için Services ID + key oluşturuldu, Supabase Apple sağlayıcısına girildi.
-- [ ] APNs anahtarı EAS'e eklendi: `npx eas-cli@latest credentials` → iOS → Push Notifications.
-- [ ] App Store Connect API anahtarı (rol: App Manager) oluşturuldu; EAS Submit ve RevenueCat'e verildi. RevenueCat için ayrıca **In-App Purchase Key** (.p8) yüklendi.
+### A2. Identifiers and keys
+- [ ] App ID `com.maziturkiye.app` (created by the first EAS build) capabilities: **Sign in with Apple**, **Associated Domains**, **Push Notifications**, In-App Purchase.
+- [ ] 👤 Services ID + key for Sign in with Apple created and entered in the Supabase Apple provider.
+- [ ] APNs key added to EAS: `npx eas-cli@latest credentials` → iOS → Push Notifications.
+- [ ] App Store Connect API key (role: App Manager) created; given to EAS Submit and RevenueCat. For RevenueCat, an **In-App Purchase Key** (.p8) is also uploaded.
 
-### A3. Uygulama kaydı
-- [ ] 👤 Apps → **+ New App**: Platform **iOS** · Name **Mazi Türkiye: Tarih Tahmini** · Primary Language **Turkish** · Bundle ID **com.maziturkiye.app** · SKU **mazi-turkiye-ios** · User Access: Full Access.
-- [ ] App Information → General → **Apple ID** (10 haneli) → `app/eas.json` → `submit.production.ios.ascAppId` (`SET_AFTER_APP_STORE_CONNECT_RECORD` yerine).
+### A3. App record
+- [ ] 👤 Apps → **+ New App**: Platform **iOS** · Name **Mazi Türkiye: Tarih Tahmini** (Mazi Türkiye: History Guess) · Primary Language **Turkish** · Bundle ID **com.maziturkiye.app** · SKU **mazi-turkiye-ios** · User Access: Full Access.
+- [ ] App Information → General → **Apple ID** (10 digits) → `app/eas.json` → `submit.production.ios.ascAppId` (replacing `SET_AFTER_APP_STORE_CONNECT_RECORD`).
 
 ### A4. App Information
-- [ ] Name: `Mazi Türkiye: Tarih Tahmini` (27/30) · Subtitle: `Eski fotoğraf, harita ve yıl` (28/30).
-- [ ] Category: Primary **Games**, alt kategoriler **Trivia** ve **Puzzle** (Plan 7.1: Bilgi Yarışması, ikincil Bulmaca).
-- [ ] Content Rights: "Contains third-party content" → **Yes, I have the rights** (kamu malı / CC0 / CC BY / CC BY-SA; atıf uygulamada ve `/kaynaklar/`'da).
-- [ ] Age Rating: anket `store/age-rating.md`'deki gibi dürüst yanıtlandı → beklenen **4+**.
-- [ ] License Agreement: Apple Standard EULA (koşullar açıklamada linkli).
-- [ ] İsteğe bağlı: English (U.S.) metadata yerelleştirmesi `store/listing.en.md` (uygulamanın Türkçe olduğu açıklamada yazmalı).
+- [ ] Name: `Mazi Türkiye: Tarih Tahmini` (27/30) · Subtitle: `Eski fotoğraf, harita ve yıl` (Old photo, map and year) (28/30).
+- [ ] Category: Primary **Games**, subcategories **Trivia** and **Puzzle** (Plan 7.1: Trivia, secondary Puzzle).
+- [ ] Content Rights: "Contains third-party content" → **Yes, I have the rights** (public domain / CC0 / CC BY / CC BY-SA; attribution in the app and on `/kaynaklar/`).
+- [ ] Age Rating: questionnaire answered honestly as in `store/age-rating.md` → expected **4+**.
+- [ ] License Agreement: Apple Standard EULA (terms linked in the description).
+- [ ] Optional: English (U.S.) metadata localization `store/listing.en.md` (the description must say the app is in Turkish).
 
 ### A5. Pricing and Availability
 - [ ] Price: **Free**.
-- [ ] Availability: tüm ülkeler (yurt dışındaki Türkler ikincil kitle) veya en az Türkiye.
-- [ ] "iPhone and iPad Apps on Apple Silicon Macs" ve Apple Vision Pro dağıtımı **kapalı** (test edilmedi; `supportsTablet: false`).
+- [ ] Availability: all countries (Turks abroad are a secondary audience) or at least Türkiye.
+- [ ] "iPhone and iPad Apps on Apple Silicon Macs" and Apple Vision Pro distribution **off** (not tested; `supportsTablet: false`).
 
-### A6. Uygulama içi satın alma: `pro_lifetime` (`store/iap.md`)
-- [ ] Monetization → In-App Purchases → **+** → Type **Non-Consumable** · Reference Name `Mazi Türkiye Pro (ömür boyu)` · Product ID **`pro_lifetime`** (sonradan değiştirilemez).
-- [ ] Price Schedule: taban **5,99 USD**; diğer ülkeler Apple'ın otomatik eşitlemesi. Türkiye fiyatı ilk ayın verisine göre gözden geçirilir (`DECISIONS.md`).
-- [ ] Localization (Turkish): Display Name `Mazi Türkiye Pro` · Description `İpuçları, arşiv, sınırsız 1v1, tam istatistik` (≤45).
-- [ ] Family Sharing: **kapalı** (açıldıktan sonra kapatılamaz; ilk ay verisinden sonra karar).
-- [ ] Review Information: ekran görüntüsü `store/screenshots/iap-review.png` (Pro ekranı, 1290×2796) + not: "Home → Arşiv · Pro → Pro'yu aç, or tap 'Dönem ipucu' during a round."
-- [ ] Durum **Ready to Submit**.
-- [ ] 👤 Users and Access → Sandbox → Testers: en az bir sandbox Apple hesabı.
-- [ ] RevenueCat'te App Store uygulaması bağlı, `pro_lifetime` içe aktarıldı ve `pro` entitlement'ına bağlı; offering `default` → Lifetime paketi.
+### A6. In-app purchase: `pro_lifetime` (`store/iap.md`)
+- [ ] Monetization → In-App Purchases → **+** → Type **Non-Consumable** · Reference Name `Mazi Türkiye Pro (ömür boyu)` (lifetime) · Product ID **`pro_lifetime`** (cannot be changed later).
+- [ ] Price Schedule: base **5.99 USD**; other countries via Apple's automatic equalization. The Türkiye price is reviewed based on the first month's data (`DECISIONS.md`).
+- [ ] Localization (Turkish): Display Name `Mazi Türkiye Pro` · Description `İpuçları, arşiv, sınırsız 1v1, tam istatistik` (Hints, archive, unlimited 1v1, full stats) (≤45).
+- [ ] Family Sharing: **off** (cannot be turned off once on; decide after the first month's data).
+- [ ] Review Information: screenshot `store/screenshots/iap-review.png` (Pro screen, 1290×2796) + note: "Home → Arşiv · Pro → Pro'yu aç, or tap 'Dönem ipucu' during a round." (Arşiv = Archive, Pro'yu aç = Unlock Pro, Dönem ipucu = Era hint).
+- [ ] Status **Ready to Submit**.
+- [ ] 👤 Users and Access → Sandbox → Testers: at least one sandbox Apple account.
+- [ ] In RevenueCat, the App Store app is connected, `pro_lifetime` is imported and attached to the `pro` entitlement; offering `default` → Lifetime package.
 
 ### A7. App Privacy (`store/privacy-forms.md`)
 - [ ] Privacy Policy URL: `https://maziturkiye.com/gizlilik/`
-- [ ] Data Collection: "Yes"; kategoriler: Contact Info → Email (sadece Apple/Google girişi), User Content → Other, Identifiers → User ID, Usage Data → Product Interaction, Purchases → Purchase History, Diagnostics → Crash/Performance, Other Data → Gameplay. Hepsi **Linked to You**, hiçbiri **Tracking** değil. Location: **toplanmıyor**.
-- [ ] **Publish** edildi (yayımlanmadan inceleme gönderilemez).
+- [ ] Data Collection: "Yes"; categories: Contact Info → Email (Apple/Google sign-in only), User Content → Other, Identifiers → User ID, Usage Data → Product Interaction, Purchases → Purchase History, Diagnostics → Crash/Performance, Other Data → Gameplay. All **Linked to You**, none **Tracking**. Location: **not collected**.
+- [ ] **Published** (a review cannot be submitted until it is published).
 
-### A8. Build ve TestFlight iç testi
-- [ ] `app/app.config.ts` → `version: "1.0.0"`; production ortam değişkenleri tam (Bölüm 0).
+### A8. Build and TestFlight internal testing
+- [ ] `app/app.config.ts` → `version: "1.0.0"`; production environment variables complete (Section 0).
 - [ ] `cd app && npx eas-cli@latest build -p ios --profile production`
-- [ ] `npx eas-cli@latest submit -p ios --profile production --latest` → App Store Connect → TestFlight'ta "Processing" → "Ready to Test" (10–30 dk). Şifreleme sorusu çıkmaz (`ITSAppUsesNonExemptEncryption: false`).
-- [ ] TestFlight → Internal Testing → grup "Ekip" → iç testçiler eklendi (App Store Connect kullanıcıları, en çok 100); Test Information: açıklama ve geri bildirim e-postası `destek@maziturkiye.com`.
-- [ ] Ajan ve kullanıcı kendi telefonunda **Bölüm C**'yi (Gönderim öncesi kontrol listesi) TestFlight build'iyle baştan sona yaptı.
-- [ ] TestFlight → Crashes ve Feedback boş (Expo bağlantısında `testflight_crashes`, `testflight_feedback`).
+- [ ] `npx eas-cli@latest submit -p ios --profile production --latest` → App Store Connect → TestFlight "Processing" → "Ready to Test" (10–30 min). No encryption question appears (`ITSAppUsesNonExemptEncryption: false`).
+- [ ] TestFlight → Internal Testing → group "Ekip" (Team) → internal testers added (App Store Connect users, at most 100); Test Information: description and feedback email `destek@maziturkiye.com`.
+- [ ] The agent and the user ran **Section C** (Pre-submission checklist) end to end on their own phones with the TestFlight build.
+- [ ] TestFlight → Crashes and Feedback empty (`testflight_crashes`, `testflight_feedback` in the Expo connection).
 
-### A9. Sürüm sayfası (iOS App → 1.0 Prepare for Submission)
-- [ ] Sürüm numarası build ile aynı: **1.0.0** (varsayılan "1.0" ise düzelt; yoksa build seçilemez).
-- [ ] **Screenshots → iPhone 6.9" Display:** `store/screenshots/out/ios-6.9/` (`01-nerede` … `06-istatistik`, 1320×2868, dikey; Apple 3–10 adet kabul eder). Sıra (Plan 8.3): 1) fotoğraf + Türkiye haritası + "Bu fotoğraf nerede, hangi yıl?", 2) açılım anı ve puan, 3) 1v1, sonra seri, meydan okuma, istatistik. Sahte kullanıcı sayısı veya uydurma yorum yok. iPad görüntüsü gerekmez.
-- [ ] App Preview (isteğe bağlı): sadece uygulamanın gerçek ekran kaydı; HyperFrames sadece çerçeve/yazı için.
-- [ ] Promotional Text (≤170), Description, Keywords (`nostalji,bilgi,yarışması,…` 94/100), Support URL `https://maziturkiye.com/destek/`, Marketing URL `https://maziturkiye.com`: `store/listing.tr.md`'den aynen.
-- [ ] Copyright: `© 2026 ‹VERİ SORUMLUSU ADI›` (yer tutucu dolduruldu).
-- [ ] Build: TestFlight'taki son production build seçildi.
-- [ ] **In-App Purchases and Subscriptions** bölümüne `pro_lifetime` eklendi (ilk IAP, binary ile birlikte incelenir; eklenmezse inceleme ekibi satın alamaz → 2.1 reddi).
-- [ ] Game Center: kapalı.
-- [ ] App Review Information: **Sign-in required: kapalı** (demo hesabı yok, anonim oturum) · iletişim adı, telefonu, e-postası · **Notes:** `store/review-notes.md`'deki İngilizce blok aynen.
-- [ ] Version Release: **Manually release this version** (lansman 24 Kasım'da elle).
+### A9. Version page (iOS App → 1.0 Prepare for Submission)
+- [ ] Version number matches the build: **1.0.0** (fix it if the default is "1.0"; otherwise the build cannot be selected).
+- [ ] **Screenshots → iPhone 6.9" Display:** `store/screenshots/out/ios-6.9/` (`01-nerede` … `06-istatistik`, 1320×2868, portrait; Apple accepts 3–10). Order (Plan 8.3): 1) photo + map of Türkiye + "Bu fotoğraf nerede, hangi yıl?" (Where is this photo, what year?), 2) reveal moment and score, 3) 1v1, then streak, challenge, stats. No fake user counts or made-up reviews. No iPad screenshots needed.
+- [ ] App Preview (optional): only a real screen recording of the app; HyperFrames only for the frame/text.
+- [ ] Promotional Text (≤170), Description, Keywords (`nostalji,bilgi,yarışması,…` 94/100), Support URL `https://maziturkiye.com/destek/`, Marketing URL `https://maziturkiye.com`: copied verbatim from `store/listing.tr.md`.
+- [ ] Copyright: `© 2026 ‹VERİ SORUMLUSU ADI›` (data controller name) (placeholder filled in).
+- [ ] Build: the latest production build in TestFlight selected.
+- [ ] `pro_lifetime` added to the **In-App Purchases and Subscriptions** section (the first IAP is reviewed together with the binary; if not added, the review team cannot purchase → 2.1 rejection).
+- [ ] Game Center: off.
+- [ ] App Review Information: **Sign-in required: off** (no demo account, anonymous session) · contact name, phone, email · **Notes:** the English block in `store/review-notes.md` verbatim.
+- [ ] Version Release: **Manually release this version** (launch by hand on 24 November).
 
-### A10. İncelemeye gönderim
-- [ ] Son kontrol: Bölüm C tamam; günün fotoğrafları inceleme günlerinde de hazır (program ≥14 gün).
-- [ ] **17–18 Kasım:** Add for Review → Submit to App Review (inceleme genelde 24–48 saat; bir ret için pay bırakır).
-- [ ] Ret gelirse: Resolution Center'daki gerekçe okunur → düzeltilir → tekrar gönderilir → `DECISIONS.md`'ye yazılır. Kural sorusuysa Resolution Center'dan net bir yanıt yazılır (bot açıklaması, hesap silme yolu, sandbox adımları zaten notta).
-- [ ] Onay sonrası durum: **Pending Developer Release** (23 Kasım'a kadar).
+### A10. Submitting for review
+- [ ] Final check: Section C done; the daily photos are also ready on review days (schedule ≥14 days).
+- [ ] **17–18 November:** Add for Review → Submit to App Review (review usually 24–48 hours; leaves room for one rejection).
+- [ ] If rejected: read the reason in Resolution Center → fix → resubmit → record in `DECISIONS.md`. If it is a guideline question, write a clear reply in Resolution Center (bot explanation, account deletion path, sandbox steps are already in the note).
+- [ ] Status after approval: **Pending Developer Release** (until 23 November).
 
-### A11. Kademeli yayın
-- [ ] Plan 7.1: kademeli yayın açık. Apple'ın "Phased Release for Automatic Updates" seçeneği **sadece güncellemelerde** (1.0.1+) çıkar; 1.0'da yeni indirmeler zaten herkese açıktır. 1.0.1'den itibaren her sürümde açılır (7 gün: %1 → %2 → %5 → %10 → %20 → %50 → %100; 30 güne kadar duraklatılabilir). Bu not `DECISIONS.md`'ye yazılır.
+### A11. Phased release
+- [ ] Plan 7.1: phased release on. Apple's "Phased Release for Automatic Updates" option **only appears for updates** (1.0.1+); in 1.0, new downloads are open to everyone anyway. From 1.0.1 on it is turned on for every release (7 days: 1% → 2% → 5% → 10% → 20% → 50% → 100%; can be paused for up to 30 days). This note is recorded in `DECISIONS.md`.
 
 ---
 
 ## B. Google Play Console (Android)
 
-### B1. Hesap
-- [ ] 👤 Geliştirici hesabı (bireysel önerilir; HUMAN_TODO 3), kimlik doğrulaması tamam, iletişim e-postası/telefonu doğrulandı.
-- [ ] 👤 **Ödeme profili** (merchant account) açıldı: ücretli ürün oluşturmak için şart.
-- [ ] Hesap Kasım 2023'ten önce açılmışsa veya şirket hesabıysa B8–B9 (12 testçi × 14 gün) atlanır; durum `DECISIONS.md`'ye yazılır.
+### B1. Account
+- [ ] 👤 Developer account (personal recommended; HUMAN_TODO 3), identity verification done, contact email/phone verified.
+- [ ] 👤 **Payments profile** (merchant account) set up: required to create paid products.
+- [ ] If the account was opened before November 2023 or is an organization account, B8–B9 (12 testers × 14 days) are skipped; the status is recorded in `DECISIONS.md`.
 
-### B2. Uygulamayı oluştur
-- [ ] Home → **Create app**: App name **Mazi Türkiye: Tarih Tahmini** · Default language **Turkish – tr-TR** · App or game: **Game** · Free or paid: **Free** · Developer Program Policies ve US export laws beyanları işaretli.
+### B2. Create the app
+- [ ] Home → **Create app**: App name **Mazi Türkiye: Tarih Tahmini** · Default language **Turkish – tr-TR** · App or game: **Game** · Free or paid: **Free** · Developer Program Policies and US export laws declarations checked.
 
-### B3. İlk AAB (elle) ve uygulama imzalama
-- [ ] `cd app && npx eas-cli@latest build -p android --profile production` → `.aab` dosyasını indir.
-- [ ] Test and release → Testing → **Internal testing** → Create new release → App signing: **Google tarafından üretilen anahtar** (Play App Signing, varsayılan) → `.aab` yükle → sürüm notu → Save → Review → **Start rollout to Internal testing**. (Google API ilk yüklemeyi kabul etmez; sonraki yüklemeler `npx eas-cli@latest submit -p android --profile production --latest`.)
-- [ ] Internal testing → Testers: e-posta listesi "Ekip" → opt-in linkiyle kur ve aç.
-- [ ] Setup → **App integrity** → App signing key certificate: **SHA-256** → `web/.well-known/assetlinks.json`; **SHA-1** → Google Cloud Android OAuth istemcisi. Upload key (EAS) SHA-1/SHA-256'sı da aynı yerlere eklendi.
+### B3. First AAB (by hand) and app signing
+- [ ] `cd app && npx eas-cli@latest build -p android --profile production` → download the `.aab` file.
+- [ ] Test and release → Testing → **Internal testing** → Create new release → App signing: **Google-generated key** (Play App Signing, default) → upload `.aab` → release notes → Save → Review → **Start rollout to Internal testing**. (The Google API does not accept the first upload; later uploads use `npx eas-cli@latest submit -p android --profile production --latest`.)
+- [ ] Internal testing → Testers: email list "Ekip" (Team) → set up and open with the opt-in link.
+- [ ] Setup → **App integrity** → App signing key certificate: **SHA-256** → `web/.well-known/assetlinks.json`; **SHA-1** → Google Cloud Android OAuth client. The upload key (EAS) SHA-1/SHA-256 is also added in the same places.
 
-### B4. Uygulama içi ürün: `pro_lifetime`
-- [ ] Monetize with Play → Products → **One-time products** → Create: Product ID **`pro_lifetime`** · Name `Mazi Türkiye Pro` · Description `İpuçları, geçmiş günler, sınırsız 1v1 ve detaylı istatistik — tek seferlik` · satın alma seçeneği: Buy · taban fiyat **5,99 USD**, diğer ülkeler otomatik dönüşüm · **Activate**. (BILLING izni olan bir AAB yüklenmeden ürün oluşturulamaz; B3 önce.)
-- [ ] RevenueCat'te Play uygulaması bağlı (service account JSON: finansal veri ve sipariş yönetimi izni) · Real-time developer notifications (Pub/Sub) RevenueCat rehberine göre kuruldu · ürün içe aktarıldı ve `pro` entitlement'ına bağlı.
-- [ ] Setup → **License testing**: test Gmail hesapları eklendi (ücretsiz test satın alması).
+### B4. In-app product: `pro_lifetime`
+- [ ] Monetize with Play → Products → **One-time products** → Create: Product ID **`pro_lifetime`** · Name `Mazi Türkiye Pro` · Description `İpuçları, geçmiş günler, sınırsız 1v1 ve detaylı istatistik — tek seferlik` (Hints, past days, unlimited 1v1 and detailed stats — one-time) · purchase option: Buy · base price **5.99 USD**, other countries by automatic conversion · **Activate**. (The product cannot be created until an AAB with the BILLING permission is uploaded; B3 first.)
+- [ ] In RevenueCat, the Play app is connected (service account JSON: permissions for financial data and order management) · Real-time developer notifications (Pub/Sub) set up per the RevenueCat guide · product imported and attached to the `pro` entitlement.
+- [ ] Setup → **License testing**: test Gmail accounts added (free test purchases).
 
-### B5. App content (Policy and programs → App content), cevaplar `store/privacy-forms.md`
+### B5. App content (Policy and programs → App content), answers in `store/privacy-forms.md`
 - [ ] **Privacy policy:** `https://maziturkiye.com/gizlilik/`
-- [ ] **App access:** All functionality is available without any access restrictions (giriş gerekmez).
+- [ ] **App access:** All functionality is available without any access restrictions (no sign-in needed).
 - [ ] **Ads:** No, my app does not contain ads.
-- [ ] **Content rating:** IARC anketi (e-posta `destek@maziturkiye.com`, kategori Game; cevaplar `store/age-rating.md`) → beklenen PEGI 3 / ESRB Everyone ("Users Interact", "In-App Purchases" etiketleriyle).
-- [ ] **Target audience and content:** 13–15, 16–17, 18+; çocuklara yönelik değil; Families programı yok.
+- [ ] **Content rating:** IARC questionnaire (email `destek@maziturkiye.com`, category Game; answers in `store/age-rating.md`) → expected PEGI 3 / ESRB Everyone (with "Users Interact", "In-App Purchases" labels).
+- [ ] **Target audience and content:** 13–15, 16–17, 18+; not aimed at children; no Families program.
 - [ ] **News app:** No. **Government app:** No. **Financial features:** none. **Health:** not a health app.
-- [ ] **Data safety:** tablo `store/privacy-forms.md` → aktarımda şifreleme Evet, silme talebi Evet, hesap silme URL'si `https://maziturkiye.com/hesap-silme/`.
-- [ ] **Advertising ID:** kullanılmıyor (build sonrası birleşik manifestte `com.google.android.gms.permission.AD_ID` olmadığını doğrula).
-- [ ] Konsol başka izin beyanı isterse (fotoğraf/video, exact alarm, foreground service, full-screen intent): kullanılmıyor.
+- [ ] **Data safety:** table in `store/privacy-forms.md` → encryption in transit Yes, deletion request Yes, account deletion URL `https://maziturkiye.com/hesap-silme/`.
+- [ ] **Advertising ID:** not used (after the build, verify that `com.google.android.gms.permission.AD_ID` is not in the merged manifest).
+- [ ] If the console asks for other permission declarations (photo/video, exact alarm, foreground service, full-screen intent): not used.
 
 ### B6. Store settings
-- [ ] App category: **Game → Trivia** · Tags (en çok 5): Bilgi yarışması, Bulmaca, Tek oyunculu, Çok oyunculu, Çevrimiçi.
-- [ ] Store listing contact details: e-posta `destek@maziturkiye.com`, web sitesi `https://maziturkiye.com`.
+- [ ] App category: **Game → Trivia** · Tags (at most 5): Bilgi yarışması, Bulmaca, Tek oyunculu, Çok oyunculu, Çevrimiçi (Trivia, Puzzle, Single player, Multiplayer, Online).
+- [ ] Store listing contact details: email `destek@maziturkiye.com`, website `https://maziturkiye.com`.
 
 ### B7. Main store listing (`store/listing.tr.md`)
-- [ ] App name (27/30), Short description (80/80), Full description (≤4.000).
-- [ ] App icon: 512×512 PNG, 32-bit, ≤1 MB (`store/brand/icon-1024.png`'den küçültülür).
-- [ ] **Feature graphic: 1024×500** JPG veya 24-bit PNG (zorunlu; henüz repoda yok, üretilmeli).
-- [ ] Phone screenshots: `store/screenshots/out/android-phone/` (1080×1920). 2–8 adet, en-boy oranı ≤2:1, tanıtıma uygunluk için en az 4 adet ve kısa kenar ≥1080 px. Sıra iOS ile aynı (Plan 8.3).
-- [ ] İsteğe bağlı: tanıtım videosu (YouTube URL), English çevirisi (`store/listing.en.md`).
-- [ ] Not: Tam açıklama "Google ile giriş yapıp skorlarını koru" diyor; Google girişi production build'de açık değilse cümle çıkarılır.
+- [ ] App name (27/30), Short description (80/80), Full description (≤4,000).
+- [ ] App icon: 512×512 PNG, 32-bit, ≤1 MB (scaled down from `store/brand/icon-1024.png`).
+- [ ] **Feature graphic: 1024×500** JPG or 24-bit PNG (required; not in the repo yet, must be produced).
+- [ ] Phone screenshots: `store/screenshots/out/android-phone/` (1080×1920). 2–8 images, aspect ratio ≤2:1, at least 4 images and short side ≥1080 px to be eligible for promotion. Same order as iOS (Plan 8.3).
+- [ ] Optional: promo video (YouTube URL), English translation (`store/listing.en.md`).
+- [ ] Note: The full description says "Google ile giriş yapıp skorlarını koru" (Sign in with Google and keep your scores); if Google sign-in is not enabled in the production build, the sentence is removed.
 
-### B8. Kapalı test: 12 testçi × 14 gün (`marketing/testers.md`)
-- [ ] Testing → **Closed testing** → track (varsayılan "Alpha") → Countries/regions: Türkiye (+ testçilerin bulunduğu ülkeler).
-- [ ] Testers: e-posta listesi "Kapalı test" → **en az 12, hedef 15–16** Gmail adresi (adresler repoya yazılmaz) → Save → **opt-in linkini** kopyala → davet metnindeki `<PLAY_TEST_OPT_IN_LINK>` yerine koyup gönder.
-- [ ] Create release → **Add from library** (internal'daki AAB) → Türkçe sürüm notu → Review → **Start rollout to Closed testing**. (Kapalı test sürümü Google incelemesinden geçer; saatler–birkaç gün.)
-- [ ] **En geç 17 Kasım:** 12+ testçi opt-in yaptı ve uygulamayı Play'den kurdu. 14 gün sayacı ancak 12 testçi aynı anda katılı olduğunda ilerler; Dashboard'daki sayaç takip edilir.
-- [ ] Testçi takibi `marketing/testers.md` tablosunda; düşen testçinin yerine yedek davet edilir.
-- [ ] Test süresince hatalar yeni kapalı test sürümleriyle düzeltilir (sayaç sıfırlanmaz). Geri bildirimler ve yapılan değişiklikler not edilir (üretim başvurusunda sorulur).
+### B8. Closed testing: 12 testers × 14 days (`marketing/testers.md`)
+- [ ] Testing → **Closed testing** → track (default "Alpha") → Countries/regions: Türkiye (+ countries where testers are).
+- [ ] Testers: email list "Kapalı test" (Closed test) → **at least 12, target 15–16** Gmail addresses (addresses are not written to the repo) → Save → copy the **opt-in link** → put it in place of `<PLAY_TEST_OPT_IN_LINK>` in the invitation text and send.
+- [ ] Create release → **Add from library** (the AAB in internal) → Turkish release notes → Review → **Start rollout to Closed testing**. (The closed test release goes through Google review; hours to a few days.)
+- [ ] **By 17 November at the latest:** 12+ testers opted in and installed the app from Play. The 14-day counter only advances while 12 testers are enrolled at the same time; watch the counter on the Dashboard.
+- [ ] Tester tracking in the `marketing/testers.md` table; a backup is invited to replace a tester who drops out.
+- [ ] During the test, bugs are fixed with new closed test releases (the counter does not reset). Feedback and the changes made are noted (asked in the production application).
 
-### B9. Üretim erişimi başvurusu
-- [ ] 14 gün dolunca (17 Kasım başlangıçla **1 Aralık**) Dashboard → **Apply for production** → sorular `marketing/testers.md`'deki taslakla yanıtlanır (testçileri nasıl bulduk, nasıl kullandılar, geri bildirim ve değişiklikler, hazır mı) → gönder.
-- [ ] Onay gelene kadar (genelde ≤7 gün) production sürümü hazırlanır ama yayınlanmaz.
+### B9. Production access application
+- [ ] When the 14 days are up (**1 December** with a 17 November start) Dashboard → **Apply for production** → questions answered with the draft in `marketing/testers.md` (how we found testers, how they used it, feedback and changes, is it ready) → submit.
+- [ ] Until approval arrives (usually ≤7 days), the production release is prepared but not published.
 
-### B10. Üretim sürümü ve kademeli yayın
-- [ ] Publishing overview → **Managed publishing açık** (onaylanan değişiklik sen "Publish" diyene kadar yayına girmez; lansman saatini sen belirlersin).
-- [ ] Production → Countries/regions: iOS ile aynı ülkeler.
-- [ ] Production → Create new release → Add from library (kapalı testteki son AAB) → sürüm notu (`listing.tr.md` → "Bu sürümde (1.0)") → **Staged rollout: %20** → Review → Start rollout to Production.
-- [ ] **İlk sürüm notu:** Daha önce yayında sürüm olmadığı için %20 kademeli yayın, yeni yüklemeleri de kullanıcıların yaklaşık %20'siyle sınırlar. Lansman duyurularından (3 Aralık sabahı) önce %100'e çıkarılır; %20 aşaması onay gelir gelmez 1–2 gün önceden başlatılıp Android vitals izlenir.
-- [ ] Android vitals: kullanıcı tarafından algılanan çökme oranı <%1,09, ANR <%0,47 (Google'ın kötü davranış eşikleri). Sorun yoksa %20 → %50 → %100. Ani artışta **Halt rollout**, düzelt, yeni sürüm.
-
----
-
-## C. Gönderim öncesi kontrol listesi
-
-Plan 7.3 (aynen):
-
-- [ ] Gerçek cihazda günlük oyun, 04:00 gün dönüşü ve bildirim denendi
-- [ ] 1v1: gerçek oyuncu, admin bildirimi (60. saniye) ve bot (120. saniye) senaryoları denendi
-- [ ] Meydan okuma linki app yüklüyken ve yüklü değilken denendi
-- [ ] Pro satın alma ve geri yükleme sandbox'ta denendi
-- [ ] Hesap silme çalışıyor
-- [ ] Her fotoğrafın atfı görünüyor
-- [ ] Gizlilik, koşullar, destek URL'leri açılıyor
-- [ ] İnternet yokken uygulama çökmüyor, anlaşılır bir mesaj gösteriyor
-- [ ] Çökme ve analitik olayları PostHog'a ulaşıyor
-
-### C.1 Nasıl denenir (iOS TestFlight + Android internal/closed, ikisinde de)
-
-- **Günlük oyun ve gün dönüşü:** Temiz kurulum → karşılama (3 adım) → 5 fotoğraf → açılım (çizgi, yıl sayacı, puan, hikaye, atıf, "Fotoğrafı tekrar aç", "Bu bilgi yanlış mı?") → gün özeti → paylaş. Fotoğrafa dokununca tam ekran yakınlaştırma (pinch, çift dokunma) **Android'de de** çalışıyor. 03:58–04:02 arası uygulama açıkken geri sayım sıfırlanıp yeni gün yükleniyor; seri doğru artıyor.
-- **Bildirim:** İzin ilk turun sonunda isteniyor (açılışta değil). Ertesi gün turu bitirmeden hatırlatıcı geliyor; bitirince o günün bildirimi gelmiyor. Ayarlar'dan sabit saat seçimi çalışıyor. Bildirime dokununca uygulama açılıyor. Android'de "seri tehlikede" push bildirimi geliyor (FCM yapılandırması).
-- **1v1:** (a) iki gerçek cihaz eşleşiyor, 45 sn sayaç, açılım, sonuç, derece değişimi; (b) tek cihazla bekle → 60. saniyede admin'e Telegram mesajı → linke dokununca admin hesabı maça bağlanıyor; (c) 120. saniyede bot katılıyor, bot ismi sabit listeden, ekranda "Rakip bulunamazsa yapay zekâ rakip atanabilir." yazıyor; (d) ücretsiz kullanıcı 3 maçtan sonra Pro ekranını görüyor.
-- **Meydan okuma:** Gün özeti → "Arkadaşına meydan oku" → WhatsApp. (a) Uygulama yüklü cihazda link doğrudan meydan okumayı açıyor (iOS evrensel link, Android App Links "verified"); (b) yüklü olmayan cihazda web sayfası 6 haneli kodu gösterip kopyalıyor → mağazadan kur → karşılamada "Meydan okuma kodun var mı?" → "Panodan yapıştır" → aynı 5 fotoğraf → karşılaştırma.
-- **Pro:** Sandbox (iOS) / license tester (Android) hesabıyla: ipucu çipi → Pro ekranı → mağaza fiyatı görünüyor (yedek "6 $" değil) → satın al → ipucu çalışıyor, arşiv açılıyor, 1v1 sınırı kalkıyor, uygulamayı kapatıp açınca Pro kalıyor. Uygulamayı sil-kur → "Satın alımı geri yükle" → Pro geri geliyor. **Apple/Google ile giriş yaptıktan sonra** satın alma ve geri yükleme de denenir (QA bulgusu).
-- **Hesap silme:** Ayarlar → Hesabı sil → onay → veriler gidiyor, uygulama yeni anonim oturumla açılıyor; Apple ile girişli hesapta da deneniyor. Web: `/hesap-silme/` talep sayfası açılıyor.
-- **Atıf:** Her açılımda ve 1v1 açılımında eser sahibi, kaynak (link) ve lisans (link) görünüyor; Ayarlar → Kaynaklar ve lisanslar dolu.
-- **URL'ler:** Ayarlar → Gizlilik, KVKK, Kullanım koşulları uygulama içi tarayıcıda açılıyor; Destek e-postası açılıyor; mağaza sayfalarındaki gizlilik/destek/pazarlama URL'leri 200 dönüyor.
-- **İnternetsiz:** Uçak modunda: ilk kurulum (karşılama → oyun "Bağlantı kurulamadı" + Tekrar dene), oyun ortasında tahmin, sıralama, istatistik, kaynaklar, Pro ekranı, 1v1 araması ve 1v1 maçı. Hiçbiri çökmüyor; her ekranda anlaşılır mesaj var; internet gelince "Tekrar dene" ekranı gerçekten toparlıyor.
-- **PostHog:** Live events'te `app_opened`, `onboarding_completed`, `photo_guessed`, `day_completed`, `share_tapped`, `challenge_sent`, `challenge_opened`, `duel_search_started`, `duel_matched`, `duel_finished`, `paywall_viewed`, `pro_purchased`, `pro_restored`, `notification_opened`, `account_deleted` görünüyor; olaylarda e-posta/isim yok. Test amaçlı bir hata fırlatılınca (yalnızca preview build) `$exception` olayı geliyor.
-
-### C.2 Ek kontroller
-- [ ] Karanlık mod ve büyük yazı boyutu (Ayarlar → Erişilebilirlik → Daha Büyük Metin) ekranları bozmuyor.
-- [ ] VoiceOver / TalkBack ile ana akış gezilebiliyor (düğme etiketleri Türkçe).
-- [ ] Küçük ekran (iPhone SE / 5,5" Android) ve büyük ekranda oyun ekranında harita, yıl kaydırıcısı ve "Tahmin et" görünür.
-- [ ] Apple ile giriş ve Google ile giriş; anonim skorların hesaba taşınması; iki cihaz arası senkron.
-- [ ] Sürüm bilgisi Ayarlar'ın altında doğru (1.0.0 ve build numarası).
-- [ ] OTA: preview kanalına küçük bir metin değişikliği gönder (`npx eas-cli@latest update --channel preview --environment preview`), uygulama iki açılışta güncellemeyi alıyor.
+### B10. Production release and staged rollout
+- [ ] Publishing overview → **Managed publishing on** (an approved change does not go live until you click "Publish"; you decide the launch time).
+- [ ] Production → Countries/regions: same countries as iOS.
+- [ ] Production → Create new release → Add from library (latest AAB in closed testing) → release notes (`listing.tr.md` → "Bu sürümde (1.0)" (In this release (1.0))) → **Staged rollout: 20%** → Review → Start rollout to Production.
+- [ ] **First release note:** Since there is no previously published release, a 20% staged rollout also limits new installs to about 20% of users. It is raised to 100% before the launch announcements (morning of 3 December); the 20% stage is started 1–2 days early as soon as approval arrives, and Android vitals are watched.
+- [ ] Android vitals: user-perceived crash rate <1.09%, ANR <0.47% (Google's bad behavior thresholds). If there are no issues, 20% → 50% → 100%. On a sudden spike, **Halt rollout**, fix, new release.
 
 ---
 
-## D. Lansman günü akışı
+## C. Pre-submission checklist
 
-Saatler Türkiye saatiyle (TSİ). Gün 04:00'te kendiliğinden açılır.
+Plan 7.3 (verbatim):
 
-### D.0 Lansmandan önceki hafta (17–23 Kasım)
-- [ ] Sosyal hesaplar açık, profiller `marketing/social/profiles.md`'ye göre dolu; son 14 günde 10–15 "bil bakalım" videosu yayınlandı (Plan 9.5; `marketing/templates/` + `make-video.mjs`; **günün fotoğrafları asla**).
-- [ ] Basın bülteni (`marketing/outreach/press-release.md`): ‹Ad Soyad›, kurucu alıntısı, tarih dolduruldu; basın kiti sayfası (`maziturkiye.com/basin`: ekran görüntüleri, ikon, logo) yayında veya bültenden link çıkarıldı.
-- [ ] Reddit gönderileri (`marketing/outreach/reddit.md`) her topluluğun kuralına göre son kez okundu.
-- [ ] 20 mikro hesap listesi (`marketing/outreach/creators.md`, elle doldurulur) hazır; mesaj `marketing/outreach/influencer-dm.md`.
-- [ ] Landing'deki bekleme listesi (Resend) varsa duyuru e-postası taslağı hazır.
-- [ ] Pro promosyon kodları: App Store Connect'te `pro_lifetime` için offer/promo code, Play Console'da promo code (iş birlikleri için).
-- [ ] iOS durumu **Pending Developer Release**.
+- [ ] Daily game, the 04:00 day rollover and notifications tried on a real device
+- [ ] 1v1: real player, admin notification (60th second) and bot (120th second) scenarios tried
+- [ ] Challenge link tried with the app installed and not installed
+- [ ] Pro purchase and restore tried in sandbox
+- [ ] Account deletion works
+- [ ] Every photo's attribution is visible
+- [ ] Privacy, terms, support URLs open
+- [ ] Without internet the app does not crash and shows a clear message
+- [ ] Crash and analytics events reach PostHog
 
-### D.1 iOS lansmanı · 24 Kasım 2026, salı
-- [ ] **04:15** Gerçek cihazda yeni günün (#N) açıldığını ve oynandığını kontrol et; `daily-ops` ve Telegram'da uyarı yok.
-- [ ] **08:30** Son kontrol: Supabase sağlıklı (Dashboard → Reports, Edge Function logları), PostHog olay alıyor, web sayfaları açılıyor, AASA 200 dönüyor.
-- [ ] **09:00** App Store Connect → 1.0 → **Release This Version**. Mağazada görünmesi birkaç saat (en çok 24 saat) sürebilir; `https://apps.apple.com/tr/app/id<APPLE_ID>` açılana kadar duyuru yapma.
-- [ ] **10:00** Link açılınca yer tutucuları değiştir: `marketing/outreach/reddit.md` (‹link›), `marketing/outreach/press-release.md` (App Store linki, ‹tarih›), web landing'deki App Store rozeti, sosyal biyografi linkleri (`?utm_source=<kanal>&utm_medium=profile`).
-- [ ] **10:30** Bekleme listesine duyuru e-postası (varsa).
-- [ ] **11:00** Basın e-postaları: Webrazzi, Webtekno, ShiftDelete.Net, Log, Teknoblog (`press-release.md`; her birine kişisel bir giriş cümlesi).
-- [ ] **12:00** Sosyal medya: lansman "bil bakalım" videosu Reels + TikTok + Shorts, X gönderisi, Instagram hikayesi (atıf kalıbı ve AI etiketi kuralları `profiles.md`'de).
-- [ ] **13:00** Kendi çevren: günün turunu oyna, gün özetinden WhatsApp meydan okuma linki gönder (Plan 9.5.2).
-- [ ] **17:00** Reddit gönderileri (`reddit.md`; r/Turkey için ABD sabahıyla çakışan saat). Sonraki 2–3 saat yorumlara kurucu olarak yanıt ver.
-- [ ] **Gün boyu:** Telegram'da 1v1 bekleme bildirimi gelince admin olarak maça gir (lansman günü bot oranını düşürür). PostHog: `app_opened`, `onboarding_completed`, `day_completed`, `challenge_sent`, `paywall_viewed`, `pro_purchased`. Supabase: hata logları, anonim giriş 429'ları. App Store yorumlarına 48 saat içinde Türkçe, kişisel yanıt (Expo bağlantısı: `appstore_reviews`, `appstore_reply_review`).
-- [ ] **22:00** Günün sayıları ve gözlemler `STATUS.md`'ye; alınan kararlar `DECISIONS.md`'ye.
+### C.1 How to test (iOS TestFlight + Android internal/closed, on both)
 
-**Acil durum:**
-- Sadece JS hatası → düzelt → `npx eas-cli@latest update --channel preview --environment preview --message "…"` ile dene → `--channel production --environment production`.
-- Native hata → `version` 1.0.1 → build → submit → App Review'dan **expedited review** talebi.
-- Arka uç hatası → migration / Edge Function düzeltmesi hemen.
-- Telif şikayeti → ilgili fotoğraf derhal yayından çekilir (Plan 11).
-- Mağaza reddi, 1 yıldızlı yorumlarda ani artış, çökme oranı >%1 → Telegram'dan kullanıcıya bildirilir.
+- **Daily game and day rollover:** Clean install → onboarding (3 steps) → 5 photos → reveal (line, year counter, score, story, attribution, "Fotoğrafı tekrar aç" (Open the photo again), "Bu bilgi yanlış mı?" (Is this info wrong?)) → day summary → share. Tapping the photo opens full-screen zoom (pinch, double tap), which works **on Android too**. With the app open between 03:58 and 04:02, the countdown resets and the new day loads; the streak increases correctly.
+- **Notifications:** Permission is asked at the end of the first round (not at launch). The next day, a reminder arrives before finishing the round; after finishing, that day's notification does not arrive. Picking a fixed time in Settings works. Tapping the notification opens the app. On Android, the "streak in danger" push notification arrives (FCM configuration).
+- **1v1:** (a) two real devices match, 45 s timer, reveal, result, rating change; (b) wait with a single device → at the 60th second a Telegram message to the admin → tapping the link joins the admin account to the match; (c) at the 120th second the bot joins, the bot name is from the fixed list, the screen says "Rakip bulunamazsa yapay zekâ rakip atanabilir." (If no opponent is found, an AI opponent may be assigned.); (d) a free user sees the Pro screen after 3 matches.
+- **Challenge:** Day summary → "Arkadaşına meydan oku" (Challenge a friend) → WhatsApp. (a) On a device with the app installed, the link opens the challenge directly (iOS universal link, Android App Links "verified"); (b) on a device without it, the web page shows and copies the 6-digit code → install from the store → in onboarding "Meydan okuma kodun var mı?" (Do you have a challenge code?) → "Panodan yapıştır" (Paste from clipboard) → the same 5 photos → comparison.
+- **Pro:** With a sandbox (iOS) / license tester (Android) account: hint chip → Pro screen → store price is shown (not the fallback "6 $") → buy → hint works, archive unlocks, 1v1 limit is lifted, Pro stays after closing and reopening the app. Delete and reinstall the app → "Satın alımı geri yükle" (Restore purchase) → Pro comes back. Purchase and restore are also tried **after signing in with Apple/Google** (QA finding).
+- **Account deletion:** Settings → Delete account → confirm → data is gone, the app opens with a new anonymous session; also tried with an account signed in with Apple. Web: the `/hesap-silme/` request page opens.
+- **Attribution:** On every reveal and 1v1 reveal, the author, source (link) and license (link) are visible; Settings → Sources and licenses is filled.
+- **URLs:** Settings → Privacy, KVKK, Terms of use open in the in-app browser; the Support email opens; the privacy/support/marketing URLs on the store pages return 200.
+- **No internet:** In airplane mode: first install (onboarding → game "Bağlantı kurulamadı" (Could not connect) + Tekrar dene (Try again)), guessing mid-game, leaderboard, stats, sources, Pro screen, 1v1 search and 1v1 match. None of them crash; every screen has a clear message; when the internet comes back, the "Tekrar dene" screen really recovers.
+- **PostHog:** Live events show `app_opened`, `onboarding_completed`, `photo_guessed`, `day_completed`, `share_tapped`, `challenge_sent`, `challenge_opened`, `duel_search_started`, `duel_matched`, `duel_finished`, `paywall_viewed`, `pro_purchased`, `pro_restored`, `notification_opened`, `account_deleted`; no email/name in the events. When a test error is thrown (preview build only), an `$exception` event arrives.
 
-**İlk hafta (25–30 Kasım):** 20 mikro hesaba kişisel iş birliği mesajı (`influencer-dm.md`, toplu gönderim yok) · her gün 1 video + 2–3 hikaye · yorumlara 48 saat içinde yanıt · Plan 10.3 haftalık döngüsü (en zayıf halka → tek değişiklik).
+### C.2 Extra checks
+- [ ] Dark mode and large text size (Settings → Accessibility → Larger Text) do not break screens.
+- [ ] The main flow can be navigated with VoiceOver / TalkBack (button labels in Turkish).
+- [ ] On small screens (iPhone SE / 5.5" Android) and large screens, the map, year slider and "Tahmin et" (Guess) are visible on the game screen.
+- [ ] Sign in with Apple and Google sign-in; moving anonymous scores to the account; sync between two devices.
+- [ ] Version info at the bottom of Settings is correct (1.0.0 and build number).
+- [ ] OTA: send a small text change to the preview channel (`npx eas-cli@latest update --channel preview --environment preview`); the app receives the update within two launches.
 
-### D.2 Android lansmanı · 3 Aralık 2026, perşembe
-- [ ] **1 Aralık:** Kapalı test 14 günü doldu → üretim erişimi başvurusu (B9).
-- [ ] **Onay gelince (en geç 2 Aralık):** Production sürümü %20 kademeli yayınla başlatıldı (B10), Android vitals ve PostHog'da `platform = android` izleniyor.
-- [ ] **3 Aralık 04:15** Android cihazda yeni günün açıldığını kontrol et.
-- [ ] **09:00** Kademeli yayını **%100**'e çıkar (Managed publishing açıksa "Publish changes"). `https://play.google.com/store/apps/details?id=com.maziturkiye.app` Türkiye'den açılıyor.
-- [ ] **09:30** Play'den kurulan cihazda App Links doğrulandı: `adb shell pm get-app-links com.maziturkiye.app` → `verified`; WhatsApp'taki meydan okuma linki uygulamayı açıyor.
-- [ ] **10:00** Linkleri güncelle: web landing Google Play rozeti, sosyal biyografiler, Reddit gönderilerine "Android sürümü çıktı" yorumu, iOS haberini yapan basına kısa takip e-postası (`press-release.md` → Google Play ‹tarih›).
-- [ ] **11:00** Sosyal medya: "Android'de de yayında" gönderisi + yeni "bil bakalım" videosu.
-- [ ] **11:30** Kapalı testçilere WhatsApp'tan teşekkür (`marketing/testers.md` listesi).
-- [ ] **Gün boyu:** Android vitals, Play yorumları (`playstore_reviews`, `playstore_reply_review`; 48 saat içinde yanıt), PostHog, Supabase. Çökme artarsa Halt rollout.
-- [ ] **22:00** `STATUS.md` ve `DECISIONS.md` güncellenir.
-- [ ] **Üretim erişimi 3 Aralık'a yetişmezse:** Android duyurusu yapılmaz, tarih kaydırılır ve `DECISIONS.md`'ye yazılır; iOS akışı etkilenmez.
+---
+
+## D. Launch day flow
+
+Times are in Türkiye time (TRT). The day opens on its own at 04:00.
+
+### D.0 The week before launch (17–23 November)
+- [ ] Social accounts open, profiles filled per `marketing/social/profiles.md`; 10–15 "bil bakalım" (guess what) videos published in the last 14 days (Plan 9.5; `marketing/templates/` + `make-video.mjs`; **never the daily photos**).
+- [ ] Press release (`marketing/outreach/press-release.md`): ‹Ad Soyad› (full name), founder quote, date filled in; press kit page (`maziturkiye.com/basin`: screenshots, icon, logo) live or the link removed from the release.
+- [ ] Reddit posts (`marketing/outreach/reddit.md`) read one last time against each community's rules.
+- [ ] List of 20 micro accounts (`marketing/outreach/creators.md`, filled in by hand) ready; message in `marketing/outreach/influencer-dm.md`.
+- [ ] If there is a waitlist on the landing page (Resend), the announcement email draft is ready.
+- [ ] Pro promo codes: offer/promo code for `pro_lifetime` in App Store Connect, promo code in Play Console (for collaborations).
+- [ ] iOS status **Pending Developer Release**.
+
+### D.1 iOS launch · 24 November 2026, Tuesday
+- [ ] **04:15** On a real device, check that the new day (#N) has opened and can be played; no alerts in `daily-ops` or Telegram.
+- [ ] **08:30** Final check: Supabase healthy (Dashboard → Reports, Edge Function logs), PostHog receiving events, web pages open, AASA returns 200.
+- [ ] **09:00** App Store Connect → 1.0 → **Release This Version**. It can take a few hours (at most 24 hours) to appear in the store; do not announce until `https://apps.apple.com/tr/app/id<APPLE_ID>` opens.
+- [ ] **10:00** Once the link opens, replace the placeholders: `marketing/outreach/reddit.md` (‹link›), `marketing/outreach/press-release.md` (App Store link, ‹tarih› (date)), the App Store badge on the web landing page, social bio links (`?utm_source=<kanal>&utm_medium=profile`).
+- [ ] **10:30** Announcement email to the waitlist (if any).
+- [ ] **11:00** Press emails: Webrazzi, Webtekno, ShiftDelete.Net, Log, Teknoblog (`press-release.md`; a personal opening sentence for each).
+- [ ] **12:00** Social media: launch "bil bakalım" video on Reels + TikTok + Shorts, X post, Instagram story (attribution pattern and AI label rules in `profiles.md`).
+- [ ] **13:00** Your own circle: play the day's round, send the WhatsApp challenge link from the day summary (Plan 9.5.2).
+- [ ] **17:00** Reddit posts (`reddit.md`; for r/Turkey, a time that overlaps with the US morning). Reply to comments as the founder for the next 2–3 hours.
+- [ ] **All day:** When a 1v1 waiting notification arrives on Telegram, join the match as admin (lowers the bot rate on launch day). PostHog: `app_opened`, `onboarding_completed`, `day_completed`, `challenge_sent`, `paywall_viewed`, `pro_purchased`. Supabase: error logs, anonymous sign-in 429s. Personal replies in Turkish to App Store reviews within 48 hours (Expo connection: `appstore_reviews`, `appstore_reply_review`).
+- [ ] **22:00** The day's numbers and observations go to `STATUS.md`; decisions made go to `DECISIONS.md`.
+
+**Emergency:**
+- JS-only bug → fix → try with `npx eas-cli@latest update --channel preview --environment preview --message "…"` → `--channel production --environment production`.
+- Native bug → `version` 1.0.1 → build → submit → request an **expedited review** from App Review.
+- Backend bug → migration / Edge Function fix right away.
+- Copyright complaint → the photo in question is taken down immediately (Plan 11).
+- Store rejection, a sudden rise in 1-star reviews, crash rate >1% → the user is notified via Telegram.
+
+**First week (25–30 November):** personal collaboration message to the 20 micro accounts (`influencer-dm.md`, no bulk sending) · 1 video + 2–3 stories every day · reply to reviews within 48 hours · Plan 10.3 weekly loop (weakest link → one change).
+
+### D.2 Android launch · 3 December 2026, Thursday
+- [ ] **1 December:** Closed test completed 14 days → production access application (B9).
+- [ ] **When approved (by 2 December at the latest):** Production release started with a 20% staged rollout (B10), Android vitals and `platform = android` in PostHog are being watched.
+- [ ] **3 December 04:15** On an Android device, check that the new day has opened.
+- [ ] **09:00** Raise the staged rollout to **100%** ("Publish changes" if Managed publishing is on). `https://play.google.com/store/apps/details?id=com.maziturkiye.app` opens from Türkiye.
+- [ ] **09:30** App Links verified on a device installed from Play: `adb shell pm get-app-links com.maziturkiye.app` → `verified`; the challenge link in WhatsApp opens the app.
+- [ ] **10:00** Update links: Google Play badge on the web landing page, social bios, an "Android sürümü çıktı" (The Android version is out) comment on the Reddit posts, a short follow-up email to the press that covered the iOS news (`press-release.md` → Google Play ‹tarih›).
+- [ ] **11:00** Social media: "Android'de de yayında" (Now on Android too) post + a new "bil bakalım" video.
+- [ ] **11:30** Thank the closed testers on WhatsApp (`marketing/testers.md` list).
+- [ ] **All day:** Android vitals, Play reviews (`playstore_reviews`, `playstore_reply_review`; reply within 48 hours), PostHog, Supabase. If crashes rise, Halt rollout.
+- [ ] **22:00** `STATUS.md` and `DECISIONS.md` are updated.
+- [ ] **If production access is not ready by 3 December:** no Android announcement is made, the date is moved and recorded in `DECISIONS.md`; the iOS flow is not affected.

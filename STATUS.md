@@ -1,72 +1,72 @@
-# Durum — devir notu
+# Status — handover note
 
-_Son güncelleme: 2026-11-04 (yerel oturum 1)_
+_Last updated: 2026-11-04 (local session 1)_
 
-> **Yeni oturum için başlangıç sırası:** bu dosya → `HUMAN_TODO.md` → `DECISIONS.md` → aşağıdaki "Sıradaki adımlar".
-> Plan: `Plan.md`. Tüm metinler Türkçe. Dal: `main` (repo: github.com/Yigityakut/mazi-turkiye, public).
+> **Starting order for a new session:** this file → `HUMAN_TODO.md` → `DECISIONS.md` → "Next steps" below.
+> Plan: `Plan.md`. User-facing texts (app, web, store) are in Turkish; internal docs are in English. Branch: `main` (repo: github.com/Yigityakut/mazi-turkiye, public).
 
-## ✅ Biten
+## ✅ Done
 
-| Alan | Ne var | Nerede |
+| Area | What exists | Where |
 | --- | --- | --- |
-| İsim ve marka | **Mazi Türkiye**; ikon, adaptive ikon, splash, bildirim ikonu, OG ve kapak görselleri | `store/brand/`, `app/assets/`, `marketing/social/`, `web/assets/og.png` |
-| Uygulama | Expo SDK 58; Plan 5.3'teki tüm ekranlar; gömülü SVG Türkiye haritası; demo modu (`EXPO_PUBLIC_DEMO=1`, ekran görüntüleri için). `npx tsc --noEmit` temiz, web export çalışıyor | `app/` (kurulum: `app/README.md`) |
-| Backend (**canlı**) | Supabase `timeguessr` (Frankfurt): migration'lar 0100–0650 uygulandı; 7 edge function deploy edildi; pg_cron işleri kurulu; iç çağrı zinciri test edildi (DB → pg_net → function) | `supabase/` |
-| SQL testleri | PGlite ile 60/60 senaryo testi | `cd supabase/tests && npm install && npm test` |
-| Fotoğraf hattı | GitHub Actions'ta aday toplama (`pipeline/jobs/*.json` push'lanınca çalışır), inceleme panoları, onay/aktarım betikleri | `pipeline/`, `.github/workflows/pipeline.yml`, `pipeline/REVIEW_GUIDE.md` |
-| Fotoğraflar (**canlı**) | 104 fotoğraf onaylandı; 84'ü Storage'a yüklendi (40 günlük, 36 1v1, 8 bonus); 5 gün programlandı (14–18 Kasım) | `pipeline/selection/pool-a.json`, `pool-bc.json` |
-| Web | Landing (bekleme listesi), gizlilik TR/EN, KVKK, koşullar, kaynaklar, destek/SSS, hesap silme, meydan okuma `/m/KOD`, admin `/d/token`, basın kiti, `.well-known`, `vercel.json` | `web/` |
-| Mağaza | TR/EN metinler (sınırlar kontrol edildi), anahtar kelimeler, inceleme notu, App Privacy ve Data safety cevapları, yaş anketi, IAP, uygulama içi etkinlikler, adım adım yayın kontrol listesi, QA raporu | `store/` |
-| Ekran görüntüleri | Hattı hazır: demo modu, render betiği, CI. Şu anki PNG'ler **TASLAK** (yer tutucu fotoğraflı) | `store/screenshots/`, `.github/workflows/screenshots.yml` |
-| Pazarlama | İçerik takvimi, açıklama şablonları, e-postalar, profiller, testçi kiti, basın bülteni, Reddit, mikro hesap mesajı, SALT izin e-postası, HyperFrames "Bil bakalım" şablonu (render test edildi) | `marketing/` |
+| Name and brand | **Mazi Türkiye**; icon, adaptive icon, splash, notification icon, OG and cover images | `store/brand/`, `app/assets/`, `marketing/social/`, `web/assets/og.png` |
+| App | Expo SDK 58; all screens in Plan 5.3; embedded SVG Türkiye map; demo mode (`EXPO_PUBLIC_DEMO=1`, for screenshots). `npx tsc --noEmit` clean, web export works | `app/` (setup: `app/README.md`) |
+| Backend (**live**) | Supabase `timeguessr` (Frankfurt): migrations 0100–0650 applied; 7 edge functions deployed; pg_cron jobs set up; internal call chain tested (DB → pg_net → function) | `supabase/` |
+| SQL tests | 60/60 scenario tests with PGlite | `cd supabase/tests && npm install && npm test` |
+| Photo pipeline | Candidate collection in GitHub Actions (runs when `pipeline/jobs/*.json` is pushed), review sheets, approval/import scripts | `pipeline/`, `.github/workflows/pipeline.yml`, `pipeline/REVIEW_GUIDE.md` |
+| Photos (**live**) | 104 photos approved; 84 uploaded to Storage (40 daily, 36 1v1, 8 bonus); 5 days scheduled (14–18 November) | `pipeline/selection/pool-a.json`, `pool-bc.json` |
+| Web | Landing (waitlist), privacy TR/EN, KVKK, terms, sources, support/FAQ, account deletion, challenge `/m/KOD`, admin `/d/token`, press kit, `.well-known`, `vercel.json` | `web/` |
+| Store | TR/EN texts (limits checked), keywords, review note, App Privacy and Data safety answers, age questionnaire, IAP, in-app events, step-by-step release checklist, QA report | `store/` |
+| Screenshots | Pipeline ready: demo mode, render script, CI. The current PNGs are **DRAFTS** (with placeholder photos) | `store/screenshots/`, `.github/workflows/screenshots.yml` |
+| Marketing | Content calendar, caption templates, emails, profiles, tester kit, press release, Reddit, micro-account message, SALT permission email, HyperFrames "Bil bakalım" template (render tested) | `marketing/` |
 
 ## 📱 iOS / TestFlight (2026-11-12)
 
-- App Store Connect: "Mazi Türkiye: Tarih Tahmini" (App ID 6833869544, takım 8D5577P5QU, bundle `com.maziturkiye.app`).
-- iOS build 21 (1.0.0) TestFlight'ta; dahili grup "Team (Expo)", proje sahibi davet edildi.
-- Kimlik: ASC API anahtarı `52FW696LZF` (issuer `fcbaa887-…`), `.p8` yalnız yerelde: `~/.appstoreconnect/private_keys/` (thaledox Mac hesabı). `eas.json` submit bu yolu kullanıyor.
-- Sonraki iOS build: `cd app && EAS_NO_VCS=1 EXPO_NO_CAPABILITY_SYNC=1 EXPO_ASC_API_KEY_PATH=… EXPO_ASC_KEY_ID=52FW696LZF EXPO_ASC_ISSUER_ID=… EXPO_APPLE_TEAM_ID=8D5577P5QU eas build -p ios --profile production --non-interactive`, sonra `eas submit -p ios --profile production --id <build>`.
-- Notlar: EAS'in yetenek senkronu Apple API değişikliği yüzünden "Sign in with Apple"da hata veriyor (yetenekler elle açıldı; `EXPO_NO_CAPABILITY_SYNC=1`). Kod adı ASCII (`Mazi Turkiye`), görünen ad "Mazi Türkiye". Bu Mac hesabında git push Yigityakut reposuna erişemiyor (gh girişi yok).
+- App Store Connect: "Mazi Türkiye: Tarih Tahmini" (App ID 6833869544, team 8D5577P5QU, bundle `com.maziturkiye.app`).
+- iOS build 21 (1.0.0) is on TestFlight; internal group "Team (Expo)", the project owner was invited.
+- Identity: ASC API key `52FW696LZF` (issuer `fcbaa887-…`), `.p8` only locally: `~/.appstoreconnect/private_keys/` (thaledox Mac account). `eas.json` submit uses this path.
+- Next iOS build: `cd app && EAS_NO_VCS=1 EXPO_NO_CAPABILITY_SYNC=1 EXPO_ASC_API_KEY_PATH=… EXPO_ASC_KEY_ID=52FW696LZF EXPO_ASC_ISSUER_ID=… EXPO_APPLE_TEAM_ID=8D5577P5QU eas build -p ios --profile production --non-interactive`, then `eas submit -p ios --profile production --id <build>`.
+- Notes: EAS capability sync fails on "Sign in with Apple" because of an Apple API change (capabilities were enabled by hand; `EXPO_NO_CAPABILITY_SYNC=1`). Code name is ASCII (`Mazi Turkiye`), display name "Mazi Türkiye". On this Mac account git push cannot reach the Yigityakut repo (no gh login).
 
-## ⏳ Yarım kalanlar (2026-11-07)
+## ⏳ Unfinished (2026-11-07)
 
-1. **Canlı backend tamam:** migration 0700–0900 ve `sync-pro`, `track-event`, `delete-account` deploy edildi; anonim giriş ve manual linking açıldı (canlıda doğrulandı).
-2. **EAS:** `@rubygamestudios/mazi-turkiye`; production/preview/development env'leri girildi (Supabase URL/key, domain, destek e-postası, PostHog). Android production build #1 bitti (versionCode 2, AAB `~/Downloads/mazi-turkiye-2.aab`); Play'e ilk yükleme elle (Chrome aracı 10 MB sınırlı, servis hesabı anahtarı oluşturma izin denetimine takıldı). iOS build Apple kimlik bilgisi olmadığı için durdu.
-3. **PostHog:** EU proje 338708 (boş projeydi, kullanıldı). Token EAS'te; `track-event` varsayılan olarak bu public token'ı kullanır. `POSTHOG_PERSONAL_API_KEY` yok: hesap silmede PostHog kişisi silinmez (secret-store yazımı ajana kapalı).
-4. **Play Console:** uygulama oluşturuldu (app id 4974085984465631793), dahili test sürümü sayfası hazır; AAB sürüklenip bırakılacak.
-5. **Fotoğraf:** 104 canlı + 35 onaylı (pool-c2); 72 seçim repoda, aktarılmadı (ertelendi).
+1. **Live backend complete:** migrations 0700–0900 and `sync-pro`, `track-event`, `delete-account` deployed; anonymous sign-in and manual linking enabled (verified live).
+2. **EAS:** `@rubygamestudios/mazi-turkiye`; production/preview/development envs entered (Supabase URL/key, domain, support email, PostHog). Android production build #1 finished (versionCode 2, AAB `~/Downloads/mazi-turkiye-2.aab`); first upload to Play is manual (the Chrome tool is limited to 10 MB, and creating a service account key was blocked by a permission check). The iOS build stopped because there were no Apple credentials.
+3. **PostHog:** EU project 338708 (it was an empty project and was reused). Token in EAS; `track-event` uses this public token by default. No `POSTHOG_PERSONAL_API_KEY`: the PostHog person is not deleted on account deletion (writing to the secret store is closed to the agent).
+4. **Play Console:** app created (app id 4974085984465631793), internal test release page ready; the AAB is to be dragged and dropped.
+5. **Photos:** 104 live + 35 approved (pool-c2); 72 selections in the repo, not imported (postponed).
 
-**Bu oturumda canlıya alınanlar (2026-11-07):** Play dahili test sürümü 1.0.0 (2) yayında; Play `pro_lifetime` (5,99 $, 174 ülke) aktif; RevenueCat projesi a0ea7bc5: Play uygulaması, `pro` yetkisi, `default` teklifi ($rc_lifetime → pro_lifetime), Android SDK anahtarı EAS'te. Web Vercel'de (`maziturkiye.vercel.app`) ama *.vercel.app Türkiye'den erişilemiyor; web GitHub Pages'te yayında: https://yigityakut.github.io/maziturkiye/ (repo `Yigityakut/maziturkiye`, güncelleme: `node web/pages.mjs` → `dist-pages/` içeriğini o repoya push). `public_web_url` ve EAS `EXPO_PUBLIC_WEB_URL` bu adres.
+**Put live in this session (2026-11-07):** Play internal test release 1.0.0 (2) is out; Play `pro_lifetime` ($5.99, 174 countries) active; RevenueCat project a0ea7bc5: Play app, `pro` entitlement, `default` offering ($rc_lifetime → pro_lifetime), Android SDK key in EAS. Web is on Vercel (`maziturkiye.vercel.app`) but *.vercel.app cannot be reached from Türkiye; the web is live on GitHub Pages: https://yigityakut.github.io/maziturkiye/ (repo `Yigityakut/maziturkiye`, to update: `node web/pages.mjs` → push the contents of `dist-pages/` to that repo). `public_web_url` and EAS `EXPO_PUBLIC_WEB_URL` are this address.
 
-**Kullanıcı kapıları:** satın alma doğrulaması için RevenueCat secret key → Supabase `REVENUECAT_SECRET_KEY` ve Play servis hesabı JSON → RevenueCat (gizli değer yazımı ajana kapalı). Alan adı alınmayacak (kullanıcı kararı).
+**User gates:** for purchase verification, RevenueCat secret key → Supabase `REVENUECAT_SECRET_KEY` and Play service account JSON → RevenueCat (writing secrets is closed to the agent). The domain will not be bought (user's decision).
 
-## Bu oturumda biten
+## Done in this session
 
-- Bağımlılıklar kuruldu; `tsc` temiz, SQL testleri **62/62**.
-- QA raporundaki tüm kod maddeleri ✅ (`store/qa-report.md`); Y4, Y5, O6 insan işi.
-- Mağaza ekran görüntüleri 6 gerçek canlı fotoğrafla (`store/screenshots/out/`); künyeler `captions.md`'de. Feature graphic'teki CC BY-SA fotoğrafın künyesi Play açıklamasına eklenmeli.
-- İlk 3 "Bil bakalım" videosu: `marketing/videos/` (README'de künye ve paylaşım metinleri). Bitiş kartı 24 Kasım öncesi metni içeriyor.
+- Dependencies installed; `tsc` clean, SQL tests **62/62**.
+- All code items in the QA report ✅ (`store/qa-report.md`); Y4, Y5, O6 are human tasks.
+- Store screenshots with 6 real live photos (`store/screenshots/out/`); credits in `captions.md`. The credit for the CC BY-SA photo in the feature graphic must be added to the Play description.
+- First 3 "Bil bakalım" videos: `marketing/videos/` (credits and sharing texts in the README). The end card contains the pre-24 November text.
 
-## Sıradaki adımlar (öncelik sırasıyla)
+## Next steps (in priority order)
 
-1. Yukarıdaki 1. madde: migration ve function'ları canlıya al.
-2. İnsan kapıları (`HUMAN_TODO.md`): Apple (Play hesabı mevcut, 12 testçi kuralı yok), `eas init`, ortam değişkenleri.
-3. Build: `npx eas-cli build -p all --profile production`; TestFlight ve Play kapalı test; cihazda QA (`store/release-checklist.md`).
-4. Vercel'e `web/` deploy; alan adı; Apple Team ID ve Play SHA-256'yı `web/.well-known/` dosyalarına yaz; AASA'yı `curl` ile doğrula.
-5. Play açıklamasına feature graphic fotoğraf künyesi.
-6. (Ertelendi) Fotoğraf havuzunu 200'e tamamlama: 72 hazır seçimi aktar; açık dönemler 1920–1979.
+1. Item 1 above: put the migrations and functions live.
+2. Human gates (`HUMAN_TODO.md`): Apple (Play account exists, no 12-tester rule), `eas init`, environment variables.
+3. Build: `npx eas-cli build -p all --profile production`; TestFlight and Play closed testing; on-device QA (`store/release-checklist.md`).
+4. Deploy `web/` to Vercel; domain; write the Apple Team ID and Play SHA-256 into the `web/.well-known/` files; verify AASA with `curl`.
+5. Feature graphic photo credit in the Play description.
+6. (Postponed) Fill the photo pool up to 200: import the 72 ready selections; open periods 1920–1979.
 
-## Engeller
+## Blockers
 
-- Bulut konteynerinde ağ kısıtlıydı: Wikimedia, Supabase API ve mağaza siteleri erişilemiyordu. Bu yüzden bazı işler GitHub Actions ve Supabase MCP üzerinden yapıldı. Yerelde bu kısıt yok; `pipeline/harvest.mjs` doğrudan çalıştırılabilir: `node pipeline/harvest.mjs pipeline/jobs/<iş>.json`, önce `npm install --prefix pipeline`.
-- Hesaplar (Apple, Google Play, Expo, RevenueCat, PostHog, Telegram, alan adı, sosyal medya) → `HUMAN_TODO.md`.
+- The network was restricted in the cloud container: Wikimedia, the Supabase API and store sites could not be reached. That is why some work was done through GitHub Actions and the Supabase MCP. Locally this restriction does not exist; `pipeline/harvest.mjs` can be run directly: `node pipeline/harvest.mjs pipeline/jobs/<iş>.json`, after `npm install --prefix pipeline`.
+- Accounts (Apple, Google Play, Expo, RevenueCat, PostHog, Telegram, domain, social media) → `HUMAN_TODO.md`.
 
-## Faydalı komutlar
+## Useful commands
 
 ```bash
-cd app && npm install && npx expo start                  # uygulama
-cd app && npx tsc --noEmit                               # tip kontrolü
-cd supabase/tests && npm install && npm test             # SQL testleri (62 senaryo)
-python3 store/check_lengths.py                           # mağaza metni karakter sınırları
-node marketing/templates/make-video.mjs <spec.json>      # video projesi üret, sonra: npx hyperframes@0.9.10 render
+cd app && npm install && npx expo start                  # app
+cd app && npx tsc --noEmit                               # type check
+cd supabase/tests && npm install && npm test             # SQL tests (62 scenarios)
+python3 store/check_lengths.py                           # store text character limits
+node marketing/templates/make-video.mjs <spec.json>      # generate video project, then: npx hyperframes@0.9.10 render
 ```

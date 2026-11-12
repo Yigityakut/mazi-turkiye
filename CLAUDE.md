@@ -1,8 +1,9 @@
-# Mazi Türkiye — ajan notları
+# Mazi Türkiye — agent notes
 
-- İşe başlamadan önce `STATUS.md` (nerede kaldık, yarım işler), `HUMAN_TODO.md` (insan kapıları) ve `DECISIONS.md` (alınmış kararlar; tekrar tartışma) oku. Ürün planı: `Plan.md`.
-- Kullanıcı tüm kararları ajana bıraktı: soru sorma, karar ver, `DECISIONS.md`'ye bir satır yaz. Oturum sonunda `STATUS.md`'yi güncelle.
-- Supabase projesi: `timeguessr` (ref `ybhiddgwunzyquzrbzaf`, eu-central-1). Migration'lar `supabase/migrations/`; değişiklikten sonra `cd supabase/tests && npm test` (62 senaryo) yeşil olmalı. `20261104000100_core.sql` canlıda; değiştirme, yeni migration ekle.
-- Uygulama `app/` (Expo SDK 58, expo-router). Değişiklikten sonra `npx tsc --noEmit`. Expo API'lerini hafızadan değil, kurulu paket tiplerinden ve docs.expo.dev'den doğrula (`app/AGENTS.md`).
-- Gizli değerler repoya yazılmaz (`.env`, EAS env, Supabase secrets).
-- Rakip app'lerin (TimeGuessr vb.) adı, görseli ve metni kullanılmaz; yapay zekâyla "eski fotoğraf" üretilmez; sahte kullanıcı sayısı veya yorum yazılmaz.
+- Before starting work, read `STATUS.md` (where we left off, unfinished work), `HUMAN_TODO.md` (human gates) and `DECISIONS.md` (decisions already made; do not reopen them). Product plan: `Plan.md`.
+- The user has left all decisions to the agent: do not ask questions, make the decision and write one line in `DECISIONS.md`. Update `STATUS.md` at the end of the session.
+- Supabase project: `timeguessr` (ref `ybhiddgwunzyquzrbzaf`, eu-central-1). Migrations live in `supabase/migrations/`; after a change, `cd supabase/tests && npm test` (62 scenarios) must be green. `20261104000100_core.sql` is live; do not modify it, add a new migration.
+- The app is in `app/` (Expo SDK 58, expo-router). After a change, run `npx tsc --noEmit`. Verify Expo APIs against the installed package types and docs.expo.dev, not from memory (`app/AGENTS.md`).
+- Secret values are never written to the repo (`.env`, EAS env, Supabase secrets).
+- Do not use competitor apps' (TimeGuessr etc.) names, images or text; do not generate "old photos" with AI; do not write fake user counts or reviews.
+- All user-facing texts (app, web, store) are in Turkish. Internal docs are in English.

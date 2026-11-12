@@ -1,9 +1,9 @@
-# Mağaza ekran görüntüsü başlıkları
+# Store screenshot captions
 
-Bu tablo `render.mjs` tarafından okunur: başlığı burada değiştirip `render.mjs`'i (veya CI'ı) yeniden çalıştırmak yeterli.
-`*kelime*` → vurgu (kiremit renk, italik). Sütun ayırıcı `|` metin içinde kullanılmaz.
+This table is read by `render.mjs`: change the caption here and rerun `render.mjs` (or CI), that is all.
+`*kelime*` → emphasis (terracotta color, italic). The column separator `|` is not used inside text.
 
-| # | dosya | ekran (demo adresi) | başlık | alt satır |
+| # | file | screen (demo route) | headline | subline |
 | --- | --- | --- | --- | --- |
 | 01 | nerede | /play?demo_state=guess | Bu fotoğraf *nerede*, hangi yıl? | Haritaya iğneni bırak, yılı seç |
 | 02 | yakindin | /play?demo_state=reveal | Ne kadar *yakındın*? | Mesafe, yıl farkı ve puan anında |
@@ -12,55 +12,55 @@ Bu tablo `render.mjs` tarafından okunur: başlığı burada değiştirip `rende
 | 05 | meydan-oku | /summary?demo_state=done&challenge=MZ7K2Q | Arkadaşına *meydan oku* | Aynı 5 fotoğraf, skorlar yan yana |
 | 06 | istatistik | /stats | Hangi *dönemde* iyisin? | Dönem ve bölge istatistiği Pro'da |
 
-## Kurallar (Plan.md, Bölüm 8)
+## Rules (Plan.md, Section 8)
 
-- Başlık 3–5 kelimelik bir fayda cümlesi. İlk 3 görsel dönüşümü belirler: (1) fotoğraf + harita, (2) açılım anı, (3) canlı 1v1.
-- Sahte kullanıcı sayısı, uydurma yorum, "binlerce oyuncu" yok. Demo verisinde de toplam oyuncu sayısı gösterilmez
-  (gün özetindeki "N oyuncu arasında" satırı demo'da kapalı).
-- Pro'ya ait özellik gösteriliyorsa alt satırda belirtilir (Apple 2.3.2): 06'daki dönem/bölge istatistiği Pro.
-- 1v1'de rakip adı ("Çağla") ve meydan okuyan arkadaş ("Ayşe") kurgusal; skorlar oyunun gerçek puan formülüyle hesaplanır.
+- The headline is a 3–5 word benefit sentence. The first 3 images decide conversion: (1) photo + map, (2) reveal moment, (3) live 1v1.
+- No fake user counts, made-up reviews or "thousands of players". The total player count is not shown in the demo data either
+  (the "N oyuncu arasında" (among N players) line in the day summary is turned off in the demo).
+- If a Pro feature is shown, it is stated in the subline (Apple 2.3.2): the period/region statistics in 06 are Pro.
+- In 1v1 the opponent name ("Çağla") and the challenging friend ("Ayşe") are fictional; the scores are computed with the game's real scoring formula.
 
-## Boyutlar
+## Sizes
 
-| Çıktı | Boyut | Not |
+| Output | Size | Note |
 | --- | --- | --- |
-| `out/ios-6.9/NN-*.png` | 1320 × 2868 | App Store, 6,9" iPhone (zorunlu boyut; küçük iPhone'lara Apple ölçekler) |
-| `out/android-phone/NN-*.png` | 1080 × 1920 | Google Play telefon (9:16) |
-| `out/feature-graphic.png` | 1024 × 500 | Google Play öne çıkan görsel |
-| `out/iap-review.png` | 1320 × 2868 | App Store Connect → Pro (pro_lifetime) → inceleme ekran görüntüsü |
+| `out/ios-6.9/NN-*.png` | 1320 × 2868 | App Store, 6.9" iPhone (required size; Apple scales for smaller iPhones) |
+| `out/android-phone/NN-*.png` | 1080 × 1920 | Google Play phone (9:16) |
+| `out/feature-graphic.png` | 1024 × 500 | Google Play feature graphic |
+| `out/iap-review.png` | 1320 × 2868 | App Store Connect → Pro (pro_lifetime) → review screenshot |
 
-## Yeniden üretme
+## Regenerating
 
 ```bash
-node store/screenshots/prepare.mjs --download # gerçek fotoğrafları Commons'tan indirir (2000 px'e küçültür) + künyeler → app/public/demo/
+node store/screenshots/prepare.mjs --download # downloads the real photos from Commons (scaled down to 2000 px) + credits → app/public/demo/
 (cd app && EXPO_PUBLIC_DEMO=1 npx expo export --platform web --output-dir ../store/screenshots/.build)
 node store/screenshots/render.mjs store/screenshots/.build          # → store/screenshots/out/
-node store/screenshots/render.mjs store/screenshots/.build --dark   # isteğe bağlı karanlık set → out/*-dark/
-# seçenekler: --only=01,03  --platforms=ios  --no-extras (IAP + öne çıkan görsel yok)  --keep-work (ara HTML/PNG'ler)
+node store/screenshots/render.mjs store/screenshots/.build --dark   # optional dark set → out/*-dark/
+# options: --only=01,03  --platforms=ios  --no-extras (no IAP + feature graphic)  --keep-work (intermediate HTML/PNGs)
 ```
 
-Playwright yoksa: `cd store/screenshots && npm ci && npx playwright install --with-deps chromium`.
-Demo ekranlarını tarayıcıda gezmek için derlemeyi herhangi bir tek sayfa sunucusuyla açıp adres satırına
-`/play?demo_state=reveal`, `/duel/demo?phase=guessing` vb. yaz (tam liste: `app/src/lib/demo.ts` başı).
-Ekran adresine `demo_scroll=<metin>` eklenirse render.mjs o metni içeren kartı ekranın üstüne kaydırır.
+Without Playwright: `cd store/screenshots && npm ci && npx playwright install --with-deps chromium`.
+To browse the demo screens in a browser, open the build with any single-page server and type
+`/play?demo_state=reveal`, `/duel/demo?phase=guessing` etc. in the address bar (full list: top of `app/src/lib/demo.ts`).
+If `demo_scroll=<metin>` is added to the screen route, render.mjs scrolls the card containing that text to the top of the screen.
 
-`fixtures.json`'daki fotoğrafların hepsinde `commons_url` doluysa CI (`.github/workflows/screenshots.yml`) gerçek fotoğrafları
-indirir, görselleri üretir ve `store/screenshots/out/`'u aynı dala commit'ler. `commons_url`'si boş bir fotoğraf varsa
-(yer tutucu) yerel çıktılarda alt kenarda "TASLAK" etiketi çıkar; bunlar mağazaya yüklenmez.
+If every photo in `fixtures.json` has `commons_url` filled in, CI (`.github/workflows/screenshots.yml`) downloads the real photos,
+generates the images and commits `store/screenshots/out/` to the same branch. If any photo has an empty `commons_url`
+(placeholder), local outputs get a "TASLAK" (draft) label along the bottom edge; these are not uploaded to the store.
 
-## Demo fotoğrafları (fixtures.json)
+## Demo photos (fixtures.json)
 
-Altısı da oyunda canlı, incelenmiş fotoğraflar (`pipeline/selection/*.json`, günlük/düello havuzu); `pipeline_key` alanı
-kaynağı gösterir. 3. fotoğraf 01/02 ekranında ve öne çıkan görselde, 6. fotoğraf 1v1 ekranında kullanılır.
+All six are live, reviewed photos in the game (`pipeline/selection/*.json`, daily/duel pool); the `pipeline_key` field
+shows the source. Photo 3 is used on screens 01/02 and in the feature graphic, photo 6 on the 1v1 screen.
 
-| # | Yıl | Yer | Fotoğraf · lisans |
+| # | Year | Place | Photographer · license |
 | --- | --- | --- | --- |
-| 1 | 1893 | Kadifekale eteği, İzmir | André Salles · Kamu malı |
-| 2 | 1929 | İkinci TBMM Binası (Ulus), Ankara | Bilinmeyen fotoğrafçı · Kamu malı |
-| 3 | 1965 | Eminönü İskelesi, İstanbul | Fortepan / Krasznai Gyula · CC BY-SA 3.0 |
-| 4 | 1992 | Eski Halfeti, Şanlıurfa | Volker Höhfeld · CC BY-SA 4.0 |
+| 1 | 1893 | Foot of Kadifekale, İzmir | André Salles · Public domain |
+| 2 | 1929 | Second TBMM Building (Ulus), Ankara | Unknown photographer · Public domain |
+| 3 | 1965 | Eminönü Pier, İstanbul | Fortepan / Krasznai Gyula · CC BY-SA 3.0 |
+| 4 | 1992 | Old Halfeti, Şanlıurfa | Volker Höhfeld · CC BY-SA 4.0 |
 | 5 | 2018 | Safranbolu, Karabük | Ray Swi-hymn · CC BY-SA 2.0 |
-| 6 | 1976 | Ağrı Dağı, Iğdır | Gerd Eichmann · CC BY-SA 4.0 |
+| 6 | 1976 | Mount Ararat, Iğdır | Gerd Eichmann · CC BY-SA 4.0 |
 
-Öne çıkan görselde (feature-graphic.png) künye alanı yok: 3. fotoğrafın künyesi Google Play açıklamasının sonundaki
-"Fotoğraf künyeleri" satırına yazılmalı (CC BY-SA 3.0 atıf ister).
+The feature graphic (feature-graphic.png) has no credit area: the credit for photo 3 must be written in the
+"Fotoğraf künyeleri" (photo credits) line at the end of the Google Play description (CC BY-SA 3.0 requires attribution).

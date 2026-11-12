@@ -1,12 +1,12 @@
-# Video şablonları (HyperFrames)
+# Video templates (HyperFrames)
 
-`make-video.mjs` — "Bil bakalım" 16 sn dikey video (1080×1920): giriş → fotoğraf + soru → 5'ten geri sayım → haritada cevap, yıl sayacı, yer adı, CTA. Atıf satırı her karede.
+`make-video.mjs` — 16 s vertical "Bil bakalım" video (1080×1920): intro → photo + question → countdown from 5 → answer on the map, year counter, place name, CTA. The attribution line is on every frame.
 
 ```bash
 node marketing/templates/make-video.mjs marketing/videos/specs/bb-001.json   # → marketing/videos/bb-001/
 cd marketing/videos/bb-001 && npx -y hyperframes@0.9.10 check && npx -y hyperframes@0.9.10 render --output bb-001.mp4
 ```
 
-Spec: `{ id, image (spec dosyasına göre göreli yerel yol), year, location, lat, lng, author, source, license, cta? { title, sub } }`. `cta` verilmezse son kart "Her gün 5 fotoğraf. / Mazi Türkiye · App Store ve Google Play" yazar; lansman öncesi ve Android öncesi metinler: `marketing/content-calendar.md` §1.1.
-Kural: günün gerçek fotoğrafları asla kullanılmaz; sadece geçmiş günler veya `bonus` havuzu. Render ajan ortamında da çalışır (Chromium yerel).
-Seslendirme (ElevenLabs) ve müzik henüz yok; eklenecekse `/media-use` skill'i ve platformun "AI ile oluşturuldu" etiketi.
+Spec: `{ id, image (local path relative to the spec file), year, location, lat, lng, author, source, license, cta? { title, sub } }`. If `cta` is omitted, the last card reads "Her gün 5 fotoğraf. / Mazi Türkiye · App Store ve Google Play"; the pre-launch and pre-Android texts are in `marketing/content-calendar.md` §1.1.
+Rule: the day's real photos are never used; only past days or the `bonus` pool. Rendering also works in the agent environment (local Chromium).
+Voice-over (ElevenLabs) and music are not added yet; if they are, use the `/media-use` skill and the platform's "AI-generated" label.

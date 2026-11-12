@@ -1,22 +1,22 @@
-# Fotoğraf inceleme rehberi (Plan Bölüm 3)
+# Photo review guide (Plan Section 3)
 
-Her inceleyici panoları (`pipeline/review/<set>/sheet-NN.jpg`, 20 kare, etiket: `kimlik · yıl · il`) **Read aracıyla görerek** inceler,
-seçtiklerinin meta verisini `node pipeline/show.mjs <set> <kimlik>…` ile okur ve `pipeline/selection/<set>.json` dosyasına yazar.
+Each reviewer examines the sheets (`pipeline/review/<set>/sheet-NN.jpg`, 20 frames, label: `kimlik · yıl · il`) **by viewing them with the Read tool**,
+reads the metadata of the ones they select with `node pipeline/show.mjs <set> <kimlik>…` and writes it to the `pipeline/selection/<set>.json` file.
 
-## Kabul kriterleri
-- **Kalite:** net, yeterince aydınlık, konusu belli. Bulanık, çok karanlık, ilgisiz (sadece gökyüzü, tek bir yaprak, belge taraması, harita, çizim, gravür, kartpostal üzerindeki yazı ağırlıklı) → ele.
-- **Fotoğraf olmalı:** resim, çizim, harita, model/maket (ör. **Miniatürk**), müze içi tek obje → ele.
-- **Türkiye'de mi?** Konum Türkiye sınırları içinde, ≤5 km hassasiyetle belirlenebilir olmalı.
-- **Yıl:** kesin yıl (±1). Panoramio'dan gelen ve yılı tam **2000** görünen dijital fotoğraflar (kamera saati varsayılanı olabilir) → ele, açıklama yılı doğrulamıyorsa.
-- **İçerik:** şiddet, ölüm, savaş, terör, darbe, siyasi gerilim, asker/polis odaklı sahneler → ele. Ana konusu tanınabilir **özel kişi** olan portreler → ele (kalabalık, sokak, uzaktan insanlar serbest). Ünlü kişi portresi de ele (oyun mekân/zaman hakkında).
-- **Cevabı ele vermesin:** Kareyi "İzmir 1985" gibi doğrudan cevabı yazan pankart/tabela/altyazı doluyorsa ele. Genel tabela ipucu olarak kalabilir.
-- **Tekrar:** aynı yerin neredeyse aynı karesi → en iyisini al.
-- **Lisans** zaten filtrelendi (kamu malı, CC0, CC BY, CC BY-SA). Yine de meta veride NC/ND görürsen ele.
+## Acceptance criteria
+- **Quality:** sharp, bright enough, clear subject. Blurry, very dark, irrelevant (only sky, a single leaf, document scan, map, drawing, engraving, mostly text on a postcard) → reject.
+- **Must be a photograph:** painting, drawing, map, model/miniature (e.g. **Miniatürk**), a single object inside a museum → reject.
+- **Is it in Türkiye?** The location must be inside Türkiye's borders and determinable to ≤5 km precision.
+- **Year:** exact year (±1). Digital photos from Panoramio whose year shows as exactly **2000** (may be the camera clock default) → reject, if the description does not confirm the year.
+- **Content:** violence, death, war, terrorism, coups, political tension, scenes focused on soldiers/police → reject. Portraits whose main subject is a recognizable **private individual** → reject (crowds, streets, people at a distance are fine). Portraits of famous people are also rejected (the game is about place and time).
+- **Must not give away the answer:** If the frame is filled with a banner/sign/caption that directly states the answer, such as "İzmir 1985", reject. A general sign can stay as a clue.
+- **Duplicates:** an almost identical frame of the same place → take the best one.
+- **License** was already filtered (public domain, CC0, CC BY, CC BY-SA). Still, if you see NC/ND in the metadata, reject.
 
-## Koordinatsız adaylar (`*-needgeo`)
-Başlık/açıklama/kategoriden **bilinen bir yer** çıkıyorsa (Galata Köprüsü, Ayasofya, Saat Kulesi İzmir, Sümela Manastırı…) o yerin koordinatını `lat`/`lng` olarak yaz (4 ondalık). Emin değilsen veya sadece "Anatolia", "a village" gibi belirsizse **ele**. Kamera konumu değil, fotoğraftaki yerin koordinatı yeterli (≤5 km).
+## Candidates without coordinates (`*-needgeo`)
+If a **known place** can be identified from the title/description/category (Galata Bridge, Hagia Sophia, Clock Tower İzmir, Sümela Monastery…), write that place's coordinates as `lat`/`lng` (4 decimals). If you are not sure, or it is only vague like "Anatolia", "a village", **reject**. The coordinates of the place in the photo, not the camera position, are enough (≤5 km).
 
-## Her seçim için yazılacaklar
+## What to write for each selection
 ```json
 { "key": "1-12@pool-c", "pool": "daily", "difficulty": "orta",
   "location_name": "Ulu Cami ve Heykel Meydanı, Bursa",
@@ -24,22 +24,22 @@ Başlık/açıklama/kategoriden **bilinen bir yer** çıkıyorsa (Galata Köprü
   "story_tr": "2–3 cümle, SADECE kaynak başlık/açıklama/kategorilerde yazan bilgiye dayanır. Uydurma tarih, isim, olay yok. Genel bilinen gerçekler (ör. Ulu Cami'nin 20 kubbeli olduğu) yazılabilir ama emin değilsen yazma.",
   "lat": 41.0, "lng": 29.0, "year": 1965 }
 ```
-- `key`: `<pano kimliği>@<set adı>` (ör. `3-7@pool-a-needgeo`).
-- `lat`/`lng`/`year`: sadece elle konumlama veya düzeltme gerekiyorsa.
-- `location_name`: "Yer, İl" biçimi, Türkçe ve doğru yazım (İstanbul, İzmir, Çanakkale…).
-- `difficulty`: **kolay** = ünlü, hemen tanınan yer veya yılı belirgin; **orta** = bölgesi tahmin edilebilir; **zor** = sıradan sokak/köy, az ipucu. Hedef karışım ≈ %30 kolay, %50 orta, %20 zor.
-- `pool`: yaklaşık yarısı `daily`, yarısı `duel`. En güzel ve en "bil bakalım"lık 10–15 kareyi `bonus` yap (sosyal medya videoları için; günlük oyunda çıkmaz).
-- Hikaye Türkçe, sıcak ama abartısız, 2–3 cümle; fotoğrafın yılı ve yeri hikayede geçebilir (açılımda gösterilir).
+- `key`: `<pano kimliği>@<set adı>` (e.g. `3-7@pool-a-needgeo`).
+- `lat`/`lng`/`year`: only if manual placement or a correction is needed.
+- `location_name`: "Yer, İl" (Place, Province) format, in Turkish with correct spelling (İstanbul, İzmir, Çanakkale…).
+- `difficulty`: **kolay** (easy) = a famous, instantly recognized place or an obvious year; **orta** (medium) = the region can be guessed; **zor** (hard) = an ordinary street/village, few clues. Target mix ≈ 30% easy, 50% medium, 20% hard.
+- `pool`: roughly half `daily`, half `duel`. Make the 10–15 most beautiful and most "bil bakalım"-worthy frames `bonus` (for social media videos; they do not appear in the daily game).
+- The story is in Turkish, warm but not exaggerated, 2–3 sentences; the photo's year and place may appear in the story (it is shown at the reveal).
 
-## Dağılım hedefi (lansman, toplam 200+)
-| Dönem | Adet |
+## Distribution target (launch, 200+ in total)
+| Period | Count |
 | --- | --- |
-| 1880–1919 | 25 (Abdülhamid II koleksiyonu en fazla 15) |
+| 1880–1919 | 25 (Abdülhamid II collection at most 15) |
 | 1920–1949 | 30 |
 | 1950–1979 | 40 |
 | 1980–1999 | 40 |
 | 2000–2026 | 65 |
-7 bölgenin her birinden ≥10; İstanbul toplamın %30'unu geçmesin.
+≥10 from each of the 7 regions; İstanbul must not exceed 30% of the total.
 
-Dosya biçimi: `{ "set": "<set>", "reviewed_sheets": ["sheet-01", …], "items": [ … ], "rejected_notes": "kısa not" }`.
-Doğrulama: `node pipeline/approve.mjs pipeline/selection/<set>.json > /dev/null` hatasız çalışmalı.
+File format: `{ "set": "<set>", "reviewed_sheets": ["sheet-01", …], "items": [ … ], "rejected_notes": "kısa not" }`.
+Validation: `node pipeline/approve.mjs pipeline/selection/<set>.json > /dev/null` must run without errors.

@@ -1,8 +1,10 @@
-# Google Play kapalı test: 12 testçi × 14 gün
+# Google Play closed test: 12 testers × 14 days
 
-Hedef: **17 Kasım 2026'ya kadar 12+ testçi** (yedekli olsun diye 15–16 kişi davet et). Testçiler 14 gün boyunca uygulamayı silmemeli.
+Goal: **12+ testers by 17 November 2026** (invite 15–16 people for a buffer). Testers must not uninstall the app for 14 days.
 
-## Davet mesajı (WhatsApp / e-posta)
+## Invitation message (WhatsApp / email)
+
+> English summary: personal invite asking friends to join the 14-day closed test: send their Play Store Gmail address, opt in via the link, keep the app installed for 14 days and play a round a day if they can.
 
 > Selam! Türkiye'nin eski fotoğraflarıyla oynanan bir günlük oyun yaptım: **Mazi Türkiye**. Fotoğrafı görüyorsun, haritada yerini ve hangi yıl çekildiğini tahmin ediyorsun. 🗺️📅
 >
@@ -13,7 +15,9 @@ Hedef: **17 Kasım 2026'ya kadar 12+ testçi** (yedekli olsun diye 15–16 kişi
 >
 > Hata görürsen ekran görüntüsü atarsan süper olur. Teşekkürler!
 
-## Testçiye talimat (link ile birlikte gönder)
+## Tester instructions (send together with the link)
+
+> English summary: step-by-step opt-in instructions sent to testers in Turkish (open the link on the phone with the Play Store Gmail, become a tester, install, play, don't uninstall for 14 days, send feedback).
 
 1. Bu linki **telefonda, Play Store'da giriş yaptığın Gmail ile** aç: `<PLAY_TEST_OPT_IN_LINK>`
 2. "Test kullanıcısı ol" → "Google Play'den indir".
@@ -21,9 +25,9 @@ Hedef: **17 Kasım 2026'ya kadar 12+ testçi** (yedekli olsun diye 15–16 kişi
 4. **14 gün silme.** Arada açıp oynaman Google'ın "etkileşim" sinyali için faydalı.
 5. Geri bildirim: Play Store sayfasında "Özel geri bildirim" veya bana WhatsApp.
 
-## Testçi takibi
+## Tester tracking
 
-| # | İsim (veya baş harfler) | Davet edildi | Katıldı (opt-in) | Uygulamayı kurdu |
+| # | Name (or initials) | Invited | Joined (opt-in) | Installed the app |
 | --- | --- | --- | --- | --- |
 | 1 | | | | |
 | 2 | | | | |
@@ -41,11 +45,11 @@ Hedef: **17 Kasım 2026'ya kadar 12+ testçi** (yedekli olsun diye 15–16 kişi
 | 14 | | | | |
 | 15 | | | | |
 
-E-posta adreslerini bu dosyaya yazmak zorunda değilsin; Play Console → Testing → Closed testing → Testers listesine doğrudan ekle.
+You don't have to write email addresses in this file; add them directly to Play Console → Testing → Closed testing → Testers.
 
-## Üretim erişimi başvurusu (14 gün sonra) — cevap taslağı
-Play Console soruları için:
-- *Testçileri nasıl buldunuz?* Arkadaş ve aile çevresi, WhatsApp üzerinden kişisel davet.
-- *Testçiler uygulamayı nasıl kullandı?* Günlük 5 fotoğraflık turu oynadılar, meydan okuma linkini ve 1v1'i denediler.
-- *Geri bildirim nasıl toplandı, ne değişti?* WhatsApp ve Play özel geri bildirim; ‹değişiklik listesi buraya›.
-- *Uygulama üretime hazır mı?* Evet; çökme oranı ‹PostHog'dan›, tüm akışlar test edildi.
+## Production access application (after 14 days) — draft answers
+For the Play Console questions:
+- *How did you recruit testers?* Friends and family, personal invitations over WhatsApp.
+- *How did testers use the app?* They played the daily 5-photo round and tried the challenge link and 1v1.
+- *How was feedback collected, and what changed?* WhatsApp and Play private feedback; ‹list of changes here›.
+- *Is the app ready for production?* Yes; crash rate ‹from PostHog›, all flows tested.

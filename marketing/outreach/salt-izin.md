@@ -1,7 +1,9 @@
-# SALT Araştırma — izin / iş birliği talebi (taslak)
+# SALT Research — permission / collaboration request (draft)
 
-**Alıcı:** SALT Araştırma (arsiv@saltonline.org — adresi saltresearch.org iletişim sayfasından doğrula)
-**Konu:** Mazi Türkiye – eğitim amaçlı günlük fotoğraf oyununda SALT Araştırma görsellerinin atıflı kullanımı hakkında
+> English summary: Turkish email asking SALT Research for permission to use a limited number (30–50) of its CC BY-NC-ND photos in the game, with full attribution, no cropping or alteration, and a link to the archive under each photo (the NC licence alone does not allow it because the app has an optional one-time purchase); offers a themed "SALT Research week" in return. The email below is sent as-is.
+
+**Recipient:** SALT Araştırma (arsiv@saltonline.org — verify the address on the saltresearch.org contact page)
+**Subject:** Mazi Türkiye – eğitim amaçlı günlük fotoğraf oyununda SALT Araştırma görsellerinin atıflı kullanımı hakkında
 
 Merhaba,
 

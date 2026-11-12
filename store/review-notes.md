@@ -1,6 +1,6 @@
-# App Review notu (App Store Connect → App Review Information → Notes)
+# App Review note (App Store Connect → App Review Information → Notes)
 
-Kopyalanacak metin (İngilizce; inceleme ekibi için):
+Text to copy (in English; for the review team):
 
 ```
 Thank you for reviewing Mazi Türkiye.
@@ -24,4 +24,4 @@ Thank you for reviewing Mazi Türkiye.
 • The app is in Turkish. Key words: Oyna = Play, Tahmin et = Guess, Ayarlar = Settings.
 ```
 
-Demo hesabı gerekmez (anonim oturum). Giriş bilgisi alanı boş bırakılır; "Sign-in required" = No.
+No demo account needed (anonymous session). The sign-in information field is left empty; "Sign-in required" = No.

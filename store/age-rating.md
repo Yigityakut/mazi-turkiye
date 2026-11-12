@@ -1,25 +1,25 @@
-# Yaş derecelendirme anketleri (dürüst cevaplar)
+# Age rating questionnaires (honest answers)
 
 ## Apple (App Store Connect → Age Rating)
-| Soru | Cevap |
+| Question | Answer |
 | --- | --- |
 | Cartoon or Fantasy Violence | None |
-| Realistic Violence | None (şiddet içeren fotoğraflar seçim kriteriyle dışlanır) |
+| Realistic Violence | None (photos containing violence are excluded by the selection criteria) |
 | Prolonged Graphic or Sadistic Realistic Violence | None |
 | Profanity or Crude Humor | None |
 | Mature/Suggestive Themes | None |
 | Horror/Fear Themes | None |
 | Medical/Treatment Information | None |
-| Alcohol, Tobacco, or Drug Use or References | None (eski sokak fotoğraflarında arka planda sigara/tabela olabilir → "Infrequent/Mild" seçmek gerekirse 9+; önerilen: None) |
+| Alcohol, Tobacco, or Drug Use or References | None (old street photos may have a cigarette/sign in the background → if "Infrequent/Mild" has to be chosen, 9+; recommended: None) |
 | Simulated Gambling | None |
 | Sexual Content or Nudity | None |
 | Contests | None |
 | Unrestricted Web Access | No |
-| User-Generated Content | No (takma ad var ama içerik paylaşımı yok; kaba/hakaret içeren takma adlar hem uygulamada hem sunucuda Türkçe/İngilizce kelime listesiyle reddedilir; kötüye kullanım destek e-postasıyla bildirilir) |
+| User-Generated Content | No (there are nicknames but no content sharing; rude/insulting nicknames are rejected both in the app and on the server with a Turkish/English word list; abuse is reported via the support email) |
 | Messaging / Chat | No |
 | Loot boxes | No |
-**Beklenen sonuç:** 4+
+**Expected result:** 4+
 
-## Google Play (IARC anketi)
-Kategori: **Oyun**. Şiddet, korku, cinsellik, kumar, uyuşturucu, küfür: **Hayır**. Kullanıcılar arası etkileşim: **Evet, sınırlı** (takma ad ve skor sıralamada görünür; mesajlaşma yok). Konum paylaşımı: **Hayır**. Dijital ürün satın alma: **Evet**.
-**Beklenen sonuç:** PEGI 3 / ESRB Everyone / USK 0 (kullanıcı etkileşimi ve uygulama içi satın alma uyarı etiketleriyle).
+## Google Play (IARC questionnaire)
+Category: **Game**. Violence, fear, sexuality, gambling, drugs, profanity: **No**. Interaction between users: **Yes, limited** (nickname and score are visible on the leaderboard; no messaging). Location sharing: **No**. Digital purchases: **Yes**.
+**Expected result:** PEGI 3 / ESRB Everyone / USK 0 (with user interaction and in-app purchase notice labels).

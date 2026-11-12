@@ -1,6 +1,8 @@
-# Basın bülteni (lansman haftası) — Webrazzi, Webtekno, ShiftDelete.Net, Log, Teknoblog
+# Press release (launch week) — Webrazzi, Webtekno, ShiftDelete.Net, Log, Teknoblog
 
-**Konu satırı:** Türkiye'nin eski fotoğraflarıyla oynanan günlük tahmin oyunu Mazi Türkiye yayında
+> English summary: Turkish press release announcing Mazi Türkiye on the App Store (Android to follow): the daily 5-photo where/when guessing game, WhatsApp challenges and 1v1, openly licensed archive photos with no AI images, free and ad-free with a one-time Pro. The text below is sent as-is.
+
+**Subject line:** Türkiye'nin eski fotoğraflarıyla oynanan günlük tahmin oyunu Mazi Türkiye yayında
 
 **İstanbul, ‹tarih›** — Bağımsız geliştirici ‹Ad Soyad›, Türkiye'nin geçmişinden fotoğraflarla oynanan günlük tahmin oyunu **Mazi Türkiye**'yi App Store'da yayınladı; Google Play sürümü ‹tarih›'te geliyor.
 

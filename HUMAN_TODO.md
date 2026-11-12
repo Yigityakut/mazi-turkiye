@@ -1,108 +1,108 @@
-# Senin yapman gerekenler (insan kapıları)
+# What you need to do (human gates)
 
-Ajan bunları hazırladı; kimlik, ödeme, telefon onayı veya hukuki onay gerektirdiği için senin elinden geçmesi gerekiyor.
-Sıra önemlidir. Play hesabı 2019'da açıldı: 12 testçi × 14 gün kuralı uygulanmaz (2026-11-04). Kritik yol artık Apple hesabı + EAS build.
+The agent prepared these; they need to go through your hands because they require identity, payment, phone verification or legal approval.
+Order matters. The Play account was opened in 2019: the 12 testers × 14 days rule does not apply (2026-11-04). The critical path is now the Apple account + EAS build.
 
-Durum işaretleri: `[ ]` bekliyor · `[x]` tamam. Bitirdiğin maddeyi işaretleyip commit'lemen yeterli; sonraki ajan buradan okur.
-
----
-
-## ⚡ Tek seferlik erişim (2026-11-04) — bundan sonra ajan bunlarla her şeyi kendisi yapar
-
-1. Supabase access token (supabase.com/dashboard/account/tokens) → `~/.config/mazi/env` içinde `SUPABASE_ACCESS_TOKEN`.
-2. PostHog personal API key (All access) → aynı dosyada `POSTHOG_PERSONAL_API_KEY`.
-3. App Store Connect API anahtarı (Admin): `.p8` dosyası `~/.config/mazi/` altına, Key ID ve Issuer ID aynı env dosyasına (`ASC_KEY_ID`, `ASC_ISSUER_ID`).
-4. `.claude/settings.local.json` izin kuralları (Supabase MCP, supabase/eas CLI, api.supabase.com ve PostHog curl).
-5. Chrome'da açık oturum: App Store Connect, Play Console, Google Cloud, Vercel, RevenueCat, PostHog.
-
-Bu yapıldıktan sonra aşağıdaki Supabase, Expo, PostHog, RevenueCat, Play maddeleri ajanındır; kullanıcıya tekrar sorulmaz.
-
-## 🔴 Bugün (en çok gecikme yaratanlar)
-
-### 1. [ ] Supabase: tek bir SQL dosyasını çalıştır (1 dk)
-Migration'ların hepsi canlıda, sadece **aylık temizlik işi** kaldı (silme ifadesi içerdiği için Supabase MCP senden onay istiyor, diyalog yanıtsız kaldı).
-Dashboard → `timeguessr` → SQL Editor → `supabase/migrations/20261104000700_cleanup.sql` dosyasının içeriğini yapıştır → Run. Lansmandan önce zorunlu değil.
-
-### 2. [ ] Supabase ayarları (5 dk)
-Dashboard → `timeguessr` projesi:
-- Authentication → Sign In / Providers → **Allow anonymous sign-ins: Açık**
-- Authentication → Providers → **Apple**: Açık (Services ID ve anahtar Apple hesabı açılınca, madde 5)
-- Authentication → Providers → **Google**: Açık (Web client ID + secret, madde 7)
-- Authentication → **Manual linking**: Açık
-- Edge Functions → Secrets: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_ADMIN_CHAT_ID`, `REVENUECAT_WEBHOOK_AUTH` (rastgele uzun bir değer); RevenueCat ve PostHog açılınca `REVENUECAT_SECRET_KEY` (madde 8), `POSTHOG_KEY`, `POSTHOG_PERSONAL_API_KEY`, `POSTHOG_PROJECT_ID` (madde 11). İç çağrı anahtarı veritabanında otomatik üretildi; bir şey yapman gerekmiyor.
-
-### 3. [x] Google Play geliştirici hesabı (mevcut, 2019)
-https://play.google.com/console/signup — **Öneri: Bireysel hesap.** Şirket hesabı 12 testçi kuralından muaf ama D-U-N-S numarası gerektirir (2–4 hafta).
-Eski (Kasım 2023 öncesi açılmış) bir hesabın varsa onu kullan; 12 testçi kuralı uygulanmaz.
-
-### 4. [x] 12 kapalı testçi — gerekmiyor (hesap Kasım 2023 öncesi)
-Davet metni ve talimat hazır: `marketing/testers.md`. Arkadaş, aile, Türk geliştirici toplulukları (ör. Teknoseyir, r/KGBTR'de değil — kurallar). Her testçinin **Gmail adresini** topla ve `marketing/testers.md`'deki listeye ekle (adresleri repoya yazmak istemezsen sadece sayıyı yaz).
-Testçilerin **14 gün boyunca** testte kalması gerekir: uygulamayı kaldırmasınlar.
+Status markers: `[ ]` waiting · `[x]` done. Just tick the item you finished and commit it; the next agent reads from here.
 
 ---
 
-## 🟠 Bu hafta
+## ⚡ One-time access (2026-11-04) — after this the agent does everything with these by itself
 
-### 5. [ ] Apple Developer Program (99 $/yıl)
-https://developer.apple.com/programs/enroll/ — Bireysel kayıt (Apple ID + iki adımlı doğrulama + kimlik). Sonra:
-- App Store Connect → Business → **Paid Apps sözleşmesi**, banka hesabı, vergi formu (**W-8BEN**; Türkiye–ABD vergi anlaşması yok, %30 kesinti satırı boş/otomatik).
-- App Store Connect → Apps → **+ New App**: Platform iOS · Ad `Mazi Türkiye: Tarih Tahmini` · Birincil dil **Türkçe** · Bundle ID `com.maziturkiye.app` · SKU `mazi-turkiye-ios`.
-- Team ID'yi `web/.well-known/apple-app-site-association` içindeki `APPLE_TEAM_ID` yerine yaz (veya ajana söyle).
-- Sign in with Apple için: Certificates, Identifiers & Profiles → Services ID + Key oluştur → Supabase Apple provider'a gir.
-- Aynı Sign in with Apple anahtarını (p8) hesap silmede Apple token iptali için Supabase Edge Functions → Secrets'a da gir: `APPLE_TEAM_ID`, `APPLE_KEY_ID`, `APPLE_PRIVATE_KEY` (p8 dosyasının içeriği), `APPLE_CLIENT_ID` = `com.maziturkiye.app`.
+1. Supabase access token (supabase.com/dashboard/account/tokens) → `SUPABASE_ACCESS_TOKEN` in `~/.config/mazi/env`.
+2. PostHog personal API key (All access) → `POSTHOG_PERSONAL_API_KEY` in the same file.
+3. App Store Connect API key (Admin): the `.p8` file under `~/.config/mazi/`, Key ID and Issuer ID in the same env file (`ASC_KEY_ID`, `ASC_ISSUER_ID`).
+4. `.claude/settings.local.json` permission rules (Supabase MCP, supabase/eas CLI, api.supabase.com and PostHog curl).
+5. Signed-in sessions in Chrome: App Store Connect, Play Console, Google Cloud, Vercel, RevenueCat, PostHog.
 
-### 6. [x] Expo hesabı ve EAS (ajan yaptı: @rubygamestudios/mazi-turkiye, projectId app.config.ts'de)
-https://expo.dev → hesap (ücretsiz plan yeter). Terminalde (veya ajana erişim ver):
+Once this is done, the Supabase, Expo, PostHog, RevenueCat and Play items below belong to the agent; the user is not asked again.
+
+## 🔴 Today (the ones that cause the most delay)
+
+### 1. [ ] Supabase: run a single SQL file (1 min)
+All migrations are live; only the **monthly cleanup job** is left (because it contains a delete statement, the Supabase MCP asks you for approval, and the dialog went unanswered).
+Dashboard → `timeguessr` → SQL Editor → paste the contents of `supabase/migrations/20261104000700_cleanup.sql` → Run. Not required before launch.
+
+### 2. [ ] Supabase settings (5 min)
+Dashboard → `timeguessr` project:
+- Authentication → Sign In / Providers → **Allow anonymous sign-ins: On**
+- Authentication → Providers → **Apple**: On (Services ID and key once the Apple account is open, item 5)
+- Authentication → Providers → **Google**: On (Web client ID + secret, item 7)
+- Authentication → **Manual linking**: On
+- Edge Functions → Secrets: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_ADMIN_CHAT_ID`, `REVENUECAT_WEBHOOK_AUTH` (a long random value); once RevenueCat and PostHog are open, `REVENUECAT_SECRET_KEY` (item 8), `POSTHOG_KEY`, `POSTHOG_PERSONAL_API_KEY`, `POSTHOG_PROJECT_ID` (item 11). The internal call key was generated automatically in the database; you do not need to do anything.
+
+### 3. [x] Google Play developer account (existing, 2019)
+https://play.google.com/console/signup — **Recommendation: Personal account.** An organization account is exempt from the 12-tester rule but requires a D-U-N-S number (2–4 weeks).
+If you have an old account (opened before November 2023), use it; the 12-tester rule does not apply.
+
+### 4. [x] 12 closed testers — not needed (account opened before November 2023)
+The invitation text and instructions are ready: `marketing/testers.md`. Friends, family, Turkish developer communities (e.g. Teknoseyir; not r/KGBTR — rules). Collect each tester's **Gmail address** and add it to the list in `marketing/testers.md` (if you do not want to write the addresses to the repo, write only the count).
+Testers must stay in the test **for 14 days**: they must not uninstall the app.
+
+---
+
+## 🟠 This week
+
+### 5. [ ] Apple Developer Program ($99/year)
+https://developer.apple.com/programs/enroll/ — Individual enrollment (Apple ID + two-factor authentication + ID). Then:
+- App Store Connect → Business → **Paid Apps agreement**, bank account, tax form (**W-8BEN**; there is no Türkiye–US tax treaty, the 30% withholding line is empty/automatic).
+- App Store Connect → Apps → **+ New App**: Platform iOS · Name `Mazi Türkiye: Tarih Tahmini` · Primary language **Turkish** · Bundle ID `com.maziturkiye.app` · SKU `mazi-turkiye-ios`.
+- Write the Team ID in place of `APPLE_TEAM_ID` in `web/.well-known/apple-app-site-association` (or tell the agent).
+- For Sign in with Apple: Certificates, Identifiers & Profiles → create a Services ID + Key → enter them in the Supabase Apple provider.
+- Also enter the same Sign in with Apple key (p8) in Supabase Edge Functions → Secrets for Apple token revocation on account deletion: `APPLE_TEAM_ID`, `APPLE_KEY_ID`, `APPLE_PRIVATE_KEY` (contents of the p8 file), `APPLE_CLIENT_ID` = `com.maziturkiye.app`.
+
+### 6. [x] Expo account and EAS (done by the agent: @rubygamestudios/mazi-turkiye, projectId in app.config.ts)
+https://expo.dev → account (the free plan is enough). In the terminal (or give the agent access):
 ```bash
 cd app && npx eas-cli@latest init
 ```
-Çıkan **projectId**'yi EAS ortam değişkeni `EAS_PROJECT_ID` olarak gir. Diğer ortam değişkenleri: `app/README.md`.
-Expo bağlantısında (MCP) App Store Connect API anahtarı ve Google service account JSON tanımlanınca ajan `build_run` / `build_submit` ile yükler.
+Enter the resulting **projectId** as the EAS environment variable `EAS_PROJECT_ID`. Other environment variables: `app/README.md`.
+Once the App Store Connect API key and the Google service account JSON are defined in the Expo connection (MCP), the agent uploads with `build_run` / `build_submit`.
 
-### 7. [ ] Google Cloud (Google ile giriş)
-console.cloud.google.com → yeni proje "Mazi Türkiye" → OAuth consent screen (External, uygulama adı, destek e-postası, gizlilik URL'si) → Credentials:
-Web client (Supabase'e), iOS client (bundle ID), Android client (paket adı + Play imza SHA-1). Client ID'leri `EXPO_PUBLIC_GOOGLE_*` değişkenlerine.
+### 7. [ ] Google Cloud (Sign in with Google)
+console.cloud.google.com → new project "Mazi Türkiye" → OAuth consent screen (External, app name, support email, privacy URL) → Credentials:
+Web client (for Supabase), iOS client (bundle ID), Android client (package name + Play signing SHA-1). Client IDs go into the `EXPO_PUBLIC_GOOGLE_*` variables.
 
 ### 8. [ ] RevenueCat
-https://app.revenuecat.com → proje "Mazi Türkiye" → App Store ve Play uygulamalarını bağla → Entitlement `pro`, ürün `pro_lifetime` (detay: `store/iap.md`) → public SDK anahtarlarını `EXPO_PUBLIC_REVENUECAT_IOS_KEY` / `_ANDROID_KEY` olarak gir → Webhook URL'si ve Authorization başlığı (`store/iap.md`).
-- RevenueCat → Project settings → API keys → **Secret API key (v1)** → Supabase Edge Functions → Secrets: `REVENUECAT_SECRET_KEY`. Satın alma/geri yüklemeden hemen sonra Pro'yu sunucuda açan `sync-pro` fonksiyonu ve hesap silmede RevenueCat abonesini silen `delete-account` bunu kullanır (yoksa Pro sadece webhook'la açılır, silmede RevenueCat adımı atlanır).
+https://app.revenuecat.com → project "Mazi Türkiye" → connect the App Store and Play apps → Entitlement `pro`, product `pro_lifetime` (details: `store/iap.md`) → enter the public SDK keys as `EXPO_PUBLIC_REVENUECAT_IOS_KEY` / `_ANDROID_KEY` → Webhook URL and Authorization header (`store/iap.md`).
+- RevenueCat → Project settings → API keys → **Secret API key (v1)** → Supabase Edge Functions → Secrets: `REVENUECAT_SECRET_KEY`. It is used by the `sync-pro` function, which enables Pro on the server right after a purchase/restore, and by `delete-account`, which deletes the RevenueCat subscriber on account deletion (without it, Pro is enabled only through the webhook and the RevenueCat step is skipped on deletion).
 
-### 9. [ ] Alan adı + proje e-postası
-- `maziturkiye.com` müsait mi kontrol et ve al (ajan konteynerden kontrol edemedi). Alınamazsa: `mazituerkiye.com`, `maziturkiye.app`, `mazi.com.tr` (.com.tr belge ister).
-- `destek@maziturkiye.com` adresi (ör. Zoho Mail ücretsiz, Cloudflare Email Routing ile Gmail'e yönlendirme veya Google Workspace).
-- Vercel'e `web/` klasörünü bağla (Root Directory: `web`, framework: Other) → alan adını ekle.
+### 9. [ ] Domain + project email
+- Check whether `maziturkiye.com` is available and buy it (the agent could not check from the container). If it cannot be bought: `mazituerkiye.com`, `maziturkiye.app`, `mazi.com.tr` (.com.tr requires documents).
+- The `destek@maziturkiye.com` address (e.g. Zoho Mail free, forwarding to Gmail with Cloudflare Email Routing, or Google Workspace).
+- Connect the `web/` folder to Vercel (Root Directory: `web`, framework: Other) → add the domain.
 
-### 10. [x] Telegram bot — İPTAL (kullanıcı kararı; kod token yoksa sessizce atlıyor)
-@BotFather → `/newbot` → Ad: **Mazi Türkiye Admin** · Kullanıcı adı önerisi: `maziturkiye_admin_bot` → token'ı Supabase secret `TELEGRAM_BOT_TOKEN`'a.
-Bota bir mesaj at, sonra `https://api.telegram.org/bot<TOKEN>/getUpdates` adresinden `chat.id`'yi alıp `TELEGRAM_ADMIN_CHAT_ID`'ye yaz.
-Admin hesabın: uygulamaya Apple ile giriş yap, Ayarlar'ın altındaki kimliği ajana ver (ajan `is_admin = true` yapar).
+### 10. [x] Telegram bot — CANCELLED (user's decision; the code silently skips when there is no token)
+@BotFather → `/newbot` → Name: **Mazi Türkiye Admin** · Suggested username: `maziturkiye_admin_bot` → put the token in the Supabase secret `TELEGRAM_BOT_TOKEN`.
+Send the bot a message, then get the `chat.id` from `https://api.telegram.org/bot<TOKEN>/getUpdates` and write it to `TELEGRAM_ADMIN_CHAT_ID`.
+Your admin account: sign in to the app with Apple and give the agent the ID shown at the bottom of Settings (the agent sets `is_admin = true`).
 
 ### 11. [ ] PostHog
-EU bölgesinde proje aç (KVKK için) → Project API key'i `EXPO_PUBLIC_POSTHOG_KEY`'e.
-Supabase Edge Functions → Secrets (girilmezse ilgili adım sessizce atlanır):
-- `POSTHOG_KEY` = aynı Project API key (phc_…): `duel_matched` olayı rakip türüyle sunucudan gider (`track-event`).
-- `POSTHOG_PERSONAL_API_KEY` (PostHog → Settings → Personal API keys, kapsam **person:write**) ve `POSTHOG_PROJECT_ID` (proje ayarlarındaki sayı): hesap silinince PostHog kişisi ve olayları silinir (`delete-account`).
-- Proje US bölgesindeyse ayrıca `POSTHOG_HOST=https://us.i.posthog.com` ve `POSTHOG_API_HOST=https://us.posthog.com`. Mevcut projen US ise gizlilik metnindeki bölge satırını güncelle.
+Open a project in the EU region (for KVKK) → Project API key into `EXPO_PUBLIC_POSTHOG_KEY`.
+Supabase Edge Functions → Secrets (if not entered, the related step is silently skipped):
+- `POSTHOG_KEY` = the same Project API key (phc_…): the `duel_matched` event is sent from the server with the opponent type (`track-event`).
+- `POSTHOG_PERSONAL_API_KEY` (PostHog → Settings → Personal API keys, scope **person:write**) and `POSTHOG_PROJECT_ID` (the number in the project settings): when an account is deleted, the PostHog person and events are deleted (`delete-account`).
+- If the project is in the US region, also `POSTHOG_HOST=https://us.i.posthog.com` and `POSTHOG_API_HOST=https://us.posthog.com`. If your existing project is in the US, update the region line in the privacy text.
 
-### 12. [ ] Sosyal medya hesapları
-Kullanıcı adları, biyografi, profil görseli hazır: `marketing/social/profiles.md`. Instagram, TikTok, X, YouTube'da `@maziturkiye` (yoksa `@mazi.turkiye`, `@maziturkiyeapp`). Telefon/e-posta doğrulaması sende.
+### 12. [ ] Social media accounts
+Handles, bio and profile image are ready: `marketing/social/profiles.md`. `@maziturkiye` on Instagram, TikTok, X and YouTube (otherwise `@mazi.turkiye`, `@maziturkiyeapp`). Phone/email verification is on you.
 
 ---
 
-## 🟢 Lansmandan önce
+## 🟢 Before launch
 
-### 13. [ ] Yasal metin onayı
-`web/gizlilik`, `web/kvkk`, `web/kosullar`: sarı işaretli yer tutucuları doldur (veri sorumlusunun adı/unvanı, adres, PostHog bölgesi). **Bir avukata göstermen önerilir.**
-KVKK: yurt dışına aktarım için sağlayıcılarla (Supabase, PostHog, RevenueCat, Expo) **standart sözleşme** imzalanıp 5 iş günü içinde Kurul'a bildirilmesi gerekir. VERBİS kaydı: yıllık çalışan sayısı 50'den az ve bilanço 100 milyon TL altındaysa muafsın (özel nitelikli veri işlenmiyor).
+### 13. [ ] Legal text approval
+`web/gizlilik`, `web/kvkk`, `web/kosullar`: fill in the placeholders marked in yellow (data controller's name/title, address, PostHog region). **Showing them to a lawyer is recommended.**
+KVKK: for transfers abroad, a **standard contract** must be signed with the providers (Supabase, PostHog, RevenueCat, Expo) and reported to the Board within 5 business days. VERBİS registration: you are exempt if the annual number of employees is under 50 and the balance sheet is under 100 million TL (no special category data is processed).
 
-### 14. [ ] Marka araması
-https://www.turkpatent.gov.tr → Marka araştırma → "MAZİ TÜRKİYE" ve "MAZİ", sınıf **9** (yazılım) ve **41** (eğlence/oyun). Sonucu `DECISIONS.md`'ye yaz. Tescil başvurusu isteğe bağlı (ücretli).
+### 14. [ ] Trademark search
+https://www.turkpatent.gov.tr → Trademark search → "MAZİ TÜRKİYE" and "MAZİ", class **9** (software) and **41** (entertainment/games). Write the result in `DECISIONS.md`. Filing for registration is optional (paid).
 
-### 15. [ ] ASO doğrulama (15 dk, Chrome)
-App Store ve Google Play'de (Türkiye) arama kutusuna `tarih`, `eski fotoğraf`, `harita oyunu`, `bilgi yarışması` yazıp otomatik tamamlama önerilerini `store/keywords.md`'ye ekle.
+### 15. [ ] ASO verification (15 min, Chrome)
+In App Store and Google Play (Türkiye), type `tarih`, `eski fotoğraf`, `harita oyunu`, `bilgi yarışması` into the search box and add the autocomplete suggestions to `store/keywords.md`.
 
-### 16. [ ] Gerçek cihaz testi
-TestFlight ve Play internal track'te: `store/release-checklist.md` → "Gönderim öncesi kontrol listesi".
+### 16. [ ] Real device testing
+On TestFlight and the Play internal track: `store/release-checklist.md` → "Gönderim öncesi kontrol listesi" (pre-submission checklist).
 
-### 17. [ ] SALT Araştırma izni (isteğe bağlı)
-Taslak e-posta: `marketing/outreach/salt-izin.md`. Gönderirsen cevabı `DECISIONS.md`'ye yaz.
+### 17. [ ] SALT Research permission (optional)
+Draft email: `marketing/outreach/salt-izin.md`. If you send it, write the reply in `DECISIONS.md`.

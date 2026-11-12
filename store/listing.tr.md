@@ -1,22 +1,22 @@
-# Mağaza metinleri — Türkçe (birincil dil)
+# Store texts — Turkish (primary language)
 
-> Kurallar: sahte kullanıcı sayısı, uydurma yorum, "binlerce oyuncu" gibi ifadeler yok. Rakip app adı yok.
-> Karakter sayıları kontrol edildi (`python3 store/check_lengths.py`).
+> Rules: no fake user counts, made-up reviews or phrases like "thousands of players". No competitor app name.
+> Character counts checked (`python3 store/check_lengths.py`).
 
 ## App Store
 
-| Alan | Metin | Sınır |
+| Field | Text | Limit |
 | --- | --- | --- |
-| İsim | **Mazi Türkiye: Tarih Tahmini** | 27/30 |
-| Alt başlık | **Eski fotoğraf, harita ve yıl** | 28/30 |
-| Anahtar kelimeler | `nostalji,bilgi,yarışması,quiz,coğrafya,osmanlı,istanbul,günlük,bulmaca,zeka,geçmiş,oyun,nerede` | 94/100 |
-| Tanıtım metni | Her sabah 04:00'te 5 yeni fotoğraf. Arkadaşına WhatsApp'tan meydan oku; aynı 5 fotoğrafta kim daha iyi, hemen gör. | ≤170 |
-| Kategori | Oyunlar → Bilgi Yarışması (Trivia); ikincil: Bulmaca | |
-| Yaş | 4+ (anket cevapları: `store/age-rating.md`) | |
-| Destek URL | https://maziturkiye.com/destek/ | |
-| Pazarlama URL | https://maziturkiye.com | |
-| Gizlilik URL | https://maziturkiye.com/gizlilik/ | |
-| Telif | © 2026 ‹VERİ SORUMLUSU ADI› | |
+| Name | **Mazi Türkiye: Tarih Tahmini** | 27/30 |
+| Subtitle | **Eski fotoğraf, harita ve yıl** | 28/30 |
+| Keywords | `nostalji,bilgi,yarışması,quiz,coğrafya,osmanlı,istanbul,günlük,bulmaca,zeka,geçmiş,oyun,nerede` | 94/100 |
+| Promotional text | Her sabah 04:00'te 5 yeni fotoğraf. Arkadaşına WhatsApp'tan meydan oku; aynı 5 fotoğrafta kim daha iyi, hemen gör. | ≤170 |
+| Category | Games → Trivia; secondary: Puzzle | |
+| Age | 4+ (questionnaire answers: `store/age-rating.md`) | |
+| Support URL | https://maziturkiye.com/destek/ | |
+| Marketing URL | https://maziturkiye.com | |
+| Privacy URL | https://maziturkiye.com/gizlilik/ | |
+| Copyright | © 2026 ‹VERİ SORUMLUSU ADI› | |
 
 ### Açıklama (App Store)
 
@@ -72,15 +72,15 @@ Mazi Türkiye'ye hoş geldin! Her gün 5 fotoğraf, canlı 1v1 ve arkadaşına m
 
 ## Google Play
 
-| Alan | Metin | Sınır |
+| Field | Text | Limit |
 | --- | --- | --- |
-| Başlık | **Mazi Türkiye: Tarih Tahmini** | 27/30 |
-| Kısa açıklama | **Eski fotoğraflarla tarih ve harita oyunu: nerede, hangi yıl? Her gün 5 fotoğraf.** | 80/80 |
-| Kategori | Oyun → Bilgi yarışması | |
-| Etiketler | Bilgi yarışması, Bulmaca, Tek oyunculu, Çok oyunculu, Çevrimiçi | |
-| İletişim e-postası | destek@maziturkiye.com | |
-| Gizlilik politikası | https://maziturkiye.com/gizlilik/ | |
-| Hesap silme URL'si | https://maziturkiye.com/hesap-silme/ | |
+| Title | **Mazi Türkiye: Tarih Tahmini** | 27/30 |
+| Short description | **Eski fotoğraflarla tarih ve harita oyunu: nerede, hangi yıl? Her gün 5 fotoğraf.** | 80/80 |
+| Category | Game → Trivia | |
+| Tags | Trivia, Puzzle, Single player, Multiplayer, Online | |
+| Contact email | destek@maziturkiye.com | |
+| Privacy policy | https://maziturkiye.com/gizlilik/ | |
+| Account deletion URL | https://maziturkiye.com/hesap-silme/ | |
 
 ### Tam açıklama (Google Play, ≤4.000 karakter)
 

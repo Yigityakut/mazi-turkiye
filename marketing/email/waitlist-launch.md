@@ -1,44 +1,48 @@
-# Bekleme listesi e-postaları
+# Waitlist emails
 
-Bekleme listesine yalnız iki e-posta gider: **iOS lansmanı (24 Kasım)** ve **Android lansmanı (~3 Aralık)**. Ardından liste silinir.
+Only two emails go to the waitlist: **iOS launch (24 November)** and **Android launch (~3 December)**. The list is then deleted.
 
-## Gönderim bilgileri
+## Sending details
 
-| Alan | Değer |
+| Field | Value |
 | --- | --- |
-| Araç | Resend → Broadcasts. Audience, Supabase'deki `public.waitlist` tablosundan CSV olarak içe aktarılır. |
-| Gönderen | `Mazi Türkiye <merhaba@maziturkiye.com>`. Alan adı Resend'de doğrulanmış olmalı (SPF, DKIM, isteğe bağlı DMARC). |
-| Yanıt adresi | `destek@maziturkiye.com` |
-| Zaman | **Salı 24 Kasım 2026, 09:30 TSİ.** İlk gün 04:00'te açılmış olur, insanlar uyanmıştır. Android e-postası Play'de yayın görüldükten sonra, aynı gün 10:00–11:00 arası. |
-| Abonelikten çıkma | `{{{RESEND_UNSUBSCRIBE_URL}}}` (Resend Broadcast değişkeni). Ayrıca List-Unsubscribe başlığı. |
-| Ölçüm | Site linklerinde `utm_source=email&utm_medium=email&utm_campaign=launch-2026`; App Store linkinde `ct=email-launch-2026`. |
-| Doldurulacaklar | `‹APP_ID›` ve `‹PT›` (App Store Connect → kampanya linki), `‹Ad›`, `‹VERİ SORUMLUSU ADI›` |
+| Tool | Resend → Broadcasts. The Audience is imported as CSV from the `public.waitlist` table in Supabase. |
+| Sender | `Mazi Türkiye <merhaba@maziturkiye.com>`. The domain must be verified in Resend (SPF, DKIM, optional DMARC). |
+| Reply-to | `destek@maziturkiye.com` |
+| Time | **Tuesday 24 November 2026, 09:30 TRT.** The first day has opened at 04:00 and people are awake. The Android email goes out once the release is visible on Play, between 10:00–11:00 the same day. |
+| Unsubscribe | `{{{RESEND_UNSUBSCRIBE_URL}}}` (Resend Broadcast variable). Plus the List-Unsubscribe header. |
+| Tracking | `utm_source=email&utm_medium=email&utm_campaign=launch-2026` on site links; `ct=email-launch-2026` on the App Store link. |
+| To fill in | `‹APP_ID›` and `‹PT›` (App Store Connect → campaign link), `‹Ad›`, `‹VERİ SORUMLUSU ADI›` |
 
-**Yasal not.** Kayıt formu "E-posta adresini sadece lansman duyurusu için kullanırız" diyor. Bu iki e-posta o sözün kapsamında.
+**Legal note.** The signup form says "E-posta adresini sadece lansman duyurusu için kullanırız" (we only use your email for the launch announcement). These two emails are within that promise.
 
-- Bülten ya da kampanya gibi başka bir e-posta için ayrı açık onay gerekir (6563 sayılı Kanun, ticari elektronik ileti).
-- İYS kaydının gerekip gerekmediği, yasal metinlerle birlikte avukata sorulur (HUMAN_TODO 13).
-- **Android e-postasından sonra:** Resend Audience silinir. `public.waitlist` tablosu da boşaltılır (`delete from public.waitlist;`, onayla). Bu, KVKK'daki "amacı gerçekleşen veri" ilkesine uygun.
+- Any other email, such as a newsletter or campaign, needs separate explicit consent (Law No. 6563, commercial electronic messages).
+- Whether İYS registration is required is asked to the lawyer together with the legal texts (HUMAN_TODO 13).
+- **After the Android email:** the Resend Audience is deleted. The `public.waitlist` table is emptied too (`delete from public.waitlist;`, with approval). This complies with the KVKK principle of deleting data once its purpose is fulfilled.
 
 ---
 
-## 1. Lansman e-postası (24 Kasım)
+## 1. Launch email (24 November)
 
-### Konu satırı seçenekleri
+### Subject line options
 
-1. **Mazi Türkiye yayında: bu fotoğraf nerede?** (41 karakter, önerilen)
+> English summary: variations on "Mazi Türkiye is live: where was this photo taken?"; option 1 recommended.
+
+1. **Mazi Türkiye yayında: bu fotoğraf nerede?** (41 characters, recommended)
 2. Beklediğin oyun bugün App Store'da (34)
 3. İlk 5 fotoğraf seni bekliyor (28)
 4. Bugün başlıyoruz: nerede, hangi yıl? (36)
 5. Söz verdiğimiz e-posta: Mazi Türkiye çıktı (42)
 
-Resend A/B testine izin verirse 1 ile 3 denenir.
+If Resend allows A/B testing, try 1 vs 3.
 
-### Ön izleme metni
+### Preview text
 
 `Her gün 5 gerçek fotoğraf. Ücretsiz, reklamsız. iPhone'da bugün, Android'de Aralık başında.`
 
-### Gövde
+### Body
+
+> English summary: "You asked to be told when it launched; today it's on the App Store", how the game works, three notes (same 5 photos for everyone + challenge link, each photo has a story and source with no AI images, free/ad-free with optional one-time Pro), Android coming in early December with one last email, reply to give feedback.
 
 > Merhaba,
 >
@@ -67,7 +71,7 @@ Resend A/B testine izin verirse 1 ile 3 denenir.
 > ---
 > Bu e-postayı maziturkiye.com'daki lansman listesine kaydolduğun için aldın. ‹VERİ SORUMLUSU ADI› · destek@maziturkiye.com · [Listeden çık]
 
-### HTML (Resend'e yapıştırmaya hazır)
+### HTML (ready to paste into Resend)
 
 ```html
 <!doctype html>
@@ -106,7 +110,7 @@ Resend A/B testine izin verirse 1 ile 3 denenir.
 </html>
 ```
 
-### Düz metin
+### Plain text
 
 ```
 Merhaba,
@@ -140,19 +144,23 @@ Listeden çık: {{{RESEND_UNSUBSCRIBE_URL}}}
 
 ---
 
-## 2. "Android geldi" (~3 Aralık, listenin son e-postası)
+## 2. "Android geldi" (~3 December, the list's last email)
 
-### Konu satırı seçenekleri
+### Subject line options
 
-1. **Android geldi: Mazi Türkiye Google Play'de** (42, önerilen)
+> English summary: variations on "Android is here: Mazi Türkiye on Google Play"; option 1 recommended.
+
+1. **Android geldi: Mazi Türkiye Google Play'de** (42, recommended)
 2. Beklediğin için teşekkürler, Android hazır (42)
 3. Son e-posta: Google Play'de yayındayız (38)
 
-### Ön izleme metni
+### Preview text
 
 `Aynı 5 fotoğraf, aynı oyun. Bu, listeden alacağın son e-posta.`
 
-### Gövde
+### Body
+
+> English summary: the promised last email: the game is now on Google Play, challenge links work across iPhone and Android, forward it to an Android friend, the list is being deleted, follow @maziturkiye for news.
 
 > Merhaba,
 >
@@ -172,11 +180,11 @@ Listeden çık: {{{RESEND_UNSUBSCRIBE_URL}}}
 > ---
 > Bu e-postayı maziturkiye.com'daki lansman listesine kaydolduğun için aldın. ‹VERİ SORUMLUSU ADI› · destek@maziturkiye.com · [Listeden çık]
 
-**Buton linki:** `https://play.google.com/store/apps/details?id=com.maziturkiye.app&referrer=utm_source%3Demail%26utm_medium%3Demail%26utm_campaign%3Dandroid-2026`
+**Button link:** `https://play.google.com/store/apps/details?id=com.maziturkiye.app&referrer=utm_source%3Demail%26utm_medium%3Demail%26utm_campaign%3Dandroid-2026`
 
-HTML için §1'deki şablon kullanılır: başlık "Android geldi", tek buton (Google Play) ve yukarıdaki paragraflar. Kutu içindeki Android notu çıkarılır.
+For HTML, use the template from §1: heading "Android geldi", a single button (Google Play) and the paragraphs above. Remove the boxed Android note.
 
-### Düz metin
+### Plain text
 
 ```
 Merhaba,
@@ -201,10 +209,10 @@ Bu e-postayı maziturkiye.com'daki lansman listesine kaydolduğun için aldın.
 Listeden çık: {{{RESEND_UNSUBSCRIBE_URL}}}
 ```
 
-## Gönderimden önce kontrol
+## Pre-send checklist
 
-- [ ] `‹APP_ID›`, `‹PT›`, `‹Ad›` ve `‹VERİ SORUMLUSU ADI›` dolduruldu.
-- [ ] Linkler telefonda açılıp test edildi: App Store'da doğru uygulama açılıyor, UTM'ler yerinde.
-- [ ] Resend'den kendine test gönderildi. Gmail ve iOS Mail'de ön izleme metni, buton ve Türkçe karakterler doğru görünüyor.
-- [ ] Abonelikten çıkma linki çalışıyor.
-- [ ] Sosyal hesap kullanıcı adları gerçekten `@maziturkiye` (açılışta başka bir ad alındıysa Android e-postası güncellenir).
+- [ ] `‹APP_ID›`, `‹PT›`, `‹Ad›` and `‹VERİ SORUMLUSU ADI›` are filled in.
+- [ ] Links opened and tested on a phone: the right app opens in the App Store, UTMs are in place.
+- [ ] Test sent to yourself from Resend. Preview text, button and Turkish characters look right in Gmail and iOS Mail.
+- [ ] The unsubscribe link works.
+- [ ] Social account usernames really are `@maziturkiye` (if a different name was taken at signup, update the Android email).
