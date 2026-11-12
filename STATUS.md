@@ -20,6 +20,14 @@ _Son güncelleme: 2026-11-04 (yerel oturum 1)_
 | Ekran görüntüleri | Hattı hazır: demo modu, render betiği, CI. Şu anki PNG'ler **TASLAK** (yer tutucu fotoğraflı) | `store/screenshots/`, `.github/workflows/screenshots.yml` |
 | Pazarlama | İçerik takvimi, açıklama şablonları, e-postalar, profiller, testçi kiti, basın bülteni, Reddit, mikro hesap mesajı, SALT izin e-postası, HyperFrames "Bil bakalım" şablonu (render test edildi) | `marketing/` |
 
+## 📱 iOS / TestFlight (2026-11-12)
+
+- App Store Connect: "Mazi Türkiye: Tarih Tahmini" (App ID 6833869544, takım 8D5577P5QU, bundle `com.maziturkiye.app`).
+- iOS build 21 (1.0.0) TestFlight'ta; dahili grup "Team (Expo)", proje sahibi davet edildi.
+- Kimlik: ASC API anahtarı `52FW696LZF` (issuer `fcbaa887-…`), `.p8` yalnız yerelde: `~/.appstoreconnect/private_keys/` (thaledox Mac hesabı). `eas.json` submit bu yolu kullanıyor.
+- Sonraki iOS build: `cd app && EAS_NO_VCS=1 EXPO_NO_CAPABILITY_SYNC=1 EXPO_ASC_API_KEY_PATH=… EXPO_ASC_KEY_ID=52FW696LZF EXPO_ASC_ISSUER_ID=… EXPO_APPLE_TEAM_ID=8D5577P5QU eas build -p ios --profile production --non-interactive`, sonra `eas submit -p ios --profile production --id <build>`.
+- Notlar: EAS'in yetenek senkronu Apple API değişikliği yüzünden "Sign in with Apple"da hata veriyor (yetenekler elle açıldı; `EXPO_NO_CAPABILITY_SYNC=1`). Kod adı ASCII (`Mazi Turkiye`), görünen ad "Mazi Türkiye". Bu Mac hesabında git push Yigityakut reposuna erişemiyor (gh girişi yok).
+
 ## ⏳ Yarım kalanlar (2026-11-07)
 
 1. **Canlı backend tamam:** migration 0700–0900 ve `sync-pro`, `track-event`, `delete-account` deploy edildi; anonim giriş ve manual linking açıldı (canlıda doğrulandı).
@@ -30,7 +38,7 @@ _Son güncelleme: 2026-11-04 (yerel oturum 1)_
 
 **Bu oturumda canlıya alınanlar (2026-11-07):** Play dahili test sürümü 1.0.0 (2) yayında; Play `pro_lifetime` (5,99 $, 174 ülke) aktif; RevenueCat projesi a0ea7bc5: Play uygulaması, `pro` yetkisi, `default` teklifi ($rc_lifetime → pro_lifetime), Android SDK anahtarı EAS'te. Web Vercel'de (`maziturkiye.vercel.app`) ama *.vercel.app Türkiye'den erişilemiyor; web GitHub Pages'te yayında: https://yigityakut.github.io/maziturkiye/ (repo `Yigityakut/maziturkiye`, güncelleme: `node web/pages.mjs` → `dist-pages/` içeriğini o repoya push). `public_web_url` ve EAS `EXPO_PUBLIC_WEB_URL` bu adres.
 
-**Kullanıcı kapıları:** App Store Connect'e Chrome'da giriş (iOS build + kayıt); satın alma doğrulaması için RevenueCat secret key → Supabase `REVENUECAT_SECRET_KEY` ve Play servis hesabı JSON → RevenueCat (gizli değer yazımı ajana kapalı). Alan adı alınmayacak (kullanıcı kararı).
+**Kullanıcı kapıları:** satın alma doğrulaması için RevenueCat secret key → Supabase `REVENUECAT_SECRET_KEY` ve Play servis hesabı JSON → RevenueCat (gizli değer yazımı ajana kapalı). Alan adı alınmayacak (kullanıcı kararı).
 
 ## Bu oturumda biten
 
