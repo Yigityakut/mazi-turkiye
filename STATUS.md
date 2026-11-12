@@ -3,7 +3,7 @@
 _Son güncelleme: 2026-11-04 (yerel oturum 1)_
 
 > **Yeni oturum için başlangıç sırası:** bu dosya → `HUMAN_TODO.md` → `DECISIONS.md` → aşağıdaki "Sıradaki adımlar".
-> Plan: `Plan.md`. Tüm metinler Türkçe. Dal: `claude/dreamy-hawking-i1vot8`.
+> Plan: `Plan.md`. Tüm metinler Türkçe. Dal: `main` (repo: github.com/Yigityakut/mazi-turkiye, public).
 
 ## ✅ Biten
 
